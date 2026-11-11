@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "askreddit-popularity"
+version = "0.1.0"
+description = "IE212 project predicting AskReddit post popularity from titles and posting times."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["duckdb==1.5.4"]
+
+[project.optional-dependencies]
+spark = ["pyspark==4.3.0"]
+demo = ["streamlit"]
+dev = ["pytest"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["askreddit", "askreddit.*"]
+namespaces = false
