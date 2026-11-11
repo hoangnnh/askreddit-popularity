@@ -1,0 +1,37 @@
+# Ingestion and cleaning are implemented; features, chronological splits, and modeling are planned.
+direction: right
+
+source: "Arctic Shift / open-index/arctic\nRemote submissions Parquet\nJanuary–December 2025" {
+  shape: cylinder
+}
+ingestion: "DuckDB 1.5.4 + httpfs\nRead monthly remote shards\nFilter AskReddit + UTC month\nValidate then promote ZSTD Parquet"
+monthly: "Local monthly Parquet\ndata/extracted/askreddit-2025-MM.parquet\n12 files when the year completes" {
+  shape: cylinder
+}
+cleaning: "PySpark cleaning\nExplicit local inputs\nValidate community and text\nGlobal ID deduplication\nExploratory score statistics"
+cleaned: "Cleaned Parquet + report\ndata/processed/cleaned-2025/" {
+  shape: cylinder
+}
+processing: "PySpark features and splits (planned)\nTitle + UTC posting-time features\nChronological train/validation/test split\nFit label threshold on training period"
+modeling: "PySpark modeling (planned)\nTrain and evaluate classifiers"
+artifacts: "Saved models and metrics (planned)\nartifacts/" {
+  shape: cylinder
+}
+analysis: "DuckDB analysis (planned)\nQuery local Parquet"
+reports: "Reports and figures (planned)\nreports/"
+demo: "Streamlit demo (planned)\nAnalysis and popularity predictions"
+
+source -> ingestion
+ingestion -> monthly
+ingestion -> manifest: "Full months only"
+manifest: "Resume manifest\nartifacts/ingest_manifest.json"
+monthly -> cleaning
+cleaning -> cleaned
+cleaned -> processing
+processing -> modeling
+modeling -> artifacts
+monthly -> analysis
+analysis -> reports
+modeling -> reports
+analysis -> demo
+artifacts -> demo
