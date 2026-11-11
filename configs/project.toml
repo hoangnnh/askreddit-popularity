@@ -1,0 +1,30 @@
+# Ingestion configuration; loaded by askreddit.ingest.
+# Local paths are relative to the repository root.
+[source]
+dataset_id = "open-index/arctic"
+dataset_url = "https://huggingface.co/datasets/open-index/arctic"
+revision = "main"
+record_type = "submissions"
+year = 2025
+months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+# Python str.format placeholders; DuckDB/httpfs resolves the monthly hf:// glob.
+monthly_path_template = "data/submissions/{year}/{month:02d}/*.parquet"
+
+[selection]
+subreddit = "AskReddit"
+timezone = "UTC"
+start_utc = 2025-01-01T00:00:00Z
+end_utc_exclusive = 2026-01-01T00:00:00Z
+columns = ["id", "subreddit", "title", "selftext", "created_utc", "score"]
+
+[output]
+format = "parquet"
+monthly_path_template = "data/extracted/askreddit-{year}-{month:02d}.parquet"
+sample_path_template = "data/samples/askreddit-{year}-{month:02d}-sample.parquet"
+
+[paths]
+data_dir = "data"
+processed_dir = "data/processed"
+artifacts_dir = "artifacts"
+ingest_manifest = "artifacts/ingest_manifest.json"
+reports_dir = "reports"
