@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "source_notebook": "notebooks/01_data_validation_cleaning.ipynb",
+  "executed_notebook": "artifacts/validation/01_data_validation_cleaning.executed.ipynb",
+  "executed_code_cells": 5,
+  "executed_at_utc": "2026-11-19T02:02:37.561145+00:00",
+  "mode": "Review completed reports and recompute all output invariants with PySpark; optional pipeline cell disabled."
+}

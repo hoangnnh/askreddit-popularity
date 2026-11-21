@@ -1,0 +1,127 @@
+{
+  "deduplication_policy": "Only otherwise valid rows compete. Within each trimmed ID, retain the earliest UTC timestamp, then smallest SHA-256 of the normalized six-field JSON, then normalized JSON, original JSON, and source file lexicographically. Include nulls in JSON. Identical rows from the same file are interchangeable. Never rank by highest score. This reproducible choice does not establish authority or recency. All losing rows go to quarantine with the retained original-row fingerprint. duplicate_exact means all original six-field values in the group agree; duplicate_conflict means at least one differs. Mixed groups use duplicate_conflict.",
+  "eligible_duplicate_groups": {
+    "conflicting_created_utc_ids": 0,
+    "conflicting_duplicate_ids": 0,
+    "conflicting_score_ids": 0,
+    "conflicting_selftext_ids": 0,
+    "conflicting_subreddit_ids": 0,
+    "conflicting_title_ids": 0,
+    "definition": "Null IDs are excluded; blank/invalid non-null IDs are included in the raw profile. Raw groups use the original ID; eligible groups use the trimmed ID. Exact duplicates compare all six original logical fields, including nulls. exact_duplicate_excess can include repeated rows inside conflicting groups.",
+    "duplicate_ids": 0,
+    "exact_duplicate_excess": 0,
+    "exact_only_duplicate_ids": 0,
+    "excess_duplicate_records": 0
+  },
+  "invalid_ids": 0,
+  "invalid_partitions": 0,
+  "invalid_quarantine_records": 0,
+  "invalid_timestamps": 0,
+  "invalid_titles": 0,
+  "invariants": {
+    "askreddit_only": true,
+    "counts_reconcile": true,
+    "no_required_nulls": true,
+    "nonempty_titles": true,
+    "parquet_read_back": true,
+    "primary_reasons_reconcile": true,
+    "quarantine_has_originals_and_reasons": true,
+    "unique_ids": true,
+    "utc_partition_values": true,
+    "valid_ids": true,
+    "valid_integer_scores": true,
+    "valid_timestamps": true
+  },
+  "max_created_utc": 1767225565,
+  "max_created_utc_iso": "2025-12-31T23:59:25+00:00",
+  "max_score": 114515,
+  "min_created_utc": 1735689607,
+  "min_created_utc_iso": "2025-01-01T00:00:07+00:00",
+  "min_score": 0,
+  "monthly_records": [
+    {
+      "count": 147226,
+      "month": 1,
+      "year": 2025
+    },
+    {
+      "count": 134902,
+      "month": 2,
+      "year": 2025
+    },
+    {
+      "count": 146729,
+      "month": 3,
+      "year": 2025
+    },
+    {
+      "count": 139575,
+      "month": 4,
+      "year": 2025
+    },
+    {
+      "count": 148542,
+      "month": 5,
+      "year": 2025
+    },
+    {
+      "count": 149575,
+      "month": 6,
+      "year": 2025
+    },
+    {
+      "count": 156011,
+      "month": 7,
+      "year": 2025
+    },
+    {
+      "count": 144569,
+      "month": 8,
+      "year": 2025
+    },
+    {
+      "count": 132726,
+      "month": 9,
+      "year": 2025
+    },
+    {
+      "count": 129424,
+      "month": 10,
+      "year": 2025
+    },
+    {
+      "count": 123601,
+      "month": 11,
+      "year": 2025
+    },
+    {
+      "count": 134105,
+      "month": 12,
+      "year": 2025
+    }
+  ],
+  "negative_scores": 0,
+  "nulls": {
+    "created_utc": 0,
+    "id": 0,
+    "month": 0,
+    "score": 0,
+    "selftext": 0,
+    "subreddit": 0,
+    "title": 0,
+    "year": 0
+  },
+  "outside_askreddit": 0,
+  "positive_scores": 1375819,
+  "primary_rejection_counts": {},
+  "reconciliation_definition": "input = cleaned + quarantined; quarantined = rejected_invalid + duplicate_losers. Invalid rows never compete in deduplication. All reasons are retained and their counts can overlap; primary reasons are exclusive in order: community, ID, title, timestamp, score. Duplicate losers have exactly one duplicate reason.",
+  "rejection_counts_by_reason": {},
+  "remaining_duplicate_ids": 0,
+  "retained_percentage": 100.0,
+  "total_cleaned_records": 1686985,
+  "total_duplicate_records_removed": 0,
+  "total_input_records": 1686985,
+  "total_quarantined_records": 0,
+  "total_rejected_records": 0,
+  "zero_scores": 311166
+}

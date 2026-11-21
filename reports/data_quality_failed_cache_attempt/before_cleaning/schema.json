@@ -1,0 +1,572 @@
+{
+  "conversion_policy": "Text fields must be strings. Integral numeric types widen safely to long. String scores/timestamps require a whole-number lexical representation and successful try_cast to long. Floats, decimals, native timestamp types, extra or missing fields fail schema validation; nothing is rounded or truncated. Different supported schemas are read separately before union, avoiding Parquet physical-type mismatches. Original values are preserved in raw JSON.",
+  "distinct_schema_count": 1,
+  "file_count": 12,
+  "files": [
+    {
+      "bytes": 4872672,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/extracted/askreddit-2025-01.parquet",
+      "schema": {
+        "fields": [
+          {
+            "metadata": {},
+            "name": "id",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "subreddit",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "title",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "selftext",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "created_utc",
+            "nullable": true,
+            "type": "long"
+          },
+          {
+            "metadata": {},
+            "name": "score",
+            "nullable": true,
+            "type": "long"
+          }
+        ],
+        "type": "struct"
+      },
+      "sha256": "ed8be2c04af2487dbad9ba1f5faa7f266152b5d629e024ff64c598aca8465907",
+      "status": "valid"
+    },
+    {
+      "bytes": 4569196,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/extracted/askreddit-2025-02.parquet",
+      "schema": {
+        "fields": [
+          {
+            "metadata": {},
+            "name": "id",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "subreddit",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "title",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "selftext",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "created_utc",
+            "nullable": true,
+            "type": "long"
+          },
+          {
+            "metadata": {},
+            "name": "score",
+            "nullable": true,
+            "type": "long"
+          }
+        ],
+        "type": "struct"
+      },
+      "sha256": "5c9e0fa88af9c9a2e4d9d593e117d0375d562fa4ea410a2cb31f4e0de37787b6",
+      "status": "valid"
+    },
+    {
+      "bytes": 5004682,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/extracted/askreddit-2025-03.parquet",
+      "schema": {
+        "fields": [
+          {
+            "metadata": {},
+            "name": "id",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "subreddit",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "title",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "selftext",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "created_utc",
+            "nullable": true,
+            "type": "long"
+          },
+          {
+            "metadata": {},
+            "name": "score",
+            "nullable": true,
+            "type": "long"
+          }
+        ],
+        "type": "struct"
+      },
+      "sha256": "b75343822f91962f0410cb60a9cbbdbd30b03696d82f36d768329ff97f38af18",
+      "status": "valid"
+    },
+    {
+      "bytes": 4703634,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/extracted/askreddit-2025-04.parquet",
+      "schema": {
+        "fields": [
+          {
+            "metadata": {},
+            "name": "id",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "subreddit",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "title",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "selftext",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "created_utc",
+            "nullable": true,
+            "type": "long"
+          },
+          {
+            "metadata": {},
+            "name": "score",
+            "nullable": true,
+            "type": "long"
+          }
+        ],
+        "type": "struct"
+      },
+      "sha256": "763cca8bbd8612bb23a7aabf2c9fc58b5faaf63a518ebc8fb572bc0db702dd60",
+      "status": "valid"
+    },
+    {
+      "bytes": 4943244,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/extracted/askreddit-2025-05.parquet",
+      "schema": {
+        "fields": [
+          {
+            "metadata": {},
+            "name": "id",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "subreddit",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "title",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "selftext",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "created_utc",
+            "nullable": true,
+            "type": "long"
+          },
+          {
+            "metadata": {},
+            "name": "score",
+            "nullable": true,
+            "type": "long"
+          }
+        ],
+        "type": "struct"
+      },
+      "sha256": "9d5a02b5791b00916c375ba45303b0855071b302ed78a923f101d1b5b7a526ec",
+      "status": "valid"
+    },
+    {
+      "bytes": 4964696,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/extracted/askreddit-2025-06.parquet",
+      "schema": {
+        "fields": [
+          {
+            "metadata": {},
+            "name": "id",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "subreddit",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "title",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "selftext",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "created_utc",
+            "nullable": true,
+            "type": "long"
+          },
+          {
+            "metadata": {},
+            "name": "score",
+            "nullable": true,
+            "type": "long"
+          }
+        ],
+        "type": "struct"
+      },
+      "sha256": "29e6613c843231645ace603c9cf7d7a555be92554745b32f25be6ac77f431c78",
+      "status": "valid"
+    },
+    {
+      "bytes": 5146576,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/extracted/askreddit-2025-07.parquet",
+      "schema": {
+        "fields": [
+          {
+            "metadata": {},
+            "name": "id",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "subreddit",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "title",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "selftext",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "created_utc",
+            "nullable": true,
+            "type": "long"
+          },
+          {
+            "metadata": {},
+            "name": "score",
+            "nullable": true,
+            "type": "long"
+          }
+        ],
+        "type": "struct"
+      },
+      "sha256": "6942cd813d5de1ded7fd7a240ab7c3bfbd85b279978641d7323c3f15eed74787",
+      "status": "valid"
+    },
+    {
+      "bytes": 4776251,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/extracted/askreddit-2025-08.parquet",
+      "schema": {
+        "fields": [
+          {
+            "metadata": {},
+            "name": "id",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "subreddit",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "title",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "selftext",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "created_utc",
+            "nullable": true,
+            "type": "long"
+          },
+          {
+            "metadata": {},
+            "name": "score",
+            "nullable": true,
+            "type": "long"
+          }
+        ],
+        "type": "struct"
+      },
+      "sha256": "3a4763038027c70342e5c29ee027b74db934af2a2ce61c5f2b368a4046e0aaa6",
+      "status": "valid"
+    },
+    {
+      "bytes": 4436145,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/extracted/askreddit-2025-09.parquet",
+      "schema": {
+        "fields": [
+          {
+            "metadata": {},
+            "name": "id",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "subreddit",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "title",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "selftext",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "created_utc",
+            "nullable": true,
+            "type": "long"
+          },
+          {
+            "metadata": {},
+            "name": "score",
+            "nullable": true,
+            "type": "long"
+          }
+        ],
+        "type": "struct"
+      },
+      "sha256": "9ca65648317d2457af976ce09d4dbf076f54312e49e301336055fb83ff85b0a6",
+      "status": "valid"
+    },
+    {
+      "bytes": 4293230,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/extracted/askreddit-2025-10.parquet",
+      "schema": {
+        "fields": [
+          {
+            "metadata": {},
+            "name": "id",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "subreddit",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "title",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "selftext",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "created_utc",
+            "nullable": true,
+            "type": "long"
+          },
+          {
+            "metadata": {},
+            "name": "score",
+            "nullable": true,
+            "type": "long"
+          }
+        ],
+        "type": "struct"
+      },
+      "sha256": "b3ac04c435424c7022cd96681bd08f0dcba4c49387148b347492922dfb91f266",
+      "status": "valid"
+    },
+    {
+      "bytes": 4116894,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/extracted/askreddit-2025-11.parquet",
+      "schema": {
+        "fields": [
+          {
+            "metadata": {},
+            "name": "id",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "subreddit",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "title",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "selftext",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "created_utc",
+            "nullable": true,
+            "type": "long"
+          },
+          {
+            "metadata": {},
+            "name": "score",
+            "nullable": true,
+            "type": "long"
+          }
+        ],
+        "type": "struct"
+      },
+      "sha256": "5c9818b205149a72b71b1fbc57d4dfb458aab3536d1ae8046d0aa68d736f47e7",
+      "status": "valid"
+    },
+    {
+      "bytes": 4367253,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/extracted/askreddit-2025-12.parquet",
+      "schema": {
+        "fields": [
+          {
+            "metadata": {},
+            "name": "id",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "subreddit",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "title",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "selftext",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "created_utc",
+            "nullable": true,
+            "type": "long"
+          },
+          {
+            "metadata": {},
+            "name": "score",
+            "nullable": true,
+            "type": "long"
+          }
+        ],
+        "type": "struct"
+      },
+      "sha256": "8f901f9ab4f3baa367ed66651e8e57e36a9120d2f7a223c5a802df43eb47dbc0",
+      "status": "valid"
+    }
+  ],
+  "schemas_differ": false
+}

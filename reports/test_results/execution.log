@@ -1,0 +1,15 @@
+........................................                                 [100%]
+=============================== warnings summary ===============================
+tests/test_clean.py::test_end_to_end_quality_and_audit
+  /home/hoangnnh/Coding/IE212/project/askreddit-popularity/.venv/lib/python3.14/site-packages/pyspark/testing/utils.py:127: FutureWarning: PySpark does not yet fully support pandas >= 3.0.0. Some features may not work correctly. It is recommended to use pandas < 3.0.0 for now.
+    require_minimum_pandas_version()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+40 passed, 1 warning in 74.69s (0:01:14)
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/11/19 09:02:16 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+{"status": "passed", "source_notebook": "notebooks/01_data_validation_cleaning.ipynb", "executed_notebook": "artifacts/validation/01_data_validation_cleaning.executed.ipynb", "executed_code_cells": 5, "executed_at_utc": "2026-11-19T02:02:37.561145+00:00", "mode": "Review completed reports and recompute all output invariants with PySpark; optional pipeline cell disabled."}

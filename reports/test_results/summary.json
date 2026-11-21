@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "total_tests": 40,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "elapsed_seconds": 74.696,
+  "suite_breakdown": {
+    "cleaning": 10,
+    "ingestion_regression": 30
+  },
+  "junit_report": "reports/test_results/final.xml",
+  "notes": [
+    "Final run uses the same disk-cache and small-batch settings as the successful full dataset run.",
+    "Only local synthetic fixtures; no downloads or installations."
+  ]
+}

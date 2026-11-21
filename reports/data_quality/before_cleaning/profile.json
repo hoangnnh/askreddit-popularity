@@ -1,0 +1,219 @@
+{
+  "definitions": {
+    "non_numeric_scores": "invalid_scores includes non-integer syntax, blanks, overflow, NaN and infinity. No rounding or coercion of fractional values.",
+    "normalization_counts": "Count changes across all input rows, including rows later quarantined.",
+    "null_percentage": "Percentage of all input rows; null for an empty dataset.",
+    "scores": "Extrema and sign counts include all parseable signed 64-bit integer scores, independently of other rejection reasons.",
+    "timestamp_extrema": "Raw numeric extrema retain the selected source unit. Normalized extrema/months include only timestamps within the configured UTC sanity bounds; invalid timestamps form a null-month group."
+  },
+  "deleted_selftext": 7939,
+  "duplicates": {
+    "conflicting_created_utc_ids": 0,
+    "conflicting_duplicate_ids": 0,
+    "conflicting_score_ids": 0,
+    "conflicting_selftext_ids": 0,
+    "conflicting_subreddit_ids": 0,
+    "conflicting_title_ids": 0,
+    "definition": "Null IDs are excluded; blank/invalid non-null IDs are included in the raw profile. Raw groups use the original ID; eligible groups use the trimmed ID. Exact duplicates compare all six original logical fields, including nulls. exact_duplicate_excess can include repeated rows inside conflicting groups.",
+    "duplicate_ids": 0,
+    "exact_duplicate_excess": 0,
+    "exact_only_duplicate_ids": 0,
+    "excess_duplicate_records": 0
+  },
+  "empty_or_whitespace_selftext": 1656381,
+  "empty_or_whitespace_titles": 0,
+  "invalid_ids": 0,
+  "invalid_or_suspicious_timestamps": 0,
+  "invalid_scores": 0,
+  "invalid_timestamps": 0,
+  "max_created_utc": 1767225565,
+  "max_created_utc_iso": "2025-12-31T23:59:25+00:00",
+  "max_created_utc_raw_numeric": 1767225565,
+  "max_score": 114515,
+  "min_created_utc": 1735689607,
+  "min_created_utc_iso": "2025-01-01T00:00:07+00:00",
+  "min_created_utc_raw_numeric": 1735689607,
+  "min_score": 0,
+  "missing_scores": 0,
+  "missing_timestamps": 0,
+  "monthly_records": [
+    {
+      "count": 147226,
+      "month": 1,
+      "year": 2025
+    },
+    {
+      "count": 134902,
+      "month": 2,
+      "year": 2025
+    },
+    {
+      "count": 146729,
+      "month": 3,
+      "year": 2025
+    },
+    {
+      "count": 139575,
+      "month": 4,
+      "year": 2025
+    },
+    {
+      "count": 148542,
+      "month": 5,
+      "year": 2025
+    },
+    {
+      "count": 149575,
+      "month": 6,
+      "year": 2025
+    },
+    {
+      "count": 156011,
+      "month": 7,
+      "year": 2025
+    },
+    {
+      "count": 144569,
+      "month": 8,
+      "year": 2025
+    },
+    {
+      "count": 132726,
+      "month": 9,
+      "year": 2025
+    },
+    {
+      "count": 129424,
+      "month": 10,
+      "year": 2025
+    },
+    {
+      "count": 123601,
+      "month": 11,
+      "year": 2025
+    },
+    {
+      "count": 134105,
+      "month": 12,
+      "year": 2025
+    }
+  ],
+  "negative_scores": 0,
+  "non_integer_score_representations": 0,
+  "normalized_selftext": 30601,
+  "normalized_subreddits": 0,
+  "normalized_titles": 36534,
+  "nulls": {
+    "created_utc": {
+      "count": 0,
+      "percentage": 0.0
+    },
+    "id": {
+      "count": 0,
+      "percentage": 0.0
+    },
+    "score": {
+      "count": 0,
+      "percentage": 0.0
+    },
+    "selftext": {
+      "count": 0,
+      "percentage": 0.0
+    },
+    "subreddit": {
+      "count": 0,
+      "percentage": 0.0
+    },
+    "title": {
+      "count": 0,
+      "percentage": 0.0
+    }
+  },
+  "outside_askreddit": 0,
+  "policy": {
+    "max_created_utc": 1795046400,
+    "min_created_utc": 1104537600,
+    "timestamp_unit": "seconds"
+  },
+  "positive_scores": 1375819,
+  "removed_selftext": 22662,
+  "source_files": [
+    {
+      "_source_file": "file:///home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/extracted/askreddit-2025-01.parquet",
+      "max_created_utc": 1738367952,
+      "min_created_utc": 1735689607,
+      "records": 147226
+    },
+    {
+      "_source_file": "file:///home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/extracted/askreddit-2025-02.parquet",
+      "max_created_utc": 1740787190,
+      "min_created_utc": 1738368017,
+      "records": 134902
+    },
+    {
+      "_source_file": "file:///home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/extracted/askreddit-2025-03.parquet",
+      "max_created_utc": 1743465573,
+      "min_created_utc": 1740787201,
+      "records": 146729
+    },
+    {
+      "_source_file": "file:///home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/extracted/askreddit-2025-04.parquet",
+      "max_created_utc": 1746057589,
+      "min_created_utc": 1743465600,
+      "records": 139575
+    },
+    {
+      "_source_file": "file:///home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/extracted/askreddit-2025-05.parquet",
+      "max_created_utc": 1748735995,
+      "min_created_utc": 1746057607,
+      "records": 148542
+    },
+    {
+      "_source_file": "file:///home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/extracted/askreddit-2025-06.parquet",
+      "max_created_utc": 1751327990,
+      "min_created_utc": 1748736008,
+      "records": 149575
+    },
+    {
+      "_source_file": "file:///home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/extracted/askreddit-2025-07.parquet",
+      "max_created_utc": 1754006375,
+      "min_created_utc": 1751328004,
+      "records": 156011
+    },
+    {
+      "_source_file": "file:///home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/extracted/askreddit-2025-08.parquet",
+      "max_created_utc": 1756684798,
+      "min_created_utc": 1754006404,
+      "records": 144569
+    },
+    {
+      "_source_file": "file:///home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/extracted/askreddit-2025-09.parquet",
+      "max_created_utc": 1759276765,
+      "min_created_utc": 1756684861,
+      "records": 132726
+    },
+    {
+      "_source_file": "file:///home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/extracted/askreddit-2025-10.parquet",
+      "max_created_utc": 1761955120,
+      "min_created_utc": 1759276829,
+      "records": 129424
+    },
+    {
+      "_source_file": "file:///home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/extracted/askreddit-2025-11.parquet",
+      "max_created_utc": 1764547196,
+      "min_created_utc": 1761955203,
+      "records": 123601
+    },
+    {
+      "_source_file": "file:///home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/extracted/askreddit-2025-12.parquet",
+      "max_created_utc": 1767225565,
+      "min_created_utc": 1764547233,
+      "records": 134105
+    }
+  ],
+  "subsecond_timestamps": 0,
+  "suspicious_timestamps": 0,
+  "total_records": 1686985,
+  "trimmed_ids": 0,
+  "zero_scores": 311166
+}
