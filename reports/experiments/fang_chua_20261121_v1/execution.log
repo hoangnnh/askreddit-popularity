@@ -1,0 +1,127 @@
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+/home/hoangnnh/Coding/IE212/project/askreddit-popularity/.venv/lib/python3.14/site-packages/pyspark/testing/utils.py:127: FutureWarning: PySpark does not yet fully support pandas >= 3.0.0. Some features may not work correctly. It is recommended to use pandas < 3.0.0 for now.
+  require_minimum_pandas_version()
+26/11/21 21:04:04 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2026-11-21 21:04:07,082 INFO stage_started {'stage': 'all', 'spark_version': '4.3.0'}
+2026-11-21 21:04:07,082 INFO prepare_started {}
+26/11/21 21:04:27 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+26/11/21 21:04:27 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+26/11/21 21:04:27 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+26/11/21 21:04:27 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+26/11/21 21:04:27 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+26/11/21 21:04:27 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+26/11/21 21:04:28 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+26/11/21 21:04:28 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+26/11/21 21:04:28 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+26/11/21 21:04:28 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+26/11/21 21:04:28 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+26/11/21 21:04:28 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+26/11/21 21:04:28 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+26/11/21 21:04:28 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+26/11/21 21:04:29 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+26/11/21 21:04:29 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+26/11/21 21:04:29 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+26/11/21 21:04:29 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+26/11/21 21:04:29 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+26/11/21 21:04:29 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+26/11/21 21:04:29 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+26/11/21 21:04:29 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+26/11/21 21:04:29 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+26/11/21 21:04:29 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+26/11/21 21:04:30 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+26/11/21 21:04:30 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+26/11/21 21:04:30 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+26/11/21 21:04:30 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+26/11/21 21:04:30 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+26/11/21 21:04:30 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+26/11/21 21:04:30 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+26/11/21 21:04:30 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+26/11/21 21:04:30 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+26/11/21 21:04:30 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+26/11/21 21:04:30 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+26/11/21 21:04:30 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+2026-11-21 21:04:46,833 INFO prepare_completed {'elapsed_seconds': 39.75089487600053, 'records': 1686985, 'boundaries': [2, 3, 4, 6, 11, 46, 271]}
+2026-11-21 21:04:46,934 INFO Verified and reused completed stage prepare
+2026-11-21 21:04:46,934 INFO features_started {}
+26/11/21 21:06:01 WARN DAGScheduler: Broadcasting large task binary with size 1096.6 KiB
+26/11/21 21:06:43 WARN DAGScheduler: Broadcasting large task binary with size 1790.3 KiB
+2026-11-21 21:07:09,513 INFO features_split_completed {'split': 'train', 'records': 1299855, 'transformation_and_write_seconds': 68.35941717700007}
+26/11/21 21:07:10 WARN DAGScheduler: Broadcasting large task binary with size 1096.7 KiB
+26/11/21 21:07:17 WARN DAGScheduler: Broadcasting large task binary with size 1790.9 KiB
+2026-11-21 21:07:21,308 INFO features_split_completed {'split': 'validation', 'records': 253025, 'transformation_and_write_seconds': 11.794390602999556}
+26/11/21 21:07:21 WARN DAGScheduler: Broadcasting large task binary with size 1096.6 KiB
+26/11/21 21:07:28 WARN DAGScheduler: Broadcasting large task binary with size 1490.1 KiB
+2026-11-21 21:07:31,337 INFO features_split_completed {'split': 'test', 'records': 134105, 'transformation_and_write_seconds': 10.028074527999706}
+2026-11-21 21:07:32,584 INFO Verified and reused completed stage features
+2026-11-21 21:07:32,725 INFO candidate_started {'candidate': 'majority', 'configuration': {'id': 'majority', 'kind': 'majority'}}
+2026-11-21 21:07:33,500 INFO candidate_completed {'candidate': 'majority', 'training_seconds': 0.0, 'validation_macro_f1': 0.10368221761145074}
+2026-11-21 21:07:33,537 INFO candidate_started {'candidate': 'time_lr', 'configuration': {'id': 'time_lr', 'kind': 'lr', 'features': 'time_features', 'alpha': 0.0, 'reg_param': 0.1, 'max_iter': 40}}
+netlib-blas: JNI_OnLoad: dlopen(libblas.so.3) failed: libblas.so.3: cannot open shared object file: No such file or directory
+2026-11-21 21:07:44,444 INFO candidate_completed {'candidate': 'time_lr', 'training_seconds': 7.622280945000057, 'validation_macro_f1': 0.10368221761145074}
+2026-11-21 21:07:44,445 INFO candidate_started {'candidate': 'text_lr', 'configuration': {'id': 'text_lr', 'kind': 'lr', 'features': 'text_features', 'alpha': 0.0, 'reg_param': 0.1, 'max_iter': 40}}
+2026-11-21 21:08:46,964 INFO candidate_completed {'candidate': 'text_lr', 'training_seconds': 58.1525018530001, 'validation_macro_f1': 0.10368221761145074}
+2026-11-21 21:08:46,966 INFO candidate_started {'candidate': 'combined_a0_r003', 'configuration': {'id': 'combined_a0_r003', 'kind': 'lr', 'features': 'combined_features', 'alpha': 0.0, 'reg_param': 0.03, 'max_iter': 40}}
+26/11/21 21:10:28 WARN DAGScheduler: Broadcasting large task binary with size 1524.9 KiB
+26/11/21 21:10:29 WARN DAGScheduler: Broadcasting large task binary with size 1546.6 KiB
+2026-11-21 21:10:30,158 INFO candidate_completed {'candidate': 'combined_a0_r003', 'training_seconds': 95.8371018429998, 'validation_macro_f1': 0.10368221761145074}
+2026-11-21 21:10:30,184 INFO candidate_started {'candidate': 'combined_a0_r010', 'configuration': {'id': 'combined_a0_r010', 'kind': 'lr', 'features': 'combined_features', 'alpha': 0.0, 'reg_param': 0.1, 'max_iter': 40}}
+26/11/21 21:12:12 WARN DAGScheduler: Broadcasting large task binary with size 1524.9 KiB
+26/11/21 21:12:13 WARN DAGScheduler: Broadcasting large task binary with size 1546.6 KiB
+2026-11-21 21:12:13,357 INFO candidate_completed {'candidate': 'combined_a0_r010', 'training_seconds': 96.16467780899984, 'validation_macro_f1': 0.10368221761145074}
+2026-11-21 21:12:13,357 INFO candidate_started {'candidate': 'combined_a05_r003', 'configuration': {'id': 'combined_a05_r003', 'kind': 'lr', 'features': 'combined_features', 'alpha': 0.5, 'reg_param': 0.03, 'max_iter': 40}}
+26/11/21 21:13:52 WARN DAGScheduler: Broadcasting large task binary with size 1524.9 KiB
+26/11/21 21:13:52 WARN DAGScheduler: Broadcasting large task binary with size 1546.6 KiB
+2026-11-21 21:13:53,004 INFO candidate_completed {'candidate': 'combined_a05_r003', 'training_seconds': 92.8880754970005, 'validation_macro_f1': 0.10368221761145074}
+2026-11-21 21:13:53,004 INFO candidate_started {'candidate': 'combined_a05_r010', 'configuration': {'id': 'combined_a05_r010', 'kind': 'lr', 'features': 'combined_features', 'alpha': 0.5, 'reg_param': 0.1, 'max_iter': 40}}
+26/11/21 21:15:33 WARN DAGScheduler: Broadcasting large task binary with size 1524.9 KiB
+26/11/21 21:15:34 WARN DAGScheduler: Broadcasting large task binary with size 1546.6 KiB
+2026-11-21 21:15:34,531 INFO candidate_completed {'candidate': 'combined_a05_r010', 'training_seconds': 95.39168351699936, 'validation_macro_f1': 0.10368221761145074}
+2026-11-21 21:15:34,531 INFO candidate_started {'candidate': 'combined_a1_r003', 'configuration': {'id': 'combined_a1_r003', 'kind': 'lr', 'features': 'combined_features', 'alpha': 1.0, 'reg_param': 0.03, 'max_iter': 40}}
+26/11/21 21:17:10 WARN DAGScheduler: Broadcasting large task binary with size 1524.9 KiB
+26/11/21 21:17:10 WARN DAGScheduler: Broadcasting large task binary with size 1546.6 KiB
+2026-11-21 21:17:11,151 INFO candidate_completed {'candidate': 'combined_a1_r003', 'training_seconds': 90.59397517300022, 'validation_macro_f1': 0.11977610020021467}
+2026-11-21 21:17:11,152 INFO candidate_started {'candidate': 'combined_a1_r010', 'configuration': {'id': 'combined_a1_r010', 'kind': 'lr', 'features': 'combined_features', 'alpha': 1.0, 'reg_param': 0.1, 'max_iter': 40}}
+26/11/21 21:18:49 WARN DAGScheduler: Broadcasting large task binary with size 1524.9 KiB
+26/11/21 21:18:50 WARN DAGScheduler: Broadcasting large task binary with size 1546.6 KiB
+2026-11-21 21:18:50,822 INFO candidate_completed {'candidate': 'combined_a1_r010', 'training_seconds': 93.77277137500005, 'validation_macro_f1': 0.11934402792766739}
+2026-11-21 21:18:50,822 INFO candidate_started {'candidate': 'rf_compact', 'configuration': {'id': 'rf_compact', 'kind': 'rf', 'features': 'rf_features', 'alpha': 0.5, 'num_trees': 16, 'max_depth': 6, 'max_bins': 16}}
+2026-11-21 21:19:23,844 INFO candidate_completed {'candidate': 'rf_compact', 'training_seconds': 28.092206906000683, 'validation_macro_f1': 0.10368221761145074}
+2026-11-21 21:19:23,845 INFO Verified and reused completed stage candidate_majority
+2026-11-21 21:19:23,868 INFO Verified and reused completed stage candidate_time_lr
+2026-11-21 21:19:23,874 INFO Verified and reused completed stage candidate_text_lr
+2026-11-21 21:19:23,877 INFO Verified and reused completed stage candidate_combined_a0_r003
+2026-11-21 21:19:23,879 INFO Verified and reused completed stage candidate_combined_a0_r010
+2026-11-21 21:19:23,881 INFO Verified and reused completed stage candidate_combined_a05_r003
+2026-11-21 21:19:23,883 INFO Verified and reused completed stage candidate_combined_a05_r010
+2026-11-21 21:19:23,884 INFO Verified and reused completed stage candidate_combined_a1_r003
+2026-11-21 21:19:23,886 INFO Verified and reused completed stage candidate_combined_a1_r010
+2026-11-21 21:19:23,887 INFO Verified and reused completed stage candidate_rf_compact
+2026-11-21 21:19:23,888 INFO selection_frozen {'candidate': 'combined_a1_r003'}
+2026-11-21 21:19:27,000 INFO test_candidate_completed {'candidate': 'majority', 'macro_f1': 0.10333906394222146}
+2026-11-21 21:19:28,319 INFO test_candidate_completed {'candidate': 'time_lr', 'macro_f1': 0.10333906394222146}
+2026-11-21 21:19:29,786 INFO test_candidate_completed {'candidate': 'text_lr', 'macro_f1': 0.10333906394222146}
+26/11/21 21:19:29 WARN DAGScheduler: Broadcasting large task binary with size 1524.9 KiB
+26/11/21 21:19:30 WARN DAGScheduler: Broadcasting large task binary with size 1546.6 KiB
+2026-11-21 21:19:31,600 INFO test_candidate_completed {'candidate': 'combined_a0_r003', 'macro_f1': 0.10333906394222146}
+26/11/21 21:19:31 WARN DAGScheduler: Broadcasting large task binary with size 1524.9 KiB
+26/11/21 21:19:32 WARN DAGScheduler: Broadcasting large task binary with size 1546.6 KiB
+2026-11-21 21:19:33,420 INFO test_candidate_completed {'candidate': 'combined_a0_r010', 'macro_f1': 0.10333906394222146}
+26/11/21 21:19:33 WARN DAGScheduler: Broadcasting large task binary with size 1524.9 KiB
+26/11/21 21:19:34 WARN DAGScheduler: Broadcasting large task binary with size 1546.6 KiB
+2026-11-21 21:19:35,203 INFO test_candidate_completed {'candidate': 'combined_a05_r003', 'macro_f1': 0.10333906394222146}
+26/11/21 21:19:35 WARN DAGScheduler: Broadcasting large task binary with size 1524.9 KiB
+26/11/21 21:19:35 WARN DAGScheduler: Broadcasting large task binary with size 1546.6 KiB
+2026-11-21 21:19:36,842 INFO test_candidate_completed {'candidate': 'combined_a05_r010', 'macro_f1': 0.10333906394222146}
+26/11/21 21:19:37 WARN DAGScheduler: Broadcasting large task binary with size 1524.9 KiB
+26/11/21 21:19:37 WARN DAGScheduler: Broadcasting large task binary with size 1546.6 KiB
+26/11/21 21:19:37 WARN DAGScheduler: Broadcasting large task binary with size 1549.2 KiB
+2026-11-21 21:19:39,083 INFO test_candidate_completed {'candidate': 'combined_a1_r003', 'macro_f1': 0.1135223962701852}
+26/11/21 21:19:39 WARN DAGScheduler: Broadcasting large task binary with size 1524.9 KiB
+26/11/21 21:19:39 WARN DAGScheduler: Broadcasting large task binary with size 1546.6 KiB
+2026-11-21 21:19:41,277 INFO test_candidate_completed {'candidate': 'combined_a1_r010', 'macro_f1': 0.11347509506859108}
+2026-11-21 21:19:43,887 INFO test_candidate_completed {'candidate': 'rf_compact', 'macro_f1': 0.10333906394222146}
+2026-11-21 21:19:44,312 INFO stage_completed {'stage': 'all'}
+2026-11-21 21:19:45,554 INFO Closing down clientserver connection

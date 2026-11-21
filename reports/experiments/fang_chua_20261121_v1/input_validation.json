@@ -1,0 +1,43 @@
+{
+  "distinct_ids": 1686985,
+  "invalid_partitions": 0,
+  "invalid_required_fields": 0,
+  "max_created_utc": 1767225565,
+  "max_score": 114515,
+  "min_created_utc": 1735689607,
+  "min_score": 0,
+  "negative_scores": 0,
+  "null_created_utc": 0,
+  "null_id": 0,
+  "null_month": 0,
+  "null_score": 0,
+  "null_selftext": 0,
+  "null_subreddit": 0,
+  "null_title": 0,
+  "null_year": 0,
+  "outside_split_intervals": 0,
+  "records": 1686985,
+  "score_one": 891088,
+  "score_zero": 311166,
+  "splits": [
+    {
+      "max_created_utc": 1767225565,
+      "min_created_utc": 1764547233,
+      "records": 134105,
+      "split": "test"
+    },
+    {
+      "max_created_utc": 1759276765,
+      "min_created_utc": 1735689607,
+      "records": 1299855,
+      "split": "train"
+    },
+    {
+      "max_created_utc": 1764547196,
+      "min_created_utc": 1759276829,
+      "records": 253025,
+      "split": "validation"
+    }
+  ],
+  "unique_ids_within_and_across_splits": true
+}

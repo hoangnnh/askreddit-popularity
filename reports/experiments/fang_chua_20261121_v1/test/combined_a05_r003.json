@@ -1,0 +1,294 @@
+{
+  "accuracy": 0.7046120577159688,
+  "balanced_accuracy": 0.125,
+  "confusion_matrix": [
+    [
+      94492,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      18525,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      9045,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      5617,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      3207,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      1662,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      690,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      867,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "label_universe": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "macro_f1": 0.10333906394222146,
+  "mean_threshold_f1": 0.0,
+  "per_class": [
+    {
+      "f1": 0.8267125115377717,
+      "label": 0,
+      "precision": 0.7046120577159688,
+      "recall": 1.0,
+      "support": 94492
+    },
+    {
+      "f1": 0.0,
+      "label": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "support": 18525
+    },
+    {
+      "f1": 0.0,
+      "label": 2,
+      "precision": 0.0,
+      "recall": 0.0,
+      "support": 9045
+    },
+    {
+      "f1": 0.0,
+      "label": 3,
+      "precision": 0.0,
+      "recall": 0.0,
+      "support": 5617
+    },
+    {
+      "f1": 0.0,
+      "label": 4,
+      "precision": 0.0,
+      "recall": 0.0,
+      "support": 3207
+    },
+    {
+      "f1": 0.0,
+      "label": 5,
+      "precision": 0.0,
+      "recall": 0.0,
+      "support": 1662
+    },
+    {
+      "f1": 0.0,
+      "label": 6,
+      "precision": 0.0,
+      "recall": 0.0,
+      "support": 690
+    },
+    {
+      "f1": 0.0,
+      "label": 7,
+      "precision": 0.0,
+      "recall": 0.0,
+      "support": 867
+    }
+  ],
+  "prediction_seconds": 0.6660025000001042,
+  "records": 134105,
+  "row_normalized_confusion_matrix": [
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  ],
+  "threshold_metrics": [
+    {
+      "f1": 0.0,
+      "fn": 39613,
+      "fp": 0,
+      "threshold": 1,
+      "tp": 0
+    },
+    {
+      "f1": 0.0,
+      "fn": 21088,
+      "fp": 0,
+      "threshold": 2,
+      "tp": 0
+    },
+    {
+      "f1": 0.0,
+      "fn": 12043,
+      "fp": 0,
+      "threshold": 3,
+      "tp": 0
+    },
+    {
+      "f1": 0.0,
+      "fn": 6426,
+      "fp": 0,
+      "threshold": 4,
+      "tp": 0
+    },
+    {
+      "f1": 0.0,
+      "fn": 3219,
+      "fp": 0,
+      "threshold": 5,
+      "tp": 0
+    },
+    {
+      "f1": 0.0,
+      "fn": 1557,
+      "fp": 0,
+      "threshold": 6,
+      "tp": 0
+    },
+    {
+      "f1": 0.0,
+      "fn": 867,
+      "fp": 0,
+      "threshold": 7,
+      "tp": 0
+    }
+  ],
+  "weighted_f1": 0.5825116038941659,
+  "weighting": "Natural evaluation frequencies; no training class weights applied.",
+  "zero_division": "Undefined precision/recall/F1 and absent-class contributions are zero; always average over 8 classes or 7 thresholds."
+}

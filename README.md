@@ -1,26 +1,29 @@
-    # AskReddit Popularity
+# AskReddit Popularity
 
-IE212 project to predict **high or low popularity** for r/AskReddit posts from
-their titles and posting times. Popularity labels will be derived from recorded
-Reddit scores in the January–December 2025 submissions archive. The score
-threshold and evaluation protocol are still to be defined; `score` will be used
-to construct the target, never as an input feature.
+IE212 project to predict **eight popularity levels (0–7)** for r/AskReddit posts.
+The project now includes data validation/cleaning and a chronological eight-class
+experiment using the upper-remainder median labeling procedure of Fang et al.
+(2016), reused by Chua (2021). `score` constructs the target and must never be a
+predictive input. Features use only title and UTC posting time.
 
 ## Current scope
 
 DuckDB ingestion is implemented in [src/askreddit/ingest.py](src/askreddit/ingest.py).
 It supports a single-shard sample, complete monthly extracts, and resumable
-sequential extraction of a year. PySpark cleaning is implemented in
-[src/askreddit/clean.py](src/askreddit/clean.py). Feature engineering, chronological
-splitting, labeling, modeling, and the demo remain planned.
+sequential extraction of a year. PySpark validation and cleaning are implemented in
+[src/askreddit/clean.py](src/askreddit/clean.py) and
+[src/askreddit/quality.py](src/askreddit/quality.py). The reusable experiment entry
+point is [src/askreddit/experiment.py](src/askreddit/experiment.py), with separate
+labeling, feature, training and evaluation modules. Saved receipts distinguish
+completed full-data stages from partial runs. The demo remains planned.
 
 | Stage | Intended responsibility | Status |
 | --- | --- | --- |
 | DuckDB ingestion | Read remote Parquet shards, select AskReddit posts, and write one filtered local Parquet file per month | Implemented |
-| PySpark cleaning | Validate community membership, remove invalid text records, deduplicate globally, and report descriptive statistics | Implemented |
-| PySpark feature engineering | Derive title and UTC posting-time features | Planned |
-| PySpark modeling | Define score-based labels, train classifiers, and evaluate high/low popularity predictions | Planned |
-| DuckDB analysis | Query local Parquet files for exploratory analysis and reports | Planned |
+| PySpark validation and cleaning | Profile all local extracts, normalize valid records, quarantine rejected/duplicate rows, and verify read-back invariants | Implemented; execution results are recorded under `reports/data_quality/` |
+| PySpark feature engineering | Train-fitted unigram/bigram TF-IDF and title/UTC posting-time features | Executed on all 1,686,985 cleaned posts; run `fang_chua_20261121_v1` |
+| PySpark modeling | Train-only median labels, chronological LR/RF comparisons, validation selection and held-out test evaluation | All ten candidates completed; see the [Vietnamese results report](reports/experiments/fang_chua_20261121_v1/results_vi.md) |
+| DuckDB analysis | Inspect individual January post scores and their distribution in a local notebook | January notebook implemented; full-year analysis planned |
 | Streamlit demo | Present analysis and model predictions using the saved outputs | Planned |
 
 The source is [open-index/arctic on Hugging Face](https://huggingface.co/datasets/open-index/arctic),
@@ -40,14 +43,17 @@ askreddit-popularity/
 │   └── project.toml            # Source, UTC boundaries, columns, and local paths
 ├── docs/
 │   ├── data-source.md          # Source and monthly output specification
+│   ├── data-validation-cleaning.md # Execution, cleaning, and audit policies
 │   └── pipeline.d2            # Planned pipeline diagram
 ├── src/
 │   └── askreddit/
 │       ├── __init__.py         # Importable package
 │       ├── ingest.py           # DuckDB extraction, validation, and resume CLI
-│       └── clean.py            # PySpark cleaning of explicit local inputs
-├── notebooks/                 # Future exploration notebooks
-│   └── .gitkeep
+│       ├── clean.py            # Reproducible validation/cleaning CLI
+│       └── quality.py          # Distributed profiling and output invariants
+├── notebooks/
+│   ├── 01_data_validation_cleaning.ipynb
+│   └── 01_january_2025_scores.ipynb # Existing historical exploration
 ├── benchmarks/                # Future ingestion and processing benchmarks
 │   └── .gitkeep
 ├── app/                       # Future Streamlit application
@@ -63,9 +69,11 @@ askreddit-popularity/
 Samples use `data/samples/askreddit-2025-MM-sample.parquet`; complete months use
 `data/extracted/askreddit-2025-MM.parquet`, with `MM` from `01` to `12`.
 The full-month manifest is `artifacts/ingest_manifest.json`. DuckDB extensions
-are cached in `artifacts/duckdb_extensions/`. Cleaned data uses
-`data/samples/cleaned-2025-01/` for the pilot and `data/processed/cleaned-2025/`
-for the full year. Future saved models will live under `artifacts/`.
+are cached in `artifacts/duckdb_extensions/`. The older pilot remains at
+`data/samples/cleaned-2025-01/`. The current cleaner
+writes `data/processed/askreddit_clean/`, with rejected and duplicate rows in
+`data/processed/askreddit_quarantine/` and JSON reports in `reports/data_quality/`.
+Future saved models will live under `artifacts/`.
 The `.gitkeep` files retain currently empty project directories on GitHub.
 
 ## Python package setup
@@ -86,9 +94,10 @@ The connection uses the `curl` HTTP client, four DuckDB threads, a 2 GB
 DuckDB memory limit, a 120-second HTTP timeout, and five HTTP retries. These
 settings allow slower transfers more time after intermittent remote-read failures
 were observed; validation and atomic output promotion remain mandatory.
-Optional dependency groups are `spark` (PySpark), `demo` (Streamlit), and `dev`
-(pytest). The Spark group pins PySpark 4.3.0. Cleaning runs locally with two
-Spark worker threads, a 1 GB driver heap, and UTC session time. Java 21 is
+Optional dependency groups are `spark` (PySpark), `demo` (Streamlit), `dev`
+(pytest), and `notebook` (JupyterLab, IPython kernel, pandas, and Matplotlib).
+The Spark group pins PySpark 4.3.0. Cleaning runs locally with two
+Spark worker threads, a 2 GB driver heap, and UTC session time. Java 21 is
 available in this WSL environment at `/usr/lib/jvm/java-21-openjdk`; the cleaning
 commands below select it explicitly without changing the system Java default.
 
@@ -155,89 +164,152 @@ is replaced atomically after each successful full month.
 Each command prints a JSON result containing the observed counts and metadata.
 The test suite uses local Parquet fixtures and does not scan remote full months.
 
-## PySpark cleaning
+## PySpark validation and cleaning
 
-Install the cleaning and test dependencies into the existing environment:
+Use the existing local extracts and installed environment. The cleaner does not
+install packages, download data, create labels, or run feature engineering.
+See [the execution and policy guide](docs/data-validation-cleaning.md) for the
+full schema, quarantine format, duplicate policy, tests, failure behavior, and
+manual dependency commands for another machine.
 
-```bash
-.venv/bin/python -m pip install -e '.[spark,dev]'
-```
-
-Run the **January pilot** yourself from the repository root:
-
-```bash
-JAVA_HOME=/usr/lib/jvm/java-21-openjdk \
-.venv/bin/python -m askreddit.clean \
-  --input data/extracted/askreddit-2025-01.parquet \
-  --output data/samples/cleaned-2025-01/
-```
-
-Once all 12 monthly extracts are complete, run the **full year in one command**
-so deduplication covers IDs across monthly files:
+Run from the repository root, choosing three **new** destinations:
 
 ```bash
-JAVA_HOME=/usr/lib/jvm/java-21-openjdk \
-.venv/bin/python -m askreddit.clean \
-  --input data/extracted/askreddit-2025-{01..12}.parquet \
-  --output data/processed/cleaned-2025/
+JAVA_HOME=/usr/lib/jvm/java-21-openjdk SPARK_LOCAL_IP=127.0.0.1 PYTHONPATH=src \
+  .venv/bin/python -m askreddit.clean \
+  --input 'data/extracted/askreddit-2025-??.parquet' \
+  --output data/processed/askreddit_clean_rerun \
+  --quarantine data/processed/askreddit_quarantine_rerun \
+  --reports-dir reports/data_quality_rerun \
+  --timestamp-unit seconds \
+  --min-created-utc 2005-01-01T00:00:00Z \
+  --max-created-utc 2026-11-19T00:00:00Z
 ```
 
-WSL Bash and Zsh expand the braces into exactly 12 file paths. A missing file
-fails before Spark starts; this command cannot silently clean only the months
-downloaded so far. The CLI also accepts one or more explicit local file paths
-and quoted local file globs. Inputs must be Parquet files; remote URLs are
-rejected. Paths are resolved from the working directory, and repeated references
-to the same local file are read once.
+The inspected 12 finalized extracts contain 1,686,985 rows from
+2025-01-01 00:00:07 through 2025-12-31 23:59:25 UTC. All six-field schemas agree.
+The completed full run retained all 1,686,985 rows, with zero rejected or duplicate
+records and all read-back invariants passing. It normalized 36,534 titles and
+cleared 30,601 removed/deleted body markers while retaining those posts. See
+[the completed run](reports/data_quality/run.json) and
+[execution notes](reports/data_quality/execution_notes.json).
+The filename glob intentionally excludes samples, the previous cleaned pilot,
+and two invalid zero-byte temporary Parquet files; these are documented in
+[the repository inspection](reports/repository_inspection.json). No original
+Parquet file is modified or deleted.
 
-Cleaning applies these rules in order:
+Cleaning trims valid base-36 IDs, canonicalizes AskReddit membership, normalizes
+title whitespace, and converts missing/removed/deleted selftext to empty strings.
+Missing or invalid IDs, titles, timestamps, scores, and foreign communities go
+to quarantine with original values and explicit reasons. Zero and negative scores
+remain valid. Timestamps use a declared unit, explicit sanity bounds, and UTC.
+Valid duplicates are resolved deterministically using earliest timestamp and a
+stable content-hash tie-breaker; every losing record is audited. Scores are never
+ranked highest-first, clipped, filled, or labeled.
 
-1. Check every input's six-column schema. Reject the run if any row has a null
-   subreddit or a community other than `askreddit` (case-insensitive). Null or
-   whitespace-only IDs also fail verification rather than merging unrelated rows.
-2. Drop null or whitespace-only titles. Whitespace includes tabs, newlines, and
-   Unicode whitespace. Titles retained in the output keep their original text.
-3. Drop rows whose whitespace-trimmed `selftext` is exactly `[removed]` or
-   `[deleted]`. Empty, whitespace-only, and null bodies remain valid when the
-   title is valid. A body merely mentioning either marker remains valid.
-4. Deduplicate by `id` across the complete combined input, after text filtering.
-   Keep the row with the earliest `created_utc`, with null timestamps last.
-   For tied timestamps, keep the lexicographically smallest SHA-256 hash of
-   the JSON struct containing all six original columns in column order, including
-   nulls. This provides a stable choice independent of input order and Spark
-   partitioning. Identical rows are interchangeable; a hash tie is resolved by
-   the original column values in ascending order, nulls last. The rule selects
-   one original row; it does not infer which conflicting record is authoritative.
+The output preserves six logical fields and adds integer `year`/`month` partitions.
+Read-back validation checks all invariants and reconciles input with cleaned plus
+quarantined records. Before/after JSON profiles and a successful `run.json` certify
+a completed run. Existing destinations and overlapping paths are rejected. Add
+`--validate-only` to produce only the before profile in a fresh report directory.
 
-The result retains exactly `id`, `subreddit`, `title`, `selftext`, `created_utc`,
-and `score`, in that order and with their original types and values. In particular,
-scores are never filled, averaged, clipped, relabeled, or normalized. Missing,
-negative, and zero scores remain in retained rows.
-
-The output is a **Spark Parquet directory**, with ZSTD-compressed part files and
-`_cleaning_report.json`. The report is also printed as JSON. It includes total
-input/output counts, sequential removal counts (each dropped row is counted at
-its first removal step), the deduplication rule, input paths, and score statistics
-both before and after cleaning:
-
-- Missing and non-null score counts.
-- Number and share of scores equal to 1; the share's denominator is the number
-  of non-null scores in that stage.
-- Exact median and 75th percentile, using linear interpolation over non-null
-  scores. Shares and percentiles are `null` when no scores are present.
-
-**January statistics are exploratory.** Neither the pilot nor the full-year
-cleaning report defines popularity labels or thresholds. Those decisions belong
-to the later chronological split stage; any data-derived cutoff must be fitted
-using the training period only.
-
-The cleaner refuses an existing output path. It writes to a temporary sibling
-directory, checks the written schema and row count, and promotes the result only
-after success. For a rerun, choose a new output directory or explicitly remove an
-unneeded previous result yourself. Cleaning does not modify ingestion files or
-the ingestion manifest.
-
-Run the small local fixture tests with:
+Run tests and open the new validation notebook with the existing environment:
 
 ```bash
-JAVA_HOME=/usr/lib/jvm/java-21-openjdk .venv/bin/python -m pytest -q
+JAVA_HOME=/usr/lib/jvm/java-21-openjdk SPARK_LOCAL_IP=127.0.0.1 PYTHONPATH=src \
+  .venv/bin/python -m pytest -q
+JAVA_HOME=/usr/lib/jvm/java-21-openjdk SPARK_LOCAL_IP=127.0.0.1 \
+  .venv/bin/python -m jupyterlab notebooks/01_data_validation_cleaning.ipynb
 ```
+
+The notebook defaults to reviewing saved reports and verifying output read-back.
+Its optional execution cell calls the reusable pipeline with configurable paths.
+The older January score notebook below is historical exploration and is not part
+of the current validation/cleaning workflow.
+
+## Chronological eight-class experiment
+
+See [the experimental design and execution guide](docs/fang-chua-experiment.md)
+for scientific attribution, exact median semantics, leakage safeguards, the fixed
+candidate search and output layout. The versioned configuration is
+[configs/fang_chua_v1.json](configs/fang_chua_v1.json).
+
+Run `fang_chua_20261121_v1` completed on the full dataset in about 15 minutes
+37 seconds. Exact train-derived score boundaries are `[2, 3, 4, 6, 11, 46, 271]`.
+Validation selected `combined_a1_r003` (inverse-frequency weighting, L2 penalty
+0.03): validation macro-F1 0.1198; test macro-F1 0.1135, balanced accuracy
+0.1889 and accuracy 35.79%. The majority baseline has test macro-F1 0.1033 and
+accuracy 70.46%. All six combined LR candidates reached the 40-iteration cap;
+their convergence is not established, and eight-class discrimination remains weak.
+
+See the [full Vietnamese report](reports/experiments/fang_chua_20261121_v1/results_vi.md),
+[model comparison CSV](reports/experiments/fang_chua_20261121_v1/model_comparison.csv)
+and [final verification](reports/experiments/fang_chua_20261121_v1/verification.json).
+All 16 focused tests passed; all 23 stage receipts and unchanged input hashes
+were verified. Repeat with a new run ID:
+
+```bash
+JAVA_HOME=/usr/lib/jvm/java-21-openjdk SPARK_LOCAL_IP=127.0.0.1 PYTHONPATH=src \
+  .venv/bin/python -m askreddit.experiment \
+  --config configs/fang_chua_v1.json --run-id fang_chua_reproduction
+
+PYTHONPATH=src .venv/bin/python -m askreddit.report_results \
+  --run-id fang_chua_reproduction
+```
+
+A fresh run writes under `data/experiments/`, `artifacts/experiments/`, and
+`reports/experiments/`, each in its own run directory. Existing cleaned Parquet
+remains unchanged. Use a new run ID to repeat the experiment, or `--resume` to
+reuse only artifacts whose input/configuration/code and saved file hashes verify.
+Use `--stage prepare|features|train|evaluate` for individual stages; test prediction
+is gated on completed validation and a frozen selection record.
+
+The target is archived score, without an assumed 24-hour observation horizon.
+Ordinary eight-class `macro_f1` and Fang-style `mean_threshold_f1` are distinct
+metrics. Training weights are never used for primary evaluation metrics.
+
+## Inspect January 2025 post scores
+
+Open [the January score notebook](notebooks/01_january_2025_scores.ipynb) to read
+individual post IDs, titles, archived scores, and UTC posting times. It defaults
+to the complete January extract at `data/extracted/askreddit-2025-01.parquet`.
+Set `DATASET = "cleaned"` and rerun all cells to inspect the cleaning pilot at
+`data/samples/cleaned-2025-01/` instead. The selected source must already exist;
+the notebook reads local files without starting Spark or downloading data.
+
+From the repository root in WSL:
+
+```bash
+.venv/bin/python -m pip install -e '.[notebook]'
+.venv/bin/python -m jupyterlab notebooks/01_january_2025_scores.ipynb
+```
+
+Open the local URL printed by JupyterLab if WSL does not open a browser. Choose
+the Python kernel from the project environment, then **Run → Run All Cells**.
+To stop the server, press Ctrl-C in its terminal and confirm shutdown if asked.
+
+Alternatively, open the repository in VS Code connected to WSL. Install/enable
+its Python and Jupyter extensions, open the notebook, and use **Select Kernel →
+Python Environments** to choose this repository's `.venv/bin/python`. Click
+**Run All**. The notebook locates the repository from either the root directory
+or `notebooks/`; a global kernel may not have the required packages.
+
+The browsing controls support exact post IDs, literal title search, inclusive
+minimum/maximum scores, missing scores, chronological or score sorting, and
+pagination. For example, set `MIN_SCORE = 100` for scores of at least 100, or
+set both `MIN_SCORE` and `MAX_SCORE` to `1` to inspect score-1 posts. Increase
+`PAGE` to continue reading. Only rerun the browsing controls cell after editing
+those filters; rerun all cells after changing `DATASET`.
+
+The notebook also displays descriptive statistics, exact score frequencies,
+and plots with a logarithmic count axis. It saves a plot to
+`artifacts/exploration/2025-01/{raw,cleaned}-score-frequency.png`. Set
+`EXPORT_CSV = True` in the optional export cell to save **all** posts from the
+selected source, independently of browsing filters, to
+`artifacts/exploration/2025-01/{raw,cleaned}-post-scores.csv`. Repeated runs
+replace generated files for that source. Keep the source notebook's outputs
+cleared before committing it; large outputs belong in Git-ignored `artifacts/`.
+
+These are archived scores, not live Reddit scores or raw upvote counts. January
+statistics are exploratory; they do not set the final popularity thresholds,
+which must be estimated from the chronological training partition only.

@@ -1,0 +1,11 @@
+{
+  "criterion": {
+    "criterion": "eight_class_macro_f1",
+    "test_policy": "Freeze selection before scoring test; report all predefined candidates without revising selection",
+    "tie_break": "largest validation macro_f1 rounded to 12 decimals, then candidate ID ascending"
+  },
+  "frozen_at_utc": "2026-11-21T14:19:23.888269+00:00",
+  "frozen_before_test": true,
+  "selected_candidate": "combined_a1_r003",
+  "validation_results_sha256": "4ab11b7bb64cd2b1a624bc63bcf18be1186f3a7874ffb49326027d53c058f1f9"
+}

@@ -1,5 +1,7 @@
 # IE212 Group 14 — AskReddit Popularity Prediction
 
+> Current design: the eight-class experiment in [fang-chua-experiment.md](fang-chua-experiment.md) supersedes the binary-model plans in this historical snapshot. See run receipts for executed results.
+
 Status snapshot taken on 2026-11-12 in the Asia/Saigon time zone. The active repository is `/home/hoangnnh/Coding/IE212/project/askreddit-popularity` in the Arch Linux WSL distribution. Run project commands from that repository root.
 
 ## Working with the user
