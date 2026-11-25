@@ -87,7 +87,9 @@ def export(spark, run_id: str, output: Path, artifact_root: Path, report_root: P
         "excluded_inputs": ["score", "selftext", "id", "label"],
         "probability_note": "Trained with balanced class weights: raw probabilities are relative scores. "
                             "calibrated_probability() adds prior_logit_offset = log(w_low / w_high) to undo the weighting.",
-        "class_weights": weights, "prior_logit_offset": float(np.log(weights[0] / weights[1])),
+        "class_weights": weights, "design": candidate_report["training"].get("design", "balanced weights"),
+        # Runs with undersampling store the full correction; older runs had class weights only.
+        "prior_logit_offset": float(candidate_report["training"].get("prior_logit_offset", np.log(weights[0] / weights[1]))),
     }
     output.mkdir(parents=True, exist_ok=False)
     np.savez_compressed(output / "model.npz", coefficients=model.coefficients.toArray(), intercept=np.array(model.intercept),

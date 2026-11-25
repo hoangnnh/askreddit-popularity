@@ -1,0 +1,24 @@
+{
+  "engine": "DuckDB",
+  "group_counts": {
+    "test": {
+      "excluded": 86108,
+      "high": 847,
+      "low": 35832
+    },
+    "train": {
+      "excluded": 858185,
+      "high": 7178,
+      "low": 338497
+    },
+    "validation": {
+      "excluded": 164016,
+      "high": 1619,
+      "low": 66478
+    }
+  },
+  "median": 3,
+  "p75": 4,
+  "population_records": 345675,
+  "status": "passed"
+}

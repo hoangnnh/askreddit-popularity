@@ -82,6 +82,16 @@ def roc_points(y, p, max_points: int = 201) -> dict:
     return {"fpr": [round(float(v), 6) for v in fpr], "tpr": [round(float(v), 6) for v in tpr]}
 
 
+def calibration_summary(y, p, offset: float) -> dict:
+    """Mean probability and Brier score before/after adding ``offset`` to the logit (prior correction)."""
+    y, p = _arrays(y, p)
+    clipped = np.clip(p, 1e-12, 1 - 1e-12)
+    corrected = 1.0 / (1.0 + np.exp(-(np.log(clipped) - np.log1p(-clipped) + offset)))
+    return {"prior_logit_offset": float(offset), "positive_rate": float(y.mean()),
+            "mean_raw_probability": float(p.mean()), "mean_calibrated_probability": float(corrected.mean()),
+            "brier_raw": float(np.mean((p - y) ** 2)), "brier_calibrated": float(np.mean((corrected - y) ** 2))}
+
+
 def evaluate_scores(y, p, threshold: float, *, seen=None) -> dict:
     y, p = _arrays(y, p)
     positives = int(y.sum())

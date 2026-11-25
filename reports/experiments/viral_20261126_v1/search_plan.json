@@ -1,0 +1,125 @@
+{
+  "candidates": [
+    {
+      "id": "majority",
+      "kind": "majority"
+    },
+    {
+      "features": "time_features",
+      "id": "time_lr",
+      "kind": "lr",
+      "max_iter": 200,
+      "reg_param": 0.0001,
+      "role": "ablation"
+    },
+    {
+      "features": "title_structured_features",
+      "id": "title_structured_lr",
+      "kind": "lr",
+      "max_iter": 200,
+      "reg_param": 0.0001
+    },
+    {
+      "features": "combined_title_features",
+      "id": "lr_weighted_r1e4",
+      "kind": "lr",
+      "max_iter": 200,
+      "reg_param": 0.0001
+    },
+    {
+      "features": "combined_title_features",
+      "id": "lr_weighted_r1e5",
+      "kind": "lr",
+      "max_iter": 200,
+      "reg_param": 1e-05
+    },
+    {
+      "class_weighting": "none",
+      "features": "combined_title_features",
+      "id": "lr_us5_r1e4",
+      "kind": "lr",
+      "max_iter": 200,
+      "reg_param": 0.0001,
+      "sampling": {
+        "negatives_per_positive": 5,
+        "seed": 212
+      }
+    },
+    {
+      "class_weighting": "none",
+      "features": "combined_title_features",
+      "id": "lr_us10_r1e4",
+      "kind": "lr",
+      "max_iter": 200,
+      "reg_param": 0.0001,
+      "sampling": {
+        "negatives_per_positive": 10,
+        "seed": 212
+      }
+    },
+    {
+      "class_weighting": "none",
+      "features": "combined_title_features",
+      "id": "lr_us20_r1e4",
+      "kind": "lr",
+      "max_iter": 200,
+      "reg_param": 0.0001,
+      "sampling": {
+        "negatives_per_positive": 20,
+        "seed": 212
+      }
+    },
+    {
+      "class_weighting": "none",
+      "features": "combined_title_features",
+      "id": "lr_us10_r1e5",
+      "kind": "lr",
+      "max_iter": 200,
+      "reg_param": 1e-05,
+      "sampling": {
+        "negatives_per_positive": 10,
+        "seed": 212
+      }
+    },
+    {
+      "features": "selected_title_features",
+      "id": "gbt_weighted",
+      "kind": "gbt",
+      "max_bins": 32,
+      "max_depth": 5,
+      "max_iter": 60,
+      "step_size": 0.1,
+      "subsampling_rate": 0.8
+    },
+    {
+      "class_weighting": "none",
+      "features": "selected_title_features",
+      "id": "gbt_us10",
+      "kind": "gbt",
+      "max_bins": 32,
+      "max_depth": 5,
+      "max_iter": 60,
+      "sampling": {
+        "negatives_per_positive": 10,
+        "seed": 212
+      },
+      "step_size": 0.1,
+      "subsampling_rate": 0.8
+    }
+  ],
+  "chi_square": {
+    "input": "binary train term presence over the train vocabulary",
+    "num_top_features": 128,
+    "used_by": "GBT candidates (selected_title_features = top-128 TF-IDF columns + 5 title-structure features)"
+  },
+  "registered_at_utc": "2026-11-25T17:41:13.578793+00:00",
+  "selection": {
+    "criterion": "validation_pr_auc",
+    "note": "time_lr is an analysis ablation only; posting time is never an input of a deployable model.",
+    "test_policy": "Freeze selection and thresholds before scoring test; report all predefined candidates",
+    "threshold_policy": "Per candidate, the probability threshold maximizing validation F1 of the viral class; frozen before test",
+    "tie_break": "largest validation PR-AUC rounded to 12 decimals, then candidate ID ascending"
+  },
+  "test_used_for_tuning": false,
+  "training_sample_policy": "All low/high training rows; middle group excluded by the label rule. GBT uses its declared internal subsampling rate."
+}

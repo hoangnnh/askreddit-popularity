@@ -1,7 +1,7 @@
 # AskReddit Popularity
 
 IE212 project that predicts whether an r/AskReddit question is **highly or lowly
-popular** (the registered proposal's binary task) and analyzes how title wording
+popular** (the registered proposal's binary task; "high" now means viral, score ≥ 271) and analyzes how title wording
 and posting time relate to popularity. An **eight-level extension** reuses the
 upper-remainder median labeling of Fang et al. (2016) and Chua (2021). `score`
 constructs the targets and is never a predictive input. Features come only from
@@ -30,7 +30,7 @@ distinguish completed full-data stages from partial runs.
 | PySpark EDA | Profile, volume, score distribution, title/time associations (train only), label readiness | Completed; see [docs/eda.md](docs/eda.md) and [reports/eda/summary_vi.md](reports/eda/summary_vi.md) |
 | Title deduplication | One posting per normalized title (highest score), placeholders dropped; identical-title ceiling analysis | Completed; see [docs/score-prediction.md](docs/score-prediction.md) |
 | Two-stage score estimate | Engagement classifier (score ≥ 2) + ridge regression of log(1 + score) | Completed (engagement v1, score v1) |
-| Binary labels, features and models | Train-quantile high/low labels, chi-square n-gram selection, L2 LR vs GBT, AUC/P/R/F1, coefficient and importance analysis | Runs v3, v4 and v5 (current, deduplicated) completed; see [docs/binary-experiment.md](docs/binary-experiment.md) |
+| Binary labels, features and models | Train-quantile high/low labels, chi-square n-gram selection, L2 LR vs GBT, AUC/P/R/F1, coefficient and importance analysis | Runs v3–v5 and the viral run (current: score ≥ 271 vs other engaged posts, class weights vs undersampling) completed; see [docs/binary-experiment.md](docs/binary-experiment.md) |
 | Eight-level extension | Train-only upper-median labels, weighted multinomial LR / RF, validation selection | v1 and v2 completed; see [docs/fang-chua-experiment.md](docs/fang-chua-experiment.md) |
 | Spark vs DuckDB benchmark | Identical SQL workloads on both engines | Completed; see [benchmarks/README.md](benchmarks/README.md) |
 | Streamlit demo | Analysis, binary and eight-level evaluation, Spark-free prediction from saved outputs | Implemented in [app/streamlit_app.py](app/streamlit_app.py) |
@@ -53,6 +53,7 @@ askreddit-popularity/
 │   ├── binary_v3.json          # Binary run v3 (all posts, reference)
 │   ├── binary_v4.json          # Binary run v4 (score >= 2, title only)
 │   ├── binary_v5.json          # Binary run v5 (v4 on deduplicated data; current) + disclosure
+│   ├── viral_v1.json           # Viral (score >= 271) vs other engaged posts; weights vs undersampling (current)
 │   ├── engagement_v1.json      # Stage 1: score >= 2 vs <= 1 on all posts
 │   ├── score_v1.json           # Stage 2: ridge regression of log(1 + score), score >= 2
 │   ├── fang_chua_v1.json       # Eight-level v1 (historical)
@@ -269,21 +270,24 @@ JAVA_HOME=/usr/lib/jvm/java-21-openjdk SPARK_LOCAL_IP=127.0.0.1 PYTHONPATH=src \
 ## Streamlit demo
 
 The app reads the saved EDA, experiment and benchmark reports listed in
-[configs/demo.json](configs/demo.json). Its main tabs show the binary run (v5) and the
-two-stage score estimate. From a title alone, prediction gives the high/low group, the
-engagement probability, and the expected score with an 80% interval and a relative rank.
+[configs/demo.json](configs/demo.json). Its main tabs show the viral run and the
+two-stage score estimate. From a title alone, prediction gives:
+
+- the viral label and probability, P(engaged) × P(viral | engaged);
+- the engagement probability;
+- the expected score, with an 80% interval and a relative rank.
+
 The eight-level model lives in an extension tab, evaluation only, because it needs the
-posting time. Prediction never starts Spark. Both exports
-check the NumPy pipeline against Spark before they are written. The eight-level export checks 3,000
-validation/test posts plus Unicode edge cases and refuses to finish on any mismatch; it
-agrees on every prediction (largest probability difference 4.4e-16).
+posting time. Prediction never starts Spark. Every export compares its NumPy pipeline
+with Spark on 3,000 validation/test posts plus Unicode edge cases, and refuses to finish
+on any mismatch. All exports agree within 1e-15.
 
 ```bash
 .venv/bin/python -m pip install -e '.[demo]'          # once: Streamlit
 JAVA_HOME=/usr/lib/jvm/java-21-openjdk SPARK_LOCAL_IP=127.0.0.1 PYTHONPATH=src \
   .venv/bin/python -m askreddit.export_model --run-id fang_chua_20261125_v2   # eight-level model
 JAVA_HOME=/usr/lib/jvm/java-21-openjdk SPARK_LOCAL_IP=127.0.0.1 PYTHONPATH=src \
-  .venv/bin/python -m askreddit.export_binary_model --run-id binary_20261125_v5 --threshold-policy probability_0_5
+  .venv/bin/python -m askreddit.export_binary_model --run-id viral_20261126_v1   # frozen max-F1 threshold
 JAVA_HOME=/usr/lib/jvm/java-21-openjdk SPARK_LOCAL_IP=127.0.0.1 PYTHONPATH=src \
   .venv/bin/python -m askreddit.export_binary_model --run-id engagement_20261125_v1 --threshold-policy probability_0_5
 JAVA_HOME=/usr/lib/jvm/java-21-openjdk SPARK_LOCAL_IP=127.0.0.1 PYTHONPATH=src \
@@ -296,7 +300,17 @@ JAVA_HOME=/usr/lib/jvm/java-21-openjdk SPARK_LOCAL_IP=127.0.0.1 PYTHONPATH=src \
 See [docs/binary-experiment.md](docs/binary-experiment.md) for labels, features,
 chi-square selection, candidates and commands.
 
-**Current run: `binary_20261125_v5`** ([configs/binary_v5.json](configs/binary_v5.json)) repeats v4 on the
+**Current run: `viral_20261126_v1`** ([configs/viral_v1.json](configs/viral_v1.json)). It uses posts with
+score ≥ 2 of the deduplicated data, with high = viral (score ≥ 271, about 2%) and low =
+score 2–270. It compares balanced class weights with random undersampling of the low
+class on train only (1:5, 1:10, 1:20, stratified by month). Validation PR-AUC selected
+`lr_us10_r1e5`, which reaches test AUC-ROC **0.761** and PR-AUC 0.086 (base rate 0.023).
+That matches class weights while training on 23% of the rows. LR beats GBT (0.65), and
+prior-corrected probabilities match the observed rate (0.021 vs 0.023). See
+[docs/binary-experiment.md](docs/binary-experiment.md#viral-run-current) and the
+[viral report](reports/experiments/viral_20261126_v1/results_vi.md).
+
+**Run `binary_20261125_v5`** ([configs/binary_v5.json](configs/binary_v5.json)) repeats v4 on the
 title-deduplicated data. Test AUC-ROC is 0.600, and balanced accuracy at 0.5 is 0.572
 ([v5 report](reports/experiments/binary_20261125_v5/results_vi.md)).
 

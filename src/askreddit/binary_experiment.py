@@ -21,23 +21,26 @@ import sys
 from pyspark.ml import PipelineModel
 
 from askreddit.binary_prepare import TITLE_COLUMNS, BinaryRun, features_stage, prepare_stage
-from askreddit.binary_training import (CANDIDATE_MODULES, load_binary_model, score_split, train_stage)
+from askreddit.binary_training import (CANDIDATE_MODULES, design, load_binary_model, score_split, train_stage)
 from askreddit.clean import create_spark, file_fingerprint, write_json
 from askreddit.experiment import digest
 from askreddit.features import STRUCTURED_COLUMNS, TIME_COLUMNS
 
 LOG = logging.getLogger(__name__)
 EVALUATION_MODULES = ["binary_experiment", "binary_training", "binary_evaluation"]
-COMPARISON_FIELDS = ["candidate", "kind", "split", "selected", "auc_roc", "pr_auc", "threshold", "precision", "recall", "f1",
+COMPARISON_FIELDS = ["candidate", "kind", "design", "split", "selected", "auc_roc", "pr_auc", "threshold", "precision", "recall", "f1",
                      "accuracy", "balanced_accuracy", "predicted_positive_rate", "records", "positives",
                      "training_seconds", "feature_dimension"]
 
 
-def choose_candidate(results, kind=None):
+SELECTION_METRICS = {"validation_auc_roc": "auc_roc", "validation_pr_auc": "pr_auc"}
+
+
+def choose_candidate(results, kind=None, metric="auc_roc"):
     pool = [r for r in results if kind is None or r["candidate"]["kind"] == kind]
     if not pool:
         return None
-    return sorted(pool, key=lambda r: (-round(r["validation"]["auc_roc"], 12), r["candidate"]["id"]))[0]["candidate"]["id"]
+    return sorted(pool, key=lambda r: (-round(r["validation"][metric], 12), r["candidate"]["id"]))[0]["candidate"]["id"]
 
 
 def display_term(term: str) -> str:
@@ -115,8 +118,9 @@ def evaluate_stage(spark, run):
             results.append(result)
         elif spec["kind"] != "gbt":
             raise ValueError(f"Required candidate failed: {spec['id']}")
-    selected = choose_candidate(results)
-    best = {kind: choose_candidate(results, kind) for kind in ("lr", "gbt")}
+    metric = SELECTION_METRICS[run.config["selection"]["criterion"]]
+    selected = choose_candidate(results, metric=metric)
+    best = {kind: choose_candidate(results, kind, metric) for kind in ("lr", "gbt")}
     thresholds = {r["candidate"]["id"]: r["threshold"]["value"] for r in results}
     selection_path = run.reports / "selection.json"
     frozen = {"selected_candidate": selected, "best_by_family": best, "thresholds": thresholds,
@@ -143,7 +147,8 @@ def evaluate_stage(spark, run):
             run.finish("test_" + spec["id"], [path], EVALUATION_MODULES)
             del model
         for split, scores in (("validation", result["validation"]), ("test", metrics)):
-            rows.append({"candidate": spec["id"], "kind": spec["kind"], "split": split, "selected": spec["id"] == selected,
+            rows.append({"candidate": spec["id"], "kind": spec["kind"], "design": design(spec), "split": split,
+                         "selected": spec["id"] == selected,
                          **{k: v for k, v in scores.items() if k in COMPARISON_FIELDS},
                          "training_seconds": info["training_seconds"], "feature_dimension": info["feature_dimension"]})
         run.events("test_candidate_completed", candidate=spec["id"], auc_roc=metrics["auc_roc"], f1=metrics["f1"])

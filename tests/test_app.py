@@ -30,6 +30,7 @@ def test_app_renders_every_tab_and_predicts():
     assert any("phổ biến" in s.value for s in app.success)
     assert len(app.text_input) == 1  # title only: no posting-time inputs anywhere
     assert any("Khả năng có tương tác" in m.label for m in app.metric)
+    assert any("Khả năng viral" in m.label for m in app.metric)
     for radio in app.radio:
         radio.set_value("test").run()
     assert not app.exception

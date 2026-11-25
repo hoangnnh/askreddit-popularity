@@ -209,3 +209,31 @@ def test_numpy_binary_inference_matches_spark(spark, tmp_path):
     assert not local.uses_time
     assert max(abs(local.predict_proba(r.title) - r.p) for r in scored) < 1e-9
     assert local.contributions(titles[0]) and local.top_terms(3)["high"]
+
+
+def test_undersampling_train_only_keeps_every_high_post_and_corrects_odds(spark):
+    import math
+    from askreddit.binary_evaluation import calibration_summary
+    from askreddit.binary_training import design, undersample
+    rows = [(float(i < 30), Vectors.dense([float(i < 30) + 0.01 * (i % 7), float(i % 5)]), i % 3 + 1, False) for i in range(600)]
+    frame = spark.createDataFrame(rows, ["label", "combined_title_features", "month", "title_seen_in_train"])
+    spec = {"id": "us", "kind": "lr", "features": "combined_title_features", "reg_param": 0.01, "max_iter": 20,
+            "class_weighting": "none", "sampling": {"negatives_per_positive": 4, "seed": 7}}
+    sampled, description = undersample(frame, spec, [570, 30], 212)
+    assert description["strata"] == "label x month" and description["low_class_fraction"] == pytest.approx(120 / 570)
+    assert sampled.filter("label = 1").count() == 30 and 60 < sampled.filter("label = 0").count() < 200
+    model, info = fit_binary_candidate(frame, spec, [570, 30], 212)
+    assert info["sampled_counts"][1] == 30 and info["class_weights"] == [1.0, 1.0]
+    assert info["prior_logit_offset"] == pytest.approx(math.log(info["kept_low_fraction"]))
+    assert design(spec) == "undersample 1:4" and design({**spec, "class_weighting": "balanced"}) == "undersample 1:4 + balanced weights"
+    y, p, _ = collect_scores(frame, spec, model, info)
+    calibration = calibration_summary(y, p, info["prior_logit_offset"])
+    assert calibration["mean_raw_probability"] > calibration["mean_calibrated_probability"]  # sampling inflated P(high)
+    assert abs(calibration["mean_calibrated_probability"] - 0.05) < abs(calibration["mean_raw_probability"] - 0.05)
+    assert calibration_summary([0, 1], [0.2, 0.7], 0.0)["mean_calibrated_probability"] == pytest.approx(0.45)
+
+
+def test_selection_metric_is_configurable():
+    results = [{"candidate": {"id": "a", "kind": "lr"}, "validation": {"auc_roc": 0.8, "pr_auc": 0.10}},
+               {"candidate": {"id": "b", "kind": "lr"}, "validation": {"auc_roc": 0.7, "pr_auc": 0.20}}]
+    assert choose_candidate(results) == "a" and choose_candidate(results, metric="pr_auc") == "b"

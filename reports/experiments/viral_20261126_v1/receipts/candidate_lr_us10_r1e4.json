@@ -1,0 +1,78 @@
+{
+  "artifacts": [
+    {
+      "files": [
+        {
+          "bytes": 8,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/viral_20261126_v1/models/lr_us10_r1e4/data/._SUCCESS.crc",
+          "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+        },
+        {
+          "bytes": 796,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/viral_20261126_v1/models/lr_us10_r1e4/data/.part-00000-0317453e-9c80-40aa-8c82-490e9b032fd8-c000.snappy.parquet.crc",
+          "sha256": "3534069272b7c262676b41dddd6457ce46a233efc717f176ba22bdb5e1ae54ac"
+        },
+        {
+          "bytes": 0,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/viral_20261126_v1/models/lr_us10_r1e4/data/_SUCCESS",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 100777,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/viral_20261126_v1/models/lr_us10_r1e4/data/part-00000-0317453e-9c80-40aa-8c82-490e9b032fd8-c000.snappy.parquet",
+          "sha256": "2f10f21e781336403b20b4fb9fb2d98c1ad2d0a848128805b288acc4ffbcf91b"
+        },
+        {
+          "bytes": 8,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/viral_20261126_v1/models/lr_us10_r1e4/metadata/._SUCCESS.crc",
+          "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+        },
+        {
+          "bytes": 16,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/viral_20261126_v1/models/lr_us10_r1e4/metadata/.part-00000-577bad94-8e7c-4861-9ba6-a94f09ee2a4e-c000.txt.crc",
+          "sha256": "5cf364d2217522c693e2e7046494503c8cec57c72141ec3615d915fee085da0f"
+        },
+        {
+          "bytes": 0,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/viral_20261126_v1/models/lr_us10_r1e4/metadata/_SUCCESS",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 720,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/viral_20261126_v1/models/lr_us10_r1e4/metadata/part-00000-577bad94-8e7c-4861-9ba6-a94f09ee2a4e-c000.txt",
+          "sha256": "bcd746785016e9a7e57f3214d93168bd7a3eadeed950ffd2a7ff4860fb39214d"
+        }
+      ],
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/viral_20261126_v1/models/lr_us10_r1e4"
+    },
+    {
+      "files": [
+        {
+          "bytes": 13836,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/reports/experiments/viral_20261126_v1/candidates/lr_us10_r1e4.json",
+          "sha256": "ba9f36984ec82c8869241107d24963c70cbef38b3ad8838504fa031b2641d63c"
+        }
+      ],
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/reports/experiments/viral_20261126_v1/candidates/lr_us10_r1e4.json"
+    }
+  ],
+  "completed_at_utc": "2026-11-25T17:47:10.794778+00:00",
+  "identity_sha256": "c2da805f41cb1714ea4c859f0cfbfff193c516522bea916767c8d2b1dcd2ba3b",
+  "source_files": [
+    {
+      "bytes": 10505,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/src/askreddit/binary_training.py",
+      "sha256": "7d21556ef944b6e00bf49895bad3baa6b01b1112c6e72b4754ae92006d320a48"
+    },
+    {
+      "bytes": 5197,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/src/askreddit/binary_evaluation.py",
+      "sha256": "6b5c28bdd65e7624da78cfe4f3f838d938ece67ac681a2cfdbebee2a32f294ab"
+    },
+    {
+      "bytes": 9198,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/src/askreddit/binary_labeling.py",
+      "sha256": "349f38dbffe4831832637c6cd50736dc2f30fad479d5cd7bba39584c7de7785a"
+    }
+  ]
+}

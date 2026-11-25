@@ -1,0 +1,49 @@
+{
+  "algorithm_version": "binary-train-quantile-v1",
+  "fitted_on": "train",
+  "high_cut": 271,
+  "high_rule": "score >= 271 (fixed)",
+  "input_fingerprint": "c2da805f41cb1714ea4c859f0cfbfff193c516522bea916767c8d2b1dcd2ba3b",
+  "low_cut": 270,
+  "low_rule": "score <= 270 (fixed)",
+  "matches_eda_expectation": true,
+  "median": 3,
+  "middle_rule": "population scores in neither group; excluded from training and evaluation",
+  "p75": 4,
+  "population": "train posts with score >= 2",
+  "population_records": 345675,
+  "quantile_definition": "Inverse empirical CDF: the smallest train score s with F(s) >= q, from exact integer counts.",
+  "rules": {
+    "high_rule": "ge_value",
+    "high_value": 271,
+    "low_rule": "le_value",
+    "low_value": 270,
+    "population_min_score": 2
+  },
+  "split_dates": {
+    "test": [
+      "2025-12-01T00:00:00Z",
+      "2026-01-01T00:00:00Z"
+    ],
+    "train": [
+      "2025-01-01T00:00:00Z",
+      "2025-10-01T00:00:00Z"
+    ],
+    "validation": [
+      "2025-10-01T00:00:00Z",
+      "2025-12-01T00:00:00Z"
+    ]
+  },
+  "train_counts": {
+    "excluded": 858185,
+    "high": 7178,
+    "low": 338497,
+    "middle": 0
+  },
+  "train_percentages_of_population": {
+    "high": 2.076516959571852,
+    "low": 97.92348304042815,
+    "middle": 0.0
+  },
+  "train_records": 1203860
+}

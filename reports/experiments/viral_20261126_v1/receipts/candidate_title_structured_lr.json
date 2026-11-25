@@ -1,0 +1,78 @@
+{
+  "artifacts": [
+    {
+      "files": [
+        {
+          "bytes": 8,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/viral_20261126_v1/models/title_structured_lr/data/._SUCCESS.crc",
+          "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+        },
+        {
+          "bytes": 48,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/viral_20261126_v1/models/title_structured_lr/data/.part-00000-93ddf188-9c0b-41f8-b70e-df02169163eb-c000.snappy.parquet.crc",
+          "sha256": "41c4acfbfe12e7268ceffbe4ae5b3a72f08d28ca79f918385a3cfbd7d9455302"
+        },
+        {
+          "bytes": 0,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/viral_20261126_v1/models/title_structured_lr/data/_SUCCESS",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 4711,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/viral_20261126_v1/models/title_structured_lr/data/part-00000-93ddf188-9c0b-41f8-b70e-df02169163eb-c000.snappy.parquet",
+          "sha256": "8f85b1a66cc1dda9aa887f6ad37c516b39427dc91f73762d0b6c4a6c57c2bc54"
+        },
+        {
+          "bytes": 8,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/viral_20261126_v1/models/title_structured_lr/metadata/._SUCCESS.crc",
+          "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+        },
+        {
+          "bytes": 16,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/viral_20261126_v1/models/title_structured_lr/metadata/.part-00000-12234848-82e1-46b3-ab51-9126f615921e-c000.txt.crc",
+          "sha256": "9aa24c26be573c3caf3f87972781f271c22306c756bac503c08dab9ca1628406"
+        },
+        {
+          "bytes": 0,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/viral_20261126_v1/models/title_structured_lr/metadata/_SUCCESS",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 720,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/viral_20261126_v1/models/title_structured_lr/metadata/part-00000-12234848-82e1-46b3-ab51-9126f615921e-c000.txt",
+          "sha256": "f824dfe2fc8e4168ee9f2160759e6e0c91773c92f0ff35357cfea41504490f79"
+        }
+      ],
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/viral_20261126_v1/models/title_structured_lr"
+    },
+    {
+      "files": [
+        {
+          "bytes": 10690,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/reports/experiments/viral_20261126_v1/candidates/title_structured_lr.json",
+          "sha256": "ca2b4d424a43fed450441876e8d17e89c9b037257d0251cf88e56725f80c74db"
+        }
+      ],
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/reports/experiments/viral_20261126_v1/candidates/title_structured_lr.json"
+    }
+  ],
+  "completed_at_utc": "2026-11-25T17:43:46.224316+00:00",
+  "identity_sha256": "c2da805f41cb1714ea4c859f0cfbfff193c516522bea916767c8d2b1dcd2ba3b",
+  "source_files": [
+    {
+      "bytes": 10505,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/src/askreddit/binary_training.py",
+      "sha256": "7d21556ef944b6e00bf49895bad3baa6b01b1112c6e72b4754ae92006d320a48"
+    },
+    {
+      "bytes": 5197,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/src/askreddit/binary_evaluation.py",
+      "sha256": "6b5c28bdd65e7624da78cfe4f3f838d938ece67ac681a2cfdbebee2a32f294ab"
+    },
+    {
+      "bytes": 9198,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/src/askreddit/binary_labeling.py",
+      "sha256": "349f38dbffe4831832637c6cd50736dc2f30fad479d5cd7bba39584c7de7785a"
+    }
+  ]
+}

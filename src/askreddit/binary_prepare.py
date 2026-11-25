@@ -236,7 +236,8 @@ def features_stage(spark, run):
         started = perf_counter()
         frame = data.filter(F.col("split") == split)
         predictors = selection.transform(model.transform(base_features(frame, config))).select("id", *FEATURE_COLUMNS)
-        joined = predictors.join(frame.select("id", "label", "split", "title_seen_in_train"), "id")
+        # month is kept only for month-stratified undersampling of the training rows.
+        joined = predictors.join(frame.select("id", "label", "split", "title_seen_in_train", "month"), "id")
         target = run.data / "features" / split
         joined.repartition(run.config["spark"]["shuffle_partitions"], "id").write.mode("errorifexists") \
             .option("compression", "zstd").parquet(str(target))

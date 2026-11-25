@@ -1,0 +1,71 @@
+{
+  "test": {
+    "groups": {
+      "excluded": {
+        "count": 86108,
+        "percentage_of_split": 70.12794514077223
+      },
+      "high": {
+        "count": 847,
+        "percentage_of_split": 0.6898124394276267
+      },
+      "low": {
+        "count": 35832,
+        "percentage_of_split": 29.18224241980014
+      },
+      "middle": {
+        "count": 0,
+        "percentage_of_split": 0.0
+      }
+    },
+    "kept": 36679,
+    "positive_rate_among_kept": 0.023092232612666647,
+    "total": 122787
+  },
+  "train": {
+    "groups": {
+      "excluded": {
+        "count": 858185,
+        "percentage_of_split": 71.28611300317313
+      },
+      "high": {
+        "count": 7178,
+        "percentage_of_split": 0.5962487332414068
+      },
+      "low": {
+        "count": 338497,
+        "percentage_of_split": 28.117638263585466
+      },
+      "middle": {
+        "count": 0,
+        "percentage_of_split": 0.0
+      }
+    },
+    "kept": 345675,
+    "positive_rate_among_kept": 0.020765169595718523,
+    "total": 1203860
+  },
+  "validation": {
+    "groups": {
+      "excluded": {
+        "count": 164016,
+        "percentage_of_split": 70.66213439143866
+      },
+      "high": {
+        "count": 1619,
+        "percentage_of_split": 0.6975050945013851
+      },
+      "low": {
+        "count": 66478,
+        "percentage_of_split": 28.640360514059964
+      },
+      "middle": {
+        "count": 0,
+        "percentage_of_split": 0.0
+      }
+    },
+    "kept": 68097,
+    "positive_rate_among_kept": 0.02377490932052807,
+    "total": 232113
+  }
+}

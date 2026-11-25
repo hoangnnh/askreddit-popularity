@@ -1,0 +1,2273 @@
+{
+  "coefficient_scale": "Text inputs are L2-normalized TF-IDF; structured inputs are divided by their train standard deviation (coefficients are per 1 SD); time-only inputs are raw sin/cos.",
+  "gradient_boosted_trees": {
+    "gbt_us10": {
+      "structured_importance_share": 0.1676170003393151,
+      "time_importance_share": 0,
+      "top_features": [
+        {
+          "feature": "uppercase_ratio",
+          "importance": 0.06493910989691597,
+          "kind": "structured"
+        },
+        {
+          "feature": "title_characters",
+          "importance": 0.06302317501891301,
+          "kind": "structured"
+        },
+        {
+          "feature": "you",
+          "importance": 0.055592320057896105,
+          "kind": "u"
+        },
+        {
+          "feature": "people",
+          "importance": 0.04449877892340819,
+          "kind": "u"
+        },
+        {
+          "feature": "your",
+          "importance": 0.030854197311084568,
+          "kind": "u"
+        },
+        {
+          "feature": "title_words",
+          "importance": 0.029500064694899873,
+          "kind": "structured"
+        },
+        {
+          "feature": "sign",
+          "importance": 0.02753180578624397,
+          "kind": "u"
+        },
+        {
+          "feature": "what",
+          "importance": 0.026923050752913093,
+          "kind": "u"
+        },
+        {
+          "feature": "president",
+          "importance": 0.02613343709399092,
+          "kind": "u"
+        },
+        {
+          "feature": "men",
+          "importance": 0.02558469903463098,
+          "kind": "u"
+        },
+        {
+          "feature": "sexual",
+          "importance": 0.024372771477311043,
+          "kind": "u"
+        },
+        {
+          "feature": "sex",
+          "importance": 0.022173163409943342,
+          "kind": "u"
+        },
+        {
+          "feature": "porn",
+          "importance": 0.020858001812427515,
+          "kind": "u"
+        },
+        {
+          "feature": "trump",
+          "importance": 0.019884167834368728,
+          "kind": "u"
+        },
+        {
+          "feature": "would",
+          "importance": 0.019352688879296327,
+          "kind": "u"
+        },
+        {
+          "feature": "that",
+          "importance": 0.018788775361301472,
+          "kind": "u"
+        },
+        {
+          "feature": "celebrity",
+          "importance": 0.018068443966066435,
+          "kind": "u"
+        },
+        {
+          "feature": "what\u2019s a",
+          "importance": 0.017302630356554813,
+          "kind": "b"
+        },
+        {
+          "feature": "elon",
+          "importance": 0.016824024363999712,
+          "kind": "u"
+        },
+        {
+          "feature": "attractive",
+          "importance": 0.015746371144967304,
+          "kind": "u"
+        },
+        {
+          "feature": "fuck",
+          "importance": 0.014513839184910383,
+          "kind": "u"
+        },
+        {
+          "feature": "000",
+          "importance": 0.014131223117283504,
+          "kind": "u"
+        },
+        {
+          "feature": "actually",
+          "importance": 0.013966228662564525,
+          "kind": "u"
+        },
+        {
+          "feature": "10",
+          "importance": 0.013726493077068353,
+          "kind": "u"
+        },
+        {
+          "feature": "government",
+          "importance": 0.013313432748633891,
+          "kind": "u"
+        },
+        {
+          "feature": "feel about",
+          "importance": 0.013011310078897904,
+          "kind": "b"
+        },
+        {
+          "feature": "us",
+          "importance": 0.012749902476000857,
+          "kind": "u"
+        },
+        {
+          "feature": "women",
+          "importance": 0.01209259959927188,
+          "kind": "u"
+        },
+        {
+          "feature": "conservatives",
+          "importance": 0.010174511820941905,
+          "kind": "u"
+        },
+        {
+          "feature": "question_count",
+          "importance": 0.010154650728586232,
+          "kind": "structured"
+        }
+      ]
+    },
+    "gbt_weighted": {
+      "structured_importance_share": 0.24090324072045333,
+      "time_importance_share": 0,
+      "top_features": [
+        {
+          "feature": "title_characters",
+          "importance": 0.1027394638656154,
+          "kind": "structured"
+        },
+        {
+          "feature": "uppercase_ratio",
+          "importance": 0.0894762209772825,
+          "kind": "structured"
+        },
+        {
+          "feature": "you",
+          "importance": 0.0480871678050315,
+          "kind": "u"
+        },
+        {
+          "feature": "nsfw",
+          "importance": 0.046913979348399054,
+          "kind": "u"
+        },
+        {
+          "feature": "what",
+          "importance": 0.03576929214157272,
+          "kind": "u"
+        },
+        {
+          "feature": "americans",
+          "importance": 0.026735813702627103,
+          "kind": "u"
+        },
+        {
+          "feature": "men",
+          "importance": 0.026187230401607187,
+          "kind": "u"
+        },
+        {
+          "feature": "the best",
+          "importance": 0.025765540362594572,
+          "kind": "b"
+        },
+        {
+          "feature": "sexual",
+          "importance": 0.0253402574260641,
+          "kind": "u"
+        },
+        {
+          "feature": "sign",
+          "importance": 0.02533826531765484,
+          "kind": "u"
+        },
+        {
+          "feature": "would",
+          "importance": 0.025229637882873957,
+          "kind": "u"
+        },
+        {
+          "feature": "question_count",
+          "importance": 0.024858165380640215,
+          "kind": "structured"
+        },
+        {
+          "feature": "title_words",
+          "importance": 0.0238293904969152,
+          "kind": "structured"
+        },
+        {
+          "feature": "your",
+          "importance": 0.023705451067457105,
+          "kind": "u"
+        },
+        {
+          "feature": "that",
+          "importance": 0.022109576917040095,
+          "kind": "u"
+        },
+        {
+          "feature": "trump",
+          "importance": 0.021588833205657004,
+          "kind": "u"
+        },
+        {
+          "feature": "what\u2019s a",
+          "importance": 0.019779998240874612,
+          "kind": "b"
+        },
+        {
+          "feature": "celebrity",
+          "importance": 0.019258222043347466,
+          "kind": "u"
+        },
+        {
+          "feature": "epstein",
+          "importance": 0.01921723171622863,
+          "kind": "u"
+        },
+        {
+          "feature": "porn",
+          "importance": 0.016136106383145516,
+          "kind": "u"
+        },
+        {
+          "feature": "actually",
+          "importance": 0.01535796798374708,
+          "kind": "u"
+        },
+        {
+          "feature": "and why",
+          "importance": 0.014967202669594209,
+          "kind": "b"
+        },
+        {
+          "feature": "sex",
+          "importance": 0.01494204029336705,
+          "kind": "u"
+        },
+        {
+          "feature": "10",
+          "importance": 0.014395854168485609,
+          "kind": "u"
+        },
+        {
+          "feature": "feel about",
+          "importance": 0.013480433151387805,
+          "kind": "b"
+        },
+        {
+          "feature": "attractive",
+          "importance": 0.01341403720596225,
+          "kind": "u"
+        },
+        {
+          "feature": "people",
+          "importance": 0.013005088214665797,
+          "kind": "u"
+        },
+        {
+          "feature": "now",
+          "importance": 0.012732766971068102,
+          "kind": "u"
+        },
+        {
+          "feature": "could",
+          "importance": 0.011989537672981394,
+          "kind": "u"
+        },
+        {
+          "feature": "president",
+          "importance": 0.011266129303789599,
+          "kind": "u"
+        }
+      ]
+    }
+  },
+  "logistic_regression": {
+    "lr_us10_r1e4": {
+      "intercept": 6.45369389917418,
+      "structured": {
+        "question_count": -0.10245186323033338,
+        "question_present": -0.030474421968789127,
+        "title_characters": 0.5110609478268079,
+        "title_words": -0.24777591006684754,
+        "uppercase_ratio": 0.13941437754775635
+      },
+      "time": {},
+      "top_negative": [
+        {
+          "coefficient": -2.0853013632463373,
+          "kind": "u",
+          "term": "or"
+        },
+        {
+          "coefficient": -1.5642641188503377,
+          "kind": "u",
+          "term": "and"
+        },
+        {
+          "coefficient": -1.32792257511397,
+          "kind": "u",
+          "term": "your"
+        },
+        {
+          "coefficient": -1.1140472750292814,
+          "kind": "u",
+          "term": "favorite"
+        },
+        {
+          "coefficient": -1.0790572134306238,
+          "kind": "u",
+          "term": "you"
+        },
+        {
+          "coefficient": -1.056714398145484,
+          "kind": "u",
+          "term": "best"
+        },
+        {
+          "coefficient": -0.9694569820565936,
+          "kind": "b",
+          "term": "the best"
+        },
+        {
+          "coefficient": -0.963010807241564,
+          "kind": "u",
+          "term": "would"
+        },
+        {
+          "coefficient": -0.9274713616058269,
+          "kind": "u",
+          "term": "when"
+        },
+        {
+          "coefficient": -0.9182806528257677,
+          "kind": "u",
+          "term": "some"
+        },
+        {
+          "coefficient": -0.8914557246999478,
+          "kind": "b",
+          "term": "your favorite"
+        },
+        {
+          "coefficient": -0.8894873480291193,
+          "kind": "u",
+          "term": "like"
+        },
+        {
+          "coefficient": -0.8591908463059093,
+          "kind": "b",
+          "term": "and why"
+        },
+        {
+          "coefficient": -0.8427510852046534,
+          "kind": "b",
+          "term": "would you"
+        },
+        {
+          "coefficient": -0.8153972099600696,
+          "kind": "u",
+          "term": "could"
+        },
+        {
+          "coefficient": -0.7975663903243342,
+          "kind": "u",
+          "term": "advice"
+        },
+        {
+          "coefficient": -0.7936153447257319,
+          "kind": "b",
+          "term": "if you"
+        },
+        {
+          "coefficient": -0.7850567047144829,
+          "kind": "u",
+          "term": "how"
+        },
+        {
+          "coefficient": -0.7475015708428806,
+          "kind": "b",
+          "term": "are some"
+        },
+        {
+          "coefficient": -0.7263310997526239,
+          "kind": "b",
+          "term": "what are"
+        },
+        {
+          "coefficient": -0.7145992001399214,
+          "kind": "b",
+          "term": "do you"
+        },
+        {
+          "coefficient": -0.7110534050222271,
+          "kind": "u",
+          "term": "favourite"
+        },
+        {
+          "coefficient": -0.7096645769721288,
+          "kind": "u",
+          "term": "with"
+        },
+        {
+          "coefficient": -0.6836610703517458,
+          "kind": "u",
+          "term": "love"
+        },
+        {
+          "coefficient": -0.6786807955295412,
+          "kind": "u",
+          "term": "life"
+        },
+        {
+          "coefficient": -0.6658923600987117,
+          "kind": "u",
+          "term": "movie"
+        },
+        {
+          "coefficient": -0.6570166644804772,
+          "kind": "u",
+          "term": "what"
+        },
+        {
+          "coefficient": -0.6505148282210546,
+          "kind": "u",
+          "term": "one"
+        },
+        {
+          "coefficient": -0.6490867344132145,
+          "kind": "b",
+          "term": "are the"
+        },
+        {
+          "coefficient": -0.6475824517926624,
+          "kind": "u",
+          "term": "online"
+        }
+      ],
+      "top_positive": [
+        {
+          "coefficient": 3.755383162887783,
+          "kind": "u",
+          "term": "sex"
+        },
+        {
+          "coefficient": 3.5714462873945387,
+          "kind": "u",
+          "term": "trump"
+        },
+        {
+          "coefficient": 2.509459307731353,
+          "kind": "u",
+          "term": "nsfw"
+        },
+        {
+          "coefficient": 1.7136857500795484,
+          "kind": "u",
+          "term": "americans"
+        },
+        {
+          "coefficient": 1.6528077128434975,
+          "kind": "u",
+          "term": "people"
+        },
+        {
+          "coefficient": 1.5866492379710375,
+          "kind": "u",
+          "term": "men"
+        },
+        {
+          "coefficient": 1.5163673870998886,
+          "kind": "u",
+          "term": "epstein"
+        },
+        {
+          "coefficient": 1.5076332314421448,
+          "kind": "u",
+          "term": "sexual"
+        },
+        {
+          "coefficient": 1.4752413966079605,
+          "kind": "u",
+          "term": "porn"
+        },
+        {
+          "coefficient": 1.384939565920417,
+          "kind": "u",
+          "term": "president"
+        },
+        {
+          "coefficient": 1.3329829585553272,
+          "kind": "u",
+          "term": "sign"
+        },
+        {
+          "coefficient": 1.293198583126953,
+          "kind": "b",
+          "term": "feel about"
+        },
+        {
+          "coefficient": 1.2454482896387353,
+          "kind": "u",
+          "term": "10"
+        },
+        {
+          "coefficient": 1.1893134729577712,
+          "kind": "u",
+          "term": "celebrity"
+        },
+        {
+          "coefficient": 1.1839361677977134,
+          "kind": "u",
+          "term": "women"
+        },
+        {
+          "coefficient": 1.148182812625883,
+          "kind": "u",
+          "term": "us"
+        },
+        {
+          "coefficient": 1.1082547103902394,
+          "kind": "u",
+          "term": "fuck"
+        },
+        {
+          "coefficient": 1.0937480193687616,
+          "kind": "u",
+          "term": "attractive"
+        },
+        {
+          "coefficient": 1.0768605716344553,
+          "kind": "u",
+          "term": "not"
+        },
+        {
+          "coefficient": 1.0675911135020069,
+          "kind": "u",
+          "term": "actually"
+        },
+        {
+          "coefficient": 0.9972177902908022,
+          "kind": "b",
+          "term": "what\u2019s a"
+        },
+        {
+          "coefficient": 0.9957681170346359,
+          "kind": "u",
+          "term": "elon"
+        },
+        {
+          "coefficient": 0.927805343020839,
+          "kind": "u",
+          "term": "he"
+        },
+        {
+          "coefficient": 0.9086729992018692,
+          "kind": "u",
+          "term": "government"
+        },
+        {
+          "coefficient": 0.8754277702250833,
+          "kind": "u",
+          "term": "musk"
+        },
+        {
+          "coefficient": 0.8741728210264326,
+          "kind": "u",
+          "term": "die"
+        },
+        {
+          "coefficient": 0.8734090622132108,
+          "kind": "u",
+          "term": "screams"
+        },
+        {
+          "coefficient": 0.8618351144319055,
+          "kind": "u",
+          "term": "death"
+        },
+        {
+          "coefficient": 0.8442707360859453,
+          "kind": "b",
+          "term": "the epstein"
+        },
+        {
+          "coefficient": 0.8401391492258863,
+          "kind": "u",
+          "term": "000"
+        }
+      ]
+    },
+    "lr_us10_r1e5": {
+      "intercept": 4.400751667869342,
+      "structured": {
+        "question_count": -0.06986087228131481,
+        "question_present": -0.02407088018481787,
+        "title_characters": 0.47104388567727457,
+        "title_words": -0.2407774609414515,
+        "uppercase_ratio": 0.08851554732935132
+      },
+      "time": {},
+      "top_negative": [
+        {
+          "coefficient": -4.2471119857803625,
+          "kind": "u",
+          "term": "or"
+        },
+        {
+          "coefficient": -2.802172692381674,
+          "kind": "u",
+          "term": "and"
+        },
+        {
+          "coefficient": -2.404136679459467,
+          "kind": "u",
+          "term": "online"
+        },
+        {
+          "coefficient": -2.2771911468850816,
+          "kind": "u",
+          "term": "advice"
+        },
+        {
+          "coefficient": -2.248577752705871,
+          "kind": "b",
+          "term": "to someone"
+        },
+        {
+          "coefficient": -2.21127891300538,
+          "kind": "u",
+          "term": "something"
+        },
+        {
+          "coefficient": -2.19943645322187,
+          "kind": "u",
+          "term": "how"
+        },
+        {
+          "coefficient": -2.118002446413239,
+          "kind": "b",
+          "term": "about you"
+        },
+        {
+          "coefficient": -2.049260916318252,
+          "kind": "u",
+          "term": "different"
+        },
+        {
+          "coefficient": -2.048949994966405,
+          "kind": "u",
+          "term": "question"
+        },
+        {
+          "coefficient": -2.0259882715855992,
+          "kind": "u",
+          "term": "favorite"
+        },
+        {
+          "coefficient": -1.9170892498729986,
+          "kind": "b",
+          "term": "is it"
+        },
+        {
+          "coefficient": -1.8465147126589183,
+          "kind": "u",
+          "term": "you"
+        },
+        {
+          "coefficient": -1.8053904265577603,
+          "kind": "u",
+          "term": "products"
+        },
+        {
+          "coefficient": -1.7927161557255376,
+          "kind": "u",
+          "term": "when"
+        },
+        {
+          "coefficient": -1.791003816612439,
+          "kind": "b",
+          "term": "you always"
+        },
+        {
+          "coefficient": -1.781552539665188,
+          "kind": "u",
+          "term": "some"
+        },
+        {
+          "coefficient": -1.7618586262656495,
+          "kind": "b",
+          "term": "this year"
+        },
+        {
+          "coefficient": -1.7459496008686808,
+          "kind": "u",
+          "term": "favourite"
+        },
+        {
+          "coefficient": -1.7294349562266758,
+          "kind": "u",
+          "term": "etc"
+        },
+        {
+          "coefficient": -1.7257873165810245,
+          "kind": "u",
+          "term": "best"
+        },
+        {
+          "coefficient": -1.72283621088622,
+          "kind": "u",
+          "term": "character"
+        },
+        {
+          "coefficient": -1.714976124025544,
+          "kind": "b",
+          "term": "are the"
+        },
+        {
+          "coefficient": -1.7014214513016723,
+          "kind": "u",
+          "term": "thought"
+        },
+        {
+          "coefficient": -1.6895524844892562,
+          "kind": "b",
+          "term": "ever had"
+        },
+        {
+          "coefficient": -1.6845394077065592,
+          "kind": "u",
+          "term": "what"
+        },
+        {
+          "coefficient": -1.6792343477957627,
+          "kind": "u",
+          "term": "change"
+        },
+        {
+          "coefficient": -1.678815656959588,
+          "kind": "u",
+          "term": "series"
+        },
+        {
+          "coefficient": -1.6686611125400748,
+          "kind": "u",
+          "term": "things"
+        },
+        {
+          "coefficient": -1.6474750615067788,
+          "kind": "u",
+          "term": "love"
+        }
+      ],
+      "top_positive": [
+        {
+          "coefficient": 7.56011997684828,
+          "kind": "u",
+          "term": "sex"
+        },
+        {
+          "coefficient": 6.706442068524987,
+          "kind": "u",
+          "term": "nsfw"
+        },
+        {
+          "coefficient": 5.9377726684871845,
+          "kind": "u",
+          "term": "trump"
+        },
+        {
+          "coefficient": 4.981891071822346,
+          "kind": "u",
+          "term": "porn"
+        },
+        {
+          "coefficient": 4.611282686695445,
+          "kind": "u",
+          "term": "sexual"
+        },
+        {
+          "coefficient": 4.445831303063816,
+          "kind": "u",
+          "term": "fuck"
+        },
+        {
+          "coefficient": 4.032625597345191,
+          "kind": "u",
+          "term": "naked"
+        },
+        {
+          "coefficient": 3.97610184967896,
+          "kind": "u",
+          "term": "horny"
+        },
+        {
+          "coefficient": 3.7522578299344937,
+          "kind": "u",
+          "term": "americans"
+        },
+        {
+          "coefficient": 3.7246441041017557,
+          "kind": "u",
+          "term": "president"
+        },
+        {
+          "coefficient": 3.52989598857405,
+          "kind": "u",
+          "term": "intimate"
+        },
+        {
+          "coefficient": 3.257106320681973,
+          "kind": "u",
+          "term": "epstein"
+        },
+        {
+          "coefficient": 3.071113141487166,
+          "kind": "u",
+          "term": "men"
+        },
+        {
+          "coefficient": 2.9772319516843937,
+          "kind": "u",
+          "term": "conservatives"
+        },
+        {
+          "coefficient": 2.912104296823617,
+          "kind": "b",
+          "term": "u s"
+        },
+        {
+          "coefficient": 2.8941678997132065,
+          "kind": "u",
+          "term": "die"
+        },
+        {
+          "coefficient": 2.82654259279649,
+          "kind": "u",
+          "term": "000"
+        },
+        {
+          "coefficient": 2.8138616549027073,
+          "kind": "u",
+          "term": "sexy"
+        },
+        {
+          "coefficient": 2.743198399924677,
+          "kind": "u",
+          "term": "elon"
+        },
+        {
+          "coefficient": 2.723247334856767,
+          "kind": "b",
+          "term": "feel about"
+        },
+        {
+          "coefficient": 2.6670055370731474,
+          "kind": "u",
+          "term": "people"
+        },
+        {
+          "coefficient": 2.642102579241055,
+          "kind": "u",
+          "term": "attractive"
+        },
+        {
+          "coefficient": 2.599529642225291,
+          "kind": "u",
+          "term": "illegal"
+        },
+        {
+          "coefficient": 2.5428092611002424,
+          "kind": "u",
+          "term": "fucked"
+        },
+        {
+          "coefficient": 2.5317623516954715,
+          "kind": "u",
+          "term": "sexually"
+        },
+        {
+          "coefficient": 2.517064503577634,
+          "kind": "b",
+          "term": "in bed"
+        },
+        {
+          "coefficient": 2.516891220420554,
+          "kind": "u",
+          "term": "sign"
+        },
+        {
+          "coefficient": 2.4657303787687956,
+          "kind": "u",
+          "term": "military"
+        },
+        {
+          "coefficient": 2.4576625250813238,
+          "kind": "u",
+          "term": "celebrity"
+        },
+        {
+          "coefficient": 2.415164103513276,
+          "kind": "u",
+          "term": "congress"
+        }
+      ]
+    },
+    "lr_us20_r1e4": {
+      "intercept": 5.689663246787185,
+      "structured": {
+        "question_count": -0.11927152573717878,
+        "question_present": -0.030084367415005545,
+        "title_characters": 0.5640029961189387,
+        "title_words": -0.2982167739540341,
+        "uppercase_ratio": 0.14187288225309252
+      },
+      "time": {},
+      "top_negative": [
+        {
+          "coefficient": -1.4958510877763986,
+          "kind": "u",
+          "term": "or"
+        },
+        {
+          "coefficient": -1.1395231368343022,
+          "kind": "u",
+          "term": "and"
+        },
+        {
+          "coefficient": -1.0835561607822153,
+          "kind": "u",
+          "term": "your"
+        },
+        {
+          "coefficient": -0.8617266756274857,
+          "kind": "u",
+          "term": "favorite"
+        },
+        {
+          "coefficient": -0.8339175346757953,
+          "kind": "u",
+          "term": "best"
+        },
+        {
+          "coefficient": -0.8236180274111684,
+          "kind": "u",
+          "term": "you"
+        },
+        {
+          "coefficient": -0.7986771139943963,
+          "kind": "u",
+          "term": "would"
+        },
+        {
+          "coefficient": -0.7413960596873829,
+          "kind": "b",
+          "term": "the best"
+        },
+        {
+          "coefficient": -0.7175435727062427,
+          "kind": "b",
+          "term": "your favorite"
+        },
+        {
+          "coefficient": -0.6785066492842509,
+          "kind": "b",
+          "term": "would you"
+        },
+        {
+          "coefficient": -0.6634323961369307,
+          "kind": "u",
+          "term": "some"
+        },
+        {
+          "coefficient": -0.6620949127097467,
+          "kind": "u",
+          "term": "when"
+        },
+        {
+          "coefficient": -0.6377586112213514,
+          "kind": "u",
+          "term": "could"
+        },
+        {
+          "coefficient": -0.6365288652810263,
+          "kind": "b",
+          "term": "and why"
+        },
+        {
+          "coefficient": -0.623776426428971,
+          "kind": "b",
+          "term": "if you"
+        },
+        {
+          "coefficient": -0.5976114059346053,
+          "kind": "u",
+          "term": "like"
+        },
+        {
+          "coefficient": -0.5695063301295328,
+          "kind": "u",
+          "term": "with"
+        },
+        {
+          "coefficient": -0.5465044768445821,
+          "kind": "u",
+          "term": "advice"
+        },
+        {
+          "coefficient": -0.5457897912844211,
+          "kind": "b",
+          "term": "are some"
+        },
+        {
+          "coefficient": -0.5410691962067853,
+          "kind": "b",
+          "term": "do you"
+        },
+        {
+          "coefficient": -0.5329554630827315,
+          "kind": "b",
+          "term": "what are"
+        },
+        {
+          "coefficient": -0.5295746999748245,
+          "kind": "u",
+          "term": "life"
+        },
+        {
+          "coefficient": -0.5261517616703354,
+          "kind": "u",
+          "term": "one"
+        },
+        {
+          "coefficient": -0.5212270380231075,
+          "kind": "u",
+          "term": "how"
+        },
+        {
+          "coefficient": -0.5108113791194487,
+          "kind": "b",
+          "term": "what would"
+        },
+        {
+          "coefficient": -0.5104778675103778,
+          "kind": "b",
+          "term": "you could"
+        },
+        {
+          "coefficient": -0.5087529113147206,
+          "kind": "u",
+          "term": "what"
+        },
+        {
+          "coefficient": -0.5069892317935536,
+          "kind": "u",
+          "term": "favourite"
+        },
+        {
+          "coefficient": -0.4831685387611834,
+          "kind": "u",
+          "term": "to"
+        },
+        {
+          "coefficient": -0.4787914453179352,
+          "kind": "b",
+          "term": "is your"
+        }
+      ],
+      "top_positive": [
+        {
+          "coefficient": 2.869858992374569,
+          "kind": "u",
+          "term": "trump"
+        },
+        {
+          "coefficient": 2.7022767811144557,
+          "kind": "u",
+          "term": "sex"
+        },
+        {
+          "coefficient": 1.628107549425153,
+          "kind": "u",
+          "term": "nsfw"
+        },
+        {
+          "coefficient": 1.2697975533271517,
+          "kind": "u",
+          "term": "americans"
+        },
+        {
+          "coefficient": 1.2520128798625993,
+          "kind": "u",
+          "term": "people"
+        },
+        {
+          "coefficient": 1.2120749804509967,
+          "kind": "u",
+          "term": "epstein"
+        },
+        {
+          "coefficient": 1.1275453221654637,
+          "kind": "u",
+          "term": "men"
+        },
+        {
+          "coefficient": 1.0069314375768292,
+          "kind": "u",
+          "term": "sign"
+        },
+        {
+          "coefficient": 0.9904432899349442,
+          "kind": "b",
+          "term": "feel about"
+        },
+        {
+          "coefficient": 0.9445088909281989,
+          "kind": "u",
+          "term": "president"
+        },
+        {
+          "coefficient": 0.943553089803009,
+          "kind": "u",
+          "term": "sexual"
+        },
+        {
+          "coefficient": 0.9047872072164809,
+          "kind": "u",
+          "term": "porn"
+        },
+        {
+          "coefficient": 0.8673072966877936,
+          "kind": "u",
+          "term": "10"
+        },
+        {
+          "coefficient": 0.840857596196918,
+          "kind": "u",
+          "term": "us"
+        },
+        {
+          "coefficient": 0.8118170276371234,
+          "kind": "b",
+          "term": "what\u2019s a"
+        },
+        {
+          "coefficient": 0.7905727936405567,
+          "kind": "u",
+          "term": "celebrity"
+        },
+        {
+          "coefficient": 0.7774430476230905,
+          "kind": "u",
+          "term": "not"
+        },
+        {
+          "coefficient": 0.7708124391386371,
+          "kind": "u",
+          "term": "actually"
+        },
+        {
+          "coefficient": 0.762874528694361,
+          "kind": "u",
+          "term": "women"
+        },
+        {
+          "coefficient": 0.7378210137672128,
+          "kind": "b",
+          "term": "epstein files"
+        },
+        {
+          "coefficient": 0.7356976343889222,
+          "kind": "u",
+          "term": "files"
+        },
+        {
+          "coefficient": 0.7338272954937499,
+          "kind": "u",
+          "term": "attractive"
+        },
+        {
+          "coefficient": 0.7238805123989938,
+          "kind": "u",
+          "term": "elon"
+        },
+        {
+          "coefficient": 0.7225882350714973,
+          "kind": "b",
+          "term": "the epstein"
+        },
+        {
+          "coefficient": 0.6765548233727421,
+          "kind": "u",
+          "term": "musk"
+        },
+        {
+          "coefficient": 0.6623869494046342,
+          "kind": "u",
+          "term": "he"
+        },
+        {
+          "coefficient": 0.6278881789412457,
+          "kind": "u",
+          "term": "fuck"
+        },
+        {
+          "coefficient": 0.6194556045599947,
+          "kind": "u",
+          "term": "now"
+        },
+        {
+          "coefficient": 0.6013433384353885,
+          "kind": "b",
+          "term": "the us"
+        },
+        {
+          "coefficient": 0.598199392588744,
+          "kind": "u",
+          "term": "government"
+        }
+      ]
+    },
+    "lr_us5_r1e4": {
+      "intercept": 7.043728377933707,
+      "structured": {
+        "question_count": -0.0870717171447434,
+        "question_present": -0.030215086790406416,
+        "title_characters": 0.46641041832127017,
+        "title_words": -0.2200674020946292,
+        "uppercase_ratio": 0.12201110575015198
+      },
+      "time": {},
+      "top_negative": [
+        {
+          "coefficient": -2.661027924408726,
+          "kind": "u",
+          "term": "or"
+        },
+        {
+          "coefficient": -1.8577031669860016,
+          "kind": "u",
+          "term": "and"
+        },
+        {
+          "coefficient": -1.4515783967531777,
+          "kind": "u",
+          "term": "your"
+        },
+        {
+          "coefficient": -1.4152254156242654,
+          "kind": "u",
+          "term": "favorite"
+        },
+        {
+          "coefficient": -1.292515458848791,
+          "kind": "u",
+          "term": "you"
+        },
+        {
+          "coefficient": -1.2582495772313547,
+          "kind": "u",
+          "term": "best"
+        },
+        {
+          "coefficient": -1.1781047825314144,
+          "kind": "u",
+          "term": "would"
+        },
+        {
+          "coefficient": -1.164010283816684,
+          "kind": "b",
+          "term": "the best"
+        },
+        {
+          "coefficient": -1.1596994296444976,
+          "kind": "u",
+          "term": "some"
+        },
+        {
+          "coefficient": -1.1490060924118974,
+          "kind": "u",
+          "term": "when"
+        },
+        {
+          "coefficient": -1.0592303494869357,
+          "kind": "u",
+          "term": "like"
+        },
+        {
+          "coefficient": -1.0532013497711834,
+          "kind": "u",
+          "term": "advice"
+        },
+        {
+          "coefficient": -1.039348574686792,
+          "kind": "u",
+          "term": "how"
+        },
+        {
+          "coefficient": -1.03600615748675,
+          "kind": "u",
+          "term": "could"
+        },
+        {
+          "coefficient": -1.0009531288956965,
+          "kind": "b",
+          "term": "your favorite"
+        },
+        {
+          "coefficient": -0.9867728326963254,
+          "kind": "b",
+          "term": "and why"
+        },
+        {
+          "coefficient": -0.9824832550315977,
+          "kind": "u",
+          "term": "favourite"
+        },
+        {
+          "coefficient": -0.9488656563852395,
+          "kind": "b",
+          "term": "you do"
+        },
+        {
+          "coefficient": -0.9456566554859808,
+          "kind": "b",
+          "term": "would you"
+        },
+        {
+          "coefficient": -0.9349569146445242,
+          "kind": "u",
+          "term": "love"
+        },
+        {
+          "coefficient": -0.9185296350791209,
+          "kind": "u",
+          "term": "something"
+        },
+        {
+          "coefficient": -0.9070602575848792,
+          "kind": "u",
+          "term": "movie"
+        },
+        {
+          "coefficient": -0.8996614007887597,
+          "kind": "b",
+          "term": "are the"
+        },
+        {
+          "coefficient": -0.8971773733426042,
+          "kind": "b",
+          "term": "did you"
+        },
+        {
+          "coefficient": -0.8876025876674104,
+          "kind": "u",
+          "term": "online"
+        },
+        {
+          "coefficient": -0.864462668090102,
+          "kind": "u",
+          "term": "song"
+        },
+        {
+          "coefficient": -0.8635376175415482,
+          "kind": "u",
+          "term": "question"
+        },
+        {
+          "coefficient": -0.8625159322271427,
+          "kind": "b",
+          "term": "are some"
+        },
+        {
+          "coefficient": -0.8603801696016579,
+          "kind": "b",
+          "term": "is it"
+        },
+        {
+          "coefficient": -0.8547447304884095,
+          "kind": "u",
+          "term": "better"
+        }
+      ],
+      "top_positive": [
+        {
+          "coefficient": 4.63067900860956,
+          "kind": "u",
+          "term": "sex"
+        },
+        {
+          "coefficient": 4.075141593000798,
+          "kind": "u",
+          "term": "trump"
+        },
+        {
+          "coefficient": 3.36264485984372,
+          "kind": "u",
+          "term": "nsfw"
+        },
+        {
+          "coefficient": 2.112947174334422,
+          "kind": "u",
+          "term": "americans"
+        },
+        {
+          "coefficient": 2.052889267896683,
+          "kind": "u",
+          "term": "porn"
+        },
+        {
+          "coefficient": 2.03799570826594,
+          "kind": "u",
+          "term": "sexual"
+        },
+        {
+          "coefficient": 1.9791749404957946,
+          "kind": "u",
+          "term": "people"
+        },
+        {
+          "coefficient": 1.936444567770752,
+          "kind": "u",
+          "term": "men"
+        },
+        {
+          "coefficient": 1.7573595776866069,
+          "kind": "u",
+          "term": "epstein"
+        },
+        {
+          "coefficient": 1.7158694922229565,
+          "kind": "u",
+          "term": "president"
+        },
+        {
+          "coefficient": 1.6905341879417501,
+          "kind": "b",
+          "term": "feel about"
+        },
+        {
+          "coefficient": 1.649692129460265,
+          "kind": "u",
+          "term": "fuck"
+        },
+        {
+          "coefficient": 1.6004218029678083,
+          "kind": "u",
+          "term": "celebrity"
+        },
+        {
+          "coefficient": 1.5371577793556042,
+          "kind": "u",
+          "term": "sign"
+        },
+        {
+          "coefficient": 1.4956708625336292,
+          "kind": "u",
+          "term": "women"
+        },
+        {
+          "coefficient": 1.4737151767343577,
+          "kind": "u",
+          "term": "10"
+        },
+        {
+          "coefficient": 1.425968280036465,
+          "kind": "u",
+          "term": "die"
+        },
+        {
+          "coefficient": 1.3772648283462965,
+          "kind": "u",
+          "term": "us"
+        },
+        {
+          "coefficient": 1.3765532729777257,
+          "kind": "u",
+          "term": "attractive"
+        },
+        {
+          "coefficient": 1.3234628657271714,
+          "kind": "u",
+          "term": "not"
+        },
+        {
+          "coefficient": 1.275507169437411,
+          "kind": "u",
+          "term": "actually"
+        },
+        {
+          "coefficient": 1.2355556111683448,
+          "kind": "u",
+          "term": "naked"
+        },
+        {
+          "coefficient": 1.2224927357624638,
+          "kind": "u",
+          "term": "000"
+        },
+        {
+          "coefficient": 1.1936353348129403,
+          "kind": "u",
+          "term": "screams"
+        },
+        {
+          "coefficient": 1.1696147939293635,
+          "kind": "u",
+          "term": "death"
+        },
+        {
+          "coefficient": 1.1674533141027885,
+          "kind": "b",
+          "term": "what\u2019s a"
+        },
+        {
+          "coefficient": 1.1128617298457306,
+          "kind": "u",
+          "term": "no"
+        },
+        {
+          "coefficient": 1.092548287656686,
+          "kind": "u",
+          "term": "he"
+        },
+        {
+          "coefficient": 1.085682519991882,
+          "kind": "u",
+          "term": "instantly"
+        },
+        {
+          "coefficient": 1.0839359610448005,
+          "kind": "b",
+          "term": "u s"
+        }
+      ]
+    },
+    "lr_weighted_r1e4": {
+      "intercept": -0.1367763467011642,
+      "structured": {
+        "question_count": -0.0879211247656124,
+        "question_present": -0.0009909880027516892,
+        "title_characters": 0.4674239153156097,
+        "title_words": -0.21780906556049823,
+        "uppercase_ratio": 0.1149641794479011
+      },
+      "time": {},
+      "top_negative": [
+        {
+          "coefficient": -3.2099104256161386,
+          "kind": "u",
+          "term": "or"
+        },
+        {
+          "coefficient": -2.2945247804518547,
+          "kind": "u",
+          "term": "and"
+        },
+        {
+          "coefficient": -1.6610400419833369,
+          "kind": "u",
+          "term": "favorite"
+        },
+        {
+          "coefficient": -1.5160783865467309,
+          "kind": "u",
+          "term": "advice"
+        },
+        {
+          "coefficient": -1.4950634313206213,
+          "kind": "u",
+          "term": "how"
+        },
+        {
+          "coefficient": -1.4945293893089198,
+          "kind": "u",
+          "term": "your"
+        },
+        {
+          "coefficient": -1.4884444994890558,
+          "kind": "u",
+          "term": "best"
+        },
+        {
+          "coefficient": -1.3698175452276735,
+          "kind": "b",
+          "term": "the best"
+        },
+        {
+          "coefficient": -1.3208103593148701,
+          "kind": "u",
+          "term": "things"
+        },
+        {
+          "coefficient": -1.317475367984869,
+          "kind": "u",
+          "term": "you"
+        },
+        {
+          "coefficient": -1.3122202391024005,
+          "kind": "u",
+          "term": "would"
+        },
+        {
+          "coefficient": -1.3011545393299848,
+          "kind": "u",
+          "term": "some"
+        },
+        {
+          "coefficient": -1.298809161813976,
+          "kind": "u",
+          "term": "when"
+        },
+        {
+          "coefficient": -1.2792569846857562,
+          "kind": "u",
+          "term": "online"
+        },
+        {
+          "coefficient": -1.2562845891789003,
+          "kind": "u",
+          "term": "change"
+        },
+        {
+          "coefficient": -1.2397923572929457,
+          "kind": "u",
+          "term": "question"
+        },
+        {
+          "coefficient": -1.239165789039019,
+          "kind": "u",
+          "term": "like"
+        },
+        {
+          "coefficient": -1.2376768921416859,
+          "kind": "u",
+          "term": "favourite"
+        },
+        {
+          "coefficient": -1.1739997485670626,
+          "kind": "u",
+          "term": "different"
+        },
+        {
+          "coefficient": -1.171470849553474,
+          "kind": "u",
+          "term": "new"
+        },
+        {
+          "coefficient": -1.1709509284629058,
+          "kind": "u",
+          "term": "love"
+        },
+        {
+          "coefficient": -1.1177455565504928,
+          "kind": "u",
+          "term": "something"
+        },
+        {
+          "coefficient": -1.1173686423485032,
+          "kind": "u",
+          "term": "could"
+        },
+        {
+          "coefficient": -1.097822911567951,
+          "kind": "b",
+          "term": "is it"
+        },
+        {
+          "coefficient": -1.0869942625010973,
+          "kind": "b",
+          "term": "and why"
+        },
+        {
+          "coefficient": -1.0744180697936938,
+          "kind": "b",
+          "term": "are the"
+        },
+        {
+          "coefficient": -1.0615511165022244,
+          "kind": "u",
+          "term": "song"
+        },
+        {
+          "coefficient": -1.0559265570380028,
+          "kind": "b",
+          "term": "to someone"
+        },
+        {
+          "coefficient": -1.051302179318777,
+          "kind": "b",
+          "term": "your favourite"
+        },
+        {
+          "coefficient": -1.036750914604174,
+          "kind": "u",
+          "term": "with"
+        }
+      ],
+      "top_positive": [
+        {
+          "coefficient": 5.354776055783424,
+          "kind": "u",
+          "term": "sex"
+        },
+        {
+          "coefficient": 4.253426741884562,
+          "kind": "u",
+          "term": "trump"
+        },
+        {
+          "coefficient": 3.632741756451221,
+          "kind": "u",
+          "term": "nsfw"
+        },
+        {
+          "coefficient": 2.6832245998593667,
+          "kind": "u",
+          "term": "sexual"
+        },
+        {
+          "coefficient": 2.5307182294164874,
+          "kind": "u",
+          "term": "men"
+        },
+        {
+          "coefficient": 2.5016787236197024,
+          "kind": "u",
+          "term": "americans"
+        },
+        {
+          "coefficient": 2.4185899811814444,
+          "kind": "u",
+          "term": "porn"
+        },
+        {
+          "coefficient": 2.3591157145045956,
+          "kind": "u",
+          "term": "fuck"
+        },
+        {
+          "coefficient": 2.2384609611431303,
+          "kind": "u",
+          "term": "people"
+        },
+        {
+          "coefficient": 1.984052331610338,
+          "kind": "u",
+          "term": "die"
+        },
+        {
+          "coefficient": 1.9648928771334677,
+          "kind": "u",
+          "term": "epstein"
+        },
+        {
+          "coefficient": 1.9010548726706584,
+          "kind": "u",
+          "term": "10"
+        },
+        {
+          "coefficient": 1.8892318279623153,
+          "kind": "b",
+          "term": "feel about"
+        },
+        {
+          "coefficient": 1.880807388827642,
+          "kind": "u",
+          "term": "sign"
+        },
+        {
+          "coefficient": 1.8422059133635305,
+          "kind": "u",
+          "term": "president"
+        },
+        {
+          "coefficient": 1.8410569309626559,
+          "kind": "u",
+          "term": "naked"
+        },
+        {
+          "coefficient": 1.8373528496742997,
+          "kind": "u",
+          "term": "attractive"
+        },
+        {
+          "coefficient": 1.711745621809267,
+          "kind": "u",
+          "term": "celebrity"
+        },
+        {
+          "coefficient": 1.6001308062040114,
+          "kind": "u",
+          "term": "actually"
+        },
+        {
+          "coefficient": 1.5948244235651354,
+          "kind": "u",
+          "term": "instantly"
+        },
+        {
+          "coefficient": 1.5644876689124756,
+          "kind": "u",
+          "term": "women"
+        },
+        {
+          "coefficient": 1.5258558457120948,
+          "kind": "u",
+          "term": "horny"
+        },
+        {
+          "coefficient": 1.4683906539701668,
+          "kind": "u",
+          "term": "body"
+        },
+        {
+          "coefficient": 1.4616051738663611,
+          "kind": "u",
+          "term": "intimate"
+        },
+        {
+          "coefficient": 1.44487614823205,
+          "kind": "u",
+          "term": "000"
+        },
+        {
+          "coefficient": 1.4312620932206281,
+          "kind": "u",
+          "term": "us"
+        },
+        {
+          "coefficient": 1.4155642761351854,
+          "kind": "u",
+          "term": "not"
+        },
+        {
+          "coefficient": 1.405258477859151,
+          "kind": "u",
+          "term": "death"
+        },
+        {
+          "coefficient": 1.3761766292978002,
+          "kind": "b",
+          "term": "in bed"
+        },
+        {
+          "coefficient": 1.3753740505841752,
+          "kind": "u",
+          "term": "million"
+        }
+      ]
+    },
+    "lr_weighted_r1e5": {
+      "intercept": -1.8743468141110375,
+      "structured": {
+        "question_count": -0.0639861272711154,
+        "question_present": 0.00269317113519271,
+        "title_characters": 0.5845632864743389,
+        "title_words": -0.40015502285441384,
+        "uppercase_ratio": 0.07909616107473728
+      },
+      "time": {},
+      "top_negative": [
+        {
+          "coefficient": -4.615217932558154,
+          "kind": "u",
+          "term": "or"
+        },
+        {
+          "coefficient": -3.3702553960904664,
+          "kind": "b",
+          "term": "to someone"
+        },
+        {
+          "coefficient": -3.358054038192755,
+          "kind": "u",
+          "term": "different"
+        },
+        {
+          "coefficient": -3.2698672824727826,
+          "kind": "u",
+          "term": "something"
+        },
+        {
+          "coefficient": -3.123042366824518,
+          "kind": "u",
+          "term": "online"
+        },
+        {
+          "coefficient": -3.0865131945412085,
+          "kind": "b",
+          "term": "you always"
+        },
+        {
+          "coefficient": -3.044678072897898,
+          "kind": "b",
+          "term": "about you"
+        },
+        {
+          "coefficient": -3.0343795274606657,
+          "kind": "b",
+          "term": "this year"
+        },
+        {
+          "coefficient": -3.0107335031194498,
+          "kind": "u",
+          "term": "advice"
+        },
+        {
+          "coefficient": -2.9757363563874057,
+          "kind": "u",
+          "term": "question"
+        },
+        {
+          "coefficient": -2.9428869470496193,
+          "kind": "u",
+          "term": "and"
+        },
+        {
+          "coefficient": -2.900665027609483,
+          "kind": "b",
+          "term": "would happen"
+        },
+        {
+          "coefficient": -2.8694507003006837,
+          "kind": "u",
+          "term": "experiences"
+        },
+        {
+          "coefficient": -2.8469543280128056,
+          "kind": "u",
+          "term": "things"
+        },
+        {
+          "coefficient": -2.8148556099575095,
+          "kind": "u",
+          "term": "how"
+        },
+        {
+          "coefficient": -2.803446102290459,
+          "kind": "b",
+          "term": "like in"
+        },
+        {
+          "coefficient": -2.680895694097847,
+          "kind": "b",
+          "term": "you guys"
+        },
+        {
+          "coefficient": -2.627276793989404,
+          "kind": "u",
+          "term": "routine"
+        },
+        {
+          "coefficient": -2.605988122998831,
+          "kind": "b",
+          "term": "what if"
+        },
+        {
+          "coefficient": -2.567982626081481,
+          "kind": "u",
+          "term": "favorite"
+        },
+        {
+          "coefficient": -2.5581899701587534,
+          "kind": "u",
+          "term": "fun"
+        },
+        {
+          "coefficient": -2.556910358980224,
+          "kind": "b",
+          "term": "is it"
+        },
+        {
+          "coefficient": -2.527234054641477,
+          "kind": "u",
+          "term": "character"
+        },
+        {
+          "coefficient": -2.5049371600550496,
+          "kind": "u",
+          "term": "series"
+        },
+        {
+          "coefficient": -2.492463599811615,
+          "kind": "u",
+          "term": "characters"
+        },
+        {
+          "coefficient": -2.4842133477589443,
+          "kind": "u",
+          "term": "yours"
+        },
+        {
+          "coefficient": -2.4780010049749572,
+          "kind": "u",
+          "term": "aliens"
+        },
+        {
+          "coefficient": -2.461335945370293,
+          "kind": "b",
+          "term": "what advice"
+        },
+        {
+          "coefficient": -2.454947278040012,
+          "kind": "u",
+          "term": "some"
+        },
+        {
+          "coefficient": -2.4473694880977988,
+          "kind": "u",
+          "term": "helped"
+        }
+      ],
+      "top_positive": [
+        {
+          "coefficient": 9.14941800183823,
+          "kind": "u",
+          "term": "sex"
+        },
+        {
+          "coefficient": 8.069481511687044,
+          "kind": "u",
+          "term": "nsfw"
+        },
+        {
+          "coefficient": 7.445956309622032,
+          "kind": "u",
+          "term": "trump"
+        },
+        {
+          "coefficient": 6.045090892310991,
+          "kind": "u",
+          "term": "porn"
+        },
+        {
+          "coefficient": 5.984283002051007,
+          "kind": "u",
+          "term": "sexual"
+        },
+        {
+          "coefficient": 5.898017482044638,
+          "kind": "u",
+          "term": "fuck"
+        },
+        {
+          "coefficient": 5.558223122196015,
+          "kind": "u",
+          "term": "naked"
+        },
+        {
+          "coefficient": 5.029250638422718,
+          "kind": "u",
+          "term": "americans"
+        },
+        {
+          "coefficient": 5.000189113108295,
+          "kind": "u",
+          "term": "horny"
+        },
+        {
+          "coefficient": 4.925938285693591,
+          "kind": "u",
+          "term": "intimate"
+        },
+        {
+          "coefficient": 4.589074446705741,
+          "kind": "u",
+          "term": "die"
+        },
+        {
+          "coefficient": 4.556866602069771,
+          "kind": "u",
+          "term": "epstein"
+        },
+        {
+          "coefficient": 4.522763205707468,
+          "kind": "u",
+          "term": "men"
+        },
+        {
+          "coefficient": 4.2457355986051555,
+          "kind": "b",
+          "term": "u s"
+        },
+        {
+          "coefficient": 4.10867224111221,
+          "kind": "u",
+          "term": "president"
+        },
+        {
+          "coefficient": 3.8641927208709133,
+          "kind": "u",
+          "term": "conservatives"
+        },
+        {
+          "coefficient": 3.8177037251308583,
+          "kind": "u",
+          "term": "tesla"
+        },
+        {
+          "coefficient": 3.8127266536647446,
+          "kind": "u",
+          "term": "attractive"
+        },
+        {
+          "coefficient": 3.7653738711009717,
+          "kind": "u",
+          "term": "000"
+        },
+        {
+          "coefficient": 3.7192482782116887,
+          "kind": "u",
+          "term": "nude"
+        },
+        {
+          "coefficient": 3.678372082859037,
+          "kind": "u",
+          "term": "instantly"
+        },
+        {
+          "coefficient": 3.663430622901168,
+          "kind": "u",
+          "term": "sexually"
+        },
+        {
+          "coefficient": 3.6323512990137057,
+          "kind": "u",
+          "term": "illegal"
+        },
+        {
+          "coefficient": 3.6208997756899914,
+          "kind": "u",
+          "term": "slept"
+        },
+        {
+          "coefficient": 3.5981890427526726,
+          "kind": "b",
+          "term": "in bed"
+        },
+        {
+          "coefficient": 3.5295288936053426,
+          "kind": "b",
+          "term": "you cried"
+        },
+        {
+          "coefficient": 3.5108991599823542,
+          "kind": "b",
+          "term": "feel about"
+        },
+        {
+          "coefficient": 3.488224968569252,
+          "kind": "u",
+          "term": "single"
+        },
+        {
+          "coefficient": 3.487215251009563,
+          "kind": "u",
+          "term": "million"
+        },
+        {
+          "coefficient": 3.438834820629455,
+          "kind": "u",
+          "term": "elon"
+        }
+      ]
+    },
+    "time_lr": {
+      "intercept": -0.023787036801929663,
+      "structured": {
+        "hour_cos": -0.07673474526625239,
+        "hour_sin": -0.21668508889067375,
+        "weekday_cos": 0.013380534831117445,
+        "weekday_sin": 0.018694324642491055
+      },
+      "time": {
+        "hour_cos": -0.07673474526625239,
+        "hour_sin": -0.21668508889067375,
+        "weekday_cos": 0.013380534831117445,
+        "weekday_sin": 0.018694324642491055
+      },
+      "time_effects": {
+        "hour_utc": [
+          -0.07673474526625239,
+          -0.130202300021025,
+          -0.17479678319883912,
+          -0.20747915446699464,
+          -0.22602216423373891,
+          -0.2291621370272409,
+          -0.21668508889067375,
+          -0.18944131003524767,
+          -0.14928741896748657,
+          -0.09895983700621588,
+          -0.0418883056918346,
+          0.018037844431746927,
+          0.07673474526625236,
+          0.13020230002102504,
+          0.1747967831988391,
+          0.20747915446699455,
+          0.2260221642337389,
+          0.22916213702724086,
+          0.21668508889067378,
+          0.18944131003524772,
+          0.1492874189674865,
+          0.09895983700621591,
+          0.04188830569183472,
+          -0.01803784443174681
+        ],
+        "unit": "Change in log-odds of high popularity relative to the cycle mean",
+        "weekday_monday0": [
+          0.013380534831117445,
+          0.0229584385595947,
+          0.01524816978589777,
+          -0.00394428184255924,
+          -0.020166608794882294,
+          -0.021203068000808272,
+          -0.006273184538360108
+        ]
+      }
+    },
+    "title_structured_lr": {
+      "intercept": 1.3950512656660712,
+      "structured": {
+        "question_count": -0.12865494605670572,
+        "question_present": -0.0059750071674435825,
+        "title_characters": 0.821571970244156,
+        "title_words": -0.5375039303842684,
+        "uppercase_ratio": 0.1850975809796964
+      },
+      "time": {}
+    }
+  }
+}

@@ -1,0 +1,71 @@
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+/home/hoangnnh/Coding/IE212/project/askreddit-popularity/.venv/lib/python3.14/site-packages/pyspark/testing/utils.py:127: FutureWarning: PySpark does not yet fully support pandas >= 3.0.0. Some features may not work correctly. It is recommended to use pandas < 3.0.0 for now.
+  require_minimum_pandas_version()
+26/11/26 00:41:15 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2026-11-26 00:41:18,726 INFO stage_started {'stage': 'all', 'spark_version': '4.3.0'}
+2026-11-26 00:41:18,727 INFO prepare_started {}
+2026-11-26 00:42:05,339 INFO prepare_completed {'elapsed_seconds': 46.61220218100061, 'median': 3, 'p75': 4, 'train_counts': {'excluded': 858185, 'low': 338497, 'middle': 0, 'high': 7178}}
+2026-11-26 00:42:05,382 INFO Verified and reused completed stage prepare
+2026-11-26 00:42:05,382 INFO features_started {}
+2026-11-26 00:42:52,270 INFO chi_square_completed {'seconds': 15.866267680001329, 'top_terms': ['u:trump', 'u:epstein', 'b:epstein files', 'u:sex', 'b:the epstein', 'u:nsfw', 'u:files', 'u:americans', 'u:elon', 'u:musk']}
+26/11/26 00:42:55 WARN DAGScheduler: Broadcasting large task binary with size 1991.5 KiB
+26/11/26 00:43:07 WARN DAGScheduler: Broadcasting large task binary with size 2.6 MiB
+2026-11-26 00:43:20,167 INFO features_split_completed {'split': 'train', 'records': 345675, 'transformation_and_write_seconds': 26.515298118996725}
+26/11/26 00:43:20 WARN DAGScheduler: Broadcasting large task binary with size 1991.5 KiB
+26/11/26 00:43:25 WARN DAGScheduler: Broadcasting large task binary with size 2.6 MiB
+2026-11-26 00:43:28,719 INFO features_split_completed {'split': 'validation', 'records': 68097, 'transformation_and_write_seconds': 8.540509485996154}
+26/11/26 00:43:29 WARN DAGScheduler: Broadcasting large task binary with size 1991.5 KiB
+26/11/26 00:43:31 WARN DAGScheduler: Broadcasting large task binary with size 2.6 MiB
+2026-11-26 00:43:33,724 INFO features_split_completed {'split': 'test', 'records': 36679, 'transformation_and_write_seconds': 5.003991783996753}
+2026-11-26 00:43:34,478 INFO Verified and reused completed stage features
+2026-11-26 00:43:34,672 INFO candidate_started {'candidate': 'majority', 'configuration': {'id': 'majority', 'kind': 'majority'}}
+2026-11-26 00:43:35,069 INFO candidate_completed {'candidate': 'majority', 'training_seconds': 0.0, 'validation_auc': 0.5, 'validation_f1': 0.0, 'threshold': 0.5}
+2026-11-26 00:43:35,083 INFO candidate_started {'candidate': 'time_lr', 'configuration': {'id': 'time_lr', 'kind': 'lr', 'features': 'time_features', 'reg_param': 0.0001, 'max_iter': 200, 'role': 'ablation'}}
+netlib-blas: JNI_OnLoad: dlopen(libblas.so.3) failed: libblas.so.3: cannot open shared object file: No such file or directory
+2026-11-26 00:43:40,203 INFO candidate_completed {'candidate': 'time_lr', 'training_seconds': 3.0259692769977846, 'validation_auc': 0.568731237320084, 'validation_f1': 0.058115400581154004, 'threshold': 0.5397611389843762}
+2026-11-26 00:43:40,204 INFO candidate_started {'candidate': 'title_structured_lr', 'configuration': {'id': 'title_structured_lr', 'kind': 'lr', 'features': 'title_structured_features', 'reg_param': 0.0001, 'max_iter': 200}}
+2026-11-26 00:43:46,226 INFO candidate_completed {'candidate': 'title_structured_lr', 'training_seconds': 4.36940138200589, 'validation_auc': 0.6109815902537226, 'validation_f1': 0.10130200063512226, 'threshold': 0.6105183883527996}
+2026-11-26 00:43:46,226 INFO candidate_started {'candidate': 'lr_weighted_r1e4', 'configuration': {'id': 'lr_weighted_r1e4', 'kind': 'lr', 'features': 'combined_title_features', 'max_iter': 200, 'reg_param': 0.0001}}
+2026-11-26 00:44:30,145 INFO candidate_completed {'candidate': 'lr_weighted_r1e4', 'training_seconds': 39.20199790100014, 'validation_auc': 0.7989864791727482, 'validation_f1': 0.20815217391304347, 'threshold': 0.7170224391114073}
+2026-11-26 00:44:30,146 INFO candidate_started {'candidate': 'lr_weighted_r1e5', 'configuration': {'id': 'lr_weighted_r1e5', 'kind': 'lr', 'features': 'combined_title_features', 'max_iter': 200, 'reg_param': 1e-05}}
+2026-11-26 00:45:03,561 INFO candidate_completed {'candidate': 'lr_weighted_r1e5', 'training_seconds': 29.695635294003296, 'validation_auc': 0.8027476699764472, 'validation_f1': 0.20656691604322527, 'threshold': 0.7663086581476073}
+2026-11-26 00:45:03,562 INFO candidate_started {'candidate': 'lr_us5_r1e4', 'configuration': {'id': 'lr_us5_r1e4', 'kind': 'lr', 'features': 'combined_title_features', 'max_iter': 200, 'reg_param': 0.0001, 'class_weighting': 'none', 'sampling': {'negatives_per_positive': 5, 'seed': 212}}}
+2026-11-26 00:46:18,307 INFO candidate_completed {'candidate': 'lr_us5_r1e4', 'training_seconds': 69.62230375200306, 'validation_auc': 0.7869793396101579, 'validation_f1': 0.20130895960279846, 'threshold': 0.32144802915826076}
+2026-11-26 00:46:18,308 INFO candidate_started {'candidate': 'lr_us10_r1e4', 'configuration': {'id': 'lr_us10_r1e4', 'kind': 'lr', 'features': 'combined_title_features', 'max_iter': 200, 'reg_param': 0.0001, 'class_weighting': 'none', 'sampling': {'negatives_per_positive': 10, 'seed': 212}}}
+2026-11-26 00:47:10,795 INFO candidate_completed {'candidate': 'lr_us10_r1e4', 'training_seconds': 48.45934355400095, 'validation_auc': 0.7745364765238063, 'validation_f1': 0.19756838905775076, 'threshold': 0.2112286734693385}
+2026-11-26 00:47:10,796 INFO candidate_started {'candidate': 'lr_us20_r1e4', 'configuration': {'id': 'lr_us20_r1e4', 'kind': 'lr', 'features': 'combined_title_features', 'max_iter': 200, 'reg_param': 0.0001, 'class_weighting': 'none', 'sampling': {'negatives_per_positive': 20, 'seed': 212}}}
+2026-11-26 00:47:58,532 INFO candidate_completed {'candidate': 'lr_us20_r1e4', 'training_seconds': 44.29889182300394, 'validation_auc': 0.756127408509256, 'validation_f1': 0.1806615776081425, 'threshold': 0.11138565510355136}
+2026-11-26 00:47:58,532 INFO candidate_started {'candidate': 'lr_us10_r1e5', 'configuration': {'id': 'lr_us10_r1e5', 'kind': 'lr', 'features': 'combined_title_features', 'max_iter': 200, 'reg_param': 1e-05, 'class_weighting': 'none', 'sampling': {'negatives_per_positive': 10, 'seed': 212}}}
+2026-11-26 00:48:34,891 INFO candidate_completed {'candidate': 'lr_us10_r1e5', 'training_seconds': 33.315236066999205, 'validation_auc': 0.8043294069467984, 'validation_f1': 0.2147239263803681, 'threshold': 0.31761569818372015}
+2026-11-26 00:48:34,892 INFO candidate_started {'candidate': 'gbt_weighted', 'configuration': {'id': 'gbt_weighted', 'kind': 'gbt', 'features': 'selected_title_features', 'max_iter': 60, 'max_depth': 5, 'max_bins': 32, 'step_size': 0.1, 'subsampling_rate': 0.8}}
+2026-11-26 00:50:29,539 INFO candidate_completed {'candidate': 'gbt_weighted', 'training_seconds': 110.65627597900311, 'validation_auc': 0.707610301204292, 'validation_f1': 0.17480136208853575, 'threshold': 0.7382320037317678}
+2026-11-26 00:50:29,541 INFO candidate_started {'candidate': 'gbt_us10', 'configuration': {'id': 'gbt_us10', 'kind': 'gbt', 'features': 'selected_title_features', 'max_iter': 60, 'max_depth': 5, 'max_bins': 32, 'step_size': 0.1, 'subsampling_rate': 0.8, 'class_weighting': 'none', 'sampling': {'negatives_per_positive': 10, 'seed': 212}}}
+2026-11-26 00:51:53,691 INFO candidate_completed {'candidate': 'gbt_us10', 'training_seconds': 80.99528529000236, 'validation_auc': 0.7206745460251648, 'validation_f1': 0.19595959595959597, 'threshold': 0.2774931185855667}
+2026-11-26 00:51:53,698 INFO Verified and reused completed stage candidate_majority
+2026-11-26 00:51:53,703 INFO Verified and reused completed stage candidate_time_lr
+2026-11-26 00:51:53,709 INFO Verified and reused completed stage candidate_title_structured_lr
+2026-11-26 00:51:53,714 INFO Verified and reused completed stage candidate_lr_weighted_r1e4
+2026-11-26 00:51:53,718 INFO Verified and reused completed stage candidate_lr_weighted_r1e5
+2026-11-26 00:51:53,721 INFO Verified and reused completed stage candidate_lr_us5_r1e4
+2026-11-26 00:51:53,725 INFO Verified and reused completed stage candidate_lr_us10_r1e4
+2026-11-26 00:51:53,729 INFO Verified and reused completed stage candidate_lr_us20_r1e4
+2026-11-26 00:51:53,732 INFO Verified and reused completed stage candidate_lr_us10_r1e5
+2026-11-26 00:51:53,734 INFO Verified and reused completed stage candidate_gbt_weighted
+2026-11-26 00:51:53,735 INFO Verified and reused completed stage candidate_gbt_us10
+2026-11-26 00:51:53,738 INFO selection_frozen {'candidate': 'lr_us10_r1e5', 'best_by_family': {'lr': 'lr_us10_r1e5', 'gbt': 'gbt_us10'}}
+2026-11-26 00:51:54,258 INFO test_candidate_completed {'candidate': 'majority', 'auc_roc': 0.5, 'f1': 0.0}
+2026-11-26 00:51:54,843 INFO test_candidate_completed {'candidate': 'time_lr', 'auc_roc': 0.5413215562168251, 'f1': 0.04736456041077229}
+2026-11-26 00:51:55,460 INFO test_candidate_completed {'candidate': 'title_structured_lr', 'auc_roc': 0.5545816855413154, 'f1': 0.05305367057371992}
+2026-11-26 00:51:56,549 INFO test_candidate_completed {'candidate': 'lr_weighted_r1e4', 'auc_roc': 0.7561294502246216, 'f1': 0.14363010329562223}
+2026-11-26 00:51:57,410 INFO test_candidate_completed {'candidate': 'lr_weighted_r1e5', 'auc_roc': 0.7603422425470773, 'f1': 0.16051243406179352}
+2026-11-26 00:51:58,201 INFO test_candidate_completed {'candidate': 'lr_us5_r1e4', 'auc_roc': 0.7428197981766148, 'f1': 0.1389678992279561}
+2026-11-26 00:51:59,008 INFO test_candidate_completed {'candidate': 'lr_us10_r1e4', 'auc_roc': 0.7298576948229873, 'f1': 0.12298850574712644}
+2026-11-26 00:51:59,727 INFO test_candidate_completed {'candidate': 'lr_us20_r1e4', 'auc_roc': 0.7093526183978598, 'f1': 0.09188168659534299}
+2026-11-26 00:52:00,423 INFO test_candidate_completed {'candidate': 'lr_us10_r1e5', 'auc_roc': 0.7609427096883713, 'f1': 0.15271966527196654}
+2026-11-26 00:52:01,604 INFO test_candidate_completed {'candidate': 'gbt_weighted', 'auc_roc': 0.645046324010277, 'f1': 0.10526315789473684}
+2026-11-26 00:52:02,928 INFO test_candidate_completed {'candidate': 'gbt_us10', 'auc_roc': 0.6514491871156305, 'f1': 0.10840861709520501}
+2026-11-26 00:52:07,104 INFO stage_completed {'stage': 'all'}
+2026-11-26 00:52:07,475 INFO Closing down clientserver connection

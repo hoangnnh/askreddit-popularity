@@ -1,6 +1,7 @@
 """Binary candidate fitting (L2 logistic regression, gradient-boosted trees) and validation scoring."""
 
 import json
+import math
 from time import perf_counter
 
 import numpy as np
@@ -10,7 +11,7 @@ from pyspark.ml.classification import (GBTClassificationModel, GBTClassifier, Lo
 from pyspark.ml.functions import vector_to_array
 from pyspark.sql import functions as F
 
-from askreddit.binary_evaluation import best_f1_threshold, evaluate_scores
+from askreddit.binary_evaluation import best_f1_threshold, calibration_summary, evaluate_scores
 from askreddit.binary_labeling import binary_class_weights
 from askreddit.binary_prepare import FEATURE_MODULES
 from askreddit.clean import write_json
@@ -19,17 +20,66 @@ CANDIDATE_MODULES = ["binary_training", "binary_evaluation", "binary_labeling"]
 THRESHOLD_POLICY = "Probability threshold maximizing validation F1 of the high class; frozen before test. Majority uses 0.5."
 
 
+def undersample(train, spec, counts, seed):
+    """Random undersampling of the LOW class, on TRAIN only (validation/test keep their natural mix).
+
+    ``spec["sampling"]["negatives_per_positive"] = k`` keeps every high post and a random
+    fraction ``min(1, k * n_high / n_low)`` of low posts, stratified by label x month when
+    the month is available so every month keeps its share. Returns (frame, description).
+    """
+    sampling = spec.get("sampling")
+    if not sampling:
+        return train, None
+    k = float(sampling["negatives_per_positive"])
+    if k <= 0:
+        raise ValueError("negatives_per_positive must be positive")
+    fraction = min(1.0, k * counts[1] / counts[0])
+    sample_seed = int(sampling.get("seed", seed))
+    if "month" in train.columns:
+        months = sorted(r.month for r in train.select("month").distinct().collect())
+        fractions = {**{f"0_{m}": fraction for m in months}, **{f"1_{m}": 1.0 for m in months}}
+        stratum = F.concat_ws("_", F.col("label").cast("int").cast("string"), F.col("month").cast("string"))
+        sampled = train.withColumn("_stratum", stratum).sampleBy("_stratum", fractions, seed=sample_seed).drop("_stratum")
+        strata = "label x month"
+    else:
+        sampled = train.sampleBy("label", {0.0: fraction, 1.0: 1.0}, seed=sample_seed)
+        strata = "label"
+    return sampled, {"negatives_per_positive": k, "low_class_fraction": fraction, "strata": strata, "seed": sample_seed}
+
+
+def design(spec) -> str:
+    if spec["kind"] == "majority":
+        return "none"
+    sampling = spec.get("sampling")
+    weighting = spec.get("class_weighting", "balanced")
+    parts = [f"undersample 1:{sampling['negatives_per_positive']:g}"] if sampling else []
+    if weighting == "balanced":
+        parts.append("balanced weights")
+    return " + ".join(parts) or "unweighted"
+
+
 def fit_binary_candidate(train, spec, counts, seed):
     if spec["kind"] == "majority":
         return None, {"majority_label": int(counts[1] > counts[0]), "train_positive_rate": counts[1] / sum(counts),
-                      "training_records": sum(counts), "training_seconds": 0.0, "class_weights": [1.0, 1.0]}
-    weights = binary_class_weights(counts) if spec.get("class_weighting", "balanced") == "balanced" else [1.0, 1.0]
-    dataset = train.select("label", F.col(spec["features"]).alias("features")).withColumn(
-        "class_weight", F.when(F.col("label") == 1.0, weights[1]).otherwise(weights[0])).persist(StorageLevel.DISK_ONLY)
+                      "training_records": sum(counts), "training_seconds": 0.0, "class_weights": [1.0, 1.0],
+                      "prior_logit_offset": 0.0, "design": "none"}
+    sampled, sampling = undersample(train, spec, counts, seed)
+    frame = sampled.select("label", F.col(spec["features"]).alias("features")).persist(StorageLevel.DISK_ONLY)
     try:
-        actual = dataset.count()
-        if actual != sum(counts):
-            raise ValueError("Candidate must train on every low/high training record")
+        sampled_counts = [frame.filter(F.col("label") == 0.0).count(), frame.filter(F.col("label") == 1.0).count()]
+    except Exception:
+        frame.unpersist()
+        raise
+    if sampled_counts[1] != counts[1] or (sampling is None and sampled_counts[0] != counts[0]):
+        frame.unpersist()
+        raise ValueError("Every high training record must be used; without sampling, every low record too")
+    weights = binary_class_weights(sampled_counts) if spec.get("class_weighting", "balanced") == "balanced" else [1.0, 1.0]
+    # Odds are inflated by (w_high * 1) / (w_low * kept_low_fraction); the offset undoes both.
+    kept = sampled_counts[0] / counts[0]
+    offset = math.log(weights[0] * kept / weights[1])
+    dataset = frame.withColumn("class_weight", F.when(F.col("label") == 1.0, weights[1]).otherwise(weights[0]))
+    try:
+        actual = sum(sampled_counts)
         if spec["kind"] == "lr":
             estimator = LogisticRegression(family="binomial", featuresCol="features", labelCol="label",
                 weightCol="class_weight", regParam=spec["reg_param"], elasticNetParam=0.0,
@@ -44,8 +94,10 @@ def fit_binary_candidate(train, spec, counts, seed):
         started = perf_counter()
         model = estimator.fit(dataset)
         info = {"training_records": actual, "training_seconds": perf_counter() - started, "class_weights": weights,
-                "weight_normalization": "Balanced n/(2 n_k); mean training-row weight equals 1",
-                "num_classes": model.numClasses, "feature_dimension": model.numFeatures}
+                "weight_normalization": "Balanced n/(2 n_k) on the (possibly sampled) training rows; mean weight 1",
+                "num_classes": model.numClasses, "feature_dimension": model.numFeatures,
+                "design": design(spec), "sampling": sampling, "sampled_counts": sampled_counts,
+                "kept_low_fraction": kept, "prior_logit_offset": offset}
         if model.numClasses != 2:
             raise ValueError("Estimator did not produce a binary model")
         if spec["kind"] == "lr":
@@ -56,7 +108,7 @@ def fit_binary_candidate(train, spec, counts, seed):
             info.update(num_trees=model.getNumTrees, total_num_nodes=model.totalNumNodes)
         return model, info
     finally:
-        dataset.unpersist()
+        frame.unpersist()
 
 
 def load_binary_model(spec, path):
@@ -86,6 +138,8 @@ def score_split(frame, spec, model, info, threshold=None):
     if threshold is None:
         threshold = 0.5 if spec["kind"] == "majority" else best_f1_threshold(labels, scores)
     metrics = evaluate_scores(labels, scores, threshold, seen=seen)
+    if spec["kind"] != "majority":
+        metrics["calibration"] = calibration_summary(labels, scores, info.get("prior_logit_offset", 0.0))
     metrics["prediction_seconds"] = perf_counter() - started
     return threshold, metrics
 

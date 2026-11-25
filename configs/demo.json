@@ -1,12 +1,13 @@
 {
   "eda_dir": "reports/eda",
   "dedup_report": "reports/data_quality_dedup/run.json",
-  "binary_experiment_dir": "reports/experiments/binary_20261125_v5",
+  "binary_experiment_dir": "reports/experiments/viral_20261126_v1",
   "binary_reference_dirs": [
+    "reports/experiments/binary_20261125_v5",
     "reports/experiments/binary_20261125_v4",
     "reports/experiments/binary_20261125_v3"
   ],
-  "binary_model_dir": "artifacts/demo/binary_20261125_v5",
+  "binary_model_dir": "artifacts/demo/viral_20261126_v1",
   "engagement_experiment_dir": "reports/experiments/engagement_20261125_v1",
   "engagement_model_dir": "artifacts/demo/engagement_20261125_v1",
   "score_experiment_dir": "reports/experiments/score_20261125_v1",

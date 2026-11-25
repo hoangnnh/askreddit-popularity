@@ -1,0 +1,30 @@
+{
+  "best_by_family": {
+    "gbt": "gbt_us10",
+    "lr": "lr_us10_r1e5"
+  },
+  "criterion": {
+    "criterion": "validation_pr_auc",
+    "note": "time_lr is an analysis ablation only; posting time is never an input of a deployable model.",
+    "test_policy": "Freeze selection and thresholds before scoring test; report all predefined candidates",
+    "threshold_policy": "Per candidate, the probability threshold maximizing validation F1 of the viral class; frozen before test",
+    "tie_break": "largest validation PR-AUC rounded to 12 decimals, then candidate ID ascending"
+  },
+  "frozen_at_utc": "2026-11-25T17:51:53.738442+00:00",
+  "frozen_before_test": true,
+  "selected_candidate": "lr_us10_r1e5",
+  "thresholds": {
+    "gbt_us10": 0.2774931185855667,
+    "gbt_weighted": 0.7382320037317678,
+    "lr_us10_r1e4": 0.2112286734693385,
+    "lr_us10_r1e5": 0.31761569818372015,
+    "lr_us20_r1e4": 0.11138565510355136,
+    "lr_us5_r1e4": 0.32144802915826076,
+    "lr_weighted_r1e4": 0.7170224391114073,
+    "lr_weighted_r1e5": 0.7663086581476073,
+    "majority": 0.5,
+    "time_lr": 0.5397611389843762,
+    "title_structured_lr": 0.6105183883527996
+  },
+  "validation_results_sha256": "1c2f8421a5d678905334443f0d364f908378f4f180a759bfcf4bc744f036144e"
+}

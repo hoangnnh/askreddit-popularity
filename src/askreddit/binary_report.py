@@ -186,20 +186,23 @@ def build(reports: Path) -> Path:
                 [[t["rank"], f"`{t['term'][2:]}`", f"{t['statistic']:,.0f}", f"{t['train_documents']:,}",
                   pct(t["high_rate_when_present"])] for t in features["chi_square"]["selected_terms"][:15]]), "",
           "## 3. So sánh mô hình", "",
-          f"Chọn mô hình bằng **AUC-ROC trên validation** (10–11/2025). Ngưỡng xác suất của từng mô hình là ngưỡng tối đa "
+          f"Chọn mô hình bằng **{'PR-AUC' if config.get('selection', {}).get('criterion') == 'validation_pr_auc' else 'AUC-ROC'} trên validation** "
+          f"(10–11/2025). Cột *Thiết kế* ghi cách xử lý mất cân bằng (trọng số lớp hoặc undersampling lớp thấp chỉ trên train). "
+          f"Ngưỡng xác suất của từng mô hình là ngưỡng tối đa "
           f"F1 lớp cao trên validation, cố định trước khi chấm test (12/2025). Lớp dương = phổ biến cao.", ""]
     rows = []
     for cid, r in results.items():
         spec = r["candidate"]
         if r["status"] != "completed":
-            rows.append([f"`{cid}`", FAMILY_VI[spec["kind"]], FEATURES_VI.get(spec.get("features"), "—"), "lỗi", "", "", "", "", "", ""])
+            rows.append([f"`{cid}`", FAMILY_VI[spec["kind"]], FEATURES_VI.get(spec.get("features"), "—"), "", "lỗi", "", "", "", "", "", "", ""])
             continue
         v, t = r["validation"], r["test"]
         mark = " ⭐" if cid == selected else ""
         rows.append([f"`{cid}`{mark}", FAMILY_VI[spec["kind"]], FEATURES_VI.get(spec.get("features"), "—"),
-                     num(v["auc_roc"]), num(t["auc_roc"]), num(t["pr_auc"]), num(t["threshold"], 3),
+                     r.get("training", {}).get("design", "balanced weights") if spec["kind"] != "majority" else "—",
+                     num(v["auc_roc"]), num(v["pr_auc"]), num(t["auc_roc"]), num(t["pr_auc"]), num(t["threshold"], 3),
                      num(t["precision"]), num(t["recall"]), num(t["f1"])])
-    md += [table(["Mô hình", "Họ", "Đặc trưng", "AUC val", "AUC test", "PR-AUC test", "Ngưỡng", "Precision test",
+    md += [table(["Mô hình", "Họ", "Đặc trưng", "Thiết kế", "AUC val", "PR-AUC val", "AUC test", "PR-AUC test", "Ngưỡng", "Precision test",
                   "Recall test", "F1 test"], rows), ""]
     test_ref = next(r["test"] for r in results.values() if r["status"] == "completed")
     md += ["Cùng các mô hình tại **ngưỡng 0,5** — điểm cắt tự nhiên khi huấn luyện với trọng số lớp cân bằng "
@@ -223,6 +226,12 @@ def build(reports: Path) -> Path:
            f"**Mô hình được chọn:** `{selected}`. Tốt nhất mỗi họ: LR = `{best_lr}`, GBT = `{best_gbt}`.", "",
            "![ROC test](figures/roc_test.png)", "", "![Ma trận nhầm lẫn](figures/confusion_test.png)", ""]
     sel_test = results[selected]["test"]
+    if "calibration" in sel_test:
+        c = sel_test["calibration"]
+        md += [f"Hiệu chỉnh xác suất của `{selected}` trên test (cộng {num(c['prior_logit_offset'], 3)} vào logit để bỏ ảnh hưởng của "
+               f"trọng số/undersampling): xác suất trung bình {num(c['mean_calibrated_probability'])} so với tỉ lệ thật "
+               f"{num(c['positive_rate'])} (trước hiệu chỉnh {num(c['mean_raw_probability'])}); Brier {num(c['brier_calibrated'])} "
+               f"(trước {num(c['brier_raw'])}).", ""]
     if "unseen_train_titles" in sel_test:
         u = sel_test["unseen_train_titles"]
         md += [f"Trên {u['records']:,} bài test có tiêu đề chưa từng xuất hiện trong train, `{selected}` đạt AUC "

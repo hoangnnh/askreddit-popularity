@@ -13,7 +13,16 @@ the archived `score`; it is never a predictive input.
 | --- | --- | --- | --- | --- | --- |
 | `binary_20261125_v3` | [binary_v3.json](../configs/binary_v3.json) | all posts | `score <= 1` | `score >= 3` | yes |
 | `binary_20261125_v4` | [binary_v4.json](../configs/binary_v4.json) | posts with `score >= 2` | `score = 2` | `score >= 4` | no (time-only ablation only) |
-| **`binary_20261125_v5`** (current) | [binary_v5.json](../configs/binary_v5.json) | v4 on the title-deduplicated data ([score-prediction.md](score-prediction.md)) | `score = 2` | `score >= 4` | no (time-only ablation only) |
+| `binary_20261125_v5` | [binary_v5.json](../configs/binary_v5.json) | v4 on the title-deduplicated data ([score-prediction.md](score-prediction.md)) | `score = 2` | `score >= 4` | no (time-only ablation only) |
+
+| **`viral_20261126_v1`** (current) | [viral_v1.json](../configs/viral_v1.json) | posts with `score >= 2`, deduplicated | `2 <= score <= 270` | `score >= 271` | no (time-only ablation only) |
+
+**Why viral.** In v4/v5 "high" means score ≥ 4: about three quarters of those posts
+have only 4–9 points, and telling 2 points from 4 is mostly luck. The viral run makes
+"high" mean genuinely popular: score ≥ 271, the train-fitted level-7 boundary of the
+eight-level run. Every other engaged post is "low", so no middle group is dropped. The
+proposal allows a fixed threshold when scores are concentrated. See
+[Viral run](#viral-run-current) below.
 
 **Why v4.** v3's strongest chi-square terms were `i`, `my`, `me`, `why` and `do i`:
 personal-advice and non-question wording that r/AskReddit's rules forbid. Posts with
@@ -140,6 +149,59 @@ features or trained candidates. Run one heavy Spark job at a time on this laptop
 
 Full Vietnamese reports: [v4](../reports/experiments/binary_20261125_v4/results_vi.md),
 [v3](../reports/experiments/binary_20261125_v3/results_vi.md).
+
+## Viral run (current)
+
+[configs/viral_v1.json](../configs/viral_v1.json): posts with score ≥ 2 of the
+title-deduplicated data. High = score ≥ 271 (about 2% of train), low = score 2–270,
+title-only features.
+
+**Imbalance handling, compared on validation.** Every candidate trains on TRAIN rows
+only; validation and test keep the natural ~2% viral rate.
+
+- *Balanced class weights*, n/(2 n_k), on all training rows.
+- *Random undersampling of the low class* to 1:5, 1:10 or 1:20 (low : high). Every
+  viral post is kept, and low posts are sampled with a fixed seed, stratified by
+  label × month so every month keeps its share. Implemented in
+  `binary_training.undersample` with Spark `sampleBy`.
+- Both inflate the predicted odds of "viral". Each candidate stores the correction
+  `prior_logit_offset = log(w_low · kept_low_fraction / w_high)`, and the evaluation
+  reports raw and corrected mean probability and Brier score.
+
+Selection uses **validation PR-AUC**, because ROC-AUC is insensitive to how rare the
+viral class is. Each candidate's threshold maximizes validation F1 and is frozen
+before test.
+
+**Results** ([Vietnamese report](../reports/experiments/viral_20261126_v1/results_vi.md)). Test = December
+2025, 36,679 engaged posts, 2.31% viral.
+
+| Candidate | Imbalance handling | Train rows | Val PR-AUC | Test AUC | Test PR-AUC | Test P / R / F1 |
+| --- | --- | ---: | ---: | ---: | ---: | --- |
+| **`lr_us10_r1e5`** (selected) | undersample 1:10 | 78,747 | **0.144** | **0.761** | **0.086** | 0.137 / 0.172 / 0.153 |
+| `lr_weighted_r1e5` | balanced weights | 345,675 | 0.137 | 0.760 | 0.086 | 0.118 / 0.251 / 0.161 |
+| `lr_us5_r1e4` | undersample 1:5 | 42,942 | 0.138 | 0.743 | 0.077 | 0.106 / 0.202 / 0.139 |
+| `lr_us10_r1e4` | undersample 1:10 | 78,747 | 0.130 | 0.730 | 0.070 | 0.120 / 0.126 / 0.123 |
+| `lr_us20_r1e4` | undersample 1:20 | 150,387 | 0.115 | 0.709 | 0.060 | 0.098 / 0.086 / 0.092 |
+| `gbt_us10` | undersample 1:10 | 78,747 | 0.112 | 0.651 | 0.058 | 0.132 / 0.092 / 0.108 |
+| `gbt_weighted` | balanced weights | 345,675 | 0.104 | 0.645 | 0.056 | 0.097 / 0.116 / 0.105 |
+| `title_structured_lr` | balanced weights | 345,675 | 0.045 | 0.555 | 0.028 | — |
+| `time_lr` (ablation) | balanced weights | 345,675 | 0.029 | 0.541 | 0.025 | — |
+| `majority` | — | — | 0.024 | 0.500 | 0.023 | 0 |
+
+- **Undersampling 1:10 matches class weights** (test AUC 0.761 vs 0.760, PR-AUC 0.086 vs
+  0.086) while training on 23% of the rows; GBT also trains faster (81 s vs 111 s).
+- With the stronger penalty (1e-4), more negatives hurt (1:5 > 1:10 > 1:20). In an
+  unweighted mean loss the rare class's share shrinks as negatives are added, so the
+  same penalty suppresses its signal more. The weaker penalty (1e-5) removes the gap.
+- **Prior correction works**: mean corrected probability 0.021 vs the observed 0.023
+  on test (raw 0.082).
+- PR-AUC drops from validation (0.144) to test (0.086): December's most popular posts
+  react to new events (see `notebooks/02_top_posts_by_score.ipynb`) that train never saw.
+- The title separates **truly viral** posts (AUC 0.76) far better than score 4 from
+  score 2 (v5, AUC 0.60). LR beats GBT by about 0.11 AUC.
+- The demo uses `lr_us10_r1e5` (best LR by validation PR-AUC, frozen max-F1 threshold
+  0.318). Viral probability = P(engaged) × P(viral | engaged), both prior-corrected.
+  The export matches Spark on 3,010 posts (maximum difference 5.6e-16).
 
 ## Demo export
 

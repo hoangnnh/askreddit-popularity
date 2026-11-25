@@ -1,0 +1,184 @@
+{
+  "config_version": 1,
+  "name": "viral_v1",
+  "algorithm_version": "binary-train-quantile-v1",
+  "input": "data/processed/askreddit_dedup",
+  "data_root": "data/experiments",
+  "artifact_root": "artifacts/experiments",
+  "report_root": "reports/experiments",
+  "disclosure": "Designed on 2026-11-26 after binary runs v3-v5, the score regression and their test results were viewed. High = viral (score >= 271, the train-fitted level-7 boundary of eight-level run v2), low = every other post with score >= 2 (posts that received at least one net upvote, the Weissburg et al. 2022 filter); no middle group. Title-only models on the title-deduplicated data. Imbalance (~2% viral) is handled either by balanced class weights or by random undersampling of the low class on TRAIN only (stratified by month, fixed seed); validation and test keep the natural mix. Probabilities are prior-corrected. Selection uses validation PR-AUC. The December 2025 test month was already scored by earlier runs.",
+  "disclosure_vi": "Cấu hình viral thiết kế ngày 2026-11-26, sau khi đã xem kết quả (kể cả test) của các run nhị phân v3–v5 và mô hình hồi quy. Cao = viral (score ≥ 271, mốc mức 7 của run tám mức v2, tính trên train), thấp = mọi bài còn lại có score ≥ 2 (bộ lọc của Weissburg và cộng sự 2022); không bỏ nhóm giữa. Mô hình chỉ dùng tiêu đề, trên dữ liệu đã bỏ trùng. Mất cân bằng (~2% viral) được xử lý bằng trọng số lớp hoặc undersampling ngẫu nhiên lớp thấp CHỈ trên train (chia tầng theo tháng, seed cố định); validation và test giữ phân phối thật. Xác suất được hiệu chỉnh lại. Chọn mô hình bằng PR-AUC trên validation. Tháng test 12/2025 đã được dùng ở các run trước.",
+  "split_dates": {
+    "train": [
+      "2025-01-01T00:00:00Z",
+      "2025-10-01T00:00:00Z"
+    ],
+    "validation": [
+      "2025-10-01T00:00:00Z",
+      "2025-12-01T00:00:00Z"
+    ],
+    "test": [
+      "2025-12-01T00:00:00Z",
+      "2026-01-01T00:00:00Z"
+    ]
+  },
+  "spark": {
+    "driver_memory": "2g",
+    "shuffle_partitions": 16,
+    "write_partitions": 12
+  },
+  "labeling": {
+    "population_min_score": 2,
+    "low_rule": "le_value",
+    "low_value": 270,
+    "high_rule": "ge_value",
+    "high_value": 271,
+    "low": "2 <= score <= 270",
+    "high": "score >= 271",
+    "middle": "none",
+    "excluded": "score <= 1",
+    "rationale_vi": "Cao = viral: score ≥ 271 (mốc mức 7 trong phần tám mức, tính trên train). Thấp = các bài có tương tác còn lại (score 2–270). Đề cương cho phép chuyển sang ngưỡng cố định khi score tập trung; nhãn \"cao\" giờ mang nghĩa phổ biến thật.",
+    "expected_train_thresholds": {
+      "median": 3,
+      "p75": 4
+    }
+  },
+  "features": {
+    "version": "title-time-nfkc-v1",
+    "vocab_size": 12000,
+    "min_df": 10,
+    "rf_text_features": 128,
+    "normalization": "NFKC, Unicode whitespace collapse, lowercase; original title preserved",
+    "token_pattern": "[\\p{L}\\p{N}]+(?:['’][\\p{L}\\p{N}]+)*",
+    "ngram_orders": [
+      1,
+      2
+    ],
+    "remove_stopwords": false,
+    "feature_sources": [
+      "title",
+      "created_utc"
+    ]
+  },
+  "chi_square": {
+    "num_top_features": 128,
+    "input": "binary train term presence over the train vocabulary",
+    "used_by": "GBT candidates (selected_title_features = top-128 TF-IDF columns + 5 title-structure features)"
+  },
+  "seed": 212,
+  "selection": {
+    "criterion": "validation_pr_auc",
+    "tie_break": "largest validation PR-AUC rounded to 12 decimals, then candidate ID ascending",
+    "threshold_policy": "Per candidate, the probability threshold maximizing validation F1 of the viral class; frozen before test",
+    "test_policy": "Freeze selection and thresholds before scoring test; report all predefined candidates",
+    "note": "time_lr is an analysis ablation only; posting time is never an input of a deployable model."
+  },
+  "candidates": [
+    {
+      "id": "majority",
+      "kind": "majority"
+    },
+    {
+      "id": "time_lr",
+      "kind": "lr",
+      "features": "time_features",
+      "reg_param": 0.0001,
+      "max_iter": 200,
+      "role": "ablation"
+    },
+    {
+      "id": "title_structured_lr",
+      "kind": "lr",
+      "features": "title_structured_features",
+      "reg_param": 0.0001,
+      "max_iter": 200
+    },
+    {
+      "id": "lr_weighted_r1e4",
+      "kind": "lr",
+      "features": "combined_title_features",
+      "max_iter": 200,
+      "reg_param": 0.0001
+    },
+    {
+      "id": "lr_weighted_r1e5",
+      "kind": "lr",
+      "features": "combined_title_features",
+      "max_iter": 200,
+      "reg_param": 1e-05
+    },
+    {
+      "id": "lr_us5_r1e4",
+      "kind": "lr",
+      "features": "combined_title_features",
+      "max_iter": 200,
+      "reg_param": 0.0001,
+      "class_weighting": "none",
+      "sampling": {
+        "negatives_per_positive": 5,
+        "seed": 212
+      }
+    },
+    {
+      "id": "lr_us10_r1e4",
+      "kind": "lr",
+      "features": "combined_title_features",
+      "max_iter": 200,
+      "reg_param": 0.0001,
+      "class_weighting": "none",
+      "sampling": {
+        "negatives_per_positive": 10,
+        "seed": 212
+      }
+    },
+    {
+      "id": "lr_us20_r1e4",
+      "kind": "lr",
+      "features": "combined_title_features",
+      "max_iter": 200,
+      "reg_param": 0.0001,
+      "class_weighting": "none",
+      "sampling": {
+        "negatives_per_positive": 20,
+        "seed": 212
+      }
+    },
+    {
+      "id": "lr_us10_r1e5",
+      "kind": "lr",
+      "features": "combined_title_features",
+      "max_iter": 200,
+      "reg_param": 1e-05,
+      "class_weighting": "none",
+      "sampling": {
+        "negatives_per_positive": 10,
+        "seed": 212
+      }
+    },
+    {
+      "id": "gbt_weighted",
+      "kind": "gbt",
+      "features": "selected_title_features",
+      "max_iter": 60,
+      "max_depth": 5,
+      "max_bins": 32,
+      "step_size": 0.1,
+      "subsampling_rate": 0.8
+    },
+    {
+      "id": "gbt_us10",
+      "kind": "gbt",
+      "features": "selected_title_features",
+      "max_iter": 60,
+      "max_depth": 5,
+      "max_bins": 32,
+      "step_size": 0.1,
+      "subsampling_rate": 0.8,
+      "class_weighting": "none",
+      "sampling": {
+        "negatives_per_positive": 10,
+        "seed": 212
+      }
+    }
+  ]
+}

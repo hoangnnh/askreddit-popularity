@@ -124,10 +124,12 @@ with tabs[0]:
         binary_thresholds = read_json(f"{binary_dir}/label_thresholds.json")
         binary_groups = read_json(f"{binary_dir}/class_distributions.json")
         if binary_thresholds and binary_groups:
-            st.subheader("Nhãn phổ biến cao / thấp (ngưỡng fit trên train)")
-            st.markdown(f"Tập tính phân vị: **{binary_thresholds['population']}** — trung vị {binary_thresholds['median']}, "
-                        f"p75 {binary_thresholds['p75']}. **Cao:** {binary_thresholds['high_rule']}. **Thấp:** {binary_thresholds['low_rule']}. "
-                        "Nhóm giữa và bài ngoài tập bị loại.")
+            st.subheader("Nhãn phổ biến cao / thấp")
+            fixed = "fixed" in binary_thresholds["high_rule"]
+            st.markdown(f"Tập dữ liệu: **{binary_thresholds['population']}**"
+                        + ("" if fixed else f" — trung vị {binary_thresholds['median']}, p75 {binary_thresholds['p75']} (tính trên train)")
+                        + f". **Cao:** {binary_thresholds['high_rule']}. **Thấp:** {binary_thresholds['low_rule']}. "
+                        "Bài ngoài tập (và nhóm giữa, nếu có) bị loại.")
             names = {"excluded": "Loại (score ≤ 1)", "low": "Thấp", "middle": "Giữa (loại)", "high": "Cao"}
             st.dataframe(pd.DataFrame([{"Split": split, **{names[g]: f"{d['groups'][g]['count']:,} ({d['groups'][g]['percentage_of_split']:.1f}%)"
                                                             for g in names if g in d["groups"]}}
@@ -186,8 +188,10 @@ with tabs[2]:
         selected = completed["selected_candidate"]
         best = completed.get("best_by_family", {})
         test = read_json(f"{binary_dir}/test/{selected}.json")
-        st.markdown(f"Run **{Path(binary_dir).name}** — chọn bằng **AUC-ROC trên validation** (10–11/2025): **{selected}**. "
-                    "Ngưỡng xác suất tối đa F1 lớp *cao* trên validation, cố định trước khi chấm test (12/2025). Lớp dương = phổ biến cao.")
+        criterion = "PR-AUC" if (config or {}).get("selection", {}).get("criterion") == "validation_pr_auc" else "AUC-ROC"
+        st.markdown(f"Run **{Path(binary_dir).name}** — chọn bằng **{criterion} trên validation** (10–11/2025): **{selected}**. "
+                    "Ngưỡng xác suất tối đa F1 lớp *cao* trên validation, cố định trước khi chấm test (12/2025). Lớp dương = phổ biến cao. "
+                    "Cột *Thiết kế*: cách xử lý mất cân bằng — trọng số lớp, hoặc undersampling lớp thấp chỉ trên train.")
         if config and config.get("disclosure_vi"):
             st.info(config["disclosure_vi"])
         cols = st.columns(5)
@@ -199,11 +203,12 @@ with tabs[2]:
         st.caption(f"Tỉ lệ bài cao trên test: {pct(test['positive_rate'])}. Baseline lớp đa số (luôn đoán thấp) có AUC 0,5 và F1 = 0; "
                    f"luôn đoán cao cho F1 = {test['all_high_f1_reference']:.4f}.")
         split = st.radio("Split", ["validation", "test"], horizontal=True, key="binary_split")
-        frame = pd.DataFrame([{"Mô hình": r["candidate"] + (" ✅" if r["selected"] else ""), "Họ": r["kind"], "AUC-ROC": r["auc_roc"],
+        frame = pd.DataFrame([{"Mô hình": r["candidate"] + (" ✅" if r["selected"] else ""), "Họ": r["kind"],
+                               "Thiết kế": r.get("design", ""), "AUC-ROC": r["auc_roc"],
                                "PR-AUC": r["pr_auc"], "Ngưỡng": r["threshold"], "Precision": r["precision"], "Recall": r["recall"],
                                "F1": r["f1"], "Số chiều": r["feature_dimension"], "Train (giây)": round(r["training_seconds"], 1)}
                               for r in comparison["rows"] if r["split"] == split])
-        st.dataframe(frame.sort_values("AUC-ROC", ascending=False), hide_index=True, width="stretch",
+        st.dataframe(frame.sort_values(criterion, ascending=False), hide_index=True, width="stretch",
                      column_config={c: st.column_config.NumberColumn(format="%.4f") for c in ("AUC-ROC", "PR-AUC", "Ngưỡng", "Precision", "Recall", "F1")})
         left, right = st.columns(2)
         with left:
@@ -279,13 +284,19 @@ with tabs[4]:
             engaged = engagement_model.calibrated_probability(title)
             estimate = score_model.predict_score(title)
             group = binary_model.predict(title)
+            viral_if_engaged = binary_model.calibrated_probability(title)
+            labels = binary_model.metadata["labels"]
             low, high = estimate["interval"]
-            st.success(f"Nhóm phổ biến (đề cương): **phổ biến {'CAO' if group['label'] == 'high' else 'THẤP'}** "
-                       f"(điểm {group['probability_high']:.3f}, ngưỡng {group['threshold']:.2f}).")
-            cols = st.columns(3)
+            st.success(f"Nhóm phổ biến ({labels['high'].split(' (')[0]}): **{'VIRAL' if group['label'] == 'high' else 'không viral'}** "
+                       f"(điểm mô hình {group['probability_high']:.3f}, ngưỡng {group['threshold']:.3f} chọn trên validation).")
+            cols = st.columns(4)
             cols[0].metric("Khả năng có tương tác (score ≥ 2)", f"{100 * engaged:.0f}%")
-            cols[1].metric("Nếu có tương tác: score dự kiến", f"≈ {estimate['score']:.0f}", f"khoảng {low:.0f}–{high:.0f} (80%)", delta_color="off")
-            cols[2].metric("Xếp hạng tương đối", f"cao hơn {estimate['relative_percentile']}%", "so với các bài có tương tác", delta_color="off")
+            cols[1].metric("Khả năng viral", f"{100 * engaged * viral_if_engaged:.1f}%",
+                           f"nếu có tương tác: {100 * viral_if_engaged:.1f}%", delta_color="off")
+            cols[2].metric("Nếu có tương tác: score dự kiến", f"≈ {estimate['score']:.0f}", f"khoảng {low:.0f}–{high:.0f} (80%)", delta_color="off")
+            cols[3].metric("Xếp hạng tương đối", f"cao hơn {estimate['relative_percentile']}%", "so với các bài có tương tác", delta_color="off")
+            st.caption("Khả năng viral = P(có tương tác) × P(score ≥ 271 | có tương tác); cả hai xác suất đã được hiệu chỉnh "
+                       "về tỉ lệ thật (bỏ ảnh hưởng của trọng số lớp / undersampling). Tỉ lệ viral nền chỉ khoảng 0,6% mọi bài.")
             st.caption("Score đo khoảng 36 giờ sau khi đăng. Khoảng 80% lấy từ sai số trên validation; "
                        "các bài viral (hàng nghìn điểm) nằm ngoài khoảng này vì chúng phụ thuộc thời điểm và vài vote đầu, không chỉ tiêu đề.")
             st.subheader("Từ ngữ đẩy score lên / xuống")
