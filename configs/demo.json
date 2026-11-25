@@ -1,0 +1,7 @@
+{
+  "eda_dir": "reports/eda",
+  "experiment_dir": "reports/experiments/fang_chua_20261125_v2",
+  "previous_experiment_dir": "reports/experiments/fang_chua_20261121_v1",
+  "model_dir": "artifacts/demo/fang_chua_20261125_v2",
+  "benchmark_dir": "reports/benchmark/spark_vs_duckdb_20261125"
+}
