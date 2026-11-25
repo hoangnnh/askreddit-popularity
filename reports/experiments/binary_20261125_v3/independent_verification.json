@@ -1,0 +1,24 @@
+{
+  "engine": "DuckDB",
+  "group_counts": {
+    "test": {
+      "high": 21088,
+      "low": 94492,
+      "middle": 18525
+    },
+    "train": {
+      "high": 188909,
+      "low": 928466,
+      "middle": 182480
+    },
+    "validation": {
+      "high": 39299,
+      "low": 179296,
+      "middle": 34430
+    }
+  },
+  "median": 1,
+  "p75": 2,
+  "status": "passed",
+  "train_records": 1299855
+}

@@ -1,0 +1,37 @@
+{
+  "algorithm_version": "binary-train-quantile-v1",
+  "fitted_on": "train",
+  "high_rule": "score > 2 (train p75)",
+  "input_fingerprint": "7be8349408f8b0571dd68f88623cc5b7d13aa8bba58928c821fe247262691438",
+  "low_rule": "score <= 1 (train median)",
+  "matches_eda_expectation": true,
+  "median": 1,
+  "middle_rule": "1 < score <= 2; excluded from training and evaluation",
+  "p75": 2,
+  "quantile_definition": "Inverse empirical CDF: the smallest train score s with F(s) >= q, from exact integer counts.",
+  "split_dates": {
+    "test": [
+      "2025-12-01T00:00:00Z",
+      "2026-01-01T00:00:00Z"
+    ],
+    "train": [
+      "2025-01-01T00:00:00Z",
+      "2025-10-01T00:00:00Z"
+    ],
+    "validation": [
+      "2025-10-01T00:00:00Z",
+      "2025-12-01T00:00:00Z"
+    ]
+  },
+  "train_counts": {
+    "high": 188909,
+    "low": 928466,
+    "middle": 182480
+  },
+  "train_percentages": {
+    "high": 14.53308253612903,
+    "low": 71.42842855549273,
+    "middle": 14.038488908378243
+  },
+  "train_records": 1299855
+}

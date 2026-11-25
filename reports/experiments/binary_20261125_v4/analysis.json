@@ -1,0 +1,1637 @@
+{
+  "coefficient_scale": "Text inputs are L2-normalized TF-IDF; structured inputs are divided by their train standard deviation (coefficients are per 1 SD); time-only inputs are raw sin/cos.",
+  "gradient_boosted_trees": {
+    "gbt_d5": {
+      "structured_importance_share": 0.16073980734564738,
+      "time_importance_share": 0,
+      "top_features": [
+        {
+          "feature": "title_characters",
+          "importance": 0.06949632951406078,
+          "kind": "structured"
+        },
+        {
+          "feature": "uppercase_ratio",
+          "importance": 0.05476570810115579,
+          "kind": "structured"
+        },
+        {
+          "feature": "and",
+          "importance": 0.04019309434414182,
+          "kind": "u"
+        },
+        {
+          "feature": "you",
+          "importance": 0.03977606054251687,
+          "kind": "u"
+        },
+        {
+          "feature": "title_words",
+          "importance": 0.025950664543992873,
+          "kind": "structured"
+        },
+        {
+          "feature": "to",
+          "importance": 0.020228675287543726,
+          "kind": "u"
+        },
+        {
+          "feature": "do",
+          "importance": 0.019161916073397782,
+          "kind": "u"
+        },
+        {
+          "feature": "the",
+          "importance": 0.018237929120189993,
+          "kind": "u"
+        },
+        {
+          "feature": "instantly",
+          "importance": 0.017429856324014226,
+          "kind": "u"
+        },
+        {
+          "feature": "epstein",
+          "importance": 0.01738329914979069,
+          "kind": "u"
+        },
+        {
+          "feature": "sex",
+          "importance": 0.016461518842588087,
+          "kind": "u"
+        },
+        {
+          "feature": "in",
+          "importance": 0.01481321190603166,
+          "kind": "u"
+        },
+        {
+          "feature": "for",
+          "importance": 0.014803436781266765,
+          "kind": "u"
+        },
+        {
+          "feature": "first",
+          "importance": 0.014654792713777882,
+          "kind": "u"
+        },
+        {
+          "feature": "what\u2019s",
+          "importance": 0.014061072094814248,
+          "kind": "u"
+        },
+        {
+          "feature": "best",
+          "importance": 0.0138601517667787,
+          "kind": "u"
+        },
+        {
+          "feature": "how",
+          "importance": 0.01382883499990393,
+          "kind": "u"
+        },
+        {
+          "feature": "something",
+          "importance": 0.013740246034543623,
+          "kind": "u"
+        },
+        {
+          "feature": "are you",
+          "importance": 0.013466407784641428,
+          "kind": "b"
+        },
+        {
+          "feature": "or",
+          "importance": 0.013461198476797229,
+          "kind": "u"
+        },
+        {
+          "feature": "never",
+          "importance": 0.01300027733420574,
+          "kind": "u"
+        },
+        {
+          "feature": "story",
+          "importance": 0.01242736996905922,
+          "kind": "u"
+        },
+        {
+          "feature": "attractive",
+          "importance": 0.012129916820509581,
+          "kind": "u"
+        },
+        {
+          "feature": "are",
+          "importance": 0.012077171575645515,
+          "kind": "u"
+        },
+        {
+          "feature": "on",
+          "importance": 0.0118712940345974,
+          "kind": "u"
+        },
+        {
+          "feature": "what's",
+          "importance": 0.011064451138544387,
+          "kind": "u"
+        },
+        {
+          "feature": "everyone",
+          "importance": 0.01058677842592859,
+          "kind": "u"
+        },
+        {
+          "feature": "where",
+          "importance": 0.010535687064421411,
+          "kind": "u"
+        },
+        {
+          "feature": "question_count",
+          "importance": 0.010527105186437938,
+          "kind": "structured"
+        },
+        {
+          "feature": "sign",
+          "importance": 0.01052642180636469,
+          "kind": "u"
+        }
+      ]
+    },
+    "gbt_d7": {
+      "structured_importance_share": 0.1916023214649759,
+      "time_importance_share": 0,
+      "top_features": [
+        {
+          "feature": "uppercase_ratio",
+          "importance": 0.07458614656310594,
+          "kind": "structured"
+        },
+        {
+          "feature": "title_characters",
+          "importance": 0.0726300372487592,
+          "kind": "structured"
+        },
+        {
+          "feature": "you",
+          "importance": 0.046102638200043414,
+          "kind": "u"
+        },
+        {
+          "feature": "title_words",
+          "importance": 0.037709417963170073,
+          "kind": "structured"
+        },
+        {
+          "feature": "the",
+          "importance": 0.033291220498816346,
+          "kind": "u"
+        },
+        {
+          "feature": "and",
+          "importance": 0.024573893565807657,
+          "kind": "u"
+        },
+        {
+          "feature": "to",
+          "importance": 0.024214101295392646,
+          "kind": "u"
+        },
+        {
+          "feature": "in",
+          "importance": 0.01887133511391745,
+          "kind": "u"
+        },
+        {
+          "feature": "for",
+          "importance": 0.017937911887063687,
+          "kind": "u"
+        },
+        {
+          "feature": "how",
+          "importance": 0.017867268645341817,
+          "kind": "u"
+        },
+        {
+          "feature": "what\u2019s",
+          "importance": 0.016251717774812446,
+          "kind": "u"
+        },
+        {
+          "feature": "do",
+          "importance": 0.015077206886515357,
+          "kind": "u"
+        },
+        {
+          "feature": "or",
+          "importance": 0.014048919633930861,
+          "kind": "u"
+        },
+        {
+          "feature": "sex",
+          "importance": 0.013249658698170085,
+          "kind": "u"
+        },
+        {
+          "feature": "best",
+          "importance": 0.01272387566606636,
+          "kind": "u"
+        },
+        {
+          "feature": "what's",
+          "importance": 0.012638171386167688,
+          "kind": "u"
+        },
+        {
+          "feature": "are",
+          "importance": 0.012489722097023669,
+          "kind": "u"
+        },
+        {
+          "feature": "of",
+          "importance": 0.012475024567592283,
+          "kind": "u"
+        },
+        {
+          "feature": "have",
+          "importance": 0.011918139739930337,
+          "kind": "u"
+        },
+        {
+          "feature": "on",
+          "importance": 0.01156633596171245,
+          "kind": "u"
+        },
+        {
+          "feature": "something",
+          "importance": 0.010808875332022242,
+          "kind": "u"
+        },
+        {
+          "feature": "if",
+          "importance": 0.010777120148613734,
+          "kind": "u"
+        },
+        {
+          "feature": "never",
+          "importance": 0.010524185533508918,
+          "kind": "u"
+        },
+        {
+          "feature": "where",
+          "importance": 0.010461417768410131,
+          "kind": "u"
+        },
+        {
+          "feature": "are you",
+          "importance": 0.009838390206824768,
+          "kind": "b"
+        },
+        {
+          "feature": "thing",
+          "importance": 0.009680059521426379,
+          "kind": "u"
+        },
+        {
+          "feature": "with",
+          "importance": 0.009530030827855973,
+          "kind": "u"
+        },
+        {
+          "feature": "it",
+          "importance": 0.00949783314001239,
+          "kind": "u"
+        },
+        {
+          "feature": "attractive",
+          "importance": 0.009421682044261843,
+          "kind": "u"
+        },
+        {
+          "feature": "first",
+          "importance": 0.009158202763892549,
+          "kind": "u"
+        }
+      ]
+    }
+  },
+  "logistic_regression": {
+    "combined_title_lr_r1e4": {
+      "intercept": -0.0850992514999444,
+      "structured": {
+        "question_count": -0.017347819067365967,
+        "question_present": 0.0027039994168859393,
+        "title_characters": -0.19250402571065708,
+        "title_words": 0.10312957163663777,
+        "uppercase_ratio": -0.02549754302153799
+      },
+      "time": {},
+      "top_negative": [
+        {
+          "coefficient": -1.4842400347681748,
+          "kind": "u",
+          "term": "or"
+        },
+        {
+          "coefficient": -1.0309672869326338,
+          "kind": "u",
+          "term": "and"
+        },
+        {
+          "coefficient": -0.9790102876931831,
+          "kind": "u",
+          "term": "how"
+        },
+        {
+          "coefficient": -0.809724428169235,
+          "kind": "u",
+          "term": "story"
+        },
+        {
+          "coefficient": -0.7536699393728915,
+          "kind": "u",
+          "term": "ai"
+        },
+        {
+          "coefficient": -0.749867179633031,
+          "kind": "u",
+          "term": "where"
+        },
+        {
+          "coefficient": -0.7210251780009211,
+          "kind": "u",
+          "term": "for"
+        },
+        {
+          "coefficient": -0.6397912918735281,
+          "kind": "u",
+          "term": "in"
+        },
+        {
+          "coefficient": -0.6128113598733111,
+          "kind": "u",
+          "term": "with"
+        },
+        {
+          "coefficient": -0.5751488665975342,
+          "kind": "b",
+          "term": "are the"
+        },
+        {
+          "coefficient": -0.5669041755493782,
+          "kind": "u",
+          "term": "does"
+        },
+        {
+          "coefficient": -0.5616433804825824,
+          "kind": "u",
+          "term": "moment"
+        },
+        {
+          "coefficient": -0.539539896742838,
+          "kind": "u",
+          "term": "online"
+        },
+        {
+          "coefficient": -0.5332070840670132,
+          "kind": "b",
+          "term": "and what"
+        },
+        {
+          "coefficient": -0.5228032896173094,
+          "kind": "u",
+          "term": "work"
+        },
+        {
+          "coefficient": -0.4998573122399035,
+          "kind": "u",
+          "term": "change"
+        },
+        {
+          "coefficient": -0.4846348674907654,
+          "kind": "u",
+          "term": "on"
+        },
+        {
+          "coefficient": -0.46937638786531216,
+          "kind": "u",
+          "term": "which"
+        },
+        {
+          "coefficient": -0.4672209366344601,
+          "kind": "u",
+          "term": "different"
+        },
+        {
+          "coefficient": -0.4592986927528945,
+          "kind": "u",
+          "term": "some"
+        },
+        {
+          "coefficient": -0.4562086492285129,
+          "kind": "u",
+          "term": "to"
+        },
+        {
+          "coefficient": -0.44804112488791603,
+          "kind": "u",
+          "term": "vs"
+        },
+        {
+          "coefficient": -0.44670359048131586,
+          "kind": "u",
+          "term": "help"
+        },
+        {
+          "coefficient": -0.4414196258340738,
+          "kind": "u",
+          "term": "family"
+        },
+        {
+          "coefficient": -0.43366617080830866,
+          "kind": "b",
+          "term": "you did"
+        },
+        {
+          "coefficient": -0.4195882424400537,
+          "kind": "u",
+          "term": "sports"
+        },
+        {
+          "coefficient": -0.4163251844543861,
+          "kind": "b",
+          "term": "what if"
+        },
+        {
+          "coefficient": -0.41413395626301047,
+          "kind": "u",
+          "term": "best"
+        },
+        {
+          "coefficient": -0.41194613936038005,
+          "kind": "u",
+          "term": "when"
+        },
+        {
+          "coefficient": -0.4052586809818384,
+          "kind": "u",
+          "term": "new"
+        }
+      ],
+      "top_positive": [
+        {
+          "coefficient": 1.6071344849781075,
+          "kind": "u",
+          "term": "trump"
+        },
+        {
+          "coefficient": 1.0418581650648642,
+          "kind": "u",
+          "term": "sex"
+        },
+        {
+          "coefficient": 1.0299141856893388,
+          "kind": "u",
+          "term": "instantly"
+        },
+        {
+          "coefficient": 0.8981287669263796,
+          "kind": "u",
+          "term": "nsfw"
+        },
+        {
+          "coefficient": 0.8964979511336769,
+          "kind": "b",
+          "term": "are you"
+        },
+        {
+          "coefficient": 0.787876820452461,
+          "kind": "u",
+          "term": "epstein"
+        },
+        {
+          "coefficient": 0.7676349555805059,
+          "kind": "u",
+          "term": "attractive"
+        },
+        {
+          "coefficient": 0.75906274900953,
+          "kind": "u",
+          "term": "people"
+        },
+        {
+          "coefficient": 0.7233778774910203,
+          "kind": "u",
+          "term": "you"
+        },
+        {
+          "coefficient": 0.7208820368832867,
+          "kind": "u",
+          "term": "compliment"
+        },
+        {
+          "coefficient": 0.6726079195675163,
+          "kind": "u",
+          "term": "americans"
+        },
+        {
+          "coefficient": 0.6406112765067702,
+          "kind": "u",
+          "term": "sexual"
+        },
+        {
+          "coefficient": 0.6248676401461634,
+          "kind": "u",
+          "term": "depression"
+        },
+        {
+          "coefficient": 0.6238661426018084,
+          "kind": "u",
+          "term": "die"
+        },
+        {
+          "coefficient": 0.6051937715991228,
+          "kind": "u",
+          "term": "actually"
+        },
+        {
+          "coefficient": 0.570655782993839,
+          "kind": "u",
+          "term": "first"
+        },
+        {
+          "coefficient": 0.5556968409666736,
+          "kind": "u",
+          "term": "fear"
+        },
+        {
+          "coefficient": 0.5479454738943447,
+          "kind": "u",
+          "term": "everyone"
+        },
+        {
+          "coefficient": 0.5439483801174676,
+          "kind": "u",
+          "term": "never"
+        },
+        {
+          "coefficient": 0.5149244315847878,
+          "kind": "b",
+          "term": "makes you"
+        },
+        {
+          "coefficient": 0.5132778310687462,
+          "kind": "u",
+          "term": "files"
+        },
+        {
+          "coefficient": 0.5081065617337273,
+          "kind": "u",
+          "term": "society"
+        },
+        {
+          "coefficient": 0.5073825030845223,
+          "kind": "b",
+          "term": "what's something"
+        },
+        {
+          "coefficient": 0.49475903814856786,
+          "kind": "u",
+          "term": "smell"
+        },
+        {
+          "coefficient": 0.49389207884958614,
+          "kind": "b",
+          "term": "mental health"
+        },
+        {
+          "coefficient": 0.49281282441750185,
+          "kind": "u",
+          "term": "still"
+        },
+        {
+          "coefficient": 0.4850743268155422,
+          "kind": "u",
+          "term": "naked"
+        },
+        {
+          "coefficient": 0.4828167622189669,
+          "kind": "b",
+          "term": "what\u2019s a"
+        },
+        {
+          "coefficient": 0.48089387964342484,
+          "kind": "u",
+          "term": "sign"
+        },
+        {
+          "coefficient": 0.47539332555890457,
+          "kind": "u",
+          "term": "death"
+        }
+      ]
+    },
+    "combined_title_lr_r1e5": {
+      "intercept": -0.24632135164900604,
+      "structured": {
+        "question_count": -0.01217707444834622,
+        "question_present": 0.00304585472356939,
+        "title_characters": -0.1887014054792814,
+        "title_words": 0.13249817940057437,
+        "uppercase_ratio": -0.022960306097829754
+      },
+      "time": {},
+      "top_negative": [
+        {
+          "coefficient": -1.9533706222651068,
+          "kind": "u",
+          "term": "or"
+        },
+        {
+          "coefficient": -1.5582137711000512,
+          "kind": "u",
+          "term": "how"
+        },
+        {
+          "coefficient": -1.4887106901665876,
+          "kind": "b",
+          "term": "why is"
+        },
+        {
+          "coefficient": -1.4596718586011328,
+          "kind": "u",
+          "term": "what"
+        },
+        {
+          "coefficient": -1.370428239532184,
+          "kind": "u",
+          "term": "and"
+        },
+        {
+          "coefficient": -1.3463288369905135,
+          "kind": "u",
+          "term": "vs"
+        },
+        {
+          "coefficient": -1.3428017740003177,
+          "kind": "u",
+          "term": "ai"
+        },
+        {
+          "coefficient": -1.3056326580336786,
+          "kind": "u",
+          "term": "where"
+        },
+        {
+          "coefficient": -1.2432580092553096,
+          "kind": "u",
+          "term": "prank"
+        },
+        {
+          "coefficient": -1.2348581902211029,
+          "kind": "b",
+          "term": "and are"
+        },
+        {
+          "coefficient": -1.213541060210904,
+          "kind": "u",
+          "term": "for"
+        },
+        {
+          "coefficient": -1.190908563802004,
+          "kind": "u",
+          "term": "shoes"
+        },
+        {
+          "coefficient": -1.177126832542011,
+          "kind": "u",
+          "term": "story"
+        },
+        {
+          "coefficient": -1.1609493063042002,
+          "kind": "u",
+          "term": "in"
+        },
+        {
+          "coefficient": -1.1578016125168005,
+          "kind": "u",
+          "term": "correct"
+        },
+        {
+          "coefficient": -1.1534938492431968,
+          "kind": "u",
+          "term": "fans"
+        },
+        {
+          "coefficient": -1.122992424642156,
+          "kind": "u",
+          "term": "development"
+        },
+        {
+          "coefficient": -1.0973066170414456,
+          "kind": "u",
+          "term": "streaming"
+        },
+        {
+          "coefficient": -1.095101937926904,
+          "kind": "u",
+          "term": "combo"
+        },
+        {
+          "coefficient": -1.0931552607987776,
+          "kind": "u",
+          "term": "drama"
+        },
+        {
+          "coefficient": -1.083375783175154,
+          "kind": "u",
+          "term": "podcasts"
+        },
+        {
+          "coefficient": -1.0803311488245066,
+          "kind": "u",
+          "term": "marketing"
+        },
+        {
+          "coefficient": -1.0772029581859133,
+          "kind": "u",
+          "term": "engagement"
+        },
+        {
+          "coefficient": -1.076841858701428,
+          "kind": "b",
+          "term": "or been"
+        },
+        {
+          "coefficient": -1.0546220123202856,
+          "kind": "u",
+          "term": "recipe"
+        },
+        {
+          "coefficient": -1.0520625224516122,
+          "kind": "b",
+          "term": "movie tv"
+        },
+        {
+          "coefficient": -1.0486608909932889,
+          "kind": "u",
+          "term": "egg"
+        },
+        {
+          "coefficient": -1.0450429531683316,
+          "kind": "u",
+          "term": "help"
+        },
+        {
+          "coefficient": -1.0413897680834905,
+          "kind": "b",
+          "term": "not so"
+        },
+        {
+          "coefficient": -1.035840924711567,
+          "kind": "u",
+          "term": "how's"
+        }
+      ],
+      "top_positive": [
+        {
+          "coefficient": 3.5098098123302095,
+          "kind": "u",
+          "term": "trump"
+        },
+        {
+          "coefficient": 2.2972841277500815,
+          "kind": "u",
+          "term": "nsfw"
+        },
+        {
+          "coefficient": 2.114482260767809,
+          "kind": "u",
+          "term": "epstein"
+        },
+        {
+          "coefficient": 1.9678573873222458,
+          "kind": "u",
+          "term": "conservatives"
+        },
+        {
+          "coefficient": 1.964343881686119,
+          "kind": "u",
+          "term": "sex"
+        },
+        {
+          "coefficient": 1.7601648343932434,
+          "kind": "u",
+          "term": "congress"
+        },
+        {
+          "coefficient": 1.7562158410730706,
+          "kind": "u",
+          "term": "naked"
+        },
+        {
+          "coefficient": 1.7482628734952772,
+          "kind": "u",
+          "term": "compliment"
+        },
+        {
+          "coefficient": 1.6807161722589163,
+          "kind": "u",
+          "term": "sexual"
+        },
+        {
+          "coefficient": 1.633950103492956,
+          "kind": "u",
+          "term": "americans"
+        },
+        {
+          "coefficient": 1.6139421572585237,
+          "kind": "u",
+          "term": "instantly"
+        },
+        {
+          "coefficient": 1.613666973481931,
+          "kind": "u",
+          "term": "you"
+        },
+        {
+          "coefficient": 1.6095731835157552,
+          "kind": "u",
+          "term": "depression"
+        },
+        {
+          "coefficient": 1.5435994537405047,
+          "kind": "u",
+          "term": "politicians"
+        },
+        {
+          "coefficient": 1.4791105435844722,
+          "kind": "u",
+          "term": "attractive"
+        },
+        {
+          "coefficient": 1.3991606214191388,
+          "kind": "b",
+          "term": "mental health"
+        },
+        {
+          "coefficient": 1.3788487597362784,
+          "kind": "b",
+          "term": "you addicted"
+        },
+        {
+          "coefficient": 1.3746929845198625,
+          "kind": "u",
+          "term": "republicans"
+        },
+        {
+          "coefficient": 1.3710929941204808,
+          "kind": "u",
+          "term": "homeless"
+        },
+        {
+          "coefficient": 1.3208732438172959,
+          "kind": "b",
+          "term": "a kid"
+        },
+        {
+          "coefficient": 1.3127406081791395,
+          "kind": "b",
+          "term": "u s"
+        },
+        {
+          "coefficient": 1.28245566165177,
+          "kind": "b",
+          "term": "your teenage"
+        },
+        {
+          "coefficient": 1.2785743692905527,
+          "kind": "u",
+          "term": "depressed"
+        },
+        {
+          "coefficient": 1.269230166779775,
+          "kind": "u",
+          "term": "files"
+        },
+        {
+          "coefficient": 1.2690886270029806,
+          "kind": "u",
+          "term": "die"
+        },
+        {
+          "coefficient": 1.2360562568287177,
+          "kind": "u",
+          "term": "trump\u2019s"
+        },
+        {
+          "coefficient": 1.2170674986645122,
+          "kind": "b",
+          "term": "are you"
+        },
+        {
+          "coefficient": 1.2104856356421803,
+          "kind": "u",
+          "term": "kills"
+        },
+        {
+          "coefficient": 1.206564315681945,
+          "kind": "u",
+          "term": "insult"
+        },
+        {
+          "coefficient": 1.1978516842097942,
+          "kind": "u",
+          "term": "ice"
+        }
+      ]
+    },
+    "combined_title_lr_r1e6": {
+      "intercept": -0.4344934485563648,
+      "structured": {
+        "question_count": -0.010289022734756247,
+        "question_present": 0.003194913771688739,
+        "title_characters": -0.12731278458156864,
+        "title_words": 0.048891853559253434,
+        "uppercase_ratio": -0.02083521312893485
+      },
+      "time": {},
+      "top_negative": [
+        {
+          "coefficient": -4.303633279884628,
+          "kind": "b",
+          "term": "why is"
+        },
+        {
+          "coefficient": -3.990631485300453,
+          "kind": "b",
+          "term": "or been"
+        },
+        {
+          "coefficient": -3.256258988701726,
+          "kind": "u",
+          "term": "engagement"
+        },
+        {
+          "coefficient": -2.7335034078476173,
+          "kind": "b",
+          "term": "doesn't exist"
+        },
+        {
+          "coefficient": -2.731919039034289,
+          "kind": "b",
+          "term": "we don\u2019t"
+        },
+        {
+          "coefficient": -2.7218845364515407,
+          "kind": "u",
+          "term": "development"
+        },
+        {
+          "coefficient": -2.611780601148662,
+          "kind": "b",
+          "term": "life of"
+        },
+        {
+          "coefficient": -2.598357153728927,
+          "kind": "b",
+          "term": "up how"
+        },
+        {
+          "coefficient": -2.5401530283735143,
+          "kind": "b",
+          "term": "it more"
+        },
+        {
+          "coefficient": -2.491574242963309,
+          "kind": "u",
+          "term": "spotify"
+        },
+        {
+          "coefficient": -2.4589108687000816,
+          "kind": "b",
+          "term": "to study"
+        },
+        {
+          "coefficient": -2.4390807734351925,
+          "kind": "b",
+          "term": "and are"
+        },
+        {
+          "coefficient": -2.4252165999728614,
+          "kind": "u",
+          "term": "windows"
+        },
+        {
+          "coefficient": -2.3836697857770637,
+          "kind": "u",
+          "term": "pros"
+        },
+        {
+          "coefficient": -2.37226564021956,
+          "kind": "u",
+          "term": "channels"
+        },
+        {
+          "coefficient": -2.348988801771233,
+          "kind": "b",
+          "term": "overcome it"
+        },
+        {
+          "coefficient": -2.3211867263188006,
+          "kind": "b",
+          "term": "draw the"
+        },
+        {
+          "coefficient": -2.308275578202604,
+          "kind": "u",
+          "term": "egg"
+        },
+        {
+          "coefficient": -2.2641198793685513,
+          "kind": "b",
+          "term": "longest you\u2019ve"
+        },
+        {
+          "coefficient": -2.255467212410821,
+          "kind": "b",
+          "term": "turned into"
+        },
+        {
+          "coefficient": -2.2531813452999736,
+          "kind": "u",
+          "term": "definition"
+        },
+        {
+          "coefficient": -2.2256609904600886,
+          "kind": "u",
+          "term": "correct"
+        },
+        {
+          "coefficient": -2.2242631996991307,
+          "kind": "u",
+          "term": "results"
+        },
+        {
+          "coefficient": -2.2134450194512105,
+          "kind": "b",
+          "term": "more attention"
+        },
+        {
+          "coefficient": -2.194266733769848,
+          "kind": "b",
+          "term": "not so"
+        },
+        {
+          "coefficient": -2.188810918983934,
+          "kind": "u",
+          "term": "details"
+        },
+        {
+          "coefficient": -2.1774728889907626,
+          "kind": "u",
+          "term": "what"
+        },
+        {
+          "coefficient": -2.1709988205957984,
+          "kind": "u",
+          "term": "electricity"
+        },
+        {
+          "coefficient": -2.1558374303890946,
+          "kind": "b",
+          "term": "your industry"
+        },
+        {
+          "coefficient": -2.1210137888889156,
+          "kind": "u",
+          "term": "podcasts"
+        }
+      ],
+      "top_positive": [
+        {
+          "coefficient": 4.174670199431895,
+          "kind": "u",
+          "term": "trump"
+        },
+        {
+          "coefficient": 3.8238052566664926,
+          "kind": "u",
+          "term": "conservatives"
+        },
+        {
+          "coefficient": 3.464445255537532,
+          "kind": "b",
+          "term": "your teenage"
+        },
+        {
+          "coefficient": 3.430505715185097,
+          "kind": "u",
+          "term": "epstein"
+        },
+        {
+          "coefficient": 3.4261285404020345,
+          "kind": "u",
+          "term": "congress"
+        },
+        {
+          "coefficient": 3.2904319772872017,
+          "kind": "b",
+          "term": "you addicted"
+        },
+        {
+          "coefficient": 3.1294974796293964,
+          "kind": "b",
+          "term": "view of"
+        },
+        {
+          "coefficient": 2.8624026906552675,
+          "kind": "b",
+          "term": "current knowledge"
+        },
+        {
+          "coefficient": 2.839361684186183,
+          "kind": "b",
+          "term": "in case"
+        },
+        {
+          "coefficient": 2.8323636759159765,
+          "kind": "u",
+          "term": "nsfw"
+        },
+        {
+          "coefficient": 2.8292480123236095,
+          "kind": "b",
+          "term": "small town"
+        },
+        {
+          "coefficient": 2.8235167506165166,
+          "kind": "u",
+          "term": "politicians"
+        },
+        {
+          "coefficient": 2.790350077426096,
+          "kind": "b",
+          "term": "the movies"
+        },
+        {
+          "coefficient": 2.733414366809597,
+          "kind": "u",
+          "term": "compliment"
+        },
+        {
+          "coefficient": 2.7299568024580467,
+          "kind": "b",
+          "term": "lose respect"
+        },
+        {
+          "coefficient": 2.7123665324033555,
+          "kind": "b",
+          "term": "be something"
+        },
+        {
+          "coefficient": 2.685980634664299,
+          "kind": "b",
+          "term": "u s"
+        },
+        {
+          "coefficient": 2.6775601205024855,
+          "kind": "b",
+          "term": "that trump"
+        },
+        {
+          "coefficient": 2.6660181628748845,
+          "kind": "u",
+          "term": "you"
+        },
+        {
+          "coefficient": 2.636898541575259,
+          "kind": "u",
+          "term": "millions"
+        },
+        {
+          "coefficient": 2.6350416545499944,
+          "kind": "u",
+          "term": "naked"
+        },
+        {
+          "coefficient": 2.5639441283303914,
+          "kind": "u",
+          "term": "trump\u2019s"
+        },
+        {
+          "coefficient": 2.518421005825102,
+          "kind": "b",
+          "term": "a kid"
+        },
+        {
+          "coefficient": 2.5161500876675578,
+          "kind": "b",
+          "term": "white house"
+        },
+        {
+          "coefficient": 2.4987047481876337,
+          "kind": "b",
+          "term": "mental health"
+        },
+        {
+          "coefficient": 2.4981599830946815,
+          "kind": "u",
+          "term": "signal"
+        },
+        {
+          "coefficient": 2.456869211914226,
+          "kind": "u",
+          "term": "kills"
+        },
+        {
+          "coefficient": 2.4199479297009487,
+          "kind": "u",
+          "term": "republicans"
+        },
+        {
+          "coefficient": 2.4037296861192243,
+          "kind": "b",
+          "term": "that there"
+        },
+        {
+          "coefficient": 2.367209991982233,
+          "kind": "b",
+          "term": "fails to"
+        }
+      ]
+    },
+    "text_lr_r1e5": {
+      "intercept": 0.10560421165670712,
+      "structured": {},
+      "time": {},
+      "top_negative": [
+        {
+          "coefficient": -2.1956885163016215,
+          "kind": "u",
+          "term": "or"
+        },
+        {
+          "coefficient": -1.7169225971279052,
+          "kind": "u",
+          "term": "and"
+        },
+        {
+          "coefficient": -1.535805963662169,
+          "kind": "u",
+          "term": "how"
+        },
+        {
+          "coefficient": -1.4839003924914589,
+          "kind": "b",
+          "term": "why is"
+        },
+        {
+          "coefficient": -1.4355200441344143,
+          "kind": "u",
+          "term": "ai"
+        },
+        {
+          "coefficient": -1.4255820458521584,
+          "kind": "u",
+          "term": "vs"
+        },
+        {
+          "coefficient": -1.3685415863239827,
+          "kind": "u",
+          "term": "where"
+        },
+        {
+          "coefficient": -1.3565677923159856,
+          "kind": "u",
+          "term": "for"
+        },
+        {
+          "coefficient": -1.3227943495605403,
+          "kind": "u",
+          "term": "what"
+        },
+        {
+          "coefficient": -1.2931836283620737,
+          "kind": "u",
+          "term": "in"
+        },
+        {
+          "coefficient": -1.2485787064414802,
+          "kind": "u",
+          "term": "prank"
+        },
+        {
+          "coefficient": -1.2400725495119946,
+          "kind": "b",
+          "term": "and are"
+        },
+        {
+          "coefficient": -1.2107724876362724,
+          "kind": "u",
+          "term": "correct"
+        },
+        {
+          "coefficient": -1.2094233565903165,
+          "kind": "u",
+          "term": "story"
+        },
+        {
+          "coefficient": -1.1971121119920218,
+          "kind": "u",
+          "term": "fans"
+        },
+        {
+          "coefficient": -1.189450630145889,
+          "kind": "u",
+          "term": "shoes"
+        },
+        {
+          "coefficient": -1.1765666323798742,
+          "kind": "u",
+          "term": "development"
+        },
+        {
+          "coefficient": -1.154697699003344,
+          "kind": "u",
+          "term": "streaming"
+        },
+        {
+          "coefficient": -1.1303318135650224,
+          "kind": "u",
+          "term": "with"
+        },
+        {
+          "coefficient": -1.1218468695356263,
+          "kind": "u",
+          "term": "marketing"
+        },
+        {
+          "coefficient": -1.1144080491521087,
+          "kind": "u",
+          "term": "engagement"
+        },
+        {
+          "coefficient": -1.1121401928370573,
+          "kind": "u",
+          "term": "combo"
+        },
+        {
+          "coefficient": -1.1070243469702774,
+          "kind": "u",
+          "term": "drama"
+        },
+        {
+          "coefficient": -1.1065270579404158,
+          "kind": "u",
+          "term": "podcasts"
+        },
+        {
+          "coefficient": -1.0951535676449802,
+          "kind": "u",
+          "term": "students"
+        },
+        {
+          "coefficient": -1.0829240288945403,
+          "kind": "u",
+          "term": "help"
+        },
+        {
+          "coefficient": -1.0792185804089987,
+          "kind": "u",
+          "term": "different"
+        },
+        {
+          "coefficient": -1.0773916109525807,
+          "kind": "b",
+          "term": "or been"
+        },
+        {
+          "coefficient": -1.074010212884997,
+          "kind": "u",
+          "term": "recipe"
+        },
+        {
+          "coefficient": -1.0717516791228776,
+          "kind": "u",
+          "term": "moment"
+        }
+      ],
+      "top_positive": [
+        {
+          "coefficient": 3.3377071081753376,
+          "kind": "u",
+          "term": "trump"
+        },
+        {
+          "coefficient": 2.1537202386849126,
+          "kind": "u",
+          "term": "nsfw"
+        },
+        {
+          "coefficient": 2.0286223110576556,
+          "kind": "u",
+          "term": "epstein"
+        },
+        {
+          "coefficient": 1.9892703862766261,
+          "kind": "u",
+          "term": "sex"
+        },
+        {
+          "coefficient": 1.857256453467483,
+          "kind": "u",
+          "term": "conservatives"
+        },
+        {
+          "coefficient": 1.7519142635499096,
+          "kind": "u",
+          "term": "naked"
+        },
+        {
+          "coefficient": 1.694359252411863,
+          "kind": "u",
+          "term": "compliment"
+        },
+        {
+          "coefficient": 1.669634313554955,
+          "kind": "u",
+          "term": "congress"
+        },
+        {
+          "coefficient": 1.6436204165831394,
+          "kind": "u",
+          "term": "sexual"
+        },
+        {
+          "coefficient": 1.54488687771211,
+          "kind": "u",
+          "term": "depression"
+        },
+        {
+          "coefficient": 1.5073765602932097,
+          "kind": "u",
+          "term": "instantly"
+        },
+        {
+          "coefficient": 1.4949556888060895,
+          "kind": "u",
+          "term": "you"
+        },
+        {
+          "coefficient": 1.4771982221365962,
+          "kind": "u",
+          "term": "americans"
+        },
+        {
+          "coefficient": 1.4501435818935084,
+          "kind": "u",
+          "term": "politicians"
+        },
+        {
+          "coefficient": 1.404211328459297,
+          "kind": "b",
+          "term": "mental health"
+        },
+        {
+          "coefficient": 1.3976533287546882,
+          "kind": "u",
+          "term": "attractive"
+        },
+        {
+          "coefficient": 1.3796089411244947,
+          "kind": "b",
+          "term": "you addicted"
+        },
+        {
+          "coefficient": 1.362545955638006,
+          "kind": "b",
+          "term": "a kid"
+        },
+        {
+          "coefficient": 1.3271894033484446,
+          "kind": "u",
+          "term": "homeless"
+        },
+        {
+          "coefficient": 1.2916861129318573,
+          "kind": "u",
+          "term": "die"
+        },
+        {
+          "coefficient": 1.2786748167586484,
+          "kind": "b",
+          "term": "your teenage"
+        },
+        {
+          "coefficient": 1.2646945348790055,
+          "kind": "u",
+          "term": "republicans"
+        },
+        {
+          "coefficient": 1.2608955598789962,
+          "kind": "b",
+          "term": "are you"
+        },
+        {
+          "coefficient": 1.2462827138661718,
+          "kind": "u",
+          "term": "depressed"
+        },
+        {
+          "coefficient": 1.2452138823183887,
+          "kind": "b",
+          "term": "u s"
+        },
+        {
+          "coefficient": 1.209833196477059,
+          "kind": "u",
+          "term": "insult"
+        },
+        {
+          "coefficient": 1.2097599725636825,
+          "kind": "b",
+          "term": "your ex"
+        },
+        {
+          "coefficient": 1.2097137368378137,
+          "kind": "u",
+          "term": "files"
+        },
+        {
+          "coefficient": 1.2024726926415905,
+          "kind": "u",
+          "term": "kills"
+        },
+        {
+          "coefficient": 1.1857773210950275,
+          "kind": "u",
+          "term": "ban"
+        }
+      ]
+    },
+    "time_lr": {
+      "intercept": 0.006991502992450374,
+      "structured": {
+        "hour_cos": 0.012105265410962128,
+        "hour_sin": 0.1073156871262774,
+        "weekday_cos": 0.004051378396597543,
+        "weekday_sin": 0.012925433272524049
+      },
+      "time": {
+        "hour_cos": 0.012105265410962128,
+        "hour_sin": 0.1073156871262774,
+        "weekday_cos": 0.004051378396597543,
+        "weekday_sin": 0.012925433272524049
+      },
+      "time_effects": {
+        "hour_utc": [
+          0.012105265410962131,
+          0.03946813216107607,
+          0.06414131092858497,
+          0.0844433653548389,
+          0.09899074398141992,
+          0.10679206699560642,
+          0.1073156871262774,
+          0.10052592052685083,
+          0.08688547857045781,
+          0.06732393483453035,
+          0.04317437619769242,
+          0.016082555172011955,
+          -0.01210526541096211,
+          -0.03946813216107607,
+          -0.06414131092858495,
+          -0.08444336535483887,
+          -0.09899074398141991,
+          -0.10679206699560642,
+          -0.1073156871262774,
+          -0.10052592052685086,
+          -0.0868854785704578,
+          -0.06732393483453036,
+          -0.043174376197692474,
+          -0.01608255517201201
+        ],
+        "unit": "Change in log-odds of high popularity relative to the cycle mean",
+        "weekday_monday0": [
+          0.004051378396597543,
+          0.012631503770748431,
+          0.011699849169806027,
+          0.0019579695105704257,
+          -0.009258301125424034,
+          -0.013502882179048669,
+          -0.007579517543249722
+        ]
+      }
+    },
+    "title_structured_lr": {
+      "intercept": 0.027498246804348207,
+      "structured": {
+        "question_count": -0.033635791975864505,
+        "question_present": 0.0031672712296245955,
+        "title_characters": -0.12800582220918882,
+        "title_words": -0.021179136012156676,
+        "uppercase_ratio": -0.04236225766667385
+      },
+      "time": {}
+    }
+  }
+}

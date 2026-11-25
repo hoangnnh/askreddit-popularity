@@ -1,0 +1,1825 @@
+{
+  "coefficient_scale": "Text inputs are L2-normalized TF-IDF; structured inputs are divided by their train standard deviation (coefficients are per 1 SD); time-only inputs are raw sin/cos.",
+  "gradient_boosted_trees": {
+    "gbt_d5": {
+      "structured_importance_share": 0.16055977712601796,
+      "time_importance_share": 0.04889697206014218,
+      "top_features": [
+        {
+          "feature": "i",
+          "importance": 0.10923145472809492,
+          "kind": "u"
+        },
+        {
+          "feature": "you",
+          "importance": 0.08327372627356852,
+          "kind": "u"
+        },
+        {
+          "feature": "title_characters",
+          "importance": 0.0571158559284269,
+          "kind": "structured"
+        },
+        {
+          "feature": "my",
+          "importance": 0.047517240745828596,
+          "kind": "u"
+        },
+        {
+          "feature": "uppercase_ratio",
+          "importance": 0.04618186210681045,
+          "kind": "structured"
+        },
+        {
+          "feature": "me",
+          "importance": 0.04084952467358587,
+          "kind": "u"
+        },
+        {
+          "feature": "your",
+          "importance": 0.038326895092228024,
+          "kind": "u"
+        },
+        {
+          "feature": "why",
+          "importance": 0.0361909872830096,
+          "kind": "u"
+        },
+        {
+          "feature": "what\u2019s",
+          "importance": 0.034518469855835156,
+          "kind": "u"
+        },
+        {
+          "feature": "how many",
+          "importance": 0.029410561875888704,
+          "kind": "b"
+        },
+        {
+          "feature": "what",
+          "importance": 0.028278782284400356,
+          "kind": "u"
+        },
+        {
+          "feature": "hour_cos",
+          "importance": 0.027214328897736575,
+          "kind": "structured"
+        },
+        {
+          "feature": "how much",
+          "importance": 0.024822437873352293,
+          "kind": "b"
+        },
+        {
+          "feature": "women",
+          "importance": 0.020474219281373388,
+          "kind": "u"
+        },
+        {
+          "feature": "trump",
+          "importance": 0.02008847300311311,
+          "kind": "u"
+        },
+        {
+          "feature": "hour_sin",
+          "importance": 0.019847264653867953,
+          "kind": "structured"
+        },
+        {
+          "feature": "something",
+          "importance": 0.018163165111756304,
+          "kind": "u"
+        },
+        {
+          "feature": "sex",
+          "importance": 0.017114027357201404,
+          "kind": "u"
+        },
+        {
+          "feature": "does",
+          "importance": 0.016906570146238767,
+          "kind": "u"
+        },
+        {
+          "feature": "why is",
+          "importance": 0.016249093867570976,
+          "kind": "b"
+        },
+        {
+          "feature": "what's",
+          "importance": 0.015846748201613896,
+          "kind": "u"
+        },
+        {
+          "feature": "how long",
+          "importance": 0.014105079058905208,
+          "kind": "b"
+        },
+        {
+          "feature": "on",
+          "importance": 0.013701796820233847,
+          "kind": "u"
+        },
+        {
+          "feature": "do",
+          "importance": 0.013587787441017088,
+          "kind": "u"
+        },
+        {
+          "feature": "movie",
+          "importance": 0.013541790774927821,
+          "kind": "u"
+        },
+        {
+          "feature": "how",
+          "importance": 0.01157855629092673,
+          "kind": "u"
+        },
+        {
+          "feature": "thing",
+          "importance": 0.009733326592474606,
+          "kind": "u"
+        },
+        {
+          "feature": "that",
+          "importance": 0.008953387322548438,
+          "kind": "u"
+        },
+        {
+          "feature": "life",
+          "importance": 0.008673127193292485,
+          "kind": "u"
+        },
+        {
+          "feature": "you've",
+          "importance": 0.008590089899904013,
+          "kind": "u"
+        }
+      ]
+    },
+    "gbt_d7": {
+      "structured_importance_share": 0.20948312962343915,
+      "time_importance_share": 0.06789760621555052,
+      "top_features": [
+        {
+          "feature": "i",
+          "importance": 0.1054203559829137,
+          "kind": "u"
+        },
+        {
+          "feature": "you",
+          "importance": 0.06596418287248794,
+          "kind": "u"
+        },
+        {
+          "feature": "title_characters",
+          "importance": 0.0650261313090263,
+          "kind": "structured"
+        },
+        {
+          "feature": "uppercase_ratio",
+          "importance": 0.05923546941879707,
+          "kind": "structured"
+        },
+        {
+          "feature": "hour_cos",
+          "importance": 0.033784856618510106,
+          "kind": "structured"
+        },
+        {
+          "feature": "why",
+          "importance": 0.03311287632037368,
+          "kind": "u"
+        },
+        {
+          "feature": "your",
+          "importance": 0.03310362410183212,
+          "kind": "u"
+        },
+        {
+          "feature": "what",
+          "importance": 0.03032746042858844,
+          "kind": "u"
+        },
+        {
+          "feature": "what\u2019s",
+          "importance": 0.027903410964009598,
+          "kind": "u"
+        },
+        {
+          "feature": "hour_sin",
+          "importance": 0.026345249977050015,
+          "kind": "structured"
+        },
+        {
+          "feature": "my",
+          "importance": 0.025840942112726802,
+          "kind": "u"
+        },
+        {
+          "feature": "me",
+          "importance": 0.02322742531824321,
+          "kind": "u"
+        },
+        {
+          "feature": "women",
+          "importance": 0.018467421794350503,
+          "kind": "u"
+        },
+        {
+          "feature": "sex",
+          "importance": 0.01798416018892792,
+          "kind": "u"
+        },
+        {
+          "feature": "does",
+          "importance": 0.01721392720558265,
+          "kind": "u"
+        },
+        {
+          "feature": "what's",
+          "importance": 0.016828536008780384,
+          "kind": "u"
+        },
+        {
+          "feature": "do",
+          "importance": 0.016414947319247364,
+          "kind": "u"
+        },
+        {
+          "feature": "something",
+          "importance": 0.01618292356173077,
+          "kind": "u"
+        },
+        {
+          "feature": "how long",
+          "importance": 0.01607713011288937,
+          "kind": "b"
+        },
+        {
+          "feature": "trump",
+          "importance": 0.015550013017763747,
+          "kind": "u"
+        },
+        {
+          "feature": "how",
+          "importance": 0.014881750847052675,
+          "kind": "u"
+        },
+        {
+          "feature": "on",
+          "importance": 0.012827860010818284,
+          "kind": "u"
+        },
+        {
+          "feature": "that",
+          "importance": 0.012641092465626419,
+          "kind": "u"
+        },
+        {
+          "feature": "movie",
+          "importance": 0.011797231667903627,
+          "kind": "u"
+        },
+        {
+          "feature": "how many",
+          "importance": 0.01158940140264133,
+          "kind": "b"
+        },
+        {
+          "feature": "title_words",
+          "importance": 0.01021282695904508,
+          "kind": "structured"
+        },
+        {
+          "feature": "you've",
+          "importance": 0.009909716447520317,
+          "kind": "u"
+        },
+        {
+          "feature": "how much",
+          "importance": 0.009894959040578721,
+          "kind": "b"
+        },
+        {
+          "feature": "thing",
+          "importance": 0.00951007348579764,
+          "kind": "u"
+        },
+        {
+          "feature": "life",
+          "importance": 0.008804233244079376,
+          "kind": "u"
+        }
+      ]
+    }
+  },
+  "logistic_regression": {
+    "combined_lr_r1e2": {
+      "intercept": -1.8361870343642015,
+      "structured": {
+        "hour_cos": 0.08794445907812265,
+        "hour_sin": 0.09277778208648274,
+        "question_count": -0.07989628299121056,
+        "question_present": 0.11779153302096447,
+        "title_characters": -0.20132430442457522,
+        "title_words": -0.2552679005108663,
+        "uppercase_ratio": -0.5433305607966821,
+        "weekday_cos": -0.002013105305918216,
+        "weekday_sin": -0.0077571631549713535
+      },
+      "time": {
+        "hour_cos": 0.08794445907812265,
+        "hour_sin": 0.09277778208648274,
+        "weekday_cos": -0.002013105305918216,
+        "weekday_sin": -0.0077571631549713535
+      },
+      "time_effects": {
+        "hour_utc": [
+          0.125098547356403,
+          0.15503484814160606,
+          0.17440578023315914,
+          0.18189124662100173,
+          0.17698112514112047,
+          0.16001003245800982,
+          0.13213452049196706,
+          0.09525425931701645,
+          0.05188257778471749,
+          0.004975184316403736,
+          -0.042271259741192106,
+          -0.08663698730398528,
+          -0.12509854735640297,
+          -0.15503484814160606,
+          -0.1744057802331591,
+          -0.18189124662100173,
+          -0.17698112514112047,
+          -0.1600100324580098,
+          -0.13213452049196708,
+          -0.09525425931701648,
+          -0.05188257778471742,
+          -0.004975184316403752,
+          0.04227125974119201,
+          0.0866369873039852
+        ],
+        "unit": "Change in log-odds of high popularity relative to the cycle mean",
+        "weekday_monday0": [
+          -0.002836460484256957,
+          -0.010379270402455645,
+          -0.010106278009073618,
+          -0.002223052144357529,
+          0.007334177327059403,
+          0.011368621681247694,
+          0.006842262031836652
+        ]
+      },
+      "top_negative": [
+        {
+          "coefficient": -0.2390510377445198,
+          "kind": "u",
+          "term": "i"
+        },
+        {
+          "coefficient": -0.16905156076573136,
+          "kind": "u",
+          "term": "why"
+        },
+        {
+          "coefficient": -0.1361894568463494,
+          "kind": "u",
+          "term": "my"
+        },
+        {
+          "coefficient": -0.117603774577442,
+          "kind": "u",
+          "term": "how"
+        },
+        {
+          "coefficient": -0.09951149411571603,
+          "kind": "b",
+          "term": "why do"
+        },
+        {
+          "coefficient": -0.08987520891788543,
+          "kind": "b",
+          "term": "do i"
+        },
+        {
+          "coefficient": -0.08488969703393819,
+          "kind": "u",
+          "term": "can"
+        },
+        {
+          "coefficient": -0.08412780108547062,
+          "kind": "u",
+          "term": "does"
+        },
+        {
+          "coefficient": -0.08017365477616793,
+          "kind": "u",
+          "term": "me"
+        },
+        {
+          "coefficient": -0.07278156281171898,
+          "kind": "b",
+          "term": "why is"
+        },
+        {
+          "coefficient": -0.072519280475455,
+          "kind": "b",
+          "term": "can i"
+        },
+        {
+          "coefficient": -0.07038544130724539,
+          "kind": "u",
+          "term": "do"
+        },
+        {
+          "coefficient": -0.06460682023875852,
+          "kind": "u",
+          "term": "on"
+        },
+        {
+          "coefficient": -0.06089084948952008,
+          "kind": "b",
+          "term": "why are"
+        },
+        {
+          "coefficient": -0.05488125472168276,
+          "kind": "u",
+          "term": "many"
+        },
+        {
+          "coefficient": -0.05484713778962083,
+          "kind": "u",
+          "term": "women"
+        },
+        {
+          "coefficient": -0.05301657344919234,
+          "kind": "b",
+          "term": "how can"
+        },
+        {
+          "coefficient": -0.05176081730421232,
+          "kind": "u",
+          "term": "so"
+        },
+        {
+          "coefficient": -0.051743606809157815,
+          "kind": "b",
+          "term": "should i"
+        },
+        {
+          "coefficient": -0.05028615783261945,
+          "kind": "b",
+          "term": "how many"
+        },
+        {
+          "coefficient": -0.04917429749931195,
+          "kind": "u",
+          "term": "this"
+        },
+        {
+          "coefficient": -0.04832391518431294,
+          "kind": "b",
+          "term": "why does"
+        },
+        {
+          "coefficient": -0.04703165183032974,
+          "kind": "u",
+          "term": "men"
+        },
+        {
+          "coefficient": -0.046589273309643776,
+          "kind": "b",
+          "term": "how do"
+        },
+        {
+          "coefficient": -0.04558335466079932,
+          "kind": "b",
+          "term": "i do"
+        },
+        {
+          "coefficient": -0.04557266982377698,
+          "kind": "u",
+          "term": "sex"
+        },
+        {
+          "coefficient": -0.04540052516861994,
+          "kind": "u",
+          "term": "much"
+        },
+        {
+          "coefficient": -0.04190862286129824,
+          "kind": "b",
+          "term": "how much"
+        },
+        {
+          "coefficient": -0.04186952461959276,
+          "kind": "u",
+          "term": "karma"
+        },
+        {
+          "coefficient": -0.041672119767845614,
+          "kind": "u",
+          "term": "should"
+        }
+      ],
+      "top_positive": [
+        {
+          "coefficient": 0.1630747540471477,
+          "kind": "u",
+          "term": "you"
+        },
+        {
+          "coefficient": 0.13572979189703369,
+          "kind": "u",
+          "term": "what\u2019s"
+        },
+        {
+          "coefficient": 0.1142841293861884,
+          "kind": "u",
+          "term": "your"
+        },
+        {
+          "coefficient": 0.10297227106019459,
+          "kind": "u",
+          "term": "that"
+        },
+        {
+          "coefficient": 0.10285151766151433,
+          "kind": "u",
+          "term": "something"
+        },
+        {
+          "coefficient": 0.09276394808559461,
+          "kind": "b",
+          "term": "what is"
+        },
+        {
+          "coefficient": 0.09245453451226794,
+          "kind": "u",
+          "term": "thing"
+        },
+        {
+          "coefficient": 0.09052264412690911,
+          "kind": "u",
+          "term": "what's"
+        },
+        {
+          "coefficient": 0.06944389407186254,
+          "kind": "u",
+          "term": "favorite"
+        },
+        {
+          "coefficient": 0.06754776771218705,
+          "kind": "u",
+          "term": "what"
+        },
+        {
+          "coefficient": 0.0674242684847173,
+          "kind": "u",
+          "term": "movie"
+        },
+        {
+          "coefficient": 0.0668030512354433,
+          "kind": "u",
+          "term": "life"
+        },
+        {
+          "coefficient": 0.0660777822720351,
+          "kind": "b",
+          "term": "your favorite"
+        },
+        {
+          "coefficient": 0.06482545239003978,
+          "kind": "b",
+          "term": "that you"
+        },
+        {
+          "coefficient": 0.0628705623314307,
+          "kind": "u",
+          "term": "most"
+        },
+        {
+          "coefficient": 0.06196338416062481,
+          "kind": "b",
+          "term": "what\u2019s a"
+        },
+        {
+          "coefficient": 0.06192491172184768,
+          "kind": "b",
+          "term": "if you"
+        },
+        {
+          "coefficient": 0.05956656132523764,
+          "kind": "u",
+          "term": "one"
+        },
+        {
+          "coefficient": 0.058715148837933155,
+          "kind": "b",
+          "term": "what\u2019s something"
+        },
+        {
+          "coefficient": 0.05856606184130439,
+          "kind": "b",
+          "term": "you could"
+        },
+        {
+          "coefficient": 0.05677831386715944,
+          "kind": "b",
+          "term": "is your"
+        },
+        {
+          "coefficient": 0.053824547851414,
+          "kind": "b",
+          "term": "something you"
+        },
+        {
+          "coefficient": 0.053077541158944336,
+          "kind": "b",
+          "term": "the most"
+        },
+        {
+          "coefficient": 0.05168274582178287,
+          "kind": "u",
+          "term": "would"
+        },
+        {
+          "coefficient": 0.05041674188220879,
+          "kind": "u",
+          "term": "song"
+        },
+        {
+          "coefficient": 0.049172568823987274,
+          "kind": "b",
+          "term": "is something"
+        },
+        {
+          "coefficient": 0.046565510030411976,
+          "kind": "u",
+          "term": "was"
+        },
+        {
+          "coefficient": 0.046061207054322276,
+          "kind": "b",
+          "term": "what\u2019s the"
+        },
+        {
+          "coefficient": 0.04575033243463491,
+          "kind": "b",
+          "term": "what was"
+        },
+        {
+          "coefficient": 0.045653217036932,
+          "kind": "u",
+          "term": "ever"
+        }
+      ]
+    },
+    "combined_lr_r1e3": {
+      "intercept": -3.0280790197994265,
+      "structured": {
+        "hour_cos": 0.08779083375697903,
+        "hour_sin": 0.08862742774105098,
+        "question_count": -0.05249183992847336,
+        "question_present": 0.15193983183264453,
+        "title_characters": -0.10441184195962676,
+        "title_words": -0.34161006081108464,
+        "uppercase_ratio": -0.46974733353834336,
+        "weekday_cos": -0.002216110241412411,
+        "weekday_sin": -0.008173952232620863
+      },
+      "time": {
+        "hour_cos": 0.08779083375697903,
+        "hour_sin": 0.08862742774105098,
+        "weekday_cos": -0.002216110241412411,
+        "weekday_sin": -0.008173952232620863
+      },
+      "time_effects": {
+        "hour_utc": [
+          0.1248800196093035,
+          0.15329389941407193,
+          0.17126105330391797,
+          0.17755704943337436,
+          0.1717528260708442,
+          0.1542439314465512,
+          0.12622356779432461,
+          0.08960127659122326,
+          0.04687280646154074,
+          0.0009500320324793381,
+          -0.04503748550959338,
+          -0.08795577284215109,
+          -0.12488001960930346,
+          -0.15329389941407193,
+          -0.17126105330391794,
+          -0.17755704943337436,
+          -0.17175282607084422,
+          -0.1542439314465512,
+          -0.12622356779432464,
+          -0.08960127659122329,
+          -0.04687280646154067,
+          -0.0009500320324793461,
+          0.04503748550959328,
+          0.08795577284215103
+        ],
+        "unit": "Change in log-odds of high popularity relative to the cycle mean",
+        "weekday_monday0": [
+          -0.0031224939450727467,
+          -0.011020262155457431,
+          -0.010619548190402159,
+          -0.0022220978386687995,
+          0.0078486375081175,
+          0.012009188728263207,
+          0.007126575893220428
+        ]
+      },
+      "top_negative": [
+        {
+          "coefficient": -1.6449712365865077,
+          "kind": "u",
+          "term": "i"
+        },
+        {
+          "coefficient": -1.1201278624734197,
+          "kind": "u",
+          "term": "why"
+        },
+        {
+          "coefficient": -0.970051718986412,
+          "kind": "u",
+          "term": "my"
+        },
+        {
+          "coefficient": -0.6739486885124167,
+          "kind": "u",
+          "term": "how"
+        },
+        {
+          "coefficient": -0.6660910590182633,
+          "kind": "b",
+          "term": "why do"
+        },
+        {
+          "coefficient": -0.6018432355861866,
+          "kind": "u",
+          "term": "me"
+        },
+        {
+          "coefficient": -0.5944013428019436,
+          "kind": "b",
+          "term": "why is"
+        },
+        {
+          "coefficient": -0.5777085826410854,
+          "kind": "b",
+          "term": "do i"
+        },
+        {
+          "coefficient": -0.5707399438962097,
+          "kind": "u",
+          "term": "does"
+        },
+        {
+          "coefficient": -0.5311348121017113,
+          "kind": "u",
+          "term": "can"
+        },
+        {
+          "coefficient": -0.47047502848480105,
+          "kind": "b",
+          "term": "can i"
+        },
+        {
+          "coefficient": -0.44796520485213737,
+          "kind": "b",
+          "term": "why are"
+        },
+        {
+          "coefficient": -0.44017839115520885,
+          "kind": "u",
+          "term": "women"
+        },
+        {
+          "coefficient": -0.4210870447970943,
+          "kind": "u",
+          "term": "many"
+        },
+        {
+          "coefficient": -0.40311214726642536,
+          "kind": "b",
+          "term": "how many"
+        },
+        {
+          "coefficient": -0.3869401362353048,
+          "kind": "u",
+          "term": "on"
+        },
+        {
+          "coefficient": -0.381822587687212,
+          "kind": "b",
+          "term": "why does"
+        },
+        {
+          "coefficient": -0.38030825795465467,
+          "kind": "u",
+          "term": "sex"
+        },
+        {
+          "coefficient": -0.36491640006358667,
+          "kind": "b",
+          "term": "should i"
+        },
+        {
+          "coefficient": -0.3508827793199047,
+          "kind": "b",
+          "term": "how much"
+        },
+        {
+          "coefficient": -0.3503622098848642,
+          "kind": "u",
+          "term": "men"
+        },
+        {
+          "coefficient": -0.3477552079857145,
+          "kind": "u",
+          "term": "this"
+        },
+        {
+          "coefficient": -0.3407907434226576,
+          "kind": "u",
+          "term": "much"
+        },
+        {
+          "coefficient": -0.3335782500604388,
+          "kind": "u",
+          "term": "do"
+        },
+        {
+          "coefficient": -0.3309688991919921,
+          "kind": "b",
+          "term": "how can"
+        },
+        {
+          "coefficient": -0.3194777817894523,
+          "kind": "u",
+          "term": "trump"
+        },
+        {
+          "coefficient": -0.3002798360829325,
+          "kind": "b",
+          "term": "i do"
+        },
+        {
+          "coefficient": -0.29958220977260736,
+          "kind": "u",
+          "term": "karma"
+        },
+        {
+          "coefficient": -0.29926812546469467,
+          "kind": "u",
+          "term": "so"
+        },
+        {
+          "coefficient": -0.259672356549963,
+          "kind": "u",
+          "term": "where"
+        }
+      ],
+      "top_positive": [
+        {
+          "coefficient": 1.186664765306858,
+          "kind": "u",
+          "term": "you"
+        },
+        {
+          "coefficient": 0.740545156755525,
+          "kind": "u",
+          "term": "what\u2019s"
+        },
+        {
+          "coefficient": 0.6195685268718921,
+          "kind": "u",
+          "term": "that"
+        },
+        {
+          "coefficient": 0.6163215262075347,
+          "kind": "u",
+          "term": "your"
+        },
+        {
+          "coefficient": 0.6032993314401687,
+          "kind": "u",
+          "term": "something"
+        },
+        {
+          "coefficient": 0.5248400854567994,
+          "kind": "u",
+          "term": "what's"
+        },
+        {
+          "coefficient": 0.5121290712979157,
+          "kind": "u",
+          "term": "thing"
+        },
+        {
+          "coefficient": 0.4765801166011366,
+          "kind": "u",
+          "term": "what"
+        },
+        {
+          "coefficient": 0.4740560245645412,
+          "kind": "b",
+          "term": "what is"
+        },
+        {
+          "coefficient": 0.4578709304210817,
+          "kind": "u",
+          "term": "movie"
+        },
+        {
+          "coefficient": 0.43062693172151106,
+          "kind": "u",
+          "term": "life"
+        },
+        {
+          "coefficient": 0.4252986291864156,
+          "kind": "b",
+          "term": "what\u2019s a"
+        },
+        {
+          "coefficient": 0.3889751022501468,
+          "kind": "b",
+          "term": "that you"
+        },
+        {
+          "coefficient": 0.38027416594573993,
+          "kind": "b",
+          "term": "are you"
+        },
+        {
+          "coefficient": 0.3723642851647587,
+          "kind": "u",
+          "term": "song"
+        },
+        {
+          "coefficient": 0.3678980901755461,
+          "kind": "b",
+          "term": "if you"
+        },
+        {
+          "coefficient": 0.3574747612323117,
+          "kind": "u",
+          "term": "one"
+        },
+        {
+          "coefficient": 0.34018151642287214,
+          "kind": "b",
+          "term": "you could"
+        },
+        {
+          "coefficient": 0.3373920510836076,
+          "kind": "b",
+          "term": "what\u2019s something"
+        },
+        {
+          "coefficient": 0.3340080920431108,
+          "kind": "u",
+          "term": "favorite"
+        },
+        {
+          "coefficient": 0.32477052245993204,
+          "kind": "u",
+          "term": "most"
+        },
+        {
+          "coefficient": 0.3121027907342174,
+          "kind": "b",
+          "term": "your favorite"
+        },
+        {
+          "coefficient": 0.30140121544591575,
+          "kind": "u",
+          "term": "but"
+        },
+        {
+          "coefficient": 0.29890422790299737,
+          "kind": "b",
+          "term": "is something"
+        },
+        {
+          "coefficient": 0.29833865482952837,
+          "kind": "b",
+          "term": "do you"
+        },
+        {
+          "coefficient": 0.29415966122219317,
+          "kind": "b",
+          "term": "something you"
+        },
+        {
+          "coefficient": 0.2910023274257723,
+          "kind": "b",
+          "term": "is your"
+        },
+        {
+          "coefficient": 0.28486057641112406,
+          "kind": "u",
+          "term": "would"
+        },
+        {
+          "coefficient": 0.28063234361320666,
+          "kind": "b",
+          "term": "did you"
+        },
+        {
+          "coefficient": 0.2802984062137067,
+          "kind": "u",
+          "term": "never"
+        }
+      ]
+    },
+    "combined_lr_r1e4": {
+      "intercept": -2.988836092651839,
+      "structured": {
+        "hour_cos": 0.09494107884032298,
+        "hour_sin": 0.09098115638374306,
+        "question_count": -0.019053591190933614,
+        "question_present": 0.13027802102219035,
+        "title_characters": -0.09006150879888289,
+        "title_words": -0.28128243991352453,
+        "uppercase_ratio": -0.31190856877511347,
+        "weekday_cos": -0.0034357017679687942,
+        "weekday_sin": -0.009740065167326605
+      },
+      "time": {
+        "hour_cos": 0.09494107884032298,
+        "hour_sin": 0.09098115638374306,
+        "weekday_cos": -0.0034357017679687942,
+        "weekday_sin": -0.009740065167326605
+      },
+      "time_effects": {
+        "hour_utc": [
+          0.13505104439636828,
+          0.16398596569625243,
+          0.18174551443355857,
+          0.1871194067108813,
+          0.1797414206502979,
+          0.16011435380913872,
+          0.12957575835736718,
+          0.09020678910760639,
+          0.044690376253929666,
+          -0.0038716118871136764,
+          -0.05216975607619142,
+          -0.09691261760327487,
+          -0.13505104439636825,
+          -0.16398596569625243,
+          -0.18174551443355857,
+          -0.1871194067108813,
+          -0.1797414206502979,
+          -0.1601143538091387,
+          -0.1295757583573672,
+          -0.09020678910760643,
+          -0.044690376253929597,
+          0.003871611887113666,
+          0.05216975607619132,
+          0.09691261760327481
+        ],
+        "unit": "Change in log-odds of high popularity relative to the cycle mean",
+        "weekday_monday0": [
+          -0.004840895442422105,
+          -0.01383011694145269,
+          -0.012404978300596801,
+          -0.0016386379839492863,
+          0.01036163015673533,
+          0.014559379450662066,
+          0.007793619061023485
+        ]
+      },
+      "top_negative": [
+        {
+          "coefficient": -5.697531250566888,
+          "kind": "u",
+          "term": "i"
+        },
+        {
+          "coefficient": -3.6309644088890254,
+          "kind": "u",
+          "term": "my"
+        },
+        {
+          "coefficient": -2.888280711513792,
+          "kind": "u",
+          "term": "why"
+        },
+        {
+          "coefficient": -2.728753720093058,
+          "kind": "u",
+          "term": "me"
+        },
+        {
+          "coefficient": -2.6112221778689193,
+          "kind": "b",
+          "term": "why is"
+        },
+        {
+          "coefficient": -2.0088507053123035,
+          "kind": "b",
+          "term": "why do"
+        },
+        {
+          "coefficient": -1.8826127030515492,
+          "kind": "b",
+          "term": "how many"
+        },
+        {
+          "coefficient": -1.7916489047597812,
+          "kind": "b",
+          "term": "do i"
+        },
+        {
+          "coefficient": -1.7842462215405313,
+          "kind": "b",
+          "term": "why does"
+        },
+        {
+          "coefficient": -1.7511866038486952,
+          "kind": "b",
+          "term": "how much"
+        },
+        {
+          "coefficient": -1.6760333225748891,
+          "kind": "u",
+          "term": "women"
+        },
+        {
+          "coefficient": -1.6475699596070639,
+          "kind": "u",
+          "term": "how"
+        },
+        {
+          "coefficient": -1.6357730970397566,
+          "kind": "u",
+          "term": "sex"
+        },
+        {
+          "coefficient": -1.6316274637324153,
+          "kind": "u",
+          "term": "does"
+        },
+        {
+          "coefficient": -1.5700519054933921,
+          "kind": "b",
+          "term": "why are"
+        },
+        {
+          "coefficient": -1.4736459917831763,
+          "kind": "b",
+          "term": "can i"
+        },
+        {
+          "coefficient": -1.462513541135317,
+          "kind": "u",
+          "term": "many"
+        },
+        {
+          "coefficient": -1.4445657497144555,
+          "kind": "u",
+          "term": "trump"
+        },
+        {
+          "coefficient": -1.3235360810895551,
+          "kind": "b",
+          "term": "how long"
+        },
+        {
+          "coefficient": -1.2728642941023458,
+          "kind": "b",
+          "term": "should i"
+        },
+        {
+          "coefficient": -1.1863264110411165,
+          "kind": "u",
+          "term": "can"
+        },
+        {
+          "coefficient": -1.1809333064230176,
+          "kind": "u",
+          "term": "much"
+        },
+        {
+          "coefficient": -1.1723741455574492,
+          "kind": "u",
+          "term": "girls"
+        },
+        {
+          "coefficient": -1.162014388036499,
+          "kind": "u",
+          "term": "karma"
+        },
+        {
+          "coefficient": -1.1275475667482167,
+          "kind": "u",
+          "term": "porn"
+        },
+        {
+          "coefficient": -1.1173474242776182,
+          "kind": "u",
+          "term": "men"
+        },
+        {
+          "coefficient": -1.0214726436124126,
+          "kind": "u",
+          "term": "this"
+        },
+        {
+          "coefficient": -0.9961092875591919,
+          "kind": "u",
+          "term": "do"
+        },
+        {
+          "coefficient": -0.9843619485598015,
+          "kind": "u",
+          "term": "i\u2019m"
+        },
+        {
+          "coefficient": -0.944940017206611,
+          "kind": "u",
+          "term": "i'm"
+        }
+      ],
+      "top_positive": [
+        {
+          "coefficient": 3.526848522996522,
+          "kind": "u",
+          "term": "you"
+        },
+        {
+          "coefficient": 1.5140349634784267,
+          "kind": "u",
+          "term": "what"
+        },
+        {
+          "coefficient": 1.4322404740898051,
+          "kind": "b",
+          "term": "do you"
+        },
+        {
+          "coefficient": 1.42091880323952,
+          "kind": "u",
+          "term": "what\u2019s"
+        },
+        {
+          "coefficient": 1.31434518123421,
+          "kind": "b",
+          "term": "and why"
+        },
+        {
+          "coefficient": 1.303256864148037,
+          "kind": "u",
+          "term": "your"
+        },
+        {
+          "coefficient": 1.288778543165022,
+          "kind": "b",
+          "term": "are you"
+        },
+        {
+          "coefficient": 1.2337744014643632,
+          "kind": "u",
+          "term": "movie"
+        },
+        {
+          "coefficient": 1.175479682085639,
+          "kind": "u",
+          "term": "something"
+        },
+        {
+          "coefficient": 1.1404067285595865,
+          "kind": "b",
+          "term": "what\u2019s a"
+        },
+        {
+          "coefficient": 1.1104014832351834,
+          "kind": "u",
+          "term": "that"
+        },
+        {
+          "coefficient": 1.109966270981268,
+          "kind": "u",
+          "term": "life"
+        },
+        {
+          "coefficient": 1.0935773359530279,
+          "kind": "u",
+          "term": "what's"
+        },
+        {
+          "coefficient": 1.0627989818945665,
+          "kind": "u",
+          "term": "thing"
+        },
+        {
+          "coefficient": 1.0293819621919222,
+          "kind": "u",
+          "term": "song"
+        },
+        {
+          "coefficient": 0.9998941201450757,
+          "kind": "u",
+          "term": "yourself"
+        },
+        {
+          "coefficient": 0.9349662895646322,
+          "kind": "b",
+          "term": "what is"
+        },
+        {
+          "coefficient": 0.8714485496399166,
+          "kind": "b",
+          "term": "is something"
+        },
+        {
+          "coefficient": 0.8599961835923836,
+          "kind": "u",
+          "term": "tv"
+        },
+        {
+          "coefficient": 0.8586817547496096,
+          "kind": "u",
+          "term": "but"
+        },
+        {
+          "coefficient": 0.8417441011750069,
+          "kind": "u",
+          "term": "never"
+        },
+        {
+          "coefficient": 0.8339085356716908,
+          "kind": "b",
+          "term": "what's a"
+        },
+        {
+          "coefficient": 0.8106354618854892,
+          "kind": "b",
+          "term": "what are"
+        },
+        {
+          "coefficient": 0.7818009762535013,
+          "kind": "u",
+          "term": "you've"
+        },
+        {
+          "coefficient": 0.7750425453766683,
+          "kind": "b",
+          "term": "what's something"
+        },
+        {
+          "coefficient": 0.7145307697743488,
+          "kind": "u",
+          "term": "person"
+        },
+        {
+          "coefficient": 0.7105216470781432,
+          "kind": "u",
+          "term": "instantly"
+        },
+        {
+          "coefficient": 0.7004154485210093,
+          "kind": "b",
+          "term": "did you"
+        },
+        {
+          "coefficient": 0.6872298765711389,
+          "kind": "b",
+          "term": "you could"
+        },
+        {
+          "coefficient": 0.6824216273792293,
+          "kind": "u",
+          "term": "you\u2019re"
+        }
+      ]
+    },
+    "structured_lr": {
+      "intercept": -2.557449492008939,
+      "structured": {
+        "hour_cos": 0.08779122526567631,
+        "hour_sin": 0.09169486812719493,
+        "question_count": -0.07230406527157572,
+        "question_present": 0.14911024141301982,
+        "title_characters": 0.013551810857590099,
+        "title_words": -0.5259288487469732,
+        "uppercase_ratio": -0.6054114041016614,
+        "weekday_cos": -0.001804092937184125,
+        "weekday_sin": -0.007926490307936738
+      },
+      "time": {
+        "hour_cos": 0.08779122526567631,
+        "hour_sin": 0.09169486812719493,
+        "weekday_cos": -0.001804092937184125,
+        "weekday_sin": -0.007926490307936738
+      },
+      "time_effects": {
+        "hour_utc": [
+          0.12488057651953777,
+          0.15442513025717572,
+          0.17344586656738115,
+          0.18064655370386654,
+          0.1755364767379785,
+          0.1584638789701409,
+          0.13059222972442996,
+          0.09382093583686285,
+          0.0506559002184408,
+          0.004038748712965177,
+          -0.0428536368429512,
+          -0.08682561786700367,
+          -0.12488057651953773,
+          -0.15442513025717572,
+          -0.17344586656738115,
+          -0.18064655370386654,
+          -0.17553647673797854,
+          -0.15846387897014086,
+          -0.13059222972443,
+          -0.09382093583686286,
+          -0.05065590021844073,
+          -0.004038748712965186,
+          0.042853636842951105,
+          0.08682561786700362
+        ],
+        "unit": "Change in log-odds of high popularity relative to the cycle mean",
+        "weekday_monday0": [
+          -0.002541962564604025,
+          -0.010383613971162206,
+          -0.010406192270310977,
+          -0.002592695542277947,
+          0.007173153810441181,
+          0.011537472038226328,
+          0.007213838499687645
+        ]
+      }
+    },
+    "text_lr_r1e4": {
+      "intercept": -0.1255113252290272,
+      "structured": {},
+      "time": {},
+      "top_negative": [
+        {
+          "coefficient": -6.657896335129601,
+          "kind": "u",
+          "term": "i"
+        },
+        {
+          "coefficient": -4.015729098640587,
+          "kind": "u",
+          "term": "my"
+        },
+        {
+          "coefficient": -2.998283487685509,
+          "kind": "u",
+          "term": "me"
+        },
+        {
+          "coefficient": -2.810919349743884,
+          "kind": "u",
+          "term": "why"
+        },
+        {
+          "coefficient": -2.588704597581229,
+          "kind": "b",
+          "term": "why is"
+        },
+        {
+          "coefficient": -1.948483366488601,
+          "kind": "b",
+          "term": "why do"
+        },
+        {
+          "coefficient": -1.8622772642078225,
+          "kind": "b",
+          "term": "how many"
+        },
+        {
+          "coefficient": -1.8478770293062867,
+          "kind": "b",
+          "term": "do i"
+        },
+        {
+          "coefficient": -1.8180279972853695,
+          "kind": "u",
+          "term": "trump"
+        },
+        {
+          "coefficient": -1.7829965004846773,
+          "kind": "b",
+          "term": "why does"
+        },
+        {
+          "coefficient": -1.7785511296119483,
+          "kind": "b",
+          "term": "how much"
+        },
+        {
+          "coefficient": -1.7587450349793534,
+          "kind": "u",
+          "term": "and"
+        },
+        {
+          "coefficient": -1.6958447054879415,
+          "kind": "u",
+          "term": "does"
+        },
+        {
+          "coefficient": -1.6805810494026465,
+          "kind": "u",
+          "term": "women"
+        },
+        {
+          "coefficient": -1.60573805483538,
+          "kind": "u",
+          "term": "sex"
+        },
+        {
+          "coefficient": -1.5740305923436348,
+          "kind": "u",
+          "term": "how"
+        },
+        {
+          "coefficient": -1.5233897874252844,
+          "kind": "u",
+          "term": "many"
+        },
+        {
+          "coefficient": -1.5088929147406673,
+          "kind": "b",
+          "term": "can i"
+        },
+        {
+          "coefficient": -1.4769567445850695,
+          "kind": "b",
+          "term": "why are"
+        },
+        {
+          "coefficient": -1.4258388846215169,
+          "kind": "u",
+          "term": "this"
+        },
+        {
+          "coefficient": -1.3827962749619067,
+          "kind": "u",
+          "term": "can"
+        },
+        {
+          "coefficient": -1.3466091166228467,
+          "kind": "b",
+          "term": "should i"
+        },
+        {
+          "coefficient": -1.3394692777123618,
+          "kind": "b",
+          "term": "how long"
+        },
+        {
+          "coefficient": -1.2817842205648569,
+          "kind": "u",
+          "term": "much"
+        },
+        {
+          "coefficient": -1.2779550532328907,
+          "kind": "u",
+          "term": "on"
+        },
+        {
+          "coefficient": -1.2466783363989944,
+          "kind": "u",
+          "term": "i\u2019m"
+        },
+        {
+          "coefficient": -1.2416364237313036,
+          "kind": "u",
+          "term": "i'm"
+        },
+        {
+          "coefficient": -1.2196861045242389,
+          "kind": "u",
+          "term": "ai"
+        },
+        {
+          "coefficient": -1.2175915180132686,
+          "kind": "u",
+          "term": "karma"
+        },
+        {
+          "coefficient": -1.2043846194071501,
+          "kind": "u",
+          "term": "is"
+        }
+      ],
+      "top_positive": [
+        {
+          "coefficient": 3.408220233464882,
+          "kind": "u",
+          "term": "you"
+        },
+        {
+          "coefficient": 2.1285348964243185,
+          "kind": "u",
+          "term": "what"
+        },
+        {
+          "coefficient": 1.8652665548941803,
+          "kind": "u",
+          "term": "what\u2019s"
+        },
+        {
+          "coefficient": 1.5937781042001617,
+          "kind": "b",
+          "term": "and why"
+        },
+        {
+          "coefficient": 1.4815597024822689,
+          "kind": "b",
+          "term": "do you"
+        },
+        {
+          "coefficient": 1.4299940495456902,
+          "kind": "u",
+          "term": "what's"
+        },
+        {
+          "coefficient": 1.3873400976608485,
+          "kind": "b",
+          "term": "what\u2019s a"
+        },
+        {
+          "coefficient": 1.3457233784238756,
+          "kind": "b",
+          "term": "are you"
+        },
+        {
+          "coefficient": 1.268756407694498,
+          "kind": "u",
+          "term": "movie"
+        },
+        {
+          "coefficient": 1.2141256065268524,
+          "kind": "u",
+          "term": "something"
+        },
+        {
+          "coefficient": 1.1729632711796663,
+          "kind": "u",
+          "term": "your"
+        },
+        {
+          "coefficient": 1.161268714058279,
+          "kind": "b",
+          "term": "what is"
+        },
+        {
+          "coefficient": 1.0890283318480276,
+          "kind": "u",
+          "term": "life"
+        },
+        {
+          "coefficient": 1.080232642013865,
+          "kind": "u",
+          "term": "thing"
+        },
+        {
+          "coefficient": 1.046160817664092,
+          "kind": "u",
+          "term": "song"
+        },
+        {
+          "coefficient": 1.041554847020269,
+          "kind": "u",
+          "term": "yourself"
+        },
+        {
+          "coefficient": 1.0053906214823272,
+          "kind": "b",
+          "term": "is something"
+        },
+        {
+          "coefficient": 0.9939396780363213,
+          "kind": "b",
+          "term": "what's a"
+        },
+        {
+          "coefficient": 0.9863504781966204,
+          "kind": "b",
+          "term": "what are"
+        },
+        {
+          "coefficient": 0.9031692661518869,
+          "kind": "b",
+          "term": "what's something"
+        },
+        {
+          "coefficient": 0.7977489510935818,
+          "kind": "b",
+          "term": "did you"
+        },
+        {
+          "coefficient": 0.781402971622606,
+          "kind": "u",
+          "term": "you've"
+        },
+        {
+          "coefficient": 0.7790445940165506,
+          "kind": "u",
+          "term": "never"
+        },
+        {
+          "coefficient": 0.7655302769151991,
+          "kind": "b",
+          "term": "is a"
+        },
+        {
+          "coefficient": 0.7596657150086993,
+          "kind": "b",
+          "term": "what\u2019s something"
+        },
+        {
+          "coefficient": 0.7489286850508311,
+          "kind": "b",
+          "term": "are some"
+        },
+        {
+          "coefficient": 0.745447497805462,
+          "kind": "b",
+          "term": "you could"
+        },
+        {
+          "coefficient": 0.7437983382045682,
+          "kind": "b",
+          "term": "what song"
+        },
+        {
+          "coefficient": 0.7318183854718359,
+          "kind": "b",
+          "term": "what movie"
+        },
+        {
+          "coefficient": 0.7306777299557583,
+          "kind": "u",
+          "term": "instantly"
+        }
+      ]
+    },
+    "time_lr": {
+      "intercept": 0.0060119185724218736,
+      "structured": {
+        "hour_cos": 0.11360447308757664,
+        "hour_sin": 0.13299183159144656,
+        "weekday_cos": 0.0002705606534284362,
+        "weekday_sin": -0.01193765005004688
+      },
+      "time": {
+        "hour_cos": 0.11360447308757664,
+        "hour_sin": 0.13299183159144656,
+        "weekday_cos": 0.0002705606534284362,
+        "weekday_sin": -0.01193765005004688
+      },
+      "time_effects": {
+        "hour_utc": [
+          0.11360447308757665,
+          0.14415431339618515,
+          0.16488027547311024,
+          0.17436991925408124,
+          0.1719765411978029,
+          0.15786324606356625,
+          0.13299183159144656,
+          0.09905724357576307,
+          0.0583720681102263,
+          0.013708932667381124,
+          -0.03188844388166368,
+          -0.07531267567831817,
+          -0.11360447308757661,
+          -0.14415431339618515,
+          -0.1648802754731102,
+          -0.17436991925408124,
+          -0.17197654119780292,
+          -0.15786324606356622,
+          -0.1329918315914466,
+          -0.09905724357576308,
+          -0.05837206811022623,
+          -0.013708932667381135,
+          0.031888443881663585,
+          0.0753126756783181
+        ],
+        "unit": "Change in log-odds of high popularity relative to the cycle mean",
+        "weekday_monday0": [
+          0.0002705606534284366,
+          -0.009164538827615837,
+          -0.011698553648942173,
+          -0.005423318965609602,
+          0.004935785514372887,
+          0.011578142830356719,
+          0.009501922444009568
+        ]
+      }
+    }
+  }
+}

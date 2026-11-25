@@ -1,0 +1,513 @@
+{
+  "artifacts": [
+    {
+      "files": [
+        {
+          "bytes": 8,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/metadata/._SUCCESS.crc",
+          "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+        },
+        {
+          "bytes": 12,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/metadata/.part-00000-4050f0d4-8b85-4a74-b05b-f82bf2b8663b-c000.txt.crc",
+          "sha256": "dd9459cf795c6232f86c224222462f5e2abd4545ff659afb170c641c944b8372"
+        },
+        {
+          "bytes": 0,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/metadata/_SUCCESS",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 436,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/metadata/part-00000-4050f0d4-8b85-4a74-b05b-f82bf2b8663b-c000.txt",
+          "sha256": "60b23078e2a0e8118b42e4cf01f58ceb6298c86ce47e97fa6720e83cdd13ad39"
+        },
+        {
+          "bytes": 8,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/0_CountVectorizer_dba9d2923fe4/data/._SUCCESS.crc",
+          "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+        },
+        {
+          "bytes": 788,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/0_CountVectorizer_dba9d2923fe4/data/.part-00000-5b103a81-1d7f-4283-886c-46f1e7278af3-c000.snappy.parquet.crc",
+          "sha256": "f5fbb35a504b8a08f5b593cbf19bb4f6911d9909a965ada8ca9b274a75df51ee"
+        },
+        {
+          "bytes": 0,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/0_CountVectorizer_dba9d2923fe4/data/_SUCCESS",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 99455,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/0_CountVectorizer_dba9d2923fe4/data/part-00000-5b103a81-1d7f-4283-886c-46f1e7278af3-c000.snappy.parquet",
+          "sha256": "b5fd5500c19b3b8def1765871055cfc5a99de76c2f51dd582f673072686bc74a"
+        },
+        {
+          "bytes": 8,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/0_CountVectorizer_dba9d2923fe4/metadata/._SUCCESS.crc",
+          "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+        },
+        {
+          "bytes": 12,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/0_CountVectorizer_dba9d2923fe4/metadata/.part-00000-6415e271-00e3-4f1a-834c-e047d9828c45-c000.txt.crc",
+          "sha256": "1fb9319ee042a2576a2990b7ef0010f631e3468c51b56d8bee7b31ec173521f4"
+        },
+        {
+          "bytes": 0,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/0_CountVectorizer_dba9d2923fe4/metadata/_SUCCESS",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 409,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/0_CountVectorizer_dba9d2923fe4/metadata/part-00000-6415e271-00e3-4f1a-834c-e047d9828c45-c000.txt",
+          "sha256": "ad1a11a222fbcb9a81cc3278ac4466bf08f1c3bdb3e9e4d962cc328b88aa95de"
+        },
+        {
+          "bytes": 8,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/1_IDF_c854eafb7c07/data/._SUCCESS.crc",
+          "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+        },
+        {
+          "bytes": 568,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/1_IDF_c854eafb7c07/data/.part-00000-84dfdd66-2668-44fd-8cd7-02b85b8e09f9-c000.snappy.parquet.crc",
+          "sha256": "78e99d0716c625d4847f7bc1db8ebd30ec2da6cce2f1819ec9587d3f69f8e3b0"
+        },
+        {
+          "bytes": 0,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/1_IDF_c854eafb7c07/data/_SUCCESS",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 71319,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/1_IDF_c854eafb7c07/data/part-00000-84dfdd66-2668-44fd-8cd7-02b85b8e09f9-c000.snappy.parquet",
+          "sha256": "cea9a57064064c7c4fc1941f2629e2cbd5c0a57762372f6a23aed1d5f0ffd2af"
+        },
+        {
+          "bytes": 8,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/1_IDF_c854eafb7c07/metadata/._SUCCESS.crc",
+          "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+        },
+        {
+          "bytes": 12,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/1_IDF_c854eafb7c07/metadata/.part-00000-188fbcdc-fdb1-42af-a85c-bc3e8ebad33f-c000.txt.crc",
+          "sha256": "b2e6a6cf93ad63ed8e3c020ae0184dda7659592bd072976af0c3e8581931a50d"
+        },
+        {
+          "bytes": 0,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/1_IDF_c854eafb7c07/metadata/_SUCCESS",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 274,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/1_IDF_c854eafb7c07/metadata/part-00000-188fbcdc-fdb1-42af-a85c-bc3e8ebad33f-c000.txt",
+          "sha256": "cb748f31a237d274228f6f0ed7499a5485b0992d3bb694fe85377ec49a8018d4"
+        },
+        {
+          "bytes": 8,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/2_Normalizer_c0bd643c2ba5/metadata/._SUCCESS.crc",
+          "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+        },
+        {
+          "bytes": 12,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/2_Normalizer_c0bd643c2ba5/metadata/.part-00000-9690ea4a-1cc7-4f7e-9bb4-7a7ba7f9ac61-c000.txt.crc",
+          "sha256": "9dc42e009fc5c73c16d71d8c6d3e779aa8eb49c336fa2ecc9559a1556117239a"
+        },
+        {
+          "bytes": 0,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/2_Normalizer_c0bd643c2ba5/metadata/_SUCCESS",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 278,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/2_Normalizer_c0bd643c2ba5/metadata/part-00000-9690ea4a-1cc7-4f7e-9bb4-7a7ba7f9ac61-c000.txt",
+          "sha256": "583931dea9e362e56e9fd6ec85ef1956d69faf717666985d878845805555a242"
+        },
+        {
+          "bytes": 8,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/3_VectorAssembler_8745e7d5eb1c/metadata/._SUCCESS.crc",
+          "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+        },
+        {
+          "bytes": 12,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/3_VectorAssembler_8745e7d5eb1c/metadata/.part-00000-632f8e86-cdad-41ee-987c-f60584d2b86a-c000.txt.crc",
+          "sha256": "8f61bfa94dd207628d81dff6292da784997e2706eb3d46a0a1e10e55ad9f6391"
+        },
+        {
+          "bytes": 0,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/3_VectorAssembler_8745e7d5eb1c/metadata/_SUCCESS",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 430,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/3_VectorAssembler_8745e7d5eb1c/metadata/part-00000-632f8e86-cdad-41ee-987c-f60584d2b86a-c000.txt",
+          "sha256": "a9ab740e0f66e1d3e4d239cebc15a1071c7861aa04d985a317cbdb8aea49d41a"
+        },
+        {
+          "bytes": 8,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/4_StandardScaler_fcbfb6e8600f/data/._SUCCESS.crc",
+          "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+        },
+        {
+          "bytes": 36,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/4_StandardScaler_fcbfb6e8600f/data/.part-00000-e9711c36-1b38-4cb9-9045-e4f43f88dced-c000.snappy.parquet.crc",
+          "sha256": "595fb700ada82ac1b050b952eef4580f4ea13cbb1b34e76de07fc983c2b72bee"
+        },
+        {
+          "bytes": 0,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/4_StandardScaler_fcbfb6e8600f/data/_SUCCESS",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 3085,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/4_StandardScaler_fcbfb6e8600f/data/part-00000-e9711c36-1b38-4cb9-9045-e4f43f88dced-c000.snappy.parquet",
+          "sha256": "8b3c6aefdc399e2e756e34affe7a490b9a50875a10e22dab6bb305490b42d466"
+        },
+        {
+          "bytes": 8,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/4_StandardScaler_fcbfb6e8600f/metadata/._SUCCESS.crc",
+          "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+        },
+        {
+          "bytes": 12,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/4_StandardScaler_fcbfb6e8600f/metadata/.part-00000-f52aa509-faf2-4ab9-8876-febf140fcc47-c000.txt.crc",
+          "sha256": "3ad029afd3be2c91efb37be5692bfd96c37ed7374b4ed986b992c338da7cf2a0"
+        },
+        {
+          "bytes": 0,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/4_StandardScaler_fcbfb6e8600f/metadata/_SUCCESS",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 354,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/4_StandardScaler_fcbfb6e8600f/metadata/part-00000-f52aa509-faf2-4ab9-8876-febf140fcc47-c000.txt",
+          "sha256": "08538e55f3bdbb326de0c2cd7a4b8139100df8f019f4723ad6e91b987bab347a"
+        },
+        {
+          "bytes": 8,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/5_VectorAssembler_7e39b6b24d60/metadata/._SUCCESS.crc",
+          "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+        },
+        {
+          "bytes": 12,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/5_VectorAssembler_7e39b6b24d60/metadata/.part-00000-b4bc1b48-a20c-41b5-8e25-9f6953275017-c000.txt.crc",
+          "sha256": "f4934aa5fbf46a81c2c69a25d9e35c7f2ebfd070f0d6e44f08d9260285adaa48"
+        },
+        {
+          "bytes": 0,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/5_VectorAssembler_7e39b6b24d60/metadata/_SUCCESS",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 342,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/5_VectorAssembler_7e39b6b24d60/metadata/part-00000-b4bc1b48-a20c-41b5-8e25-9f6953275017-c000.txt",
+          "sha256": "f66fd845af463f0cb6817555c37848f66a7998b7bdab3e1d509cb32b0720136d"
+        },
+        {
+          "bytes": 8,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/6_VectorSlicer_5edaa6f035c2/metadata/._SUCCESS.crc",
+          "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+        },
+        {
+          "bytes": 16,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/6_VectorSlicer_5edaa6f035c2/metadata/.part-00000-dbdf62e2-746e-4685-8534-715df037b7e8-c000.txt.crc",
+          "sha256": "cbd5a3a3e1fa75b27b9ac0d6689da539ee84b23153407dce4605a0dd9c3bcb34"
+        },
+        {
+          "bytes": 0,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/6_VectorSlicer_5edaa6f035c2/metadata/_SUCCESS",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 709,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/6_VectorSlicer_5edaa6f035c2/metadata/part-00000-dbdf62e2-746e-4685-8534-715df037b7e8-c000.txt",
+          "sha256": "5166e2b839eb3d686a0641853fb615c24e4db8b96be33703a76df7511ffe3cfa"
+        },
+        {
+          "bytes": 8,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/7_VectorAssembler_edc86c5a7d9e/metadata/._SUCCESS.crc",
+          "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+        },
+        {
+          "bytes": 12,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/7_VectorAssembler_edc86c5a7d9e/metadata/.part-00000-ad3649cd-613d-471a-8b28-fb581ff61c2b-c000.txt.crc",
+          "sha256": "09672c5fc0ffd2e4e1c8bc0adb88a49fa66bc0b8898bb2be37f9be90d99cf464"
+        },
+        {
+          "bytes": 0,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/7_VectorAssembler_edc86c5a7d9e/metadata/_SUCCESS",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 327,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/7_VectorAssembler_edc86c5a7d9e/metadata/part-00000-ad3649cd-613d-471a-8b28-fb581ff61c2b-c000.txt",
+          "sha256": "00d66cbaaff33fcc57d4fefb53e8e68d36eee2ce0da5c783699195b18473b128"
+        },
+        {
+          "bytes": 8,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/8_VectorAssembler_327e279d70a1/metadata/._SUCCESS.crc",
+          "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+        },
+        {
+          "bytes": 12,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/8_VectorAssembler_327e279d70a1/metadata/.part-00000-d718fc37-c4e8-46cc-9f94-fd80b03517dc-c000.txt.crc",
+          "sha256": "dae1efad870c9a67fa42c24fbc0040d18e14b307d1c7059eb8128372ec6d4d3c"
+        },
+        {
+          "bytes": 0,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/8_VectorAssembler_327e279d70a1/metadata/_SUCCESS",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 334,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing/stages/8_VectorAssembler_327e279d70a1/metadata/part-00000-d718fc37-c4e8-46cc-9f94-fd80b03517dc-c000.txt",
+          "sha256": "5fbec9cd7b65bc8c726ad08461414383ec625a6620d813ff1237a718d90b4614"
+        }
+      ],
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/preprocessing"
+    },
+    {
+      "files": [
+        {
+          "bytes": 8,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/selection/metadata/._SUCCESS.crc",
+          "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+        },
+        {
+          "bytes": 12,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/selection/metadata/.part-00000-7232bba3-b805-49a2-9bb6-c758913c5380-c000.txt.crc",
+          "sha256": "c42761fe42a2ec4380260d3e342b15ec0ddd842efc2e2059c643b142b87bccdc"
+        },
+        {
+          "bytes": 0,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/selection/metadata/_SUCCESS",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 237,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/selection/metadata/part-00000-7232bba3-b805-49a2-9bb6-c758913c5380-c000.txt",
+          "sha256": "5f47d69d0d4403f1d692fdd1109717778cdbfbd46cb1300b7afe3e72a5523d1b"
+        },
+        {
+          "bytes": 8,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/selection/stages/0_VectorSlicer_559ef5acf5ec/metadata/._SUCCESS.crc",
+          "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+        },
+        {
+          "bytes": 16,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/selection/stages/0_VectorSlicer_559ef5acf5ec/metadata/.part-00000-5cd142ee-9b71-460a-b87a-7e456bc8b045-c000.txt.crc",
+          "sha256": "72b8fa60b23cc3fc5a5d419c79c5be0b0dc29205ecb6ab4da723aaea43bea584"
+        },
+        {
+          "bytes": 0,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/selection/stages/0_VectorSlicer_559ef5acf5ec/metadata/_SUCCESS",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 765,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/selection/stages/0_VectorSlicer_559ef5acf5ec/metadata/part-00000-5cd142ee-9b71-460a-b87a-7e456bc8b045-c000.txt",
+          "sha256": "0fb55df1c6ce3b245dbeba8a4173b0b05140ec4150f45dec68e869ba1b366a27"
+        },
+        {
+          "bytes": 8,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/selection/stages/1_VectorAssembler_45215395e382/metadata/._SUCCESS.crc",
+          "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+        },
+        {
+          "bytes": 12,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/selection/stages/1_VectorAssembler_45215395e382/metadata/.part-00000-7b65215f-68c4-4516-a7c0-faa5b1bc2d2a-c000.txt.crc",
+          "sha256": "0ba9b578e6e3d6f748f4b2724cb0f3b202b96826fc4dfc551d6cf2b3d9625ed8"
+        },
+        {
+          "bytes": 0,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/selection/stages/1_VectorAssembler_45215395e382/metadata/_SUCCESS",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 334,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/selection/stages/1_VectorAssembler_45215395e382/metadata/part-00000-7b65215f-68c4-4516-a7c0-faa5b1bc2d2a-c000.txt",
+          "sha256": "5d6f855ace374afb14e3d9ab43de1143c7fdc371046e14e63d0d3b02249d9d2a"
+        }
+      ],
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v3/selection"
+    },
+    {
+      "files": [
+        {
+          "bytes": 8,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/experiments/binary_20261125_v3/features/test/._SUCCESS.crc",
+          "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+        },
+        {
+          "bytes": 397168,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/experiments/binary_20261125_v3/features/test/.part-00000-032545a6-db6c-4f11-85ef-edc8a6c7103c-c000.zstd.parquet.crc",
+          "sha256": "c80098e2af2aa0c9e88f0858a927870be4195b5113e151c999a430680126f681"
+        },
+        {
+          "bytes": 0,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/experiments/binary_20261125_v3/features/test/_SUCCESS",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 50836343,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/experiments/binary_20261125_v3/features/test/part-00000-032545a6-db6c-4f11-85ef-edc8a6c7103c-c000.zstd.parquet",
+          "sha256": "5bc5b5dbc197800388a39b1fbb7e16b0841f3843d952e451f358ca7b2adfb3d0"
+        },
+        {
+          "bytes": 8,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/experiments/binary_20261125_v3/features/train/._SUCCESS.crc",
+          "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+        },
+        {
+          "bytes": 483228,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/experiments/binary_20261125_v3/features/train/.part-00000-b42bd5f3-ca67-42f3-bb29-e45b01bdd478-c000.zstd.parquet.crc",
+          "sha256": "3ec7a4c34cdb68160a9fe28bdf1bda215ad7c26cd6ca13a927937614b94c38ba"
+        },
+        {
+          "bytes": 480860,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/experiments/binary_20261125_v3/features/train/.part-00001-b42bd5f3-ca67-42f3-bb29-e45b01bdd478-c000.zstd.parquet.crc",
+          "sha256": "0c5e44e671b4adcb77cff22be99292a82390107d40916f51736570923d7ede7c"
+        },
+        {
+          "bytes": 482372,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/experiments/binary_20261125_v3/features/train/.part-00002-b42bd5f3-ca67-42f3-bb29-e45b01bdd478-c000.zstd.parquet.crc",
+          "sha256": "41c57c4a003681c0c99bcea5668b443f319a1672c580270b89f6a4f234d12148"
+        },
+        {
+          "bytes": 480324,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/experiments/binary_20261125_v3/features/train/.part-00003-b42bd5f3-ca67-42f3-bb29-e45b01bdd478-c000.zstd.parquet.crc",
+          "sha256": "8ee42e354834bcf3805d1cd600d4035114e727de8c49a80ed18be42ecea994ae"
+        },
+        {
+          "bytes": 478916,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/experiments/binary_20261125_v3/features/train/.part-00004-b42bd5f3-ca67-42f3-bb29-e45b01bdd478-c000.zstd.parquet.crc",
+          "sha256": "3169c0921e420fabcf1090d73956cb357f50daa401496eb34ccf92bb48cc3a0a"
+        },
+        {
+          "bytes": 480604,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/experiments/binary_20261125_v3/features/train/.part-00005-b42bd5f3-ca67-42f3-bb29-e45b01bdd478-c000.zstd.parquet.crc",
+          "sha256": "6a9cf11640d036e76f7955113742b7e1b7b0e3d64b3dcdfd5f73b65cc78cc70d"
+        },
+        {
+          "bytes": 480316,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/experiments/binary_20261125_v3/features/train/.part-00006-b42bd5f3-ca67-42f3-bb29-e45b01bdd478-c000.zstd.parquet.crc",
+          "sha256": "dd0cffd18e0eda9d05bd29e3a54de2b271d75f2f490262fd92cf7927ab5a2696"
+        },
+        {
+          "bytes": 478196,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/experiments/binary_20261125_v3/features/train/.part-00007-b42bd5f3-ca67-42f3-bb29-e45b01bdd478-c000.zstd.parquet.crc",
+          "sha256": "fce1b812c8ca6c8a728d34c24115a4e711bee37622d4062cd434a3c2cb9c4ca0"
+        },
+        {
+          "bytes": 0,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/experiments/binary_20261125_v3/features/train/_SUCCESS",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 61851800,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/experiments/binary_20261125_v3/features/train/part-00000-b42bd5f3-ca67-42f3-bb29-e45b01bdd478-c000.zstd.parquet",
+          "sha256": "d4d5c7d163fc06d0341871e6807fa4356222bb0380dd1bec0665112ddd9a61f9"
+        },
+        {
+          "bytes": 61548660,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/experiments/binary_20261125_v3/features/train/part-00001-b42bd5f3-ca67-42f3-bb29-e45b01bdd478-c000.zstd.parquet",
+          "sha256": "367c1d9e624bd570856707c714004c5fc40e4054494d4c771fc5f1575dd8c1dd"
+        },
+        {
+          "bytes": 61742553,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/experiments/binary_20261125_v3/features/train/part-00002-b42bd5f3-ca67-42f3-bb29-e45b01bdd478-c000.zstd.parquet",
+          "sha256": "4815df6d8300b2e17cc579697d59acfb9aa19136beacd68b169518398947fdd5"
+        },
+        {
+          "bytes": 61480196,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/experiments/binary_20261125_v3/features/train/part-00003-b42bd5f3-ca67-42f3-bb29-e45b01bdd478-c000.zstd.parquet",
+          "sha256": "626cc8507b1627ea5bd8278928ec604fde7046ecc1824288523de3a549cb36b3"
+        },
+        {
+          "bytes": 61299877,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/experiments/binary_20261125_v3/features/train/part-00004-b42bd5f3-ca67-42f3-bb29-e45b01bdd478-c000.zstd.parquet",
+          "sha256": "c2a9e09f2cb01814e27c0661c67625898e01256e11cbbbd5c5e9de6e881d91ad"
+        },
+        {
+          "bytes": 61515858,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/experiments/binary_20261125_v3/features/train/part-00005-b42bd5f3-ca67-42f3-bb29-e45b01bdd478-c000.zstd.parquet",
+          "sha256": "8ca3e5e2d501a91c3c79e8f385ea1cc432d4f1026ab987251be77c366766958a"
+        },
+        {
+          "bytes": 61479095,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/experiments/binary_20261125_v3/features/train/part-00006-b42bd5f3-ca67-42f3-bb29-e45b01bdd478-c000.zstd.parquet",
+          "sha256": "fe7083f0329905a422d612064e1725f0bee65b7eb30ba7c052353ae82d3983b2"
+        },
+        {
+          "bytes": 61207596,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/experiments/binary_20261125_v3/features/train/part-00007-b42bd5f3-ca67-42f3-bb29-e45b01bdd478-c000.zstd.parquet",
+          "sha256": "084cd1a9505151b53be2287828d5323e2144c8189b3d6e27022a99797e36fa96"
+        },
+        {
+          "bytes": 8,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/experiments/binary_20261125_v3/features/validation/._SUCCESS.crc",
+          "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+        },
+        {
+          "bytes": 327552,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/experiments/binary_20261125_v3/features/validation/.part-00000-5e0a9058-d23c-44ba-b726-1a3a3b2838c9-c000.zstd.parquet.crc",
+          "sha256": "ef58bac883588c50a2f0699ca16ca862dce29368d1f294cca9146267bd92736c"
+        },
+        {
+          "bytes": 371460,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/experiments/binary_20261125_v3/features/validation/.part-00001-5e0a9058-d23c-44ba-b726-1a3a3b2838c9-c000.zstd.parquet.crc",
+          "sha256": "9fe88dd816a68f0cbabe9478ce5f365540cd7d5f06fbe834edb1ef4ce8951905"
+        },
+        {
+          "bytes": 52924,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/experiments/binary_20261125_v3/features/validation/.part-00002-5e0a9058-d23c-44ba-b726-1a3a3b2838c9-c000.zstd.parquet.crc",
+          "sha256": "a5c37c085d553cecc61157ff8eabda31b334dfedc30b1ffa58b13d8935edfe22"
+        },
+        {
+          "bytes": 0,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/experiments/binary_20261125_v3/features/validation/_SUCCESS",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 41925206,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/experiments/binary_20261125_v3/features/validation/part-00000-5e0a9058-d23c-44ba-b726-1a3a3b2838c9-c000.zstd.parquet",
+          "sha256": "0048bd86e55bb9da35f66950518be5d720eb19571097fef8356c9c69c54ff496"
+        },
+        {
+          "bytes": 47545664,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/experiments/binary_20261125_v3/features/validation/part-00001-5e0a9058-d23c-44ba-b726-1a3a3b2838c9-c000.zstd.parquet",
+          "sha256": "dce97107c414215287c607bc3166dcab2ae896a89a5adf4e5171a4f048259fa4"
+        },
+        {
+          "bytes": 6772795,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/experiments/binary_20261125_v3/features/validation/part-00002-5e0a9058-d23c-44ba-b726-1a3a3b2838c9-c000.zstd.parquet",
+          "sha256": "a8712a5b2515975a503548c839cc901b1c3ce1c5e6659f5ed7f1fec484904d30"
+        }
+      ],
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/experiments/binary_20261125_v3/features"
+    },
+    {
+      "files": [
+        {
+          "bytes": 38324,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/reports/experiments/binary_20261125_v3/features.json",
+          "sha256": "fa41a28e93eb17c56a9bc8fdaddd1e68d2e4728c9b59ad8fa257f4ac4af3716e"
+        }
+      ],
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/reports/experiments/binary_20261125_v3/features.json"
+    }
+  ],
+  "completed_at_utc": "2026-11-25T09:43:40.169992+00:00",
+  "identity_sha256": "7be8349408f8b0571dd68f88623cc5b7d13aa8bba58928c821fe247262691438",
+  "source_files": [
+    {
+      "bytes": 15445,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/src/askreddit/binary_prepare.py",
+      "sha256": "498faafd0f24472768e4bab3bb758214f188a4c016baf1096cdb9d548a4be16b"
+    },
+    {
+      "bytes": 6280,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/src/askreddit/features.py",
+      "sha256": "a6ac23fefbde47634ae3ffc3f251b66d2e548f2bc46da7b4d7b1d3e9035c4d21"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "artifacts": [
+    {
+      "files": [
+        {
+          "bytes": 8,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v4/models/text_lr_r1e5/data/._SUCCESS.crc",
+          "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+        },
+        {
+          "bytes": 796,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v4/models/text_lr_r1e5/data/.part-00000-a554e0f4-f979-4d44-937a-eae5ff98db3f-c000.snappy.parquet.crc",
+          "sha256": "fd0eefa727eb336a88338cfe96a488c1f7046a745614cdfe7abb787e73d435ed"
+        },
+        {
+          "bytes": 0,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v4/models/text_lr_r1e5/data/_SUCCESS",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 100736,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v4/models/text_lr_r1e5/data/part-00000-a554e0f4-f979-4d44-937a-eae5ff98db3f-c000.snappy.parquet",
+          "sha256": "03727d4031b2793be7110b4d94e2f46c1dc7bf564131e7efae00fa8f3b95b869"
+        },
+        {
+          "bytes": 8,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v4/models/text_lr_r1e5/metadata/._SUCCESS.crc",
+          "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+        },
+        {
+          "bytes": 16,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v4/models/text_lr_r1e5/metadata/.part-00000-862722cb-7b8c-429c-a860-58533937a03d-c000.txt.crc",
+          "sha256": "3c64d4f6889e6dc684763680ff442917f30b0f86a2084f70d4b152b53286c845"
+        },
+        {
+          "bytes": 0,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v4/models/text_lr_r1e5/metadata/_SUCCESS",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 720,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v4/models/text_lr_r1e5/metadata/part-00000-862722cb-7b8c-429c-a860-58533937a03d-c000.txt",
+          "sha256": "afa883cdad910e1c657324ba1c15ddcf79190d82596816199a41bddf7178ed0e"
+        }
+      ],
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v4/models/text_lr_r1e5"
+    },
+    {
+      "files": [
+        {
+          "bytes": 10889,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/reports/experiments/binary_20261125_v4/candidates/text_lr_r1e5.json",
+          "sha256": "ade6f4b44d953968d182bd5ffc5cd52cd9e4b7b32cac2253f6ae49d0ef7908e0"
+        }
+      ],
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/reports/experiments/binary_20261125_v4/candidates/text_lr_r1e5.json"
+    }
+  ],
+  "completed_at_utc": "2026-11-25T10:07:23.737997+00:00",
+  "identity_sha256": "b2f1ec0ad1146bd6fe433a557b0ee43f40c7c98fc7f537223eada9b2cc42c797",
+  "source_files": [
+    {
+      "bytes": 7654,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/src/askreddit/binary_training.py",
+      "sha256": "e0fdb29017f0f68d4c1b3f73a95b67ab54b0a16901f9b7820f8f83a8aa4b4cc2"
+    },
+    {
+      "bytes": 4574,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/src/askreddit/binary_evaluation.py",
+      "sha256": "31d451ee344e21eacd0af50cef082276fa20f81ab461d03f69b3e36c131f3066"
+    },
+    {
+      "bytes": 7940,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/src/askreddit/binary_labeling.py",
+      "sha256": "a7a7183d25f94b68a66d8a861bf6e0ae5f69c2b5827d9feea9074929fcfc752e"
+    }
+  ]
+}

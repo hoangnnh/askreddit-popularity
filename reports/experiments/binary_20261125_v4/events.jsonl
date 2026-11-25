@@ -1,0 +1,37 @@
+{"at_utc": "2026-11-25T10:05:08.853899+00:00", "phase": "stage_started", "stage": "all", "spark_version": "4.3.0"}
+{"at_utc": "2026-11-25T10:05:08.854263+00:00", "phase": "prepare_started"}
+{"at_utc": "2026-11-25T10:05:45.763905+00:00", "phase": "prepare_completed", "elapsed_seconds": 36.90937039799974, "median": 3, "p75": 4, "train_counts": {"excluded": 928466, "low": 182480, "middle": 82444, "high": 106465}}
+{"at_utc": "2026-11-25T10:05:45.798268+00:00", "phase": "features_started"}
+{"at_utc": "2026-11-25T10:06:26.884671+00:00", "phase": "chi_square_completed", "seconds": 13.558665861000918, "top_terms": ["u:and", "u:or", "u:instantly", "u:how", "u:what\u2019s", "u:trump", "u:something", "b:that instantly", "b:makes you", "u:with"]}
+{"at_utc": "2026-11-25T10:06:48.285545+00:00", "phase": "features_split_completed", "split": "train", "records": 288945, "transformation_and_write_seconds": 20.09668525899906}
+{"at_utc": "2026-11-25T10:06:54.578120+00:00", "phase": "features_split_completed", "split": "validation", "records": 57282, "transformation_and_write_seconds": 6.292223361999277}
+{"at_utc": "2026-11-25T10:06:59.185114+00:00", "phase": "features_split_completed", "split": "test", "records": 30568, "transformation_and_write_seconds": 4.606478353000057}
+{"at_utc": "2026-11-25T10:06:59.924475+00:00", "phase": "candidate_started", "candidate": "majority", "configuration": {"id": "majority", "kind": "majority"}}
+{"at_utc": "2026-11-25T10:07:00.247078+00:00", "phase": "candidate_completed", "candidate": "majority", "training_seconds": 0.0, "validation_auc": 0.5, "validation_f1": 0.0, "threshold": 0.5}
+{"at_utc": "2026-11-25T10:07:00.268787+00:00", "phase": "candidate_started", "candidate": "time_lr", "configuration": {"id": "time_lr", "kind": "lr", "features": "time_features", "reg_param": 0.0001, "max_iter": 200, "role": "ablation"}}
+{"at_utc": "2026-11-25T10:07:04.449153+00:00", "phase": "candidate_completed", "candidate": "time_lr", "training_seconds": 2.329278166000222, "validation_auc": 0.5206751583730214, "validation_f1": 0.5703446726732723, "threshold": 0.4715739189120144}
+{"at_utc": "2026-11-25T10:07:04.449772+00:00", "phase": "candidate_started", "candidate": "title_structured_lr", "configuration": {"id": "title_structured_lr", "kind": "lr", "features": "title_structured_features", "reg_param": 0.0001, "max_iter": 200}}
+{"at_utc": "2026-11-25T10:07:09.359487+00:00", "phase": "candidate_completed", "candidate": "title_structured_lr", "training_seconds": 3.393870201000027, "validation_auc": 0.5418584444352144, "validation_f1": 0.5703799870175263, "threshold": 0.2521551742760505}
+{"at_utc": "2026-11-25T10:07:09.360049+00:00", "phase": "candidate_started", "candidate": "text_lr_r1e5", "configuration": {"id": "text_lr_r1e5", "kind": "lr", "features": "text_features", "reg_param": 1e-05, "max_iter": 200}}
+{"at_utc": "2026-11-25T10:07:23.739183+00:00", "phase": "candidate_completed", "candidate": "text_lr_r1e5", "training_seconds": 11.870782379000957, "validation_auc": 0.6119687989375013, "validation_f1": 0.5762385370882848, "threshold": 0.3518021759577632}
+{"at_utc": "2026-11-25T10:07:23.739847+00:00", "phase": "candidate_started", "candidate": "combined_title_lr_r1e4", "configuration": {"id": "combined_title_lr_r1e4", "kind": "lr", "features": "combined_title_features", "reg_param": 0.0001, "max_iter": 200}}
+{"at_utc": "2026-11-25T10:08:01.431873+00:00", "phase": "candidate_completed", "candidate": "combined_title_lr_r1e4", "training_seconds": 34.71266803800063, "validation_auc": 0.607578426845866, "validation_f1": 0.5731274131274131, "threshold": 0.3684275289099176}
+{"at_utc": "2026-11-25T10:08:01.432526+00:00", "phase": "candidate_started", "candidate": "combined_title_lr_r1e5", "configuration": {"id": "combined_title_lr_r1e5", "kind": "lr", "features": "combined_title_features", "reg_param": 1e-05, "max_iter": 200}}
+{"at_utc": "2026-11-25T10:08:45.410135+00:00", "phase": "candidate_completed", "candidate": "combined_title_lr_r1e5", "training_seconds": 41.24300824199963, "validation_auc": 0.6121037427111196, "validation_f1": 0.5759474060003502, "threshold": 0.34575072753354197}
+{"at_utc": "2026-11-25T10:08:45.410963+00:00", "phase": "candidate_started", "candidate": "combined_title_lr_r1e6", "configuration": {"id": "combined_title_lr_r1e6", "kind": "lr", "features": "combined_title_features", "reg_param": 1e-06, "max_iter": 200}}
+{"at_utc": "2026-11-25T10:09:32.388714+00:00", "phase": "candidate_completed", "candidate": "combined_title_lr_r1e6", "training_seconds": 43.73691498599874, "validation_auc": 0.6026992929893397, "validation_f1": 0.5744507076198, "threshold": 0.29077185027734065}
+{"at_utc": "2026-11-25T10:09:32.389363+00:00", "phase": "candidate_started", "candidate": "gbt_d5", "configuration": {"id": "gbt_d5", "kind": "gbt", "features": "selected_title_features", "max_iter": 60, "max_depth": 5, "max_bins": 32, "step_size": 0.1, "subsampling_rate": 0.8}}
+{"at_utc": "2026-11-25T10:11:57.899347+00:00", "phase": "candidate_completed", "candidate": "gbt_d5", "training_seconds": 141.83889504999934, "validation_auc": 0.57809123530067, "validation_f1": 0.5713921598613447, "threshold": 0.3528767950059747}
+{"at_utc": "2026-11-25T10:11:57.901409+00:00", "phase": "candidate_started", "candidate": "gbt_d7", "configuration": {"id": "gbt_d7", "kind": "gbt", "features": "selected_title_features", "max_iter": 60, "max_depth": 7, "max_bins": 32, "step_size": 0.1, "subsampling_rate": 0.8}}
+{"at_utc": "2026-11-25T10:15:11.202276+00:00", "phase": "candidate_completed", "candidate": "gbt_d7", "training_seconds": 190.4735144440001, "validation_auc": 0.577734157880847, "validation_f1": 0.5706902175276614, "threshold": 0.2565368334860736}
+{"at_utc": "2026-11-25T10:15:11.223672+00:00", "phase": "selection_frozen", "candidate": "combined_title_lr_r1e5", "best_by_family": {"lr": "combined_title_lr_r1e5", "gbt": "gbt_d5"}}
+{"at_utc": "2026-11-25T10:15:11.506727+00:00", "phase": "test_candidate_completed", "candidate": "majority", "auc_roc": 0.5, "f1": 0.0}
+{"at_utc": "2026-11-25T10:15:12.131084+00:00", "phase": "test_candidate_completed", "candidate": "time_lr", "auc_roc": 0.5167982430927055, "f1": 0.5652531036586796}
+{"at_utc": "2026-11-25T10:15:12.721025+00:00", "phase": "test_candidate_completed", "candidate": "title_structured_lr", "auc_roc": 0.5433091633074152, "f1": 0.5652582159624413}
+{"at_utc": "2026-11-25T10:15:13.238575+00:00", "phase": "test_candidate_completed", "candidate": "text_lr_r1e5", "auc_roc": 0.5932046088112289, "f1": 0.5676846936943868}
+{"at_utc": "2026-11-25T10:15:14.061708+00:00", "phase": "test_candidate_completed", "candidate": "combined_title_lr_r1e4", "auc_roc": 0.591275289636338, "f1": 0.5667013880477701}
+{"at_utc": "2026-11-25T10:15:14.790177+00:00", "phase": "test_candidate_completed", "candidate": "combined_title_lr_r1e5", "auc_roc": 0.5939656940049394, "f1": 0.5678905394042857}
+{"at_utc": "2026-11-25T10:15:15.516359+00:00", "phase": "test_candidate_completed", "candidate": "combined_title_lr_r1e6", "auc_roc": 0.5857268808362477, "f1": 0.5669578427649069}
+{"at_utc": "2026-11-25T10:15:16.668046+00:00", "phase": "test_candidate_completed", "candidate": "gbt_d5", "auc_roc": 0.567336692640844, "f1": 0.56554936611602}
+{"at_utc": "2026-11-25T10:15:18.131422+00:00", "phase": "test_candidate_completed", "candidate": "gbt_d7", "auc_roc": 0.5691685450572247, "f1": 0.5646664621628636}
+{"at_utc": "2026-11-25T10:15:21.894105+00:00", "phase": "stage_completed", "stage": "all"}

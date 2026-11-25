@@ -1,0 +1,54 @@
+{
+  "config_version": 1,
+  "name": "binary_v3",
+  "algorithm_version": "binary-train-quantile-v1",
+  "input": "data/processed/askreddit_clean",
+  "data_root": "data/experiments",
+  "artifact_root": "artifacts/experiments",
+  "report_root": "reports/experiments",
+  "disclosure": "Designed on 2026-11-25 to implement the binary task of the registered project proposal (high = top quartile, low = below median, middle dropped). The labeling rule, metrics and model families come from that proposal. The December 2025 test month had already been scored by the eight-class runs v1 and v2, so v3 test numbers are not a strictly untouched hold-out; selection still uses validation only.",
+  "disclosure_vi": "Cấu hình v3 thiết kế ngày 2026-11-25 để thực hiện bài toán nhị phân trong đề cương đã đăng ký (cao = nhóm 25% điểm cao nhất, thấp = dưới trung vị, bỏ nhóm giữa). Quy tắc gán nhãn, chỉ số và họ mô hình lấy từ đề cương. Tháng test 12/2025 đã được dùng để chấm các run tám lớp v1 và v2, nên test của v3 không còn là hold-out hoàn toàn chưa nhìn thấy; mô hình vẫn chỉ được chọn bằng validation.",
+  "split_dates": {
+    "train": ["2025-01-01T00:00:00Z", "2025-10-01T00:00:00Z"],
+    "validation": ["2025-10-01T00:00:00Z", "2025-12-01T00:00:00Z"],
+    "test": ["2025-12-01T00:00:00Z", "2026-01-01T00:00:00Z"]
+  },
+  "spark": {"driver_memory": "2g", "shuffle_partitions": 16, "write_partitions": 12},
+  "labeling": {
+    "low": "score <= train median",
+    "high": "score > train p75",
+    "middle": "median < score <= p75, excluded",
+    "tie_rationale": "Train median is 1 and p75 is 2; 71% of train scores are <= 1, so an exact top-25% group cannot be cut without splitting tied scores. Strict > p75 keeps the high group above the quartile boundary.",
+    "expected_train_thresholds": {"median": 1, "p75": 2}
+  },
+  "features": {
+    "version": "title-time-nfkc-v1",
+    "vocab_size": 12000,
+    "min_df": 10,
+    "rf_text_features": 128,
+    "normalization": "NFKC, Unicode whitespace collapse, lowercase; original title preserved",
+    "token_pattern": "[\\p{L}\\p{N}]+(?:['’][\\p{L}\\p{N}]+)*",
+    "ngram_orders": [1, 2],
+    "remove_stopwords": false,
+    "feature_sources": ["title", "created_utc"]
+  },
+  "chi_square": {"num_top_features": 128, "input": "binary train term presence over the train vocabulary", "used_by": "GBT candidates (selected_features = top-k TF-IDF columns + 9 structured features)"},
+  "seed": 212,
+  "selection": {
+    "criterion": "validation_auc_roc",
+    "tie_break": "largest validation AUC rounded to 12 decimals, then candidate ID ascending",
+    "threshold_policy": "Per candidate, the probability threshold maximizing validation F1 of the high class; frozen before test",
+    "test_policy": "Freeze selection and thresholds before scoring test; report all predefined candidates"
+  },
+  "candidates": [
+    {"id": "majority", "kind": "majority"},
+    {"id": "time_lr", "kind": "lr", "features": "time_features", "reg_param": 0.0001, "max_iter": 200},
+    {"id": "structured_lr", "kind": "lr", "features": "structured_features", "reg_param": 0.0001, "max_iter": 200},
+    {"id": "text_lr_r1e4", "kind": "lr", "features": "text_features", "reg_param": 0.0001, "max_iter": 200},
+    {"id": "combined_lr_r1e2", "kind": "lr", "features": "combined_features", "reg_param": 0.01, "max_iter": 200},
+    {"id": "combined_lr_r1e3", "kind": "lr", "features": "combined_features", "reg_param": 0.001, "max_iter": 200},
+    {"id": "combined_lr_r1e4", "kind": "lr", "features": "combined_features", "reg_param": 0.0001, "max_iter": 200},
+    {"id": "gbt_d5", "kind": "gbt", "features": "selected_features", "max_iter": 60, "max_depth": 5, "max_bins": 32, "step_size": 0.1, "subsampling_rate": 0.8},
+    {"id": "gbt_d7", "kind": "gbt", "features": "selected_features", "max_iter": 60, "max_depth": 7, "max_bins": 32, "step_size": 0.1, "subsampling_rate": 0.8}
+  ]
+}

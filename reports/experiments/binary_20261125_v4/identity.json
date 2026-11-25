@@ -1,0 +1,210 @@
+{
+  "config": {
+    "algorithm_version": "binary-train-quantile-v1",
+    "artifact_root": "artifacts/experiments",
+    "candidates": [
+      {
+        "id": "majority",
+        "kind": "majority"
+      },
+      {
+        "features": "time_features",
+        "id": "time_lr",
+        "kind": "lr",
+        "max_iter": 200,
+        "reg_param": 0.0001,
+        "role": "ablation"
+      },
+      {
+        "features": "title_structured_features",
+        "id": "title_structured_lr",
+        "kind": "lr",
+        "max_iter": 200,
+        "reg_param": 0.0001
+      },
+      {
+        "features": "text_features",
+        "id": "text_lr_r1e5",
+        "kind": "lr",
+        "max_iter": 200,
+        "reg_param": 1e-05
+      },
+      {
+        "features": "combined_title_features",
+        "id": "combined_title_lr_r1e4",
+        "kind": "lr",
+        "max_iter": 200,
+        "reg_param": 0.0001
+      },
+      {
+        "features": "combined_title_features",
+        "id": "combined_title_lr_r1e5",
+        "kind": "lr",
+        "max_iter": 200,
+        "reg_param": 1e-05
+      },
+      {
+        "features": "combined_title_features",
+        "id": "combined_title_lr_r1e6",
+        "kind": "lr",
+        "max_iter": 200,
+        "reg_param": 1e-06
+      },
+      {
+        "features": "selected_title_features",
+        "id": "gbt_d5",
+        "kind": "gbt",
+        "max_bins": 32,
+        "max_depth": 5,
+        "max_iter": 60,
+        "step_size": 0.1,
+        "subsampling_rate": 0.8
+      },
+      {
+        "features": "selected_title_features",
+        "id": "gbt_d7",
+        "kind": "gbt",
+        "max_bins": 32,
+        "max_depth": 7,
+        "max_iter": 60,
+        "step_size": 0.1,
+        "subsampling_rate": 0.8
+      }
+    ],
+    "chi_square": {
+      "input": "binary train term presence over the train vocabulary",
+      "num_top_features": 128,
+      "used_by": "GBT candidates (selected_title_features = top-k TF-IDF columns + 5 title-structure features; no posting time)"
+    },
+    "config_version": 1,
+    "data_root": "data/experiments",
+    "disclosure": "Designed on 2026-11-25 after run binary_20261125_v3 validation results were viewed (v3 test was not used for this decision). v3 showed that its top chi-square terms (i, my, me, why, do i) mark posts that break r/AskReddit rules and are likely removed, so the score <= 1 group mixes removal with low interest, and that posting time alone is weak (validation AUC 0.546). v4 therefore (1) restricts the task to posts with score >= 2, the upper remainder on which Fang et al. (2016) and Chua (2021) compute their medians, with low = below the median and high = top quartile of that population, and (2) removes posting time from every predictive model except a time-only ablation. The December 2025 test month was already scored by v1, v2 and v3, so v4 test numbers are not a strictly untouched hold-out; selection uses validation only.",
+    "disclosure_vi": "C\u1ea5u h\u00ecnh v4 thi\u1ebft k\u1ebf ng\u00e0y 2026-11-25 sau khi xem k\u1ebft qu\u1ea3 validation c\u1ee7a run binary_20261125_v3 (kh\u00f4ng d\u00f9ng test v3 cho quy\u1ebft \u0111\u1ecbnh n\u00e0y). v3 cho th\u1ea5y c\u00e1c n-gram chi-square m\u1ea1nh nh\u1ea5t (i, my, me, why, do i) \u0111\u00e1nh d\u1ea5u b\u00e0i vi ph\u1ea1m lu\u1eadt r/AskReddit v\u00e0 nhi\u1ec1u kh\u1ea3 n\u0103ng b\u1ecb g\u1ee1, n\u00ean nh\u00f3m score \u2264 1 tr\u1ed9n l\u1eabn b\u00e0i b\u1ecb g\u1ee1 v\u1edbi b\u00e0i \u00edt \u0111\u01b0\u1ee3c quan t\u00e2m; v\u00e0 th\u1eddi \u0111i\u1ec3m \u0111\u0103ng \u0111\u1ee9ng ri\u00eang ch\u1ec9 c\u00f3 t\u00edn hi\u1ec7u y\u1ebfu (AUC validation 0.546). V\u00ec v\u1eady v4 (1) ch\u1ec9 x\u00e9t b\u00e0i c\u00f3 score \u2265 2, \u0111\u00fang ph\u1ea7n m\u00e0 Fang v\u00e0 c\u1ed9ng s\u1ef1 (2016) v\u00e0 Chua (2021) d\u00f9ng \u0111\u1ec3 t\u00ednh trung v\u1ecb, v\u1edbi th\u1ea5p = d\u01b0\u1edbi trung v\u1ecb v\u00e0 cao = nh\u00f3m 25% cao nh\u1ea5t c\u1ee7a t\u1eadp n\u00e0y; (2) b\u1ecf gi\u1edd/th\u1ee9 \u0111\u0103ng kh\u1ecfi m\u1ecdi m\u00f4 h\u00ecnh d\u1ef1 \u0111o\u00e1n, ch\u1ec9 gi\u1eef m\u1ed9t m\u00f4 h\u00ecnh ablation d\u00f9ng ri\u00eang th\u1eddi gian. Th\u00e1ng test 12/2025 \u0111\u00e3 \u0111\u01b0\u1ee3c d\u00f9ng \u0111\u1ec3 ch\u1ea5m v1, v2 v\u00e0 v3, n\u00ean test c\u1ee7a v4 kh\u00f4ng c\u00f2n l\u00e0 hold-out ho\u00e0n to\u00e0n ch\u01b0a nh\u00ecn th\u1ea5y; m\u00f4 h\u00ecnh v\u1eabn ch\u1ec9 \u0111\u01b0\u1ee3c ch\u1ecdn b\u1eb1ng validation.",
+    "features": {
+      "feature_sources": [
+        "title",
+        "created_utc"
+      ],
+      "min_df": 10,
+      "ngram_orders": [
+        1,
+        2
+      ],
+      "normalization": "NFKC, Unicode whitespace collapse, lowercase; original title preserved",
+      "remove_stopwords": false,
+      "rf_text_features": 128,
+      "token_pattern": "[\\p{L}\\p{N}]+(?:['\u2019][\\p{L}\\p{N}]+)*",
+      "version": "title-time-nfkc-v1",
+      "vocab_size": 12000
+    },
+    "input": "data/processed/askreddit_clean",
+    "labeling": {
+      "excluded": "score <= 1 (default self-vote or net downvoted; mixes removed posts with ignored ones)",
+      "expected_train_thresholds": {
+        "median": 3,
+        "p75": 4
+      },
+      "high": "score >= p75 of train posts with score >= 2",
+      "high_rule": "ge_p75",
+      "low": "score < median of train posts with score >= 2",
+      "low_rule": "lt_median",
+      "middle": "median <= score < p75, excluded",
+      "population_min_score": 2,
+      "rationale_vi": "Trong t\u1eadp score \u2265 2 c\u1ee7a train, trung v\u1ecb = 3 v\u00e0 p75 = 4. L\u1ea5y th\u1ea5p = score < trung v\u1ecb (49,1%, g\u1ea7n 50% nh\u1ea5t) v\u00e0 cao = score \u2265 p75 (28,7%, g\u1ea7n 25% nh\u1ea5t) \u2014 \u0111\u00fang ngh\u0129a \u0111en \"d\u01b0\u1edbi trung v\u1ecb\" v\u00e0 \"25% cao nh\u1ea5t\" trong \u0111\u1ec1 c\u01b0\u01a1ng.",
+      "tie_rationale": "Within score >= 2 the train median is 3 and p75 is 4. Strict < median gives 49.1% (closest to the nominal 50%) and >= p75 gives 28.7% (closest to the nominal 25%)."
+    },
+    "name": "binary_v4",
+    "report_root": "reports/experiments",
+    "seed": 212,
+    "selection": {
+      "criterion": "validation_auc_roc",
+      "note": "time_lr is an ablation that measures posting-time signal; it is not a deployable candidate but is kept in the predeclared list.",
+      "test_policy": "Freeze selection and thresholds before scoring test; report all predefined candidates",
+      "threshold_policy": "Per candidate, the probability threshold maximizing validation F1 of the high class; frozen before test",
+      "tie_break": "largest validation AUC rounded to 12 decimals, then candidate ID ascending"
+    },
+    "spark": {
+      "driver_memory": "2g",
+      "shuffle_partitions": 16,
+      "write_partitions": 12
+    },
+    "split_dates": {
+      "test": [
+        "2025-12-01T00:00:00Z",
+        "2026-01-01T00:00:00Z"
+      ],
+      "train": [
+        "2025-01-01T00:00:00Z",
+        "2025-10-01T00:00:00Z"
+      ],
+      "validation": [
+        "2025-10-01T00:00:00Z",
+        "2025-12-01T00:00:00Z"
+      ]
+    }
+  },
+  "identity_sha256": "b2f1ec0ad1146bd6fe433a557b0ee43f40c7c98fc7f537223eada9b2cc42c797",
+  "input_files": [
+    {
+      "bytes": 4900124,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_clean/year=2025/month=1/part-00001-453ca44e-8585-43f9-a9d2-67f51f7f0fb2.c000.zstd.parquet",
+      "sha256": "e57764a8b10ea55172b8cfc4dc66205b037d1aa6a10b9b0100c0739f115e8ff2"
+    },
+    {
+      "bytes": 4334187,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_clean/year=2025/month=10/part-00003-453ca44e-8585-43f9-a9d2-67f51f7f0fb2.c000.zstd.parquet",
+      "sha256": "79493d5d57ae68d34a184eac3225d314944f069ac3226fcad87255e3a1cfc01b"
+    },
+    {
+      "bytes": 4160761,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_clean/year=2025/month=11/part-00000-453ca44e-8585-43f9-a9d2-67f51f7f0fb2.c000.zstd.parquet",
+      "sha256": "ee52dae94afd9b167d1ddadbf43870a6cd47a0caec7cf8ea83602f5dcfb711db"
+    },
+    {
+      "bytes": 4415504,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_clean/year=2025/month=12/part-00002-453ca44e-8585-43f9-a9d2-67f51f7f0fb2.c000.zstd.parquet",
+      "sha256": "0862f5d7c89f2ea855b03c29b55446b04c91327ed1c8166ad93d664074dc1f6c"
+    },
+    {
+      "bytes": 4622661,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_clean/year=2025/month=2/part-00002-453ca44e-8585-43f9-a9d2-67f51f7f0fb2.c000.zstd.parquet",
+      "sha256": "0d91d6d9b534dc420a4be3a7b961e0113ee6c4212617216b2993629c75bae4cc"
+    },
+    {
+      "bytes": 5065974,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_clean/year=2025/month=3/part-00002-453ca44e-8585-43f9-a9d2-67f51f7f0fb2.c000.zstd.parquet",
+      "sha256": "597fe6e7b74cff54cf2644d9f3828f5e26b70726a51dfd439823d1666f797927"
+    },
+    {
+      "bytes": 4748531,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_clean/year=2025/month=4/part-00003-453ca44e-8585-43f9-a9d2-67f51f7f0fb2.c000.zstd.parquet",
+      "sha256": "4b9f836f8e70f57be83aa6fb70cf213c79a025b9f038e23e34298b3aa6dd778d"
+    },
+    {
+      "bytes": 5002246,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_clean/year=2025/month=5/part-00003-453ca44e-8585-43f9-a9d2-67f51f7f0fb2.c000.zstd.parquet",
+      "sha256": "eb5fc04c5d6203987285fd97f31f4e98cdb2539dc5c17745ae5c46b81fa7576b"
+    },
+    {
+      "bytes": 5022396,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_clean/year=2025/month=6/part-00002-453ca44e-8585-43f9-a9d2-67f51f7f0fb2.c000.zstd.parquet",
+      "sha256": "bf86a706ad24ed5b6661443ed5cce116a4e056320d4483b1579b144b425102db"
+    },
+    {
+      "bytes": 5195757,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_clean/year=2025/month=7/part-00003-453ca44e-8585-43f9-a9d2-67f51f7f0fb2.c000.zstd.parquet",
+      "sha256": "cf85854682d2ffe9cf3c6a8cf365376bf10bc3f9ec42335bebb82c44a3d05f44"
+    },
+    {
+      "bytes": 4827543,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_clean/year=2025/month=8/part-00000-453ca44e-8585-43f9-a9d2-67f51f7f0fb2.c000.zstd.parquet",
+      "sha256": "9bae72d9364efc92589efad096fa2283949894252d25d983da4dd4d53c21c858"
+    },
+    {
+      "bytes": 4489225,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_clean/year=2025/month=9/part-00001-453ca44e-8585-43f9-a9d2-67f51f7f0fb2.c000.zstd.parquet",
+      "sha256": "40fe9803232d0e778a7b3a3120654e5ccb3b50c88c773ba02d57b1ee8be1f517"
+    }
+  ],
+  "python_version": "3.14.8"
+}

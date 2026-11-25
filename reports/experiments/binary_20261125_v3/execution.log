@@ -1,0 +1,194 @@
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+/home/hoangnnh/Coding/IE212/project/askreddit-popularity/.venv/lib/python3.14/site-packages/pyspark/testing/utils.py:127: FutureWarning: PySpark does not yet fully support pandas >= 3.0.0. Some features may not work correctly. It is recommended to use pandas < 3.0.0 for now.
+  require_minimum_pandas_version()
+26/11/25 16:39:08 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2026-11-25 16:39:11,453 INFO stage_started {'stage': 'all', 'spark_version': '4.3.0'}
+2026-11-25 16:39:11,453 INFO prepare_started {}
+2026-11-25 16:39:52,011 INFO prepare_completed {'elapsed_seconds': 40.557660338999995, 'median': 1, 'p75': 2, 'train_counts': {'low': 928466, 'middle': 182480, 'high': 188909}}
+2026-11-25 16:39:52,124 INFO Verified and reused completed stage prepare
+2026-11-25 16:39:52,124 INFO features_started {}
+2026-11-25 16:42:28,836 INFO chi_square_completed {'seconds': 62.56624928099882, 'top_terms': ['u:i', 'u:you', 'u:my', 'u:what’s', 'u:why', 'u:how', 'u:me', 'u:and', 'b:do i', 'u:something']}
+26/11/25 16:42:30 WARN DAGScheduler: Broadcasting large task binary with size 1105.5 KiB
+26/11/25 16:43:06 WARN DAGScheduler: Broadcasting large task binary with size 1796.1 KiB
+2026-11-25 16:43:21,130 INFO features_split_completed {'split': 'train', 'records': 1117375, 'transformation_and_write_seconds': 51.54144861399982}
+26/11/25 16:43:21 WARN DAGScheduler: Broadcasting large task binary with size 1105.5 KiB
+26/11/25 16:43:29 WARN DAGScheduler: Broadcasting large task binary with size 1795.8 KiB
+2026-11-25 16:43:31,928 INFO features_split_completed {'split': 'validation', 'records': 218595, 'transformation_and_write_seconds': 10.796290580999994}
+26/11/25 16:43:32 WARN DAGScheduler: Broadcasting large task binary with size 1105.5 KiB
+26/11/25 16:43:37 WARN DAGScheduler: Broadcasting large task binary with size 1494.9 KiB
+2026-11-25 16:43:40,161 INFO features_split_completed {'split': 'test', 'records': 115580, 'transformation_and_write_seconds': 8.232346717999462}
+2026-11-25 16:43:43,117 INFO Verified and reused completed stage features
+2026-11-25 16:43:43,272 INFO candidate_started {'candidate': 'majority', 'configuration': {'id': 'majority', 'kind': 'majority'}}
+2026-11-25 16:43:44,738 INFO candidate_completed {'candidate': 'majority', 'training_seconds': 0.0, 'validation_auc': 0.5, 'validation_f1': 0.0, 'threshold': 0.5}
+2026-11-25 16:43:44,764 INFO candidate_started {'candidate': 'time_lr', 'configuration': {'id': 'time_lr', 'kind': 'lr', 'features': 'time_features', 'reg_param': 0.0001, 'max_iter': 200}}
+netlib-blas: JNI_OnLoad: dlopen(libblas.so.3) failed: libblas.so.3: cannot open shared object file: No such file or directory
+2026-11-25 16:43:53,635 INFO candidate_completed {'candidate': 'time_lr', 'training_seconds': 4.324315804000435, 'validation_auc': 0.5459507843273917, 'validation_f1': 0.30761268098765215, 'threshold': 0.4608851227924806}
+2026-11-25 16:43:53,635 INFO candidate_started {'candidate': 'structured_lr', 'configuration': {'id': 'structured_lr', 'kind': 'lr', 'features': 'structured_features', 'reg_param': 0.0001, 'max_iter': 200}}
+2026-11-25 16:44:05,575 INFO candidate_completed {'candidate': 'structured_lr', 'training_seconds': 8.723180962999322, 'validation_auc': 0.6357517514282073, 'validation_f1': 0.3553739691914958, 'threshold': 0.507609673783807}
+2026-11-25 16:44:05,576 INFO candidate_started {'candidate': 'text_lr_r1e4', 'configuration': {'id': 'text_lr_r1e4', 'kind': 'lr', 'features': 'text_features', 'reg_param': 0.0001, 'max_iter': 200}}
+2026-11-25 16:44:32,360 INFO candidate_completed {'candidate': 'text_lr_r1e4', 'training_seconds': 21.476537266000378, 'validation_auc': 0.736253742138173, 'validation_f1': 0.4266296683107557, 'threshold': 0.5258409165721393}
+2026-11-25 16:44:32,362 INFO candidate_started {'candidate': 'combined_lr_r1e2', 'configuration': {'id': 'combined_lr_r1e2', 'kind': 'lr', 'features': 'combined_features', 'reg_param': 0.01, 'max_iter': 200}}
+2026-11-25 16:47:00,576 INFO candidate_completed {'candidate': 'combined_lr_r1e2', 'training_seconds': 141.3927860090007, 'validation_auc': 0.653556179181418, 'validation_f1': 0.3655814927247985, 'threshold': 0.5258485117016736}
+2026-11-25 16:47:00,577 INFO candidate_started {'candidate': 'combined_lr_r1e3', 'configuration': {'id': 'combined_lr_r1e3', 'kind': 'lr', 'features': 'combined_features', 'reg_param': 0.001, 'max_iter': 200}}
+2026-11-25 16:49:28,910 INFO candidate_completed {'candidate': 'combined_lr_r1e3', 'training_seconds': 141.83192167699963, 'validation_auc': 0.7047836877497581, 'validation_f1': 0.40433424289160436, 'threshold': 0.5387164162823619}
+2026-11-25 16:49:28,910 INFO candidate_started {'candidate': 'combined_lr_r1e4', 'configuration': {'id': 'combined_lr_r1e4', 'kind': 'lr', 'features': 'combined_features', 'reg_param': 0.0001, 'max_iter': 200}}
+2026-11-25 16:51:03,599 INFO candidate_completed {'candidate': 'combined_lr_r1e4', 'training_seconds': 88.40775564099931, 'validation_auc': 0.7419723626560378, 'validation_f1': 0.4311714022181728, 'threshold': 0.5254947070606464}
+2026-11-25 16:51:03,599 INFO candidate_started {'candidate': 'gbt_d5', 'configuration': {'id': 'gbt_d5', 'kind': 'gbt', 'features': 'selected_features', 'max_iter': 60, 'max_depth': 5, 'max_bins': 32, 'step_size': 0.1, 'subsampling_rate': 0.8}}
+2026-11-25 16:55:45,302 INFO candidate_completed {'candidate': 'gbt_d5', 'training_seconds': 275.19656694699916, 'validation_auc': 0.721913499345756, 'validation_f1': 0.40783478752866203, 'threshold': 0.5533619852807706}
+2026-11-25 16:55:45,303 INFO candidate_started {'candidate': 'gbt_d7', 'configuration': {'id': 'gbt_d7', 'kind': 'gbt', 'features': 'selected_features', 'max_iter': 60, 'max_depth': 7, 'max_bins': 32, 'step_size': 0.1, 'subsampling_rate': 0.8}}
+26/11/25 17:01:07 WARN DAGScheduler: Broadcasting large task binary with size 1003.5 KiB
+26/11/25 17:01:09 WARN DAGScheduler: Broadcasting large task binary with size 1012.1 KiB
+26/11/25 17:01:10 WARN DAGScheduler: Broadcasting large task binary with size 1014.9 KiB
+26/11/25 17:01:12 WARN DAGScheduler: Broadcasting large task binary with size 1015.4 KiB
+26/11/25 17:01:13 WARN DAGScheduler: Broadcasting large task binary with size 1016.4 KiB
+26/11/25 17:01:13 WARN DAGScheduler: Broadcasting large task binary with size 1017.1 KiB
+26/11/25 17:01:14 WARN DAGScheduler: Broadcasting large task binary with size 1019.5 KiB
+26/11/25 17:01:16 WARN DAGScheduler: Broadcasting large task binary with size 1024.2 KiB
+26/11/25 17:01:17 WARN DAGScheduler: Broadcasting large task binary with size 1033.2 KiB
+26/11/25 17:01:18 WARN DAGScheduler: Broadcasting large task binary with size 1036.1 KiB
+26/11/25 17:01:20 WARN DAGScheduler: Broadcasting large task binary with size 1036.6 KiB
+26/11/25 17:01:21 WARN DAGScheduler: Broadcasting large task binary with size 1037.6 KiB
+26/11/25 17:01:21 WARN DAGScheduler: Broadcasting large task binary with size 1038.4 KiB
+26/11/25 17:01:22 WARN DAGScheduler: Broadcasting large task binary with size 1040.8 KiB
+26/11/25 17:01:24 WARN DAGScheduler: Broadcasting large task binary with size 1045.5 KiB
+26/11/25 17:01:25 WARN DAGScheduler: Broadcasting large task binary with size 1054.8 KiB
+26/11/25 17:01:26 WARN DAGScheduler: Broadcasting large task binary with size 1058.2 KiB
+26/11/25 17:01:28 WARN DAGScheduler: Broadcasting large task binary with size 1058.7 KiB
+26/11/25 17:01:30 WARN DAGScheduler: Broadcasting large task binary with size 1059.7 KiB
+26/11/25 17:01:31 WARN DAGScheduler: Broadcasting large task binary with size 1060.5 KiB
+26/11/25 17:01:32 WARN DAGScheduler: Broadcasting large task binary with size 1062.9 KiB
+26/11/25 17:01:33 WARN DAGScheduler: Broadcasting large task binary with size 1067.5 KiB
+26/11/25 17:01:34 WARN DAGScheduler: Broadcasting large task binary with size 1076.5 KiB
+26/11/25 17:01:36 WARN DAGScheduler: Broadcasting large task binary with size 1079.3 KiB
+26/11/25 17:01:38 WARN DAGScheduler: Broadcasting large task binary with size 1079.8 KiB
+26/11/25 17:01:39 WARN DAGScheduler: Broadcasting large task binary with size 1080.8 KiB
+26/11/25 17:01:40 WARN DAGScheduler: Broadcasting large task binary with size 1081.6 KiB
+26/11/25 17:01:41 WARN DAGScheduler: Broadcasting large task binary with size 1084.0 KiB
+26/11/25 17:01:43 WARN DAGScheduler: Broadcasting large task binary with size 1088.7 KiB
+26/11/25 17:01:44 WARN DAGScheduler: Broadcasting large task binary with size 1098.0 KiB
+26/11/25 17:01:46 WARN DAGScheduler: Broadcasting large task binary with size 1100.8 KiB
+26/11/25 17:01:47 WARN DAGScheduler: Broadcasting large task binary with size 1101.3 KiB
+26/11/25 17:01:48 WARN DAGScheduler: Broadcasting large task binary with size 1102.3 KiB
+26/11/25 17:01:49 WARN DAGScheduler: Broadcasting large task binary with size 1103.1 KiB
+26/11/25 17:01:50 WARN DAGScheduler: Broadcasting large task binary with size 1105.1 KiB
+26/11/25 17:01:51 WARN DAGScheduler: Broadcasting large task binary with size 1109.2 KiB
+26/11/25 17:01:52 WARN DAGScheduler: Broadcasting large task binary with size 1116.9 KiB
+26/11/25 17:01:54 WARN DAGScheduler: Broadcasting large task binary with size 1119.5 KiB
+26/11/25 17:01:55 WARN DAGScheduler: Broadcasting large task binary with size 1119.9 KiB
+26/11/25 17:01:56 WARN DAGScheduler: Broadcasting large task binary with size 1121.0 KiB
+26/11/25 17:01:57 WARN DAGScheduler: Broadcasting large task binary with size 1121.7 KiB
+26/11/25 17:01:58 WARN DAGScheduler: Broadcasting large task binary with size 1124.1 KiB
+26/11/25 17:01:59 WARN DAGScheduler: Broadcasting large task binary with size 1128.8 KiB
+26/11/25 17:02:01 WARN DAGScheduler: Broadcasting large task binary with size 1138.2 KiB
+26/11/25 17:02:02 WARN DAGScheduler: Broadcasting large task binary with size 1141.9 KiB
+26/11/25 17:02:04 WARN DAGScheduler: Broadcasting large task binary with size 1142.4 KiB
+26/11/25 17:02:05 WARN DAGScheduler: Broadcasting large task binary with size 1143.4 KiB
+26/11/25 17:02:06 WARN DAGScheduler: Broadcasting large task binary with size 1144.1 KiB
+26/11/25 17:02:07 WARN DAGScheduler: Broadcasting large task binary with size 1146.5 KiB
+26/11/25 17:02:08 WARN DAGScheduler: Broadcasting large task binary with size 1151.2 KiB
+26/11/25 17:02:09 WARN DAGScheduler: Broadcasting large task binary with size 1159.7 KiB
+26/11/25 17:02:11 WARN DAGScheduler: Broadcasting large task binary with size 1163.1 KiB
+26/11/25 17:02:12 WARN DAGScheduler: Broadcasting large task binary with size 1163.6 KiB
+26/11/25 17:02:13 WARN DAGScheduler: Broadcasting large task binary with size 1164.6 KiB
+26/11/25 17:02:14 WARN DAGScheduler: Broadcasting large task binary with size 1165.4 KiB
+26/11/25 17:02:16 WARN DAGScheduler: Broadcasting large task binary with size 1167.8 KiB
+26/11/25 17:02:17 WARN DAGScheduler: Broadcasting large task binary with size 1172.2 KiB
+26/11/25 17:02:18 WARN DAGScheduler: Broadcasting large task binary with size 1180.4 KiB
+26/11/25 17:02:20 WARN DAGScheduler: Broadcasting large task binary with size 1183.3 KiB
+26/11/25 17:02:21 WARN DAGScheduler: Broadcasting large task binary with size 1183.8 KiB
+26/11/25 17:02:22 WARN DAGScheduler: Broadcasting large task binary with size 1184.8 KiB
+26/11/25 17:02:23 WARN DAGScheduler: Broadcasting large task binary with size 1185.6 KiB
+26/11/25 17:02:24 WARN DAGScheduler: Broadcasting large task binary with size 1187.9 KiB
+26/11/25 17:02:25 WARN DAGScheduler: Broadcasting large task binary with size 1192.6 KiB
+26/11/25 17:02:26 WARN DAGScheduler: Broadcasting large task binary with size 1201.7 KiB
+26/11/25 17:02:28 WARN DAGScheduler: Broadcasting large task binary with size 1204.9 KiB
+26/11/25 17:02:30 WARN DAGScheduler: Broadcasting large task binary with size 1205.4 KiB
+26/11/25 17:02:31 WARN DAGScheduler: Broadcasting large task binary with size 1206.4 KiB
+26/11/25 17:02:32 WARN DAGScheduler: Broadcasting large task binary with size 1207.2 KiB
+26/11/25 17:02:33 WARN DAGScheduler: Broadcasting large task binary with size 1209.5 KiB
+26/11/25 17:02:35 WARN DAGScheduler: Broadcasting large task binary with size 1214.2 KiB
+26/11/25 17:02:36 WARN DAGScheduler: Broadcasting large task binary with size 1223.6 KiB
+26/11/25 17:02:38 WARN DAGScheduler: Broadcasting large task binary with size 1227.6 KiB
+26/11/25 17:02:40 WARN DAGScheduler: Broadcasting large task binary with size 1228.1 KiB
+26/11/25 17:02:41 WARN DAGScheduler: Broadcasting large task binary with size 1229.1 KiB
+26/11/25 17:02:42 WARN DAGScheduler: Broadcasting large task binary with size 1229.9 KiB
+26/11/25 17:02:43 WARN DAGScheduler: Broadcasting large task binary with size 1232.0 KiB
+26/11/25 17:02:44 WARN DAGScheduler: Broadcasting large task binary with size 1236.1 KiB
+26/11/25 17:02:45 WARN DAGScheduler: Broadcasting large task binary with size 1244.3 KiB
+26/11/25 17:02:47 WARN DAGScheduler: Broadcasting large task binary with size 1247.6 KiB
+26/11/25 17:02:49 WARN DAGScheduler: Broadcasting large task binary with size 1248.1 KiB
+26/11/25 17:02:50 WARN DAGScheduler: Broadcasting large task binary with size 1249.1 KiB
+26/11/25 17:02:51 WARN DAGScheduler: Broadcasting large task binary with size 1249.9 KiB
+26/11/25 17:02:52 WARN DAGScheduler: Broadcasting large task binary with size 1252.2 KiB
+26/11/25 17:02:53 WARN DAGScheduler: Broadcasting large task binary with size 1256.9 KiB
+26/11/25 17:02:54 WARN DAGScheduler: Broadcasting large task binary with size 1265.1 KiB
+26/11/25 17:02:56 WARN DAGScheduler: Broadcasting large task binary with size 1267.6 KiB
+26/11/25 17:02:57 WARN DAGScheduler: Broadcasting large task binary with size 1268.1 KiB
+26/11/25 17:02:58 WARN DAGScheduler: Broadcasting large task binary with size 1269.1 KiB
+26/11/25 17:02:59 WARN DAGScheduler: Broadcasting large task binary with size 1269.9 KiB
+26/11/25 17:03:00 WARN DAGScheduler: Broadcasting large task binary with size 1272.2 KiB
+26/11/25 17:03:02 WARN DAGScheduler: Broadcasting large task binary with size 1276.9 KiB
+26/11/25 17:03:03 WARN DAGScheduler: Broadcasting large task binary with size 1285.7 KiB
+26/11/25 17:03:05 WARN DAGScheduler: Broadcasting large task binary with size 1288.9 KiB
+26/11/25 17:03:06 WARN DAGScheduler: Broadcasting large task binary with size 1289.3 KiB
+26/11/25 17:03:07 WARN DAGScheduler: Broadcasting large task binary with size 1290.3 KiB
+26/11/25 17:03:08 WARN DAGScheduler: Broadcasting large task binary with size 1291.1 KiB
+26/11/25 17:03:09 WARN DAGScheduler: Broadcasting large task binary with size 1293.5 KiB
+26/11/25 17:03:11 WARN DAGScheduler: Broadcasting large task binary with size 1297.9 KiB
+26/11/25 17:03:12 WARN DAGScheduler: Broadcasting large task binary with size 1306.1 KiB
+26/11/25 17:03:14 WARN DAGScheduler: Broadcasting large task binary with size 1308.8 KiB
+26/11/25 17:03:15 WARN DAGScheduler: Broadcasting large task binary with size 1309.3 KiB
+26/11/25 17:03:16 WARN DAGScheduler: Broadcasting large task binary with size 1310.3 KiB
+26/11/25 17:03:17 WARN DAGScheduler: Broadcasting large task binary with size 1311.1 KiB
+26/11/25 17:03:18 WARN DAGScheduler: Broadcasting large task binary with size 1313.5 KiB
+26/11/25 17:03:19 WARN DAGScheduler: Broadcasting large task binary with size 1318.2 KiB
+26/11/25 17:03:21 WARN DAGScheduler: Broadcasting large task binary with size 1327.2 KiB
+26/11/25 17:03:23 WARN DAGScheduler: Broadcasting large task binary with size 1330.9 KiB
+26/11/25 17:03:24 WARN DAGScheduler: Broadcasting large task binary with size 1331.4 KiB
+26/11/25 17:03:25 WARN DAGScheduler: Broadcasting large task binary with size 1332.4 KiB
+26/11/25 17:03:26 WARN DAGScheduler: Broadcasting large task binary with size 1333.2 KiB
+26/11/25 17:03:27 WARN DAGScheduler: Broadcasting large task binary with size 1335.6 KiB
+26/11/25 17:03:28 WARN DAGScheduler: Broadcasting large task binary with size 1340.3 KiB
+26/11/25 17:03:30 WARN DAGScheduler: Broadcasting large task binary with size 1349.3 KiB
+26/11/25 17:03:31 WARN DAGScheduler: Broadcasting large task binary with size 1352.0 KiB
+26/11/25 17:03:33 WARN DAGScheduler: Broadcasting large task binary with size 1352.5 KiB
+26/11/25 17:03:34 WARN DAGScheduler: Broadcasting large task binary with size 1353.5 KiB
+26/11/25 17:03:35 WARN DAGScheduler: Broadcasting large task binary with size 1354.3 KiB
+26/11/25 17:03:36 WARN DAGScheduler: Broadcasting large task binary with size 1356.4 KiB
+26/11/25 17:03:37 WARN DAGScheduler: Broadcasting large task binary with size 1360.5 KiB
+26/11/25 17:03:38 WARN DAGScheduler: Broadcasting large task binary with size 1368.1 KiB
+26/11/25 17:03:40 WARN DAGScheduler: Broadcasting large task binary with size 1370.7 KiB
+26/11/25 17:03:42 WARN DAGScheduler: Broadcasting large task binary with size 1371.2 KiB
+26/11/25 17:03:44 WARN DAGScheduler: Broadcasting large task binary with size 1372.2 KiB
+26/11/25 17:03:46 WARN DAGScheduler: Broadcasting large task binary with size 1373.0 KiB
+26/11/25 17:03:48 WARN DAGScheduler: Broadcasting large task binary with size 1375.3 KiB
+26/11/25 17:03:49 WARN DAGScheduler: Broadcasting large task binary with size 1380.0 KiB
+26/11/25 17:03:51 WARN DAGScheduler: Broadcasting large task binary with size 1389.4 KiB
+26/11/25 17:03:54 WARN TaskSetManager: Stage 3618 contains a task of very large size (1435 KiB). The maximum recommended task size is 1000 KiB.
+26/11/25 17:03:55 WARN DAGScheduler: Broadcasting large task binary with size 1319.3 KiB
+2026-11-25 17:03:59,578 INFO candidate_completed {'candidate': 'gbt_d7', 'training_seconds': 487.07789702300033, 'validation_auc': 0.7264950877232549, 'validation_f1': 0.4115768061689341, 'threshold': 0.5661163174890625}
+2026-11-25 17:03:59,580 INFO Verified and reused completed stage candidate_majority
+2026-11-25 17:03:59,584 INFO Verified and reused completed stage candidate_time_lr
+2026-11-25 17:03:59,588 INFO Verified and reused completed stage candidate_structured_lr
+2026-11-25 17:03:59,590 INFO Verified and reused completed stage candidate_text_lr_r1e4
+2026-11-25 17:03:59,594 INFO Verified and reused completed stage candidate_combined_lr_r1e2
+2026-11-25 17:03:59,596 INFO Verified and reused completed stage candidate_combined_lr_r1e3
+2026-11-25 17:03:59,597 INFO Verified and reused completed stage candidate_combined_lr_r1e4
+2026-11-25 17:03:59,599 INFO Verified and reused completed stage candidate_gbt_d5
+2026-11-25 17:03:59,600 INFO Verified and reused completed stage candidate_gbt_d7
+2026-11-25 17:03:59,602 INFO selection_frozen {'candidate': 'combined_lr_r1e4', 'best_by_family': {'lr': 'combined_lr_r1e4', 'gbt': 'gbt_d7'}}
+2026-11-25 17:04:00,076 INFO test_candidate_completed {'candidate': 'majority', 'auc_roc': 0.5, 'f1': 0.0}
+2026-11-25 17:04:00,878 INFO test_candidate_completed {'candidate': 'time_lr', 'auc_roc': 0.5404535216351705, 'f1': 0.31097656539993895}
+2026-11-25 17:04:01,634 INFO test_candidate_completed {'candidate': 'structured_lr', 'auc_roc': 0.6221734536205649, 'f1': 0.349941768619628}
+2026-11-25 17:04:02,675 INFO test_candidate_completed {'candidate': 'text_lr_r1e4', 'auc_roc': 0.7183954801602782, 'f1': 0.4118932739494412}
+2026-11-25 17:04:03,927 INFO test_candidate_completed {'candidate': 'combined_lr_r1e2', 'auc_roc': 0.6383190289386768, 'f1': 0.3565721649484536}
+2026-11-25 17:04:05,193 INFO test_candidate_completed {'candidate': 'combined_lr_r1e3', 'auc_roc': 0.6889462519311796, 'f1': 0.3924331376386171}
+2026-11-25 17:04:06,342 INFO test_candidate_completed {'candidate': 'combined_lr_r1e4', 'auc_roc': 0.7244699154225034, 'f1': 0.41592391304347825}
+2026-11-25 17:04:08,963 INFO test_candidate_completed {'candidate': 'gbt_d5', 'auc_roc': 0.7046033215804991, 'f1': 0.39824726978562763}
+26/11/25 17:04:09 WARN DAGScheduler: Broadcasting large task binary with size 1319.3 KiB
+2026-11-25 17:04:11,841 INFO test_candidate_completed {'candidate': 'gbt_d7', 'auc_roc': 0.7086170655160441, 'f1': 0.40117564730580824}
+2026-11-25 17:04:15,515 INFO stage_completed {'stage': 'all'}
+2026-11-25 17:04:16,204 INFO Closing down clientserver connection

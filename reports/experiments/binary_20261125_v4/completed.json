@@ -1,0 +1,12 @@
+{
+  "best_by_family": {
+    "gbt": "gbt_d5",
+    "lr": "combined_title_lr_r1e5"
+  },
+  "completed_at_utc": "2026-11-25T10:15:21.892933+00:00",
+  "full_training_rows_used": true,
+  "input_files_unchanged": true,
+  "selected_candidate": "combined_title_lr_r1e5",
+  "status": "completed",
+  "test_used_for_tuning": false
+}

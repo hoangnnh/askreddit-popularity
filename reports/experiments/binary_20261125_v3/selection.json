@@ -1,0 +1,27 @@
+{
+  "best_by_family": {
+    "gbt": "gbt_d7",
+    "lr": "combined_lr_r1e4"
+  },
+  "criterion": {
+    "criterion": "validation_auc_roc",
+    "test_policy": "Freeze selection and thresholds before scoring test; report all predefined candidates",
+    "threshold_policy": "Per candidate, the probability threshold maximizing validation F1 of the high class; frozen before test",
+    "tie_break": "largest validation AUC rounded to 12 decimals, then candidate ID ascending"
+  },
+  "frozen_at_utc": "2026-11-25T10:03:59.602026+00:00",
+  "frozen_before_test": true,
+  "selected_candidate": "combined_lr_r1e4",
+  "thresholds": {
+    "combined_lr_r1e2": 0.5258485117016736,
+    "combined_lr_r1e3": 0.5387164162823619,
+    "combined_lr_r1e4": 0.5254947070606464,
+    "gbt_d5": 0.5533619852807706,
+    "gbt_d7": 0.5661163174890625,
+    "majority": 0.5,
+    "structured_lr": 0.507609673783807,
+    "text_lr_r1e4": 0.5258409165721393,
+    "time_lr": 0.4608851227924806
+  },
+  "validation_results_sha256": "d6fa93cc9e75888b8e456020276c77081e0efa8fab896f2ce49c7dd152e5fb96"
+}

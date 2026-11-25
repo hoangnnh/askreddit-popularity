@@ -1,0 +1,84 @@
+{
+  "candidates": [
+    {
+      "id": "majority",
+      "kind": "majority"
+    },
+    {
+      "features": "time_features",
+      "id": "time_lr",
+      "kind": "lr",
+      "max_iter": 200,
+      "reg_param": 0.0001
+    },
+    {
+      "features": "structured_features",
+      "id": "structured_lr",
+      "kind": "lr",
+      "max_iter": 200,
+      "reg_param": 0.0001
+    },
+    {
+      "features": "text_features",
+      "id": "text_lr_r1e4",
+      "kind": "lr",
+      "max_iter": 200,
+      "reg_param": 0.0001
+    },
+    {
+      "features": "combined_features",
+      "id": "combined_lr_r1e2",
+      "kind": "lr",
+      "max_iter": 200,
+      "reg_param": 0.01
+    },
+    {
+      "features": "combined_features",
+      "id": "combined_lr_r1e3",
+      "kind": "lr",
+      "max_iter": 200,
+      "reg_param": 0.001
+    },
+    {
+      "features": "combined_features",
+      "id": "combined_lr_r1e4",
+      "kind": "lr",
+      "max_iter": 200,
+      "reg_param": 0.0001
+    },
+    {
+      "features": "selected_features",
+      "id": "gbt_d5",
+      "kind": "gbt",
+      "max_bins": 32,
+      "max_depth": 5,
+      "max_iter": 60,
+      "step_size": 0.1,
+      "subsampling_rate": 0.8
+    },
+    {
+      "features": "selected_features",
+      "id": "gbt_d7",
+      "kind": "gbt",
+      "max_bins": 32,
+      "max_depth": 7,
+      "max_iter": 60,
+      "step_size": 0.1,
+      "subsampling_rate": 0.8
+    }
+  ],
+  "chi_square": {
+    "input": "binary train term presence over the train vocabulary",
+    "num_top_features": 128,
+    "used_by": "GBT candidates (selected_features = top-k TF-IDF columns + 9 structured features)"
+  },
+  "registered_at_utc": "2026-11-25T09:39:06.934120+00:00",
+  "selection": {
+    "criterion": "validation_auc_roc",
+    "test_policy": "Freeze selection and thresholds before scoring test; report all predefined candidates",
+    "threshold_policy": "Per candidate, the probability threshold maximizing validation F1 of the high class; frozen before test",
+    "tie_break": "largest validation AUC rounded to 12 decimals, then candidate ID ascending"
+  },
+  "test_used_for_tuning": false,
+  "training_sample_policy": "All low/high training rows; middle group excluded by the label rule. GBT uses its declared internal subsampling rate."
+}
