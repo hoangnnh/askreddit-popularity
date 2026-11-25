@@ -1,0 +1,30 @@
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+/home/hoangnnh/Coding/IE212/project/askreddit-popularity/.venv/lib/python3.14/site-packages/pyspark/testing/utils.py:127: FutureWarning: PySpark does not yet fully support pandas >= 3.0.0. Some features may not work correctly. It is recommended to use pandas < 3.0.0 for now.
+  require_minimum_pandas_version()
+26/11/25 21:37:21 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2026-11-25 21:37:37,404 INFO prepare_completed {'population_records': {'train': 345675, 'test': 36679, 'validation': 68097}, 'train_label_stats': {'mean_log': 1.5853424758493135, 'std_log': 1.0449654246673064, 'score_p25': 2.0, 'score_p50': 3.0, 'score_p75': 4.0, 'score_p90': 8.0, 'score_p99': 1079.2600000000093}}
+26/11/25 21:38:12 WARN DAGScheduler: Broadcasting large task binary with size 1077.5 KiB
+26/11/25 21:38:25 WARN DAGScheduler: Broadcasting large task binary with size 1456.3 KiB
+26/11/25 21:38:30 WARN DAGScheduler: Broadcasting large task binary with size 1077.5 KiB
+26/11/25 21:38:33 WARN DAGScheduler: Broadcasting large task binary with size 1456.3 KiB
+26/11/25 21:38:35 WARN DAGScheduler: Broadcasting large task binary with size 1077.5 KiB
+26/11/25 21:38:37 WARN DAGScheduler: Broadcasting large task binary with size 1456.3 KiB
+2026-11-25 21:38:38,404 INFO features_completed {'seconds': 60.98397499299972, 'vocabulary': 12000}
+2026-11-25 21:38:39,916 INFO candidate_completed {'candidate': 'mean', 'validation_rmse': 1.0932879201384256, 'validation_spearman': 0.0, 'seconds': 0.22537472099793376}
+netlib-blas: JNI_OnLoad: dlopen(libblas.so.3) failed: libblas.so.3: cannot open shared object file: No such file or directory
+2026-11-25 21:38:46,215 INFO candidate_completed {'candidate': 'title_structured_ridge', 'validation_rmse': 1.0921727566345263, 'validation_spearman': -0.011626511919039543, 'seconds': 5.733814955998241}
+2026-11-25 21:38:58,280 INFO candidate_completed {'candidate': 'text_ridge_r1e5', 'validation_rmse': 1.0517441686605713, 'validation_spearman': 0.1576835432721808, 'seconds': 11.380123042999912}
+2026-11-25 21:39:23,060 INFO candidate_completed {'candidate': 'combined_title_ridge_r1e4', 'validation_rmse': 1.0524768458689715, 'validation_spearman': 0.16128111633823475, 'seconds': 24.0362552229999}
+2026-11-25 21:39:51,830 INFO candidate_completed {'candidate': 'combined_title_ridge_r1e5', 'validation_rmse': 1.051522128953687, 'validation_spearman': 0.15660648334673435, 'seconds': 28.092009845000575}
+2026-11-25 21:40:26,784 INFO candidate_completed {'candidate': 'combined_title_ridge_r1e6', 'validation_rmse': 1.0560515286894752, 'validation_spearman': 0.1505819379732051, 'seconds': 34.22784888499882}
+2026-11-25 21:40:27,020 INFO test_candidate_completed {'candidate': 'mean', 'rmse': 1.0778041766686033, 'spearman': 0.0}
+2026-11-25 21:40:27,316 INFO test_candidate_completed {'candidate': 'title_structured_ridge', 'rmse': 1.0777695797564395, 'spearman': -0.0165458701887606}
+2026-11-25 21:40:27,745 INFO test_candidate_completed {'candidate': 'text_ridge_r1e5', 'rmse': 1.0617128844724266, 'spearman': 0.13322601549958127}
+2026-11-25 21:40:28,298 INFO test_candidate_completed {'candidate': 'combined_title_ridge_r1e4', 'rmse': 1.0549905047226051, 'spearman': 0.13640171926848954}
+2026-11-25 21:40:28,917 INFO test_candidate_completed {'candidate': 'combined_title_ridge_r1e5', 'rmse': 1.061778572651311, 'spearman': 0.13217800676726635}
+2026-11-25 21:40:29,436 INFO test_candidate_completed {'candidate': 'combined_title_ridge_r1e6', 'rmse': 1.0680849284932792, 'spearman': 0.1270224274079367}
+2026-11-25 21:40:30,680 INFO completed {'selected': 'combined_title_ridge_r1e5'}
+2026-11-25 21:40:31,429 INFO Closing down clientserver connection

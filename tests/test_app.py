@@ -11,7 +11,10 @@ from streamlit.testing.v1 import AppTest  # noqa: E402
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG = json.loads((ROOT / "configs/demo.json").read_text())
 REQUIRED = [ROOT / CONFIG["eda_dir"] / "profile.json", ROOT / CONFIG["experiment_dir"] / "completed.json",
-            ROOT / CONFIG["model_dir"] / "model.json", ROOT / CONFIG["benchmark_dir"] / "results.json"]
+            ROOT / CONFIG["model_dir"] / "model.json", ROOT / CONFIG["benchmark_dir"] / "results.json",
+            ROOT / CONFIG["binary_experiment_dir"] / "completed.json", ROOT / CONFIG["binary_model_dir"] / "model.json",
+            ROOT / CONFIG["engagement_model_dir"] / "model.json", ROOT / CONFIG["score_model_dir"] / "model.json",
+            ROOT / CONFIG["score_experiment_dir"] / "completed.json", ROOT / CONFIG["dedup_report"]]
 
 
 @pytest.mark.skipif(not all(p.exists() for p in REQUIRED), reason="Generated reports or exported model are not present")
@@ -24,6 +27,9 @@ def test_app_renders_every_tab_and_predicts():
     next(b for b in app.button if b.label == "Dự đoán").click()
     app.run()
     assert not app.exception, app.exception
-    assert any("Nhãn dự đoán" in s.value for s in app.success)
-    app.radio[0].set_value("test").run()
+    assert any("phổ biến" in s.value for s in app.success)
+    assert len(app.text_input) == 1  # title only: no posting-time inputs anywhere
+    assert any("Khả năng có tương tác" in m.label for m in app.metric)
+    for radio in app.radio:
+        radio.set_value("test").run()
     assert not app.exception

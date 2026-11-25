@@ -1,0 +1,44 @@
+{
+  "candidates": [
+    {
+      "id": "majority",
+      "kind": "majority"
+    },
+    {
+      "features": "title_structured_features",
+      "id": "title_structured_lr",
+      "kind": "lr",
+      "max_iter": 200,
+      "reg_param": 0.0001
+    },
+    {
+      "features": "combined_title_features",
+      "id": "combined_title_lr_r1e4",
+      "kind": "lr",
+      "max_iter": 200,
+      "reg_param": 0.0001
+    },
+    {
+      "features": "combined_title_features",
+      "id": "combined_title_lr_r1e5",
+      "kind": "lr",
+      "max_iter": 200,
+      "reg_param": 1e-05
+    }
+  ],
+  "chi_square": {
+    "input": "binary train term presence over the train vocabulary",
+    "num_top_features": 128,
+    "used_by": "Reported only (no tree candidates in this stage)."
+  },
+  "registered_at_utc": "2026-11-25T14:22:53.330930+00:00",
+  "selection": {
+    "criterion": "validation_auc_roc",
+    "note": "time_lr is an ablation that measures posting-time signal; it is not a deployable candidate but is kept in the predeclared list.",
+    "test_policy": "Freeze selection and thresholds before scoring test; report all predefined candidates",
+    "threshold_policy": "Per candidate, the probability threshold maximizing validation F1 of the high class; frozen before test",
+    "tie_break": "largest validation AUC rounded to 12 decimals, then candidate ID ascending"
+  },
+  "test_used_for_tuning": false,
+  "training_sample_policy": "All low/high training rows; middle group excluded by the label rule. GBT uses its declared internal subsampling rate."
+}

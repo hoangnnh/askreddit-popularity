@@ -1,0 +1,23 @@
+{
+  "best_by_family": {
+    "gbt": null,
+    "lr": "combined_title_lr_r1e5"
+  },
+  "criterion": {
+    "criterion": "validation_auc_roc",
+    "note": "time_lr is an ablation that measures posting-time signal; it is not a deployable candidate but is kept in the predeclared list.",
+    "test_policy": "Freeze selection and thresholds before scoring test; report all predefined candidates",
+    "threshold_policy": "Per candidate, the probability threshold maximizing validation F1 of the high class; frozen before test",
+    "tie_break": "largest validation AUC rounded to 12 decimals, then candidate ID ascending"
+  },
+  "frozen_at_utc": "2026-11-25T14:35:14.657236+00:00",
+  "frozen_before_test": true,
+  "selected_candidate": "combined_title_lr_r1e5",
+  "thresholds": {
+    "combined_title_lr_r1e4": 0.5009975435904317,
+    "combined_title_lr_r1e5": 0.4825253919718877,
+    "majority": 0.5,
+    "title_structured_lr": 0.47483665141469755
+  },
+  "validation_results_sha256": "c3366a5e9ee1986c0b8884ff8a3266704e08f4b462d65000af2829f0345e8053"
+}

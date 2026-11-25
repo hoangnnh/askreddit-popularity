@@ -1,0 +1,127 @@
+{
+  "algorithm_version": "binary-train-quantile-v1",
+  "artifact_root": "artifacts/experiments",
+  "candidates": [
+    {
+      "id": "majority",
+      "kind": "majority"
+    },
+    {
+      "features": "time_features",
+      "id": "time_lr",
+      "kind": "lr",
+      "max_iter": 200,
+      "reg_param": 0.0001,
+      "role": "ablation"
+    },
+    {
+      "features": "title_structured_features",
+      "id": "title_structured_lr",
+      "kind": "lr",
+      "max_iter": 200,
+      "reg_param": 0.0001
+    },
+    {
+      "features": "text_features",
+      "id": "text_lr_r1e5",
+      "kind": "lr",
+      "max_iter": 200,
+      "reg_param": 1e-05
+    },
+    {
+      "features": "combined_title_features",
+      "id": "combined_title_lr_r1e4",
+      "kind": "lr",
+      "max_iter": 200,
+      "reg_param": 0.0001
+    },
+    {
+      "features": "combined_title_features",
+      "id": "combined_title_lr_r1e5",
+      "kind": "lr",
+      "max_iter": 200,
+      "reg_param": 1e-05
+    },
+    {
+      "features": "selected_title_features",
+      "id": "gbt_d5",
+      "kind": "gbt",
+      "max_bins": 32,
+      "max_depth": 5,
+      "max_iter": 60,
+      "step_size": 0.1,
+      "subsampling_rate": 0.8
+    }
+  ],
+  "chi_square": {
+    "input": "binary train term presence over the train vocabulary",
+    "num_top_features": 128,
+    "used_by": "GBT candidates (selected_title_features = top-k TF-IDF columns + 5 title-structure features; no posting time)"
+  },
+  "config_version": 1,
+  "data_root": "data/experiments",
+  "disclosure": "Designed on 2026-11-25 after v4. Identical to v4 (score >= 2 population, low = below median, high = top quartile, title-only models) but trained on the title-deduplicated dataset (one posting per normalized title, the highest-scoring one; see reports/data_quality_dedup/run.json). Deduplication selects postings using all 2025 scores, including validation/test months; titles never span splits. The December 2025 test month was already scored by earlier runs; selection uses validation only.",
+  "disclosure_vi": "C\u1ea5u h\u00ecnh v5 thi\u1ebft k\u1ebf ng\u00e0y 2026-11-25 sau v4. Gi\u1ed1ng h\u1ec7t v4 (ch\u1ec9 x\u00e9t b\u00e0i score \u2265 2, th\u1ea5p = d\u01b0\u1edbi trung v\u1ecb, cao = 25% cao nh\u1ea5t, m\u00f4 h\u00ecnh ch\u1ec9 d\u00f9ng ti\u00eau \u0111\u1ec1) nh\u01b0ng hu\u1ea5n luy\u1ec7n tr\u00ean d\u1eef li\u1ec7u \u0111\u00e3 b\u1ecf tr\u00f9ng ti\u00eau \u0111\u1ec1 (m\u1ed7i ti\u00eau \u0111\u1ec1 chu\u1ea9n h\u00f3a gi\u1eef m\u1ed9t b\u00e0i c\u00f3 score cao nh\u1ea5t; xem reports/data_quality_dedup/run.json). Vi\u1ec7c ch\u1ecdn b\u00e0i gi\u1eef l\u1ea1i d\u00f9ng score c\u1ea3 n\u0103m 2025, k\u1ec3 c\u1ea3 c\u00e1c th\u00e1ng validation/test; kh\u00f4ng ti\u00eau \u0111\u1ec1 n\u00e0o n\u1eb1m \u1edf hai t\u1eadp. Th\u00e1ng test 12/2025 \u0111\u00e3 \u0111\u01b0\u1ee3c d\u00f9ng \u1edf c\u00e1c run tr\u01b0\u1edbc; m\u00f4 h\u00ecnh ch\u1ec9 \u0111\u01b0\u1ee3c ch\u1ecdn b\u1eb1ng validation.",
+  "features": {
+    "feature_sources": [
+      "title",
+      "created_utc"
+    ],
+    "min_df": 10,
+    "ngram_orders": [
+      1,
+      2
+    ],
+    "normalization": "NFKC, Unicode whitespace collapse, lowercase; original title preserved",
+    "remove_stopwords": false,
+    "rf_text_features": 128,
+    "token_pattern": "[\\p{L}\\p{N}]+(?:['\u2019][\\p{L}\\p{N}]+)*",
+    "version": "title-time-nfkc-v1",
+    "vocab_size": 12000
+  },
+  "input": "data/processed/askreddit_dedup",
+  "labeling": {
+    "excluded": "score <= 1 (default self-vote or net downvoted; mixes removed posts with ignored ones)",
+    "expected_train_thresholds": {
+      "median": 3,
+      "p75": 4
+    },
+    "high": "score >= p75 of train posts with score >= 2",
+    "high_rule": "ge_p75",
+    "low": "score < median of train posts with score >= 2",
+    "low_rule": "lt_median",
+    "middle": "median <= score < p75, excluded",
+    "population_min_score": 2,
+    "rationale_vi": "Trong t\u1eadp score \u2265 2 c\u1ee7a train, trung v\u1ecb = 3 v\u00e0 p75 = 4. L\u1ea5y th\u1ea5p = score < trung v\u1ecb (49,1%, g\u1ea7n 50% nh\u1ea5t) v\u00e0 cao = score \u2265 p75 (28,7%, g\u1ea7n 25% nh\u1ea5t) \u2014 \u0111\u00fang ngh\u0129a \u0111en \"d\u01b0\u1edbi trung v\u1ecb\" v\u00e0 \"25% cao nh\u1ea5t\" trong \u0111\u1ec1 c\u01b0\u01a1ng.",
+    "tie_rationale": "Within score >= 2 the train median is 3 and p75 is 4. Strict < median gives 49.1% (closest to the nominal 50%) and >= p75 gives 28.7% (closest to the nominal 25%)."
+  },
+  "name": "binary_v5",
+  "report_root": "reports/experiments",
+  "seed": 212,
+  "selection": {
+    "criterion": "validation_auc_roc",
+    "note": "time_lr is an ablation that measures posting-time signal; it is not a deployable candidate but is kept in the predeclared list.",
+    "test_policy": "Freeze selection and thresholds before scoring test; report all predefined candidates",
+    "threshold_policy": "Per candidate, the probability threshold maximizing validation F1 of the high class; frozen before test",
+    "tie_break": "largest validation AUC rounded to 12 decimals, then candidate ID ascending"
+  },
+  "spark": {
+    "driver_memory": "2g",
+    "shuffle_partitions": 16,
+    "write_partitions": 12
+  },
+  "split_dates": {
+    "test": [
+      "2025-12-01T00:00:00Z",
+      "2026-01-01T00:00:00Z"
+    ],
+    "train": [
+      "2025-01-01T00:00:00Z",
+      "2025-10-01T00:00:00Z"
+    ],
+    "validation": [
+      "2025-10-01T00:00:00Z",
+      "2025-12-01T00:00:00Z"
+    ]
+  }
+}

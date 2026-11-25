@@ -1,0 +1,71 @@
+{
+  "test": {
+    "groups": {
+      "excluded": {
+        "count": 0,
+        "percentage_of_split": 0.0
+      },
+      "high": {
+        "count": 36679,
+        "percentage_of_split": 29.87205485922777
+      },
+      "low": {
+        "count": 86108,
+        "percentage_of_split": 70.12794514077223
+      },
+      "middle": {
+        "count": 0,
+        "percentage_of_split": 0.0
+      }
+    },
+    "kept": 122787,
+    "positive_rate_among_kept": 0.2987205485922777,
+    "total": 122787
+  },
+  "train": {
+    "groups": {
+      "excluded": {
+        "count": 0,
+        "percentage_of_split": 0.0
+      },
+      "high": {
+        "count": 345675,
+        "percentage_of_split": 28.713886996826872
+      },
+      "low": {
+        "count": 858185,
+        "percentage_of_split": 71.28611300317313
+      },
+      "middle": {
+        "count": 0,
+        "percentage_of_split": 0.0
+      }
+    },
+    "kept": 1203860,
+    "positive_rate_among_kept": 0.28713886996826876,
+    "total": 1203860
+  },
+  "validation": {
+    "groups": {
+      "excluded": {
+        "count": 0,
+        "percentage_of_split": 0.0
+      },
+      "high": {
+        "count": 68097,
+        "percentage_of_split": 29.337865608561348
+      },
+      "low": {
+        "count": 164016,
+        "percentage_of_split": 70.66213439143866
+      },
+      "middle": {
+        "count": 0,
+        "percentage_of_split": 0.0
+      }
+    },
+    "kept": 232113,
+    "positive_rate_among_kept": 0.2933786560856135,
+    "total": 232113
+  }
+}

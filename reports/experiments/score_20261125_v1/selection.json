@@ -1,0 +1,10 @@
+{
+  "criterion": {
+    "criterion": "validation_rmse_log",
+    "interval": "10th-90th percentile of validation residuals around the prediction",
+    "tie_break": "candidate ID ascending"
+  },
+  "frozen_at_utc": "2026-11-25T14:40:26.784310+00:00",
+  "frozen_before_test": true,
+  "selected_candidate": "combined_title_ridge_r1e5"
+}

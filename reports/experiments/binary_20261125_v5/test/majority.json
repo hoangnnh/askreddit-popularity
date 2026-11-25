@@ -1,0 +1,68 @@
+{
+  "accuracy": 0.5992861434074284,
+  "all_high_f1_reference": 0.5721566252901402,
+  "at_probability_0_5": {
+    "accuracy": 0.5992861434074284,
+    "balanced_accuracy": 0.5,
+    "confusion_layout": "rows = true [low, high], columns = predicted [low, high]",
+    "confusion_matrix": [
+      [
+        16958,
+        0
+      ],
+      [
+        11339,
+        0
+      ]
+    ],
+    "f1": 0.0,
+    "precision": 0.0,
+    "predicted_positive_rate": 0.0,
+    "recall": 0.0,
+    "specificity": 1.0,
+    "threshold": 0.5
+  },
+  "auc_roc": 0.5,
+  "balanced_accuracy": 0.5,
+  "confusion_layout": "rows = true [low, high], columns = predicted [low, high]",
+  "confusion_matrix": [
+    [
+      16958,
+      0
+    ],
+    [
+      11339,
+      0
+    ]
+  ],
+  "f1": 0.0,
+  "positive_rate": 0.40071385659257164,
+  "positives": 11339,
+  "pr_auc": 0.40071385659257164,
+  "pr_auc_random_baseline": 0.40071385659257164,
+  "precision": 0.0,
+  "predicted_positive_rate": 0.0,
+  "prediction_seconds": 0.7296427460023551,
+  "recall": 0.0,
+  "records": 28297,
+  "roc_curve": {
+    "fpr": [
+      0.0,
+      1.0
+    ],
+    "tpr": [
+      0.0,
+      1.0
+    ]
+  },
+  "specificity": 1.0,
+  "threshold": 0.5,
+  "unseen_train_titles": {
+    "auc_roc": 0.5,
+    "f1": 0.0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "records": 28297
+  },
+  "zero_division": "Undefined precision/recall/specificity are reported as 0."
+}

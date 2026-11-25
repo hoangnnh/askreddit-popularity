@@ -1,0 +1,31 @@
+{"at_utc": "2026-11-25T14:15:47.582250+00:00", "phase": "stage_started", "stage": "all", "spark_version": "4.3.0"}
+{"at_utc": "2026-11-25T14:15:47.582446+00:00", "phase": "prepare_started"}
+{"at_utc": "2026-11-25T14:16:20.747396+00:00", "phase": "prepare_completed", "elapsed_seconds": 33.16467366100187, "median": 3, "p75": 4, "train_counts": {"excluded": 858185, "low": 169365, "middle": 76832, "high": 99478}}
+{"at_utc": "2026-11-25T14:16:20.776504+00:00", "phase": "features_started"}
+{"at_utc": "2026-11-25T14:17:00.999886+00:00", "phase": "chi_square_completed", "seconds": 13.755267885000649, "top_terms": ["u:or", "u:and", "u:what\u2019s", "u:how", "u:instantly", "u:trump", "b:what\u2019s a", "u:something", "b:what\u2019s something", "u:with"]}
+{"at_utc": "2026-11-25T14:17:22.743595+00:00", "phase": "features_split_completed", "split": "train", "records": 268843, "transformation_and_write_seconds": 20.382473723999283}
+{"at_utc": "2026-11-25T14:17:28.933526+00:00", "phase": "features_split_completed", "split": "validation", "records": 52833, "transformation_and_write_seconds": 6.189468276003026}
+{"at_utc": "2026-11-25T14:17:33.469021+00:00", "phase": "features_split_completed", "split": "test", "records": 28297, "transformation_and_write_seconds": 4.535113922000164}
+{"at_utc": "2026-11-25T14:17:34.247209+00:00", "phase": "candidate_started", "candidate": "majority", "configuration": {"id": "majority", "kind": "majority"}}
+{"at_utc": "2026-11-25T14:17:34.645700+00:00", "phase": "candidate_completed", "candidate": "majority", "training_seconds": 0.0, "validation_auc": 0.5, "validation_f1": 0.0, "threshold": 0.5}
+{"at_utc": "2026-11-25T14:17:34.658643+00:00", "phase": "candidate_started", "candidate": "time_lr", "configuration": {"id": "time_lr", "kind": "lr", "features": "time_features", "reg_param": 0.0001, "max_iter": 200, "role": "ablation"}}
+{"at_utc": "2026-11-25T14:17:38.892778+00:00", "phase": "candidate_completed", "candidate": "time_lr", "training_seconds": 2.544841130998975, "validation_auc": 0.5193429012300178, "validation_f1": 0.5746813246105078, "threshold": 0.47221917430837934}
+{"at_utc": "2026-11-25T14:17:38.893360+00:00", "phase": "candidate_started", "candidate": "title_structured_lr", "configuration": {"id": "title_structured_lr", "kind": "lr", "features": "title_structured_features", "reg_param": 0.0001, "max_iter": 200}}
+{"at_utc": "2026-11-25T14:17:44.344851+00:00", "phase": "candidate_completed", "candidate": "title_structured_lr", "training_seconds": 3.8427963300018746, "validation_auc": 0.5479459344704517, "validation_f1": 0.5747210190395229, "threshold": 0.24460136344437933}
+{"at_utc": "2026-11-25T14:17:44.345365+00:00", "phase": "candidate_started", "candidate": "text_lr_r1e5", "configuration": {"id": "text_lr_r1e5", "kind": "lr", "features": "text_features", "reg_param": 1e-05, "max_iter": 200}}
+{"at_utc": "2026-11-25T14:17:58.147346+00:00", "phase": "candidate_completed", "candidate": "text_lr_r1e5", "training_seconds": 10.974799802999769, "validation_auc": 0.6152381095917274, "validation_f1": 0.580733137829912, "threshold": 0.34644006472735245}
+{"at_utc": "2026-11-25T14:17:58.148187+00:00", "phase": "candidate_started", "candidate": "combined_title_lr_r1e4", "configuration": {"id": "combined_title_lr_r1e4", "kind": "lr", "features": "combined_title_features", "reg_param": 0.0001, "max_iter": 200}}
+{"at_utc": "2026-11-25T14:18:40.698120+00:00", "phase": "candidate_completed", "candidate": "combined_title_lr_r1e4", "training_seconds": 38.54309274000116, "validation_auc": 0.6119650335336657, "validation_f1": 0.577559424897045, "threshold": 0.3959713214300865}
+{"at_utc": "2026-11-25T14:18:40.699141+00:00", "phase": "candidate_started", "candidate": "combined_title_lr_r1e5", "configuration": {"id": "combined_title_lr_r1e5", "kind": "lr", "features": "combined_title_features", "reg_param": 1e-05, "max_iter": 200}}
+{"at_utc": "2026-11-25T14:19:19.727445+00:00", "phase": "candidate_completed", "candidate": "combined_title_lr_r1e5", "training_seconds": 35.90297324399944, "validation_auc": 0.615531530488178, "validation_f1": 0.5805517362431618, "threshold": 0.34324749372035934}
+{"at_utc": "2026-11-25T14:19:19.728273+00:00", "phase": "candidate_started", "candidate": "gbt_d5", "configuration": {"id": "gbt_d5", "kind": "gbt", "features": "selected_title_features", "max_iter": 60, "max_depth": 5, "max_bins": 32, "step_size": 0.1, "subsampling_rate": 0.8}}
+{"at_utc": "2026-11-25T14:22:38.576096+00:00", "phase": "candidate_completed", "candidate": "gbt_d5", "training_seconds": 194.64926511200247, "validation_auc": 0.5844407612520444, "validation_f1": 0.5754859420270142, "threshold": 0.30648055704360755}
+{"at_utc": "2026-11-25T14:22:38.605816+00:00", "phase": "selection_frozen", "candidate": "combined_title_lr_r1e5", "best_by_family": {"lr": "combined_title_lr_r1e5", "gbt": "gbt_d5"}}
+{"at_utc": "2026-11-25T14:22:39.525830+00:00", "phase": "test_candidate_completed", "candidate": "majority", "auc_roc": 0.5, "f1": 0.0}
+{"at_utc": "2026-11-25T14:22:40.420998+00:00", "phase": "test_candidate_completed", "candidate": "time_lr", "auc_roc": 0.516050002443746, "f1": 0.5721566252901403}
+{"at_utc": "2026-11-25T14:22:41.747286+00:00", "phase": "test_candidate_completed", "candidate": "title_structured_lr", "auc_roc": 0.5532688022485917, "f1": 0.5721280032303654}
+{"at_utc": "2026-11-25T14:22:43.682099+00:00", "phase": "test_candidate_completed", "candidate": "text_lr_r1e5", "auc_roc": 0.5989230761501928, "f1": 0.5752134398237401}
+{"at_utc": "2026-11-25T14:22:44.553699+00:00", "phase": "test_candidate_completed", "candidate": "combined_title_lr_r1e4", "auc_roc": 0.5981065144775801, "f1": 0.5745003520554622}
+{"at_utc": "2026-11-25T14:22:45.275645+00:00", "phase": "test_candidate_completed", "candidate": "combined_title_lr_r1e5", "auc_roc": 0.5998777856584844, "f1": 0.5759024229437943}
+{"at_utc": "2026-11-25T14:22:46.562003+00:00", "phase": "test_candidate_completed", "candidate": "gbt_d5", "auc_roc": 0.5781163577969034, "f1": 0.572868670926355}
+{"at_utc": "2026-11-25T14:22:50.504105+00:00", "phase": "stage_completed", "stage": "all"}

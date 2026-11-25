@@ -1,0 +1,116 @@
+{
+  "auc_definition": "score >= 4 vs score < 3, middle excluded (binary task's rule)",
+  "auc_high_vs_low": 0.5789202274881513,
+  "deciles": [
+    {
+      "decile": 1,
+      "mean_actual_log": 1.3884764862954881,
+      "mean_predicted_log": 1.0994376725380886,
+      "mean_predicted_score": 2.0168089057726637,
+      "median_actual_score": 2.0,
+      "records": 3668,
+      "share_actual_ge_10": 0.03871319520174482,
+      "share_actual_ge_100": 0.008996728462377318
+    },
+    {
+      "decile": 2,
+      "mean_actual_log": 1.4584170635600977,
+      "mean_predicted_log": 1.271657802705599,
+      "mean_predicted_score": 2.5684639147436386,
+      "median_actual_score": 2.0,
+      "records": 3668,
+      "share_actual_ge_10": 0.05588876772082879,
+      "share_actual_ge_100": 0.014176663031624863
+    },
+    {
+      "decile": 3,
+      "mean_actual_log": 1.4991780307341178,
+      "mean_predicted_log": 1.3637396950472849,
+      "mean_predicted_score": 2.911849455563038,
+      "median_actual_score": 3.0,
+      "records": 3668,
+      "share_actual_ge_10": 0.064340239912759,
+      "share_actual_ge_100": 0.01717557251908397
+    },
+    {
+      "decile": 4,
+      "mean_actual_log": 1.5064238264543426,
+      "mean_predicted_log": 1.4376622638891645,
+      "mean_predicted_score": 3.2116999526613705,
+      "median_actual_score": 3.0,
+      "records": 3668,
+      "share_actual_ge_10": 0.06570338058887677,
+      "share_actual_ge_100": 0.013631406761177753
+    },
+    {
+      "decile": 5,
+      "mean_actual_log": 1.5496640051447519,
+      "mean_predicted_log": 1.506868757461758,
+      "mean_predicted_score": 3.513476982011769,
+      "median_actual_score": 3.0,
+      "records": 3667,
+      "share_actual_ge_10": 0.0763566948459231,
+      "share_actual_ge_100": 0.022361603490591766
+    },
+    {
+      "decile": 6,
+      "mean_actual_log": 1.5792072154582029,
+      "mean_predicted_log": 1.5775091954009393,
+      "mean_predicted_score": 3.843998091774054,
+      "median_actual_score": 3.0,
+      "records": 3668,
+      "share_actual_ge_10": 0.08260632497273719,
+      "share_actual_ge_100": 0.023446019629225736
+    },
+    {
+      "decile": 7,
+      "mean_actual_log": 1.631580582155084,
+      "mean_predicted_log": 1.6584902847614513,
+      "mean_predicted_score": 4.253076137784151,
+      "median_actual_score": 3.0,
+      "records": 3668,
+      "share_actual_ge_10": 0.09760087241003272,
+      "share_actual_ge_100": 0.029443838604143947
+    },
+    {
+      "decile": 8,
+      "mean_actual_log": 1.6754518291926164,
+      "mean_predicted_log": 1.7576499406587962,
+      "mean_predicted_score": 4.80178796721415,
+      "median_actual_score": 3.0,
+      "records": 3668,
+      "share_actual_ge_10": 0.1098691384950927,
+      "share_actual_ge_100": 0.03407851690294438
+    },
+    {
+      "decile": 9,
+      "mean_actual_log": 1.785616366344467,
+      "mean_predicted_log": 1.89798567903927,
+      "mean_predicted_score": 5.681539918151556,
+      "median_actual_score": 3.0,
+      "records": 3668,
+      "share_actual_ge_10": 0.13086150490730644,
+      "share_actual_ge_100": 0.05207197382769902
+    },
+    {
+      "decile": 10,
+      "mean_actual_log": 2.075538018459562,
+      "mean_predicted_log": 2.308744530501924,
+      "mean_predicted_score": 10.44856337800368,
+      "median_actual_score": 3.0,
+      "records": 3668,
+      "share_actual_ge_10": 0.17938931297709923,
+      "share_actual_ge_100": 0.09814612868047982
+    }
+  ],
+  "interval_coverage": 0.8000763379590501,
+  "mae_log": 0.5892720547800543,
+  "mean_label": 1.6149571224539545,
+  "mean_prediction": 1.5879767934336875,
+  "median_abs_error_score": 1.5341077237997967,
+  "pearson": 0.1905058783437527,
+  "r2_log": 0.017211976932979156,
+  "records": 36679,
+  "rmse_log": 1.0680849284932792,
+  "spearman": 0.1270224274079367
+}

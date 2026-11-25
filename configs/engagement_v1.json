@@ -1,0 +1,102 @@
+{
+  "config_version": 1,
+  "name": "engagement_v1",
+  "algorithm_version": "binary-train-quantile-v1",
+  "input": "data/processed/askreddit_dedup",
+  "data_root": "data/experiments",
+  "artifact_root": "artifacts/experiments",
+  "report_root": "reports/experiments",
+  "disclosure": "Stage 1 of the two-stage score estimate, designed on 2026-11-25. Predicts whether a post reaches score >= 2 (at least one net upvote beyond the author's, observed about 36 hours after posting per Arctic Shift) from the title alone, on all posts of the title-deduplicated dataset. Low (score <= 1) also contains posts removed by moderators. Probabilities are prior-corrected for the balanced class weights at export. The December 2025 test month was already scored by earlier runs.",
+  "disclosure_vi": "Bước 1 của dự đoán score hai bước, thiết kế ngày 2026-11-25. Dự đoán bài có đạt score ≥ 2 hay không (ít nhất một upvote ròng ngoài của tác giả, đo khoảng 36 giờ sau khi đăng theo Arctic Shift), chỉ từ tiêu đề, trên mọi bài của dữ liệu đã bỏ trùng. Nhóm thấp (score ≤ 1) gồm cả bài bị mod gỡ. Xác suất được hiệu chỉnh lại theo tỉ lệ lớp thật khi export. Tháng test 12/2025 đã được dùng ở các run trước.",
+  "split_dates": {
+    "train": [
+      "2025-01-01T00:00:00Z",
+      "2025-10-01T00:00:00Z"
+    ],
+    "validation": [
+      "2025-10-01T00:00:00Z",
+      "2025-12-01T00:00:00Z"
+    ],
+    "test": [
+      "2025-12-01T00:00:00Z",
+      "2026-01-01T00:00:00Z"
+    ]
+  },
+  "spark": {
+    "driver_memory": "2g",
+    "shuffle_partitions": 16,
+    "write_partitions": 12
+  },
+  "labeling": {
+    "population_min_score": null,
+    "low_rule": "le_value",
+    "low_value": 1,
+    "high_rule": "ge_value",
+    "high_value": 2,
+    "low": "score <= 1",
+    "high": "score >= 2",
+    "middle": "none",
+    "rationale_vi": "Ngưỡng cố định: cao = bài có ít nhất một upvote ròng (score ≥ 2), thấp = score ≤ 1. Không bỏ nhóm giữa.",
+    "expected_train_thresholds": {
+      "median": 1,
+      "p75": 2
+    }
+  },
+  "features": {
+    "version": "title-time-nfkc-v1",
+    "vocab_size": 12000,
+    "min_df": 10,
+    "rf_text_features": 128,
+    "normalization": "NFKC, Unicode whitespace collapse, lowercase; original title preserved",
+    "token_pattern": "[\\p{L}\\p{N}]+(?:['’][\\p{L}\\p{N}]+)*",
+    "ngram_orders": [
+      1,
+      2
+    ],
+    "remove_stopwords": false,
+    "feature_sources": [
+      "title",
+      "created_utc"
+    ]
+  },
+  "chi_square": {
+    "num_top_features": 128,
+    "input": "binary train term presence over the train vocabulary",
+    "used_by": "Reported only (no tree candidates in this stage)."
+  },
+  "seed": 212,
+  "selection": {
+    "criterion": "validation_auc_roc",
+    "tie_break": "largest validation AUC rounded to 12 decimals, then candidate ID ascending",
+    "threshold_policy": "Per candidate, the probability threshold maximizing validation F1 of the high class; frozen before test",
+    "test_policy": "Freeze selection and thresholds before scoring test; report all predefined candidates",
+    "note": "time_lr is an ablation that measures posting-time signal; it is not a deployable candidate but is kept in the predeclared list."
+  },
+  "candidates": [
+    {
+      "id": "majority",
+      "kind": "majority"
+    },
+    {
+      "id": "title_structured_lr",
+      "kind": "lr",
+      "features": "title_structured_features",
+      "reg_param": 0.0001,
+      "max_iter": 200
+    },
+    {
+      "id": "combined_title_lr_r1e4",
+      "kind": "lr",
+      "features": "combined_title_features",
+      "reg_param": 0.0001,
+      "max_iter": 200
+    },
+    {
+      "id": "combined_title_lr_r1e5",
+      "kind": "lr",
+      "features": "combined_title_features",
+      "reg_param": 1e-05,
+      "max_iter": 200
+    }
+  ]
+}

@@ -1,0 +1,647 @@
+{
+  "coefficient_scale": "Text inputs are L2-normalized TF-IDF; structured inputs are divided by their train standard deviation (coefficients are per 1 SD); time-only inputs are raw sin/cos.",
+  "gradient_boosted_trees": {},
+  "logistic_regression": {
+    "combined_title_lr_r1e4": {
+      "intercept": -4.081410176978831,
+      "structured": {
+        "question_count": -0.010400653762127596,
+        "question_present": 0.15512805495885842,
+        "title_characters": -0.026420800413860874,
+        "title_words": -0.2941041469049606,
+        "uppercase_ratio": -0.2654677986671165
+      },
+      "time": {},
+      "top_negative": [
+        {
+          "coefficient": -6.040543726638656,
+          "kind": "u",
+          "term": "i"
+        },
+        {
+          "coefficient": -3.830269408220248,
+          "kind": "u",
+          "term": "my"
+        },
+        {
+          "coefficient": -2.922842927984639,
+          "kind": "u",
+          "term": "why"
+        },
+        {
+          "coefficient": -2.870364483287436,
+          "kind": "u",
+          "term": "me"
+        },
+        {
+          "coefficient": -2.684707134885003,
+          "kind": "b",
+          "term": "why is"
+        },
+        {
+          "coefficient": -2.096823627436524,
+          "kind": "b",
+          "term": "why do"
+        },
+        {
+          "coefficient": -1.9796898846267406,
+          "kind": "u",
+          "term": "trump"
+        },
+        {
+          "coefficient": -1.919288759148561,
+          "kind": "b",
+          "term": "how many"
+        },
+        {
+          "coefficient": -1.8910531091996687,
+          "kind": "b",
+          "term": "why does"
+        },
+        {
+          "coefficient": -1.872014552212786,
+          "kind": "b",
+          "term": "why are"
+        },
+        {
+          "coefficient": -1.8442201528584672,
+          "kind": "u",
+          "term": "sex"
+        },
+        {
+          "coefficient": -1.7964955417157094,
+          "kind": "b",
+          "term": "how much"
+        },
+        {
+          "coefficient": -1.785512921331435,
+          "kind": "b",
+          "term": "do i"
+        },
+        {
+          "coefficient": -1.6665332171737026,
+          "kind": "u",
+          "term": "women"
+        },
+        {
+          "coefficient": -1.536669974073253,
+          "kind": "b",
+          "term": "can i"
+        },
+        {
+          "coefficient": -1.4860797579578164,
+          "kind": "u",
+          "term": "does"
+        },
+        {
+          "coefficient": -1.483333203480638,
+          "kind": "u",
+          "term": "many"
+        },
+        {
+          "coefficient": -1.4123050995057802,
+          "kind": "b",
+          "term": "how long"
+        },
+        {
+          "coefficient": -1.3118161470667626,
+          "kind": "u",
+          "term": "how"
+        },
+        {
+          "coefficient": -1.298503744671666,
+          "kind": "b",
+          "term": "should i"
+        },
+        {
+          "coefficient": -1.225371194657724,
+          "kind": "u",
+          "term": "men"
+        },
+        {
+          "coefficient": -1.2129961179974926,
+          "kind": "u",
+          "term": "much"
+        },
+        {
+          "coefficient": -1.1974524019779258,
+          "kind": "u",
+          "term": "porn"
+        },
+        {
+          "coefficient": -1.1476613384904304,
+          "kind": "u",
+          "term": "i\u2019m"
+        },
+        {
+          "coefficient": -1.1178357697386276,
+          "kind": "u",
+          "term": "can"
+        },
+        {
+          "coefficient": -1.1167129332534609,
+          "kind": "u",
+          "term": "girls"
+        },
+        {
+          "coefficient": -1.064916506620886,
+          "kind": "u",
+          "term": "i'm"
+        },
+        {
+          "coefficient": -1.0064840883457866,
+          "kind": "u",
+          "term": "americans"
+        },
+        {
+          "coefficient": -0.998718984870017,
+          "kind": "u",
+          "term": "sexual"
+        },
+        {
+          "coefficient": -0.9845461018063348,
+          "kind": "u",
+          "term": "is"
+        }
+      ],
+      "top_positive": [
+        {
+          "coefficient": 3.20542833189879,
+          "kind": "u",
+          "term": "you"
+        },
+        {
+          "coefficient": 1.7076848390280304,
+          "kind": "u",
+          "term": "what"
+        },
+        {
+          "coefficient": 1.4548681396661385,
+          "kind": "b",
+          "term": "do you"
+        },
+        {
+          "coefficient": 1.4364143185912142,
+          "kind": "b",
+          "term": "and why"
+        },
+        {
+          "coefficient": 1.421604027144537,
+          "kind": "u",
+          "term": "what\u2019s"
+        },
+        {
+          "coefficient": 1.3110607338339562,
+          "kind": "u",
+          "term": "your"
+        },
+        {
+          "coefficient": 1.1517485562669376,
+          "kind": "b",
+          "term": "what\u2019s a"
+        },
+        {
+          "coefficient": 1.1319676905173301,
+          "kind": "u",
+          "term": "something"
+        },
+        {
+          "coefficient": 1.0908114515014333,
+          "kind": "u",
+          "term": "movie"
+        },
+        {
+          "coefficient": 1.058358506725374,
+          "kind": "u",
+          "term": "life"
+        },
+        {
+          "coefficient": 1.0370621795932256,
+          "kind": "u",
+          "term": "that"
+        },
+        {
+          "coefficient": 1.0221313749099559,
+          "kind": "b",
+          "term": "are you"
+        },
+        {
+          "coefficient": 0.9802367670814686,
+          "kind": "u",
+          "term": "what's"
+        },
+        {
+          "coefficient": 0.9658535533107997,
+          "kind": "u",
+          "term": "thing"
+        },
+        {
+          "coefficient": 0.9556196736551718,
+          "kind": "b",
+          "term": "what is"
+        },
+        {
+          "coefficient": 0.9320034642469043,
+          "kind": "u",
+          "term": "song"
+        },
+        {
+          "coefficient": 0.830144383136748,
+          "kind": "b",
+          "term": "what's a"
+        },
+        {
+          "coefficient": 0.8248339167589179,
+          "kind": "b",
+          "term": "what are"
+        },
+        {
+          "coefficient": 0.8136104122440125,
+          "kind": "u",
+          "term": "yourself"
+        },
+        {
+          "coefficient": 0.7681213598275578,
+          "kind": "u",
+          "term": "tv"
+        },
+        {
+          "coefficient": 0.7451235188441834,
+          "kind": "u",
+          "term": "but"
+        },
+        {
+          "coefficient": 0.7420824208720703,
+          "kind": "b",
+          "term": "did you"
+        },
+        {
+          "coefficient": 0.7385489895361873,
+          "kind": "b",
+          "term": "is something"
+        },
+        {
+          "coefficient": 0.7339760481598051,
+          "kind": "u",
+          "term": "you've"
+        },
+        {
+          "coefficient": 0.7326674110242982,
+          "kind": "b",
+          "term": "are some"
+        },
+        {
+          "coefficient": 0.699378107573845,
+          "kind": "u",
+          "term": "job"
+        },
+        {
+          "coefficient": 0.6691720324995193,
+          "kind": "u",
+          "term": "food"
+        },
+        {
+          "coefficient": 0.6591278058929775,
+          "kind": "u",
+          "term": "you\u2019ve"
+        },
+        {
+          "coefficient": 0.6573652731676097,
+          "kind": "u",
+          "term": "one"
+        },
+        {
+          "coefficient": 0.6489521035092081,
+          "kind": "b",
+          "term": "what\u2019s something"
+        }
+      ]
+    },
+    "combined_title_lr_r1e5": {
+      "intercept": -4.097554613150037,
+      "structured": {
+        "question_count": 0.003015650351692059,
+        "question_present": 0.14694510463613253,
+        "title_characters": -0.19143722195008475,
+        "title_words": -0.06653126913713069,
+        "uppercase_ratio": -0.1782526611391892
+      },
+      "time": {},
+      "top_negative": [
+        {
+          "coefficient": -11.183139298249197,
+          "kind": "u",
+          "term": "i"
+        },
+        {
+          "coefficient": -8.075288221497845,
+          "kind": "u",
+          "term": "my"
+        },
+        {
+          "coefficient": -7.324720222008155,
+          "kind": "b",
+          "term": "why is"
+        },
+        {
+          "coefficient": -6.424587048243006,
+          "kind": "u",
+          "term": "me"
+        },
+        {
+          "coefficient": -5.954094374369149,
+          "kind": "b",
+          "term": "why does"
+        },
+        {
+          "coefficient": -4.758750632723038,
+          "kind": "b",
+          "term": "how many"
+        },
+        {
+          "coefficient": -4.538795374776692,
+          "kind": "b",
+          "term": "how much"
+        },
+        {
+          "coefficient": -4.099022581484093,
+          "kind": "b",
+          "term": "how long"
+        },
+        {
+          "coefficient": -3.7125765322509103,
+          "kind": "b",
+          "term": "does anyone"
+        },
+        {
+          "coefficient": -3.7031182527528035,
+          "kind": "u",
+          "term": "trump"
+        },
+        {
+          "coefficient": -3.5274820935923863,
+          "kind": "u",
+          "term": "i\u2019m"
+        },
+        {
+          "coefficient": -3.5037911387789693,
+          "kind": "b",
+          "term": "why are"
+        },
+        {
+          "coefficient": -3.3619399099658467,
+          "kind": "u",
+          "term": "normalized"
+        },
+        {
+          "coefficient": -3.3179561844140393,
+          "kind": "b",
+          "term": "can i"
+        },
+        {
+          "coefficient": -3.313248775348613,
+          "kind": "b",
+          "term": "should i"
+        },
+        {
+          "coefficient": -3.2358457746946283,
+          "kind": "b",
+          "term": "do i"
+        },
+        {
+          "coefficient": -3.121837820161663,
+          "kind": "u",
+          "term": "sex"
+        },
+        {
+          "coefficient": -3.104027110027689,
+          "kind": "u",
+          "term": "porn"
+        },
+        {
+          "coefficient": -3.051038773965066,
+          "kind": "u",
+          "term": "i'm"
+        },
+        {
+          "coefficient": -3.0437280497748445,
+          "kind": "u",
+          "term": "suicide"
+        },
+        {
+          "coefficient": -2.953359474215657,
+          "kind": "u",
+          "term": "r"
+        },
+        {
+          "coefficient": -2.833034759067268,
+          "kind": "b",
+          "term": "why do"
+        },
+        {
+          "coefficient": -2.8101855697021,
+          "kind": "u",
+          "term": "why"
+        },
+        {
+          "coefficient": -2.795138441810481,
+          "kind": "u",
+          "term": "do"
+        },
+        {
+          "coefficient": -2.742544302957219,
+          "kind": "u",
+          "term": "women"
+        },
+        {
+          "coefficient": -2.715626644527444,
+          "kind": "u",
+          "term": "email"
+        },
+        {
+          "coefficient": -2.6107271473420233,
+          "kind": "b",
+          "term": "do some"
+        },
+        {
+          "coefficient": -2.5015197815308072,
+          "kind": "u",
+          "term": "sexual"
+        },
+        {
+          "coefficient": -2.484081986537366,
+          "kind": "u",
+          "term": "penis"
+        },
+        {
+          "coefficient": -2.4668570037281046,
+          "kind": "u",
+          "term": "gay"
+        }
+      ],
+      "top_positive": [
+        {
+          "coefficient": 3.828432639820315,
+          "kind": "u",
+          "term": "you"
+        },
+        {
+          "coefficient": 3.2653560244521342,
+          "kind": "u",
+          "term": "what"
+        },
+        {
+          "coefficient": 3.138794663868239,
+          "kind": "b",
+          "term": "your i"
+        },
+        {
+          "coefficient": 2.238730687625951,
+          "kind": "b",
+          "term": "do you"
+        },
+        {
+          "coefficient": 2.015529423544603,
+          "kind": "b",
+          "term": "and why"
+        },
+        {
+          "coefficient": 1.5663018099778212,
+          "kind": "b",
+          "term": "are you"
+        },
+        {
+          "coefficient": 1.5424418750000117,
+          "kind": "b",
+          "term": "your username"
+        },
+        {
+          "coefficient": 1.4163143903356408,
+          "kind": "b",
+          "term": "what\u2019s a"
+        },
+        {
+          "coefficient": 1.4064975920959109,
+          "kind": "b",
+          "term": "i e"
+        },
+        {
+          "coefficient": 1.4055285998529108,
+          "kind": "u",
+          "term": "what\u2019s"
+        },
+        {
+          "coefficient": 1.3992331376356486,
+          "kind": "b",
+          "term": "is something"
+        },
+        {
+          "coefficient": 1.3343528522128272,
+          "kind": "b",
+          "term": "video game"
+        },
+        {
+          "coefficient": 1.3183533914780974,
+          "kind": "b",
+          "term": "how does"
+        },
+        {
+          "coefficient": 1.2560111952776098,
+          "kind": "b",
+          "term": "to i"
+        },
+        {
+          "coefficient": 1.185240678802043,
+          "kind": "b",
+          "term": "what's a"
+        },
+        {
+          "coefficient": 1.1665510075581542,
+          "kind": "u",
+          "term": "life"
+        },
+        {
+          "coefficient": 1.161644770555169,
+          "kind": "u",
+          "term": "anxiety"
+        },
+        {
+          "coefficient": 1.160946867086449,
+          "kind": "b",
+          "term": "when does"
+        },
+        {
+          "coefficient": 1.151950448131788,
+          "kind": "u",
+          "term": "movie"
+        },
+        {
+          "coefficient": 1.1466682763992484,
+          "kind": "b",
+          "term": "what's something"
+        },
+        {
+          "coefficient": 1.1214328913672913,
+          "kind": "u",
+          "term": "thing"
+        },
+        {
+          "coefficient": 1.1116369039051583,
+          "kind": "u",
+          "term": "something"
+        },
+        {
+          "coefficient": 1.1079065190371569,
+          "kind": "b",
+          "term": "are some"
+        },
+        {
+          "coefficient": 1.1016857652867185,
+          "kind": "b",
+          "term": "what are"
+        },
+        {
+          "coefficient": 1.1013317937475096,
+          "kind": "b",
+          "term": "is your"
+        },
+        {
+          "coefficient": 1.0836703624123525,
+          "kind": "b",
+          "term": "what movie"
+        },
+        {
+          "coefficient": 1.0756629824856685,
+          "kind": "b",
+          "term": "is a"
+        },
+        {
+          "coefficient": 1.072609355256029,
+          "kind": "b",
+          "term": "what does"
+        },
+        {
+          "coefficient": 1.064338738785758,
+          "kind": "b",
+          "term": "an adult"
+        },
+        {
+          "coefficient": 1.05297573331875,
+          "kind": "b",
+          "term": "a i"
+        }
+      ]
+    },
+    "title_structured_lr": {
+      "intercept": -3.5696284603599726,
+      "structured": {
+        "question_count": -0.058089105783485515,
+        "question_present": 0.16563508039974273,
+        "title_characters": 0.10303129810669272,
+        "title_words": -0.5315154235400484,
+        "uppercase_ratio": -0.5316920511869462
+      },
+      "time": {}
+    }
+  }
+}

@@ -1,10 +1,14 @@
 # AskReddit Popularity
 
-IE212 project to predict **eight popularity levels (0–7)** for r/AskReddit posts.
-The project now includes data validation/cleaning and a chronological eight-class
-experiment using the upper-remainder median labeling procedure of Fang et al.
-(2016), reused by Chua (2021). `score` constructs the target and must never be a
-predictive input. Features use only title and UTC posting time.
+IE212 project that predicts whether an r/AskReddit question is **highly or lowly
+popular** (the registered proposal's binary task) and analyzes how title wording
+and posting time relate to popularity. An **eight-level extension** reuses the
+upper-remainder median labeling of Fang et al. (2016) and Chua (2021). `score`
+constructs the targets and is never a predictive input. Features come only from
+the title and the UTC posting time; every current model uses the title alone. The
+demo also estimates the score itself in two stages (will a post get engagement, and
+if so how high) on a title-deduplicated dataset. See
+[docs/score-prediction.md](docs/score-prediction.md).
 
 ## Current scope
 
@@ -13,20 +17,23 @@ It supports a single-shard sample, complete monthly extracts, and resumable
 sequential extraction of a year. PySpark validation and cleaning are implemented in
 [src/askreddit/clean.py](src/askreddit/clean.py) and
 [src/askreddit/quality.py](src/askreddit/quality.py). The full-year EDA is
-[src/askreddit/eda.py](src/askreddit/eda.py). The experiment entry point is
-[src/askreddit/experiment.py](src/askreddit/experiment.py), with separate labeling,
-feature, training and evaluation modules. Saved receipts distinguish completed
-full-data stages from partial runs.
+[src/askreddit/eda.py](src/askreddit/eda.py). The binary experiment entry point is
+[src/askreddit/binary_experiment.py](src/askreddit/binary_experiment.py); the
+eight-level one is [src/askreddit/experiment.py](src/askreddit/experiment.py). Both
+have separate labeling, feature, training and evaluation modules. Saved receipts
+distinguish completed full-data stages from partial runs.
 
 | Stage | Responsibility | Status |
 | --- | --- | --- |
 | DuckDB ingestion | Read remote Parquet shards, select AskReddit posts, write one local Parquet file per month | Completed |
 | PySpark validation and cleaning | Profile extracts, normalize valid records, quarantine rejects/duplicates, verify read-back | Completed; see `reports/data_quality/` |
 | PySpark EDA | Profile, volume, score distribution, title/time associations (train only), label readiness | Completed; see [docs/eda.md](docs/eda.md) and [reports/eda/summary_vi.md](reports/eda/summary_vi.md) |
-| Labels and features | Train-only upper-median labels, chronological splits, train-fitted TF-IDF + title/UTC features | Completed in runs v1 and v2 |
-| PySpark modeling | Weighted multinomial LR / RF comparisons, validation selection, held-out evaluation | v1 and v2 completed; see [docs/fang-chua-experiment.md](docs/fang-chua-experiment.md) |
+| Title deduplication | One posting per normalized title (highest score), placeholders dropped; identical-title ceiling analysis | Completed; see [docs/score-prediction.md](docs/score-prediction.md) |
+| Two-stage score estimate | Engagement classifier (score ≥ 2) + ridge regression of log(1 + score) | Completed (engagement v1, score v1) |
+| Binary labels, features and models | Train-quantile high/low labels, chi-square n-gram selection, L2 LR vs GBT, AUC/P/R/F1, coefficient and importance analysis | Runs v3, v4 and v5 (current, deduplicated) completed; see [docs/binary-experiment.md](docs/binary-experiment.md) |
+| Eight-level extension | Train-only upper-median labels, weighted multinomial LR / RF, validation selection | v1 and v2 completed; see [docs/fang-chua-experiment.md](docs/fang-chua-experiment.md) |
 | Spark vs DuckDB benchmark | Identical SQL workloads on both engines | Completed; see [benchmarks/README.md](benchmarks/README.md) |
-| Streamlit demo | Analysis, evaluation and Spark-free prediction from saved outputs | Implemented in [app/streamlit_app.py](app/streamlit_app.py) |
+| Streamlit demo | Analysis, binary and eight-level evaluation, Spark-free prediction from saved outputs | Implemented in [app/streamlit_app.py](app/streamlit_app.py) |
 
 The source is [open-index/arctic on Hugging Face](https://huggingface.co/datasets/open-index/arctic),
 a Parquet distribution of the Arctic Shift archive. The pipeline is remote
@@ -43,8 +50,13 @@ askreddit-popularity/
 ├── pyproject.toml              # Package metadata and dependency groups
 ├── configs/
 │   ├── project.toml            # Ingestion source, UTC boundaries, columns, paths
-│   ├── fang_chua_v1.json       # Experiment v1 (historical)
-│   ├── fang_chua_v2.json       # Experiment v2 (current) + disclosure
+│   ├── binary_v3.json          # Binary run v3 (all posts, reference)
+│   ├── binary_v4.json          # Binary run v4 (score >= 2, title only)
+│   ├── binary_v5.json          # Binary run v5 (v4 on deduplicated data; current) + disclosure
+│   ├── engagement_v1.json      # Stage 1: score >= 2 vs <= 1 on all posts
+│   ├── score_v1.json           # Stage 2: ridge regression of log(1 + score), score >= 2
+│   ├── fang_chua_v1.json       # Eight-level v1 (historical)
+│   ├── fang_chua_v2.json       # Eight-level v2 (current extension) + disclosure
 │   └── demo.json               # Report/model paths read by the Streamlit app
 ├── docs/                       # Data source, cleaning, EDA, experiment, pipeline diagram
 ├── src/askreddit/
@@ -54,6 +66,12 @@ askreddit-popularity/
 │   ├── labeling.py             # Chronological splits, exact train-only median labels
 │   ├── features.py             # Train-fitted TF-IDF and title/UTC features
 │   ├── training.py, evaluation.py, experiment.py, report_results.py
+│   ├── binary_labeling.py      # Train-quantile high/low labels (population + tie rules)
+│   ├── binary_prepare.py       # Binary run identity, labels, features, chi-square selection
+│   ├── binary_training.py, binary_evaluation.py, binary_experiment.py, binary_report.py
+│   ├── export_binary_model.py, binary_inference.py  # Binary LR → NumPy export and inference
+│   ├── dedup.py, title_ceiling.py  # Title-level deduplication; identical-title ceiling analysis
+│   ├── score_regression.py, export_score_model.py, score_inference.py  # Stage-2 score regression
 │   ├── benchmark.py            # Spark SQL vs DuckDB runner
 │   ├── export_model.py         # Spark LR → NumPy export with parity verification
 │   └── inference.py            # Spark-free preprocessing + LR inference
@@ -251,19 +269,60 @@ JAVA_HOME=/usr/lib/jvm/java-21-openjdk SPARK_LOCAL_IP=127.0.0.1 PYTHONPATH=src \
 ## Streamlit demo
 
 The app reads the saved EDA, experiment and benchmark reports listed in
-[configs/demo.json](configs/demo.json). It predicts with a NumPy export of the selected LR,
-so it never starts Spark. The export checks the NumPy pipeline against Spark on 3,000
-validation/test posts plus Unicode edge cases, and refuses to finish on any mismatch. The
-current export agrees on every prediction; the largest probability difference is 4.4e-16.
+[configs/demo.json](configs/demo.json). Its main tabs show the binary run (v5) and the
+two-stage score estimate. From a title alone, prediction gives the high/low group, the
+engagement probability, and the expected score with an 80% interval and a relative rank.
+The eight-level model lives in an extension tab, evaluation only, because it needs the
+posting time. Prediction never starts Spark. Both exports
+check the NumPy pipeline against Spark before they are written. The eight-level export checks 3,000
+validation/test posts plus Unicode edge cases and refuses to finish on any mismatch; it
+agrees on every prediction (largest probability difference 4.4e-16).
 
 ```bash
 .venv/bin/python -m pip install -e '.[demo]'          # once: Streamlit
 JAVA_HOME=/usr/lib/jvm/java-21-openjdk SPARK_LOCAL_IP=127.0.0.1 PYTHONPATH=src \
-  .venv/bin/python -m askreddit.export_model --run-id fang_chua_20261125_v2   # once per selected model
+  .venv/bin/python -m askreddit.export_model --run-id fang_chua_20261125_v2   # eight-level model
+JAVA_HOME=/usr/lib/jvm/java-21-openjdk SPARK_LOCAL_IP=127.0.0.1 PYTHONPATH=src \
+  .venv/bin/python -m askreddit.export_binary_model --run-id binary_20261125_v5 --threshold-policy probability_0_5
+JAVA_HOME=/usr/lib/jvm/java-21-openjdk SPARK_LOCAL_IP=127.0.0.1 PYTHONPATH=src \
+  .venv/bin/python -m askreddit.export_binary_model --run-id engagement_20261125_v1 --threshold-policy probability_0_5
+JAVA_HOME=/usr/lib/jvm/java-21-openjdk SPARK_LOCAL_IP=127.0.0.1 PYTHONPATH=src \
+  .venv/bin/python -m askreddit.export_score_model --run-id score_20261125_v1
 .venv/bin/streamlit run app/streamlit_app.py
 ```
 
-## Chronological eight-class experiment
+## Binary popularity experiment (registered proposal)
+
+See [docs/binary-experiment.md](docs/binary-experiment.md) for labels, features,
+chi-square selection, candidates and commands.
+
+**Current run: `binary_20261125_v5`** ([configs/binary_v5.json](configs/binary_v5.json)) repeats v4 on the
+title-deduplicated data. Test AUC-ROC is 0.600, and balanced accuracy at 0.5 is 0.572
+([v5 report](reports/experiments/binary_20261125_v5/results_vi.md)).
+
+**Run `binary_20261125_v4`** ([configs/binary_v4.json](configs/binary_v4.json)).
+It uses only posts with score ≥ 2: low = score 2, high = score ≥ 4 (train median 3,
+p75 4), with score 3 dropped. Models use the title only. Validation selected
+`combined_title_lr_r1e5` (TF-IDF + title structure, L2 LR). On test, AUC-ROC is
+**0.594** and PR-AUC 0.479, against a 0.394 positive rate. At probability 0.5,
+balanced accuracy is 0.566, with precision 0.461 and recall 0.545. The best GBT
+(`gbt_d5`, chi-square top-128 n-grams) reaches AUC 0.567. Posting time alone gives
+AUC 0.517.
+
+The validation max-F1 threshold (0.346) labels almost every post high, so its F1
+(0.568) barely beats always predicting high (0.565). The report therefore reads
+classification at 0.5 and treats AUC as the main metric. This emphasis was decided
+after the run's results were seen. See the
+[v4 Vietnamese report](reports/experiments/binary_20261125_v4/results_vi.md).
+
+Reference run `binary_20261125_v3` labels all posts (low ≤ 1, high ≥ 3) and uses
+posting time. It reaches test AUC 0.724 (`combined_lr_r1e4`), but its strongest terms
+(`i`, `my`, `why`, `do i`) mark posts that break r/AskReddit's rules, so it mostly
+predicts removal rather than popularity
+([v3 report](reports/experiments/binary_20261125_v3/results_vi.md)). The December
+test month was already scored by earlier runs; both configs disclose this.
+
+## Eight-level extension (Fang/Chua)
 
 See [the experimental design and execution guide](docs/fang-chua-experiment.md)
 for scientific attribution, exact median semantics, leakage safeguards, the fixed

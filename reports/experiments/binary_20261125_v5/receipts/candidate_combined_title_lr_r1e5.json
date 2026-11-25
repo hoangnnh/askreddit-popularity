@@ -1,0 +1,78 @@
+{
+  "artifacts": [
+    {
+      "files": [
+        {
+          "bytes": 8,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v5/models/combined_title_lr_r1e5/data/._SUCCESS.crc",
+          "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+        },
+        {
+          "bytes": 796,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v5/models/combined_title_lr_r1e5/data/.part-00000-cbf1631d-648b-4b9e-a644-c80eeddd1026-c000.snappy.parquet.crc",
+          "sha256": "9ba848211d4a725487abe8c950a3f401f23acbbbad1da08f5d6af7afdd2993d2"
+        },
+        {
+          "bytes": 0,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v5/models/combined_title_lr_r1e5/data/_SUCCESS",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 100777,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v5/models/combined_title_lr_r1e5/data/part-00000-cbf1631d-648b-4b9e-a644-c80eeddd1026-c000.snappy.parquet",
+          "sha256": "01e9968e10162a815f15b2aad3a9f375b303ba0d1e15d46709b73214f0518949"
+        },
+        {
+          "bytes": 8,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v5/models/combined_title_lr_r1e5/metadata/._SUCCESS.crc",
+          "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+        },
+        {
+          "bytes": 16,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v5/models/combined_title_lr_r1e5/metadata/.part-00000-e89d1a17-1f74-4ee6-989a-8646e3d65cc2-c000.txt.crc",
+          "sha256": "b3110bb9c73ddf8f222bb2659a6f56556e9489d76026608dcdbc57f94a4f8031"
+        },
+        {
+          "bytes": 0,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v5/models/combined_title_lr_r1e5/metadata/_SUCCESS",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 720,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v5/models/combined_title_lr_r1e5/metadata/part-00000-e89d1a17-1f74-4ee6-989a-8646e3d65cc2-c000.txt",
+          "sha256": "9f6173fb4d25c78aab80c33de6671f6f780a2e21cd1c3d1acef57ba259d34ac9"
+        }
+      ],
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/artifacts/experiments/binary_20261125_v5/models/combined_title_lr_r1e5"
+    },
+    {
+      "files": [
+        {
+          "bytes": 11444,
+          "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/reports/experiments/binary_20261125_v5/candidates/combined_title_lr_r1e5.json",
+          "sha256": "227c2f28476aab029f9ee7d72dbec0b27df63ee5a7f1b2d68c5dfa00362a4594"
+        }
+      ],
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/reports/experiments/binary_20261125_v5/candidates/combined_title_lr_r1e5.json"
+    }
+  ],
+  "completed_at_utc": "2026-11-25T14:19:19.724412+00:00",
+  "identity_sha256": "1d0450d9fc59335f1b789278d54915fb34c399638e75256b6f88f528e383d326",
+  "source_files": [
+    {
+      "bytes": 7654,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/src/askreddit/binary_training.py",
+      "sha256": "e0fdb29017f0f68d4c1b3f73a95b67ab54b0a16901f9b7820f8f83a8aa4b4cc2"
+    },
+    {
+      "bytes": 4574,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/src/askreddit/binary_evaluation.py",
+      "sha256": "31d451ee344e21eacd0af50cef082276fa20f81ab461d03f69b3e36c131f3066"
+    },
+    {
+      "bytes": 9198,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/src/askreddit/binary_labeling.py",
+      "sha256": "349f38dbffe4831832637c6cd50736dc2f30fad479d5cd7bba39584c7de7785a"
+    }
+  ]
+}

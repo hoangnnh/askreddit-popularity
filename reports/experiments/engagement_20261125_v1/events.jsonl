@@ -1,0 +1,22 @@
+{"at_utc": "2026-11-25T14:23:10.456446+00:00", "phase": "stage_started", "stage": "all", "spark_version": "4.3.0"}
+{"at_utc": "2026-11-25T14:23:10.456904+00:00", "phase": "prepare_started"}
+{"at_utc": "2026-11-25T14:24:14.161730+00:00", "phase": "prepare_completed", "elapsed_seconds": 63.7047684930003, "median": 1, "p75": 2, "train_counts": {"excluded": 0, "low": 858185, "middle": 0, "high": 345675}}
+{"at_utc": "2026-11-25T14:24:14.256637+00:00", "phase": "features_started"}
+{"at_utc": "2026-11-25T14:27:28.943738+00:00", "phase": "chi_square_completed", "seconds": 71.99230818499927, "top_terms": ["u:i", "u:my", "u:you", "u:why", "u:what\u2019s", "u:me", "u:how", "b:do i", "u:can", "b:can i"]}
+{"at_utc": "2026-11-25T14:28:49.109515+00:00", "phase": "features_split_completed", "split": "train", "records": 1203860, "transformation_and_write_seconds": 78.57233543599796}
+{"at_utc": "2026-11-25T14:29:05.925386+00:00", "phase": "features_split_completed", "split": "validation", "records": 232113, "transformation_and_write_seconds": 16.815066058999946}
+{"at_utc": "2026-11-25T14:29:19.566764+00:00", "phase": "features_split_completed", "split": "test", "records": 122787, "transformation_and_write_seconds": 13.640838514998904}
+{"at_utc": "2026-11-25T14:29:26.348653+00:00", "phase": "candidate_started", "candidate": "majority", "configuration": {"id": "majority", "kind": "majority"}}
+{"at_utc": "2026-11-25T14:29:29.282148+00:00", "phase": "candidate_completed", "candidate": "majority", "training_seconds": 0.0, "validation_auc": 0.5, "validation_f1": 0.0, "threshold": 0.5}
+{"at_utc": "2026-11-25T14:29:29.302426+00:00", "phase": "candidate_started", "candidate": "title_structured_lr", "configuration": {"id": "title_structured_lr", "kind": "lr", "features": "title_structured_features", "reg_param": 0.0001, "max_iter": 200}}
+{"at_utc": "2026-11-25T14:29:57.264810+00:00", "phase": "candidate_completed", "candidate": "title_structured_lr", "training_seconds": 22.43718513800195, "validation_auc": 0.621052819082935, "validation_f1": 0.48772900873920966, "threshold": 0.47483665141469755}
+{"at_utc": "2026-11-25T14:29:57.265534+00:00", "phase": "candidate_started", "candidate": "combined_title_lr_r1e4", "configuration": {"id": "combined_title_lr_r1e4", "kind": "lr", "features": "combined_title_features", "reg_param": 0.0001, "max_iter": 200}}
+{"at_utc": "2026-11-25T14:33:25.418905+00:00", "phase": "candidate_completed", "candidate": "combined_title_lr_r1e4", "training_seconds": 197.14267891400232, "validation_auc": 0.7314085769977793, "validation_f1": 0.5558048699409956, "threshold": 0.5009975435904317}
+{"at_utc": "2026-11-25T14:33:25.420326+00:00", "phase": "candidate_started", "candidate": "combined_title_lr_r1e5", "configuration": {"id": "combined_title_lr_r1e5", "kind": "lr", "features": "combined_title_features", "reg_param": 1e-05, "max_iter": 200}}
+{"at_utc": "2026-11-25T14:35:14.645713+00:00", "phase": "candidate_completed", "candidate": "combined_title_lr_r1e5", "training_seconds": 99.03331997799978, "validation_auc": 0.7449947059492381, "validation_f1": 0.567873052904679, "threshold": 0.4825253919718877}
+{"at_utc": "2026-11-25T14:35:14.657673+00:00", "phase": "selection_frozen", "candidate": "combined_title_lr_r1e5", "best_by_family": {"lr": "combined_title_lr_r1e5", "gbt": null}}
+{"at_utc": "2026-11-25T14:35:15.427661+00:00", "phase": "test_candidate_completed", "candidate": "majority", "auc_roc": 0.5, "f1": 0.0}
+{"at_utc": "2026-11-25T14:35:16.671415+00:00", "phase": "test_candidate_completed", "candidate": "title_structured_lr", "auc_roc": 0.6070114350578715, "f1": 0.48458909736141687}
+{"at_utc": "2026-11-25T14:35:18.229834+00:00", "phase": "test_candidate_completed", "candidate": "combined_title_lr_r1e4", "auc_roc": 0.7133214216506023, "f1": 0.5481248113492303}
+{"at_utc": "2026-11-25T14:35:19.680386+00:00", "phase": "test_candidate_completed", "candidate": "combined_title_lr_r1e5", "auc_roc": 0.7266505957221409, "f1": 0.561094854691845}
+{"at_utc": "2026-11-25T14:35:22.084709+00:00", "phase": "stage_completed", "stage": "all"}

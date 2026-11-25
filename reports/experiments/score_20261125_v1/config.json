@@ -1,0 +1,99 @@
+{
+  "algorithm_version": "score-regression-v1",
+  "artifact_root": "artifacts/experiments",
+  "binary_comparison": {
+    "high_min": 4,
+    "low_below": 3,
+    "note": "AUC of the regression output for the binary v4/v5 rule (score >= 4 vs score < 3)."
+  },
+  "candidates": [
+    {
+      "id": "mean",
+      "kind": "mean"
+    },
+    {
+      "features": "title_structured_features",
+      "id": "title_structured_ridge",
+      "kind": "ridge",
+      "max_iter": 200,
+      "reg_param": 0.0001
+    },
+    {
+      "features": "text_features",
+      "id": "text_ridge_r1e5",
+      "kind": "ridge",
+      "max_iter": 200,
+      "reg_param": 1e-05
+    },
+    {
+      "features": "combined_title_features",
+      "id": "combined_title_ridge_r1e4",
+      "kind": "ridge",
+      "max_iter": 200,
+      "reg_param": 0.0001
+    },
+    {
+      "features": "combined_title_features",
+      "id": "combined_title_ridge_r1e5",
+      "kind": "ridge",
+      "max_iter": 200,
+      "reg_param": 1e-05
+    },
+    {
+      "features": "combined_title_features",
+      "id": "combined_title_ridge_r1e6",
+      "kind": "ridge",
+      "max_iter": 200,
+      "reg_param": 1e-06
+    }
+  ],
+  "config_version": 1,
+  "data_root": "data/experiments",
+  "disclosure": "Stage 2 of the two-stage score estimate, designed on 2026-11-25 after binary runs v3-v4 were viewed. Ridge regression of log(1 + score) from the title on posts with score >= 2 of the title-deduplicated dataset (scores observed ~36 h after posting). The December 2025 test month was already scored by earlier runs; selection uses validation RMSE only.",
+  "disclosure_vi": "B\u01b0\u1edbc 2 c\u1ee7a d\u1ef1 \u0111o\u00e1n score hai b\u01b0\u1edbc, thi\u1ebft k\u1ebf ng\u00e0y 2026-11-25 sau khi \u0111\u00e3 xem c\u00e1c run nh\u1ecb ph\u00e2n v3\u2013v4. H\u1ed3i quy ridge tr\u00ean log(1 + score) ch\u1ec9 t\u1eeb ti\u00eau \u0111\u1ec1, tr\u00ean c\u00e1c b\u00e0i c\u00f3 score \u2265 2 c\u1ee7a d\u1eef li\u1ec7u \u0111\u00e3 b\u1ecf tr\u00f9ng (score \u0111o kho\u1ea3ng 36 gi\u1edd sau khi \u0111\u0103ng). Th\u00e1ng test 12/2025 \u0111\u00e3 \u0111\u01b0\u1ee3c d\u00f9ng \u1edf c\u00e1c run tr\u01b0\u1edbc; m\u00f4 h\u00ecnh ch\u1ec9 \u0111\u01b0\u1ee3c ch\u1ecdn b\u1eb1ng RMSE tr\u00ean validation.",
+  "features": {
+    "feature_sources": [
+      "title",
+      "created_utc"
+    ],
+    "min_df": 10,
+    "ngram_orders": [
+      1,
+      2
+    ],
+    "normalization": "NFKC, Unicode whitespace collapse, lowercase; original title preserved",
+    "remove_stopwords": false,
+    "rf_text_features": 128,
+    "token_pattern": "[\\p{L}\\p{N}]+(?:['\u2019][\\p{L}\\p{N}]+)*",
+    "version": "title-time-nfkc-v1",
+    "vocab_size": 12000
+  },
+  "input": "data/processed/askreddit_dedup",
+  "min_score": 2,
+  "name": "score_v1",
+  "report_root": "reports/experiments",
+  "selection": {
+    "criterion": "validation_rmse_log",
+    "interval": "10th-90th percentile of validation residuals around the prediction",
+    "tie_break": "candidate ID ascending"
+  },
+  "spark": {
+    "driver_memory": "2g",
+    "shuffle_partitions": 16,
+    "write_partitions": 12
+  },
+  "split_dates": {
+    "test": [
+      "2025-12-01T00:00:00Z",
+      "2026-01-01T00:00:00Z"
+    ],
+    "train": [
+      "2025-01-01T00:00:00Z",
+      "2025-10-01T00:00:00Z"
+    ],
+    "validation": [
+      "2025-10-01T00:00:00Z",
+      "2025-12-01T00:00:00Z"
+    ]
+  }
+}

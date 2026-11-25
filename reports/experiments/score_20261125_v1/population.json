@@ -1,0 +1,29 @@
+{
+  "all_records": {
+    "test": 122787,
+    "train": 1203860,
+    "validation": 232113
+  },
+  "label": "log(1 + score)",
+  "min_score": 2,
+  "population_records": {
+    "test": 36679,
+    "train": 345675,
+    "validation": 68097
+  },
+  "population_share": {
+    "test": 0.2987205485922777,
+    "train": 0.28713886996826876,
+    "validation": 0.2933786560856135
+  },
+  "score_observation": "Archived score re-fetched by Arctic Shift about 36 hours after posting.",
+  "train_label_stats": {
+    "mean_log": 1.5853424758493135,
+    "score_p25": 2.0,
+    "score_p50": 3.0,
+    "score_p75": 4.0,
+    "score_p90": 8.0,
+    "score_p99": 1079.2600000000093,
+    "std_log": 1.0449654246673064
+  }
+}

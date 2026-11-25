@@ -1,0 +1,50 @@
+{
+  "candidates": [
+    {
+      "id": "mean",
+      "kind": "mean"
+    },
+    {
+      "features": "title_structured_features",
+      "id": "title_structured_ridge",
+      "kind": "ridge",
+      "max_iter": 200,
+      "reg_param": 0.0001
+    },
+    {
+      "features": "text_features",
+      "id": "text_ridge_r1e5",
+      "kind": "ridge",
+      "max_iter": 200,
+      "reg_param": 1e-05
+    },
+    {
+      "features": "combined_title_features",
+      "id": "combined_title_ridge_r1e4",
+      "kind": "ridge",
+      "max_iter": 200,
+      "reg_param": 0.0001
+    },
+    {
+      "features": "combined_title_features",
+      "id": "combined_title_ridge_r1e5",
+      "kind": "ridge",
+      "max_iter": 200,
+      "reg_param": 1e-05
+    },
+    {
+      "features": "combined_title_features",
+      "id": "combined_title_ridge_r1e6",
+      "kind": "ridge",
+      "max_iter": 200,
+      "reg_param": 1e-06
+    }
+  ],
+  "registered_at_utc": "2026-11-25T14:37:19.112277+00:00",
+  "selection": {
+    "criterion": "validation_rmse_log",
+    "interval": "10th-90th percentile of validation residuals around the prediction",
+    "tie_break": "candidate ID ascending"
+  },
+  "test_used_for_tuning": false
+}

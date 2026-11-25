@@ -1,0 +1,43 @@
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+/home/hoangnnh/Coding/IE212/project/askreddit-popularity/.venv/lib/python3.14/site-packages/pyspark/testing/utils.py:127: FutureWarning: PySpark does not yet fully support pandas >= 3.0.0. Some features may not work correctly. It is recommended to use pandas < 3.0.0 for now.
+  require_minimum_pandas_version()
+26/11/25 21:23:01 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2026-11-25 21:23:10,455 INFO stage_started {'stage': 'all', 'spark_version': '4.3.0'}
+2026-11-25 21:23:10,456 INFO prepare_started {}
+2026-11-25 21:24:14,161 INFO prepare_completed {'elapsed_seconds': 63.7047684930003, 'median': 1, 'p75': 2, 'train_counts': {'excluded': 0, 'low': 858185, 'middle': 0, 'high': 345675}}
+2026-11-25 21:24:14,256 INFO Verified and reused completed stage prepare
+2026-11-25 21:24:14,256 INFO features_started {}
+2026-11-25 21:27:28,942 INFO chi_square_completed {'seconds': 71.99230818499927, 'top_terms': ['u:i', 'u:my', 'u:you', 'u:why', 'u:what’s', 'u:me', 'u:how', 'b:do i', 'u:can', 'b:can i']}
+26/11/25 21:27:31 WARN DAGScheduler: Broadcasting large task binary with size 1947.3 KiB
+26/11/25 21:28:20 WARN DAGScheduler: Broadcasting large task binary with size 3.0 MiB
+2026-11-25 21:28:49,109 INFO features_split_completed {'split': 'train', 'records': 1203860, 'transformation_and_write_seconds': 78.57233543599796}
+26/11/25 21:28:49 WARN DAGScheduler: Broadcasting large task binary with size 1947.3 KiB
+26/11/25 21:28:59 WARN DAGScheduler: Broadcasting large task binary with size 3.0 MiB
+2026-11-25 21:29:05,925 INFO features_split_completed {'split': 'validation', 'records': 232113, 'transformation_and_write_seconds': 16.815066058999946}
+26/11/25 21:29:06 WARN DAGScheduler: Broadcasting large task binary with size 1947.3 KiB
+26/11/25 21:29:14 WARN DAGScheduler: Broadcasting large task binary with size 2.7 MiB
+2026-11-25 21:29:19,566 INFO features_split_completed {'split': 'test', 'records': 122787, 'transformation_and_write_seconds': 13.640838514998904}
+2026-11-25 21:29:25,936 INFO Verified and reused completed stage features
+2026-11-25 21:29:26,348 INFO candidate_started {'candidate': 'majority', 'configuration': {'id': 'majority', 'kind': 'majority'}}
+2026-11-25 21:29:29,282 INFO candidate_completed {'candidate': 'majority', 'training_seconds': 0.0, 'validation_auc': 0.5, 'validation_f1': 0.0, 'threshold': 0.5}
+2026-11-25 21:29:29,302 INFO candidate_started {'candidate': 'title_structured_lr', 'configuration': {'id': 'title_structured_lr', 'kind': 'lr', 'features': 'title_structured_features', 'reg_param': 0.0001, 'max_iter': 200}}
+netlib-blas: JNI_OnLoad: dlopen(libblas.so.3) failed: libblas.so.3: cannot open shared object file: No such file or directory
+2026-11-25 21:29:57,264 INFO candidate_completed {'candidate': 'title_structured_lr', 'training_seconds': 22.43718513800195, 'validation_auc': 0.621052819082935, 'validation_f1': 0.48772900873920966, 'threshold': 0.47483665141469755}
+2026-11-25 21:29:57,265 INFO candidate_started {'candidate': 'combined_title_lr_r1e4', 'configuration': {'id': 'combined_title_lr_r1e4', 'kind': 'lr', 'features': 'combined_title_features', 'reg_param': 0.0001, 'max_iter': 200}}
+2026-11-25 21:33:25,418 INFO candidate_completed {'candidate': 'combined_title_lr_r1e4', 'training_seconds': 197.14267891400232, 'validation_auc': 0.7314085769977793, 'validation_f1': 0.5558048699409956, 'threshold': 0.5009975435904317}
+2026-11-25 21:33:25,420 INFO candidate_started {'candidate': 'combined_title_lr_r1e5', 'configuration': {'id': 'combined_title_lr_r1e5', 'kind': 'lr', 'features': 'combined_title_features', 'reg_param': 1e-05, 'max_iter': 200}}
+2026-11-25 21:35:14,645 INFO candidate_completed {'candidate': 'combined_title_lr_r1e5', 'training_seconds': 99.03331997799978, 'validation_auc': 0.7449947059492381, 'validation_f1': 0.567873052904679, 'threshold': 0.4825253919718877}
+2026-11-25 21:35:14,649 INFO Verified and reused completed stage candidate_majority
+2026-11-25 21:35:14,652 INFO Verified and reused completed stage candidate_title_structured_lr
+2026-11-25 21:35:14,653 INFO Verified and reused completed stage candidate_combined_title_lr_r1e4
+2026-11-25 21:35:14,654 INFO Verified and reused completed stage candidate_combined_title_lr_r1e5
+2026-11-25 21:35:14,657 INFO selection_frozen {'candidate': 'combined_title_lr_r1e5', 'best_by_family': {'lr': 'combined_title_lr_r1e5', 'gbt': None}}
+2026-11-25 21:35:15,427 INFO test_candidate_completed {'candidate': 'majority', 'auc_roc': 0.5, 'f1': 0.0}
+2026-11-25 21:35:16,671 INFO test_candidate_completed {'candidate': 'title_structured_lr', 'auc_roc': 0.6070114350578715, 'f1': 0.48458909736141687}
+2026-11-25 21:35:18,229 INFO test_candidate_completed {'candidate': 'combined_title_lr_r1e4', 'auc_roc': 0.7133214216506023, 'f1': 0.5481248113492303}
+2026-11-25 21:35:19,680 INFO test_candidate_completed {'candidate': 'combined_title_lr_r1e5', 'auc_roc': 0.7266505957221409, 'f1': 0.561094854691845}
+2026-11-25 21:35:22,084 INFO stage_completed {'stage': 'all'}
+2026-11-25 21:35:23,201 INFO Closing down clientserver connection

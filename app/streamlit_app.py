@@ -1,11 +1,12 @@
-"""Streamlit demo: AskReddit 2025 analysis, model evaluation and Spark-free prediction.
+"""Streamlit demo: AskReddit 2025 analysis, binary popularity model, eight-level extension and benchmark.
 
 Run from the repository root:
     .venv/bin/streamlit run app/streamlit_app.py
 
-Reads saved reports (EDA, experiments, benchmark) and the exported model listed
+Reads saved reports (EDA, experiments, benchmark) and the exported models listed
 in configs/demo.json. It never starts Spark and never reads the score of a new
-question: predictions use only the title and the UTC posting time.
+question. The binary model (registered proposal) uses only the title; the
+eight-level extension also uses the UTC posting time.
 """
 
 from __future__ import annotations
@@ -20,7 +21,9 @@ import streamlit as st
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
+from askreddit.binary_inference import BinaryPopularityModel  # noqa: E402
 from askreddit.inference import PopularityModel  # noqa: E402
+from askreddit.score_inference import ScoreModel  # noqa: E402
 
 BLUE, ORANGE = "#257de0", "#f47230"
 CONFIG = json.loads((ROOT / "configs" / "demo.json").read_text())
@@ -37,6 +40,22 @@ def read_json(relative: str):
 def load_model(relative: str):
     path = ROOT / relative
     return PopularityModel.load(path) if (path / "model.json").exists() else None
+
+
+@st.cache_resource
+def load_binary_model(relative: str):
+    path = ROOT / relative
+    return BinaryPopularityModel.load(path) if (path / "model.json").exists() else None
+
+
+@st.cache_resource
+def load_score_model(relative: str):
+    path = ROOT / relative
+    return ScoreModel.load(path) if (path / "model.json").exists() else None
+
+
+def term(name: str) -> str:
+    return name[2:] if name[:2] in ("u:", "b:") else name
 
 
 def image(relative: str, caption: str | None = None):
@@ -59,11 +78,14 @@ def missing(what: str, command: str):
 st.set_page_config(page_title="AskReddit Popularity", page_icon="📊", layout="wide")
 st.title("Dự đoán độ phổ biến câu hỏi r/AskReddit")
 st.caption("IE212 — Nhóm 14. Dữ liệu: các submission r/AskReddit năm 2025 (Arctic Shift, bản Parquet open-index/arctic). "
-           "Mô hình chỉ dùng **tiêu đề** và **thời điểm đăng (UTC)**; score chỉ dùng để tạo nhãn.")
+           "Bài toán chính: phân loại **phổ biến cao / thấp** chỉ từ **tiêu đề**; score chỉ dùng để tạo nhãn.")
 
 eda_dir, run_dir = CONFIG["eda_dir"], CONFIG["experiment_dir"]
+binary_dir, reference_dirs = CONFIG["binary_experiment_dir"], CONFIG.get("binary_reference_dirs", [])
+engagement_dir, score_dir = CONFIG["engagement_experiment_dir"], CONFIG["score_experiment_dir"]
 profile = read_json(f"{eda_dir}/profile.json")
-tabs = st.tabs(["Tổng quan dữ liệu", "Tiêu đề & thời gian", "Đánh giá mô hình", "Dự đoán", "Benchmark Spark vs DuckDB"])
+tabs = st.tabs(["Tổng quan dữ liệu", "Tiêu đề & thời gian", "Mô hình cao / thấp", "Dự đoán score (2 bước)", "Dự đoán",
+                "Mở rộng: 8 mức (Fang/Chua)", "Benchmark Spark vs DuckDB"])
 
 with tabs[0]:
     if profile is None:
@@ -77,7 +99,18 @@ with tabs[0]:
         cols[2].metric("Score cao nhất", f"{scores['all']['max']:,}")
         cols[3].metric("Bài trung bình mỗi ngày", f"{monthly['daily_summary']['mean']:,.0f}")
         st.caption(f"Thời gian phủ: {profile['coverage_utc'][0][:10]} → {profile['coverage_utc'][1][:10]} (UTC). "
-                   f"ID duy nhất: {'có' if profile['ids_unique'] else 'không'}. Bài chỉ có tiêu đề: {pct(profile['title_only_share'])}.")
+                   f"ID duy nhất: {'có' if profile['ids_unique'] else 'không'}. Bài chỉ có tiêu đề: {pct(profile['title_only_share'])}. "
+                   "Score là giá trị Arctic Shift lấy lại khoảng 36 giờ sau khi đăng.")
+        dedup = read_json(CONFIG.get("dedup_report", ""))
+        if dedup:
+            st.subheader("Bỏ bài trùng tiêu đề (dữ liệu dùng cho mô hình)")
+            cols = st.columns(4)
+            cols[0].metric("Sau khi bỏ trùng", f"{dedup['output_records']:,}")
+            cols[1].metric("Tiêu đề lặp lại", f"{dedup['repeated_titles']:,}", f"{dedup['postings_in_repeated_titles']:,} bài", delta_color="off")
+            cols[2].metric("Bài trùng bị bỏ", f"{dedup['non_best_postings_dropped']:,}")
+            cols[3].metric("Placeholder bị bỏ", f"{dedup['placeholder_titles_dropped']:,}")
+            st.caption("Mỗi tiêu đề chuẩn hóa chỉ giữ bài có score cao nhất trong năm 2025 (score của câu hỏi khi \"gặp may\" nhất). "
+                       "Cùng một câu hỏi có thể được 1 điểm ở lần đăng này và hàng nghìn điểm ở lần khác.")
         left, right = st.columns(2)
         with left:
             st.subheader("Số bài theo tháng")
@@ -88,6 +121,23 @@ with tabs[0]:
             total = scores["all"]["records"]
             frame = pd.DataFrame([{"Score": r["score"], "% bài": 100 * r["records"] / total} for r in scores["small_scores"]])
             st.bar_chart(frame, x="Score", y="% bài", color=BLUE)
+        binary_thresholds = read_json(f"{binary_dir}/label_thresholds.json")
+        binary_groups = read_json(f"{binary_dir}/class_distributions.json")
+        if binary_thresholds and binary_groups:
+            st.subheader("Nhãn phổ biến cao / thấp (ngưỡng fit trên train)")
+            st.markdown(f"Tập tính phân vị: **{binary_thresholds['population']}** — trung vị {binary_thresholds['median']}, "
+                        f"p75 {binary_thresholds['p75']}. **Cao:** {binary_thresholds['high_rule']}. **Thấp:** {binary_thresholds['low_rule']}. "
+                        "Nhóm giữa và bài ngoài tập bị loại.")
+            names = {"excluded": "Loại (score ≤ 1)", "low": "Thấp", "middle": "Giữa (loại)", "high": "Cao"}
+            st.dataframe(pd.DataFrame([{"Split": split, **{names[g]: f"{d['groups'][g]['count']:,} ({d['groups'][g]['percentage_of_split']:.1f}%)"
+                                                            for g in names if g in d["groups"]}}
+                                       for split, d in binary_groups.items()]), hide_index=True, width="stretch")
+        image(f"{eda_dir}/figures/score_distribution.png", "Phân phối score và đuôi trên (log–log)")
+
+
+def eight_level_tables():
+    labels = read_json(f"{eda_dir}/label_feasibility.json")
+    if labels:
         st.subheader("Tám mức độ phổ biến (ngưỡng fit trên train)")
         rows = []
         for mapping in labels["thresholds"]["mapping"]:
@@ -99,7 +149,6 @@ with tabs[0]:
                 row[name] = f"{item['count']:,} ({item['percentage']:.2f}%)"
             rows.append(row)
         st.dataframe(pd.DataFrame(rows), hide_index=True, width="stretch")
-        image(f"{eda_dir}/figures/score_distribution.png", "Phân phối score và đuôi trên (log–log)")
 
 with tabs[1]:
     timing, associations = read_json(f"{eda_dir}/posting_time.json"), read_json(f"{eda_dir}/associations.json")
@@ -129,6 +178,136 @@ with tabs[1]:
         image(f"{eda_dir}/figures/length_popularity.png", "Độ dài tiêu đề và độ phổ biến (train)")
 
 with tabs[2]:
+    comparison, completed = read_json(f"{binary_dir}/model_comparison.json"), read_json(f"{binary_dir}/completed.json")
+    config = read_json(f"{binary_dir}/config.json")
+    if comparison is None or completed is None:
+        missing("kết quả mô hình nhị phân", f"PYTHONPATH=src .venv/bin/python -m askreddit.binary_experiment --config configs/binary_v4.json --run-id {Path(binary_dir).name}")
+    else:
+        selected = completed["selected_candidate"]
+        best = completed.get("best_by_family", {})
+        test = read_json(f"{binary_dir}/test/{selected}.json")
+        st.markdown(f"Run **{Path(binary_dir).name}** — chọn bằng **AUC-ROC trên validation** (10–11/2025): **{selected}**. "
+                    "Ngưỡng xác suất tối đa F1 lớp *cao* trên validation, cố định trước khi chấm test (12/2025). Lớp dương = phổ biến cao.")
+        if config and config.get("disclosure_vi"):
+            st.info(config["disclosure_vi"])
+        cols = st.columns(5)
+        cols[0].metric("AUC-ROC (test)", f"{test['auc_roc']:.4f}", f"{test['auc_roc'] - 0.5:+.4f} so với ngẫu nhiên")
+        cols[1].metric("PR-AUC (test)", f"{test['pr_auc']:.4f}", f"{test['pr_auc'] - test['positive_rate']:+.4f} so với ngẫu nhiên")
+        cols[2].metric("F1 lớp cao (test)", f"{test['f1']:.4f}", f"{test['f1'] - test['all_high_f1_reference']:+.4f} so với luôn đoán cao")
+        cols[3].metric("Precision (test)", f"{test['precision']:.4f}")
+        cols[4].metric("Recall (test)", f"{test['recall']:.4f}")
+        st.caption(f"Tỉ lệ bài cao trên test: {pct(test['positive_rate'])}. Baseline lớp đa số (luôn đoán thấp) có AUC 0,5 và F1 = 0; "
+                   f"luôn đoán cao cho F1 = {test['all_high_f1_reference']:.4f}.")
+        split = st.radio("Split", ["validation", "test"], horizontal=True, key="binary_split")
+        frame = pd.DataFrame([{"Mô hình": r["candidate"] + (" ✅" if r["selected"] else ""), "Họ": r["kind"], "AUC-ROC": r["auc_roc"],
+                               "PR-AUC": r["pr_auc"], "Ngưỡng": r["threshold"], "Precision": r["precision"], "Recall": r["recall"],
+                               "F1": r["f1"], "Số chiều": r["feature_dimension"], "Train (giây)": round(r["training_seconds"], 1)}
+                              for r in comparison["rows"] if r["split"] == split])
+        st.dataframe(frame.sort_values("AUC-ROC", ascending=False), hide_index=True, width="stretch",
+                     column_config={c: st.column_config.NumberColumn(format="%.4f") for c in ("AUC-ROC", "PR-AUC", "Ngưỡng", "Precision", "Recall", "F1")})
+        left, right = st.columns(2)
+        with left:
+            image(f"{binary_dir}/figures/roc_test.png", "Đường ROC trên test")
+        with right:
+            image(f"{binary_dir}/figures/confusion_test.png", f"Ma trận nhầm lẫn trên test — LR tốt nhất ({best.get('lr')}) và GBT tốt nhất ({best.get('gbt')})")
+        st.subheader("N-gram quan trọng và feature importance")
+        left, right = st.columns(2)
+        with left:
+            image(f"{binary_dir}/figures/lr_top_ngrams.png", "Hệ số Logistic Regression: xanh = đẩy về cao, đỏ = đẩy về thấp")
+        with right:
+            image(f"{binary_dir}/figures/gbt_importance.png", "Feature importance của GBT (top-k n-gram chọn bằng chi-square + cấu trúc tiêu đề)")
+        st.subheader("Ảnh hưởng của thời điểm đăng (mô hình ablation chỉ dùng giờ/thứ)")
+        image(f"{binary_dir}/figures/time_effects.png", "Thay đổi log-odds theo giờ và thứ (UTC). Mô hình chính không dùng thời gian.")
+        for reference_dir in reference_dirs:
+            reference = read_json(f"{reference_dir}/model_comparison.json")
+            ref_config = read_json(f"{reference_dir}/config.json") or {}
+            if reference:
+                with st.expander(f"Run tham chiếu {Path(reference_dir).name}"):
+                    if ref_config.get("disclosure_vi"):
+                        st.caption(ref_config["disclosure_vi"])
+                    st.dataframe(pd.DataFrame([{"Mô hình": r["candidate"] + (" ✅" if r["selected"] else ""), "Split": r["split"],
+                                                "AUC-ROC": round(r["auc_roc"], 4), "PR-AUC": round(r["pr_auc"], 4), "F1": round(r["f1"], 4)}
+                                               for r in reference["rows"]]), hide_index=True, width="stretch")
+                    image(f"{reference_dir}/figures/lr_top_ngrams.png", "Hệ số LR của run tham chiếu")
+
+with tabs[3]:
+    engagement, score_cmp = read_json(f"{engagement_dir}/model_comparison.json"), read_json(f"{score_dir}/model_comparison.json")
+    population = read_json(f"{score_dir}/population.json")
+    if engagement is None or score_cmp is None:
+        missing("kết quả dự đoán score", "PYTHONPATH=src .venv/bin/python -m askreddit.score_regression --run-id <run>")
+    else:
+        st.markdown("Dự đoán score **hai bước**, chỉ từ tiêu đề, trên dữ liệu đã bỏ trùng. Score là giá trị **khoảng 36 giờ sau khi đăng** "
+                    "(Arctic Shift lấy lại score sau ~36 giờ; với AskReddit đây gần như là score cuối cùng).")
+        st.markdown("**Bước 1 — bài có tương tác không?** Phân loại score ≥ 2 với score ≤ 1 trên mọi bài. "
+                    "Nhóm score ≤ 1 gồm cả bài bị mod gỡ, nên bước này học nhiều về luật của r/AskReddit.")
+        st.dataframe(pd.DataFrame([{"Mô hình": r["candidate"] + (" ✅" if r["selected"] else ""), "Split": r["split"],
+                                    "AUC-ROC": round(r["auc_roc"], 4), "PR-AUC": round(r["pr_auc"], 4)}
+                                   for r in engagement["rows"]]), hide_index=True, width="stretch")
+        st.markdown("**Bước 2 — nếu có tương tác, score khoảng bao nhiêu?** Hồi quy ridge trên log(1 + score), các bài score ≥ 2.")
+        if population:
+            st.caption(f"Số bài score ≥ 2: train {population['population_records']['train']:,}, validation "
+                       f"{population['population_records']['validation']:,}, test {population['population_records']['test']:,}.")
+        frame = pd.DataFrame([{"Mô hình": r["candidate"] + (" ✅" if r["selected"] else ""), "Split": r["split"],
+                               "RMSE (log)": r["rmse_log"], "MAE (log)": r["mae_log"], "R² (log)": r["r2_log"], "Spearman": r["spearman"],
+                               "Sai số tuyệt đối trung vị (điểm)": r["median_abs_error_score"],
+                               "Phủ khoảng 80%": r["interval_coverage"], "AUC cao vs thấp": r["auc_high_vs_low"]}
+                              for r in score_cmp["rows"]])
+        st.dataframe(frame, hide_index=True, width="stretch",
+                     column_config={c: st.column_config.NumberColumn(format="%.4f") for c in frame.columns if c not in ("Mô hình", "Split")})
+        st.caption("Spearman đo mô hình xếp hạng các tiêu đề đúng thứ tự đến đâu (dự đoán *tương đối*). "
+                   "R² thấp là bình thường: cùng một câu hỏi có thể được 2 hay 2.000 điểm.")
+        left, right = st.columns(2)
+        with left:
+            image(f"{score_dir}/figures/deciles_test.png", "Score thực tế theo nhóm thập phân của score dự đoán (test)")
+        with right:
+            image(f"{score_dir}/figures/top_ngrams.png", "N-gram làm tăng / giảm score dự đoán")
+
+with tabs[4]:
+    binary_model = load_binary_model(CONFIG["binary_model_dir"])
+    engagement_model = load_binary_model(CONFIG["engagement_model_dir"])
+    score_model = load_score_model(CONFIG["score_model_dir"])
+    if binary_model is None or engagement_model is None or score_model is None:
+        missing("mô hình xuất cho demo", "PYTHONPATH=src .venv/bin/python -m askreddit.export_binary_model --run-id <run>; "
+                "PYTHONPATH=src .venv/bin/python -m askreddit.export_score_model --run-id <run>")
+    else:
+        st.markdown("Chỉ cần nhập **tiêu đề**. Ba mô hình Logistic/Ridge suy luận bằng NumPy (không khởi động Spark), "
+                    "đã kiểm tra khớp với Spark (`verification.json`).")
+        with st.form("predict"):
+            title = st.text_input("Tiêu đề câu hỏi (tiếng Anh)", "What song instantly makes you happy?")
+            submitted = st.form_submit_button("Dự đoán")
+        if submitted and title.strip():
+            engaged = engagement_model.calibrated_probability(title)
+            estimate = score_model.predict_score(title)
+            group = binary_model.predict(title)
+            low, high = estimate["interval"]
+            st.success(f"Nhóm phổ biến (đề cương): **phổ biến {'CAO' if group['label'] == 'high' else 'THẤP'}** "
+                       f"(điểm {group['probability_high']:.3f}, ngưỡng {group['threshold']:.2f}).")
+            cols = st.columns(3)
+            cols[0].metric("Khả năng có tương tác (score ≥ 2)", f"{100 * engaged:.0f}%")
+            cols[1].metric("Nếu có tương tác: score dự kiến", f"≈ {estimate['score']:.0f}", f"khoảng {low:.0f}–{high:.0f} (80%)", delta_color="off")
+            cols[2].metric("Xếp hạng tương đối", f"cao hơn {estimate['relative_percentile']}%", "so với các bài có tương tác", delta_color="off")
+            st.caption("Score đo khoảng 36 giờ sau khi đăng. Khoảng 80% lấy từ sai số trên validation; "
+                       "các bài viral (hàng nghìn điểm) nằm ngoài khoảng này vì chúng phụ thuộc thời điểm và vài vote đầu, không chỉ tiêu đề.")
+            st.subheader("Từ ngữ đẩy score lên / xuống")
+            st.dataframe(pd.DataFrame([{"Đặc trưng": term(c["feature"]), "Đóng góp vào log(1 + score)": round(c["contribution"], 4),
+                                        "Hướng": "↑ score" if c["contribution"] > 0 else "↓ score"}
+                                       for c in score_model.contributions(title, top=10)]), hide_index=True, width="stretch")
+        terms = score_model.top_terms(20)
+        if terms["high"]:
+            with st.expander("Từ/cụm từ có hệ số lớn nhất trong mô hình score"):
+                left, right = st.columns(2)
+                left.markdown("**Tăng score**")
+                left.dataframe(pd.DataFrame([{"N-gram": term(t["term"]), "Hệ số": round(t["coefficient"], 3)} for t in terms["high"]]),
+                               hide_index=True, width="stretch")
+                right.markdown("**Giảm score**")
+                right.dataframe(pd.DataFrame([{"N-gram": term(t["term"]), "Hệ số": round(t["coefficient"], 3)} for t in terms["low"]]),
+                                hide_index=True, width="stretch")
+        st.caption("Liên hệ giữa từ ngữ và độ phổ biến là quan hệ thống kê; không có nghĩa là đổi tiêu đề sẽ làm bài phổ biến hơn.")
+
+with tabs[5]:
+    st.info("Phần mở rộng ngoài đề cương: tám mức độ phổ biến theo Fang và cộng sự (2016) và Chua (2021). "
+            "Mô hình này dùng cả tiêu đề và giờ đăng UTC.")
+    eight_level_tables()
     comparison, completed = read_json(f"{run_dir}/model_comparison.json"), read_json(f"{run_dir}/completed.json")
     config = read_json(f"{run_dir}/config.json")
     if comparison is None or completed is None:
@@ -169,42 +348,11 @@ with tabs[2]:
                                             "Macro-F1": round(r["macro_f1"], 4), "Accuracy": round(r["accuracy"], 4)} for r in rows]),
                              hide_index=True, width="stretch")
 
-with tabs[3]:
-    model = load_model(CONFIG["model_dir"])
-    if model is None:
-        missing("mô hình xuất cho demo", f"PYTHONPATH=src .venv/bin/python -m askreddit.export_model --run-id {Path(run_dir).name}")
-    else:
-        meta = model.metadata
-        st.markdown(f"Mô hình **{meta['candidate']['id']}** (run `{meta['run_id']}`), suy luận bằng NumPy — không khởi động Spark. "
-                    "Kết quả khớp với Spark trên mẫu kiểm tra (xem `verification.json`).")
-        with st.form("predict"):
-            title = st.text_input("Tiêu đề câu hỏi (tiếng Anh)", "What's a small habit that completely changed your life?")
-            c1, c2 = st.columns(2)
-            day = c1.date_input("Ngày đăng (UTC)", date(2025, 12, 15))
-            moment = c2.time_input("Giờ đăng (UTC)", time(15, 0))
-            submitted = st.form_submit_button("Dự đoán")
-        if submitted and title.strip():
-            created = int(datetime.combine(day, moment, tzinfo=timezone.utc).timestamp())
-            result = model.predict(title, created)
-            probabilities = result["probabilities"]
-            st.success(f"Nhãn dự đoán: **{result['label']}** ({result['score_range']}) — xác suất {pct(probabilities[result['label']])}. "
-                       f"Đăng vào {WEEKDAYS_VI[datetime.fromtimestamp(created, timezone.utc).weekday()]}, {moment.strftime('%H:%M')} UTC "
-                       f"({(moment.hour + 7) % 24:02d}:{moment.minute:02d} giờ Việt Nam).")
-            frame = pd.DataFrame([{"Nhãn": f"{m['label']}: {m['score_range']}", "Xác suất (%)": 100 * p}
-                                  for m, p in zip(meta["label_mapping"], probabilities)])
-            st.bar_chart(frame, x="Nhãn", y="Xác suất (%)", color=BLUE)
-            st.caption("Mô hình được huấn luyện với trọng số lớp cân bằng, nên xác suất các lớp hiếm bị đẩy lên so với tần suất thực; "
-                       "hãy đọc đây là mức độ tương đối, không phải xác suất đã hiệu chỉnh.")
-            st.subheader("Đặc trưng đóng góp nhiều nhất vào nhãn dự đoán")
-            st.dataframe(pd.DataFrame(model.contributions(title, created, result["label"], top=10)),
-                         hide_index=True, width="stretch")
-        terms = model.top_terms(7, 20)
-        if terms:
-            with st.expander("Từ/cụm từ có hệ số tương đối cao nhất cho nhãn 7 (score ≥ 271)"):
-                st.dataframe(pd.DataFrame(terms), hide_index=True, width="stretch")
-        st.caption("Liên hệ giữa từ ngữ, giờ đăng và độ phổ biến là quan hệ thống kê; không có nghĩa là đổi tiêu đề sẽ làm bài phổ biến hơn.")
+with tabs[5]:
+    st.caption("Mô hình tám mức dùng cả giờ đăng UTC nên không còn form dự đoán trong demo (demo chỉ nhập tiêu đề). "
+               "Kết quả đánh giá ở trên vẫn giữ nguyên.")
 
-with tabs[4]:
+with tabs[6]:
     benchmark_dir = CONFIG.get("benchmark_dir")
     results = read_json(f"{benchmark_dir}/results.json") if benchmark_dir else None
     if results is None:

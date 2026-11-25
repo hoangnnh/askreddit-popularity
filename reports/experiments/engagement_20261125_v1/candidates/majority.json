@@ -1,0 +1,90 @@
+{
+  "candidate": {
+    "id": "majority",
+    "kind": "majority"
+  },
+  "status": "completed",
+  "threshold": {
+    "policy": "Probability threshold maximizing validation F1 of the high class; frozen before test. Majority uses 0.5.",
+    "value": 0.5
+  },
+  "training": {
+    "class_weights": [
+      1.0,
+      1.0
+    ],
+    "feature_dimension": 0,
+    "majority_label": 0,
+    "train_positive_rate": 0.28713886996826876,
+    "training_records": 1203860,
+    "training_seconds": 0.0
+  },
+  "validation": {
+    "accuracy": 0.7066213439143866,
+    "all_high_f1_reference": 0.4536624362945938,
+    "at_probability_0_5": {
+      "accuracy": 0.7066213439143866,
+      "balanced_accuracy": 0.5,
+      "confusion_layout": "rows = true [low, high], columns = predicted [low, high]",
+      "confusion_matrix": [
+        [
+          164016,
+          0
+        ],
+        [
+          68097,
+          0
+        ]
+      ],
+      "f1": 0.0,
+      "precision": 0.0,
+      "predicted_positive_rate": 0.0,
+      "recall": 0.0,
+      "specificity": 1.0,
+      "threshold": 0.5
+    },
+    "auc_roc": 0.5,
+    "balanced_accuracy": 0.5,
+    "confusion_layout": "rows = true [low, high], columns = predicted [low, high]",
+    "confusion_matrix": [
+      [
+        164016,
+        0
+      ],
+      [
+        68097,
+        0
+      ]
+    ],
+    "f1": 0.0,
+    "positive_rate": 0.2933786560856135,
+    "positives": 68097,
+    "pr_auc": 0.2933786560856135,
+    "pr_auc_random_baseline": 0.2933786560856135,
+    "precision": 0.0,
+    "predicted_positive_rate": 0.0,
+    "prediction_seconds": 2.928569030998915,
+    "recall": 0.0,
+    "records": 232113,
+    "roc_curve": {
+      "fpr": [
+        0.0,
+        1.0
+      ],
+      "tpr": [
+        0.0,
+        1.0
+      ]
+    },
+    "specificity": 1.0,
+    "threshold": 0.5,
+    "unseen_train_titles": {
+      "auc_roc": 0.5,
+      "f1": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "records": 232113
+    },
+    "zero_division": "Undefined precision/recall/specificity are reported as 0."
+  }
+}

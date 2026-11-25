@@ -1,0 +1,165 @@
+{
+  "config": {
+    "algorithm_version": "score-regression-v1",
+    "artifact_root": "artifacts/experiments",
+    "binary_comparison": {
+      "high_min": 4,
+      "low_below": 3,
+      "note": "AUC of the regression output for the binary v4/v5 rule (score >= 4 vs score < 3)."
+    },
+    "candidates": [
+      {
+        "id": "mean",
+        "kind": "mean"
+      },
+      {
+        "features": "title_structured_features",
+        "id": "title_structured_ridge",
+        "kind": "ridge",
+        "max_iter": 200,
+        "reg_param": 0.0001
+      },
+      {
+        "features": "text_features",
+        "id": "text_ridge_r1e5",
+        "kind": "ridge",
+        "max_iter": 200,
+        "reg_param": 1e-05
+      },
+      {
+        "features": "combined_title_features",
+        "id": "combined_title_ridge_r1e4",
+        "kind": "ridge",
+        "max_iter": 200,
+        "reg_param": 0.0001
+      },
+      {
+        "features": "combined_title_features",
+        "id": "combined_title_ridge_r1e5",
+        "kind": "ridge",
+        "max_iter": 200,
+        "reg_param": 1e-05
+      },
+      {
+        "features": "combined_title_features",
+        "id": "combined_title_ridge_r1e6",
+        "kind": "ridge",
+        "max_iter": 200,
+        "reg_param": 1e-06
+      }
+    ],
+    "config_version": 1,
+    "data_root": "data/experiments",
+    "disclosure": "Stage 2 of the two-stage score estimate, designed on 2026-11-25 after binary runs v3-v4 were viewed. Ridge regression of log(1 + score) from the title on posts with score >= 2 of the title-deduplicated dataset (scores observed ~36 h after posting). The December 2025 test month was already scored by earlier runs; selection uses validation RMSE only.",
+    "disclosure_vi": "B\u01b0\u1edbc 2 c\u1ee7a d\u1ef1 \u0111o\u00e1n score hai b\u01b0\u1edbc, thi\u1ebft k\u1ebf ng\u00e0y 2026-11-25 sau khi \u0111\u00e3 xem c\u00e1c run nh\u1ecb ph\u00e2n v3\u2013v4. H\u1ed3i quy ridge tr\u00ean log(1 + score) ch\u1ec9 t\u1eeb ti\u00eau \u0111\u1ec1, tr\u00ean c\u00e1c b\u00e0i c\u00f3 score \u2265 2 c\u1ee7a d\u1eef li\u1ec7u \u0111\u00e3 b\u1ecf tr\u00f9ng (score \u0111o kho\u1ea3ng 36 gi\u1edd sau khi \u0111\u0103ng). Th\u00e1ng test 12/2025 \u0111\u00e3 \u0111\u01b0\u1ee3c d\u00f9ng \u1edf c\u00e1c run tr\u01b0\u1edbc; m\u00f4 h\u00ecnh ch\u1ec9 \u0111\u01b0\u1ee3c ch\u1ecdn b\u1eb1ng RMSE tr\u00ean validation.",
+    "features": {
+      "feature_sources": [
+        "title",
+        "created_utc"
+      ],
+      "min_df": 10,
+      "ngram_orders": [
+        1,
+        2
+      ],
+      "normalization": "NFKC, Unicode whitespace collapse, lowercase; original title preserved",
+      "remove_stopwords": false,
+      "rf_text_features": 128,
+      "token_pattern": "[\\p{L}\\p{N}]+(?:['\u2019][\\p{L}\\p{N}]+)*",
+      "version": "title-time-nfkc-v1",
+      "vocab_size": 12000
+    },
+    "input": "data/processed/askreddit_dedup",
+    "min_score": 2,
+    "name": "score_v1",
+    "report_root": "reports/experiments",
+    "selection": {
+      "criterion": "validation_rmse_log",
+      "interval": "10th-90th percentile of validation residuals around the prediction",
+      "tie_break": "candidate ID ascending"
+    },
+    "spark": {
+      "driver_memory": "2g",
+      "shuffle_partitions": 16,
+      "write_partitions": 12
+    },
+    "split_dates": {
+      "test": [
+        "2025-12-01T00:00:00Z",
+        "2026-01-01T00:00:00Z"
+      ],
+      "train": [
+        "2025-01-01T00:00:00Z",
+        "2025-10-01T00:00:00Z"
+      ],
+      "validation": [
+        "2025-10-01T00:00:00Z",
+        "2025-12-01T00:00:00Z"
+      ]
+    }
+  },
+  "identity_sha256": "d22401f33582ab0e032732250416dad75e4faa088c221ae1edda2a43536e038f",
+  "input_files": [
+    {
+      "bytes": 4743607,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_dedup/year=2025/month=1/part-00001-3b14b4a8-07a0-4f45-b77a-505de616a644.c000.zstd.parquet",
+      "sha256": "a66d1074f5cc95a23dd8179f8f8210c2b4144916fdc1ea9738aa035e9bfdd104"
+    },
+    {
+      "bytes": 4132059,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_dedup/year=2025/month=10/part-00003-3b14b4a8-07a0-4f45-b77a-505de616a644.c000.zstd.parquet",
+      "sha256": "2d52c29c5b82057df3169c013c1e8de77010a0afc112dda74e45ee18721ea8fe"
+    },
+    {
+      "bytes": 3971485,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_dedup/year=2025/month=11/part-00000-3b14b4a8-07a0-4f45-b77a-505de616a644.c000.zstd.parquet",
+      "sha256": "78b055cca7270dfa3af42f9fc071a330662a36ad76ffcd04e70cb96ba94e3691"
+    },
+    {
+      "bytes": 4211139,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_dedup/year=2025/month=12/part-00002-3b14b4a8-07a0-4f45-b77a-505de616a644.c000.zstd.parquet",
+      "sha256": "44fcfba1b9c47ab7d00443422e5001eb092a241545ab218bf36b2c4eafe94d69"
+    },
+    {
+      "bytes": 4461410,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_dedup/year=2025/month=2/part-00002-3b14b4a8-07a0-4f45-b77a-505de616a644.c000.zstd.parquet",
+      "sha256": "327f2203ff3c2ca82e6dc394f848f29a9f79535288c738092e447d04685a592a"
+    },
+    {
+      "bytes": 4881501,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_dedup/year=2025/month=3/part-00002-3b14b4a8-07a0-4f45-b77a-505de616a644.c000.zstd.parquet",
+      "sha256": "a1dd0e1679f31048ecd642c47915fea86eae2990578affa0099a9498904b788c"
+    },
+    {
+      "bytes": 4569556,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_dedup/year=2025/month=4/part-00003-3b14b4a8-07a0-4f45-b77a-505de616a644.c000.zstd.parquet",
+      "sha256": "41e78e24057dc46e0221c6216ab76cac1e951cbf479ebd42579b9f2c6fee8ac1"
+    },
+    {
+      "bytes": 4798058,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_dedup/year=2025/month=5/part-00003-3b14b4a8-07a0-4f45-b77a-505de616a644.c000.zstd.parquet",
+      "sha256": "b35b510de54455e3d91a1e068b75d55a97c13511b7dc51dd7b195e88a20ee9df"
+    },
+    {
+      "bytes": 4819598,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_dedup/year=2025/month=6/part-00002-3b14b4a8-07a0-4f45-b77a-505de616a644.c000.zstd.parquet",
+      "sha256": "5f30940356cbc54c9f11da646b8e98a48842e1edfb9b64c5c6de663f56526cf3"
+    },
+    {
+      "bytes": 4966787,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_dedup/year=2025/month=7/part-00003-3b14b4a8-07a0-4f45-b77a-505de616a644.c000.zstd.parquet",
+      "sha256": "cd0a18bdace88ffd45f9faac02173c76d3a1b345bb13472a6f48e98b804525b3"
+    },
+    {
+      "bytes": 4605286,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_dedup/year=2025/month=8/part-00000-3b14b4a8-07a0-4f45-b77a-505de616a644.c000.zstd.parquet",
+      "sha256": "b75fc0263130f29359e0d6f92514157633476e6dd1e36a7271066f9c5a3aae6f"
+    },
+    {
+      "bytes": 4275972,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_dedup/year=2025/month=9/part-00001-3b14b4a8-07a0-4f45-b77a-505de616a644.c000.zstd.parquet",
+      "sha256": "aee2db996c6fe360af13f719bd56ff2c5a2a5429c82b5b91928a871697d33257"
+    }
+  ],
+  "python_version": "3.14.8"
+}

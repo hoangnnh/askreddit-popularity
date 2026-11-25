@@ -1,0 +1,127 @@
+{
+  "config_version": 1,
+  "name": "binary_v5",
+  "algorithm_version": "binary-train-quantile-v1",
+  "input": "data/processed/askreddit_dedup",
+  "data_root": "data/experiments",
+  "artifact_root": "artifacts/experiments",
+  "report_root": "reports/experiments",
+  "disclosure": "Designed on 2026-11-25 after v4. Identical to v4 (score >= 2 population, low = below median, high = top quartile, title-only models) but trained on the title-deduplicated dataset (one posting per normalized title, the highest-scoring one; see reports/data_quality_dedup/run.json). Deduplication selects postings using all 2025 scores, including validation/test months; titles never span splits. The December 2025 test month was already scored by earlier runs; selection uses validation only.",
+  "disclosure_vi": "Cấu hình v5 thiết kế ngày 2026-11-25 sau v4. Giống hệt v4 (chỉ xét bài score ≥ 2, thấp = dưới trung vị, cao = 25% cao nhất, mô hình chỉ dùng tiêu đề) nhưng huấn luyện trên dữ liệu đã bỏ trùng tiêu đề (mỗi tiêu đề chuẩn hóa giữ một bài có score cao nhất; xem reports/data_quality_dedup/run.json). Việc chọn bài giữ lại dùng score cả năm 2025, kể cả các tháng validation/test; không tiêu đề nào nằm ở hai tập. Tháng test 12/2025 đã được dùng ở các run trước; mô hình chỉ được chọn bằng validation.",
+  "split_dates": {
+    "train": [
+      "2025-01-01T00:00:00Z",
+      "2025-10-01T00:00:00Z"
+    ],
+    "validation": [
+      "2025-10-01T00:00:00Z",
+      "2025-12-01T00:00:00Z"
+    ],
+    "test": [
+      "2025-12-01T00:00:00Z",
+      "2026-01-01T00:00:00Z"
+    ]
+  },
+  "spark": {
+    "driver_memory": "2g",
+    "shuffle_partitions": 16,
+    "write_partitions": 12
+  },
+  "labeling": {
+    "population_min_score": 2,
+    "low_rule": "lt_median",
+    "high_rule": "ge_p75",
+    "low": "score < median of train posts with score >= 2",
+    "high": "score >= p75 of train posts with score >= 2",
+    "excluded": "score <= 1 (default self-vote or net downvoted; mixes removed posts with ignored ones)",
+    "middle": "median <= score < p75, excluded",
+    "tie_rationale": "Within score >= 2 the train median is 3 and p75 is 4. Strict < median gives 49.1% (closest to the nominal 50%) and >= p75 gives 28.7% (closest to the nominal 25%).",
+    "rationale_vi": "Trong tập score ≥ 2 của train, trung vị = 3 và p75 = 4. Lấy thấp = score < trung vị (49,1%, gần 50% nhất) và cao = score ≥ p75 (28,7%, gần 25% nhất) — đúng nghĩa đen \"dưới trung vị\" và \"25% cao nhất\" trong đề cương.",
+    "expected_train_thresholds": {
+      "median": 3,
+      "p75": 4
+    }
+  },
+  "features": {
+    "version": "title-time-nfkc-v1",
+    "vocab_size": 12000,
+    "min_df": 10,
+    "rf_text_features": 128,
+    "normalization": "NFKC, Unicode whitespace collapse, lowercase; original title preserved",
+    "token_pattern": "[\\p{L}\\p{N}]+(?:['’][\\p{L}\\p{N}]+)*",
+    "ngram_orders": [
+      1,
+      2
+    ],
+    "remove_stopwords": false,
+    "feature_sources": [
+      "title",
+      "created_utc"
+    ]
+  },
+  "chi_square": {
+    "num_top_features": 128,
+    "input": "binary train term presence over the train vocabulary",
+    "used_by": "GBT candidates (selected_title_features = top-k TF-IDF columns + 5 title-structure features; no posting time)"
+  },
+  "seed": 212,
+  "selection": {
+    "criterion": "validation_auc_roc",
+    "tie_break": "largest validation AUC rounded to 12 decimals, then candidate ID ascending",
+    "threshold_policy": "Per candidate, the probability threshold maximizing validation F1 of the high class; frozen before test",
+    "test_policy": "Freeze selection and thresholds before scoring test; report all predefined candidates",
+    "note": "time_lr is an ablation that measures posting-time signal; it is not a deployable candidate but is kept in the predeclared list."
+  },
+  "candidates": [
+    {
+      "id": "majority",
+      "kind": "majority"
+    },
+    {
+      "id": "time_lr",
+      "kind": "lr",
+      "features": "time_features",
+      "reg_param": 0.0001,
+      "max_iter": 200,
+      "role": "ablation"
+    },
+    {
+      "id": "title_structured_lr",
+      "kind": "lr",
+      "features": "title_structured_features",
+      "reg_param": 0.0001,
+      "max_iter": 200
+    },
+    {
+      "id": "text_lr_r1e5",
+      "kind": "lr",
+      "features": "text_features",
+      "reg_param": 1e-05,
+      "max_iter": 200
+    },
+    {
+      "id": "combined_title_lr_r1e4",
+      "kind": "lr",
+      "features": "combined_title_features",
+      "reg_param": 0.0001,
+      "max_iter": 200
+    },
+    {
+      "id": "combined_title_lr_r1e5",
+      "kind": "lr",
+      "features": "combined_title_features",
+      "reg_param": 1e-05,
+      "max_iter": 200
+    },
+    {
+      "id": "gbt_d5",
+      "kind": "gbt",
+      "features": "selected_title_features",
+      "max_iter": 60,
+      "max_depth": 5,
+      "max_bins": 32,
+      "step_size": 0.1,
+      "subsampling_rate": 0.8
+    }
+  ]
+}

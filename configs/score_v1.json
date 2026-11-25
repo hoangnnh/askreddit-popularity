@@ -1,0 +1,99 @@
+{
+  "config_version": 1,
+  "name": "score_v1",
+  "algorithm_version": "score-regression-v1",
+  "input": "data/processed/askreddit_dedup",
+  "data_root": "data/experiments",
+  "artifact_root": "artifacts/experiments",
+  "report_root": "reports/experiments",
+  "disclosure": "Stage 2 of the two-stage score estimate, designed on 2026-11-25 after binary runs v3-v4 were viewed. Ridge regression of log(1 + score) from the title on posts with score >= 2 of the title-deduplicated dataset (scores observed ~36 h after posting). The December 2025 test month was already scored by earlier runs; selection uses validation RMSE only.",
+  "disclosure_vi": "Bước 2 của dự đoán score hai bước, thiết kế ngày 2026-11-25 sau khi đã xem các run nhị phân v3–v4. Hồi quy ridge trên log(1 + score) chỉ từ tiêu đề, trên các bài có score ≥ 2 của dữ liệu đã bỏ trùng (score đo khoảng 36 giờ sau khi đăng). Tháng test 12/2025 đã được dùng ở các run trước; mô hình chỉ được chọn bằng RMSE trên validation.",
+  "split_dates": {
+    "train": [
+      "2025-01-01T00:00:00Z",
+      "2025-10-01T00:00:00Z"
+    ],
+    "validation": [
+      "2025-10-01T00:00:00Z",
+      "2025-12-01T00:00:00Z"
+    ],
+    "test": [
+      "2025-12-01T00:00:00Z",
+      "2026-01-01T00:00:00Z"
+    ]
+  },
+  "spark": {
+    "driver_memory": "2g",
+    "shuffle_partitions": 16,
+    "write_partitions": 12
+  },
+  "features": {
+    "version": "title-time-nfkc-v1",
+    "vocab_size": 12000,
+    "min_df": 10,
+    "rf_text_features": 128,
+    "normalization": "NFKC, Unicode whitespace collapse, lowercase; original title preserved",
+    "token_pattern": "[\\p{L}\\p{N}]+(?:['’][\\p{L}\\p{N}]+)*",
+    "ngram_orders": [
+      1,
+      2
+    ],
+    "remove_stopwords": false,
+    "feature_sources": [
+      "title",
+      "created_utc"
+    ]
+  },
+  "min_score": 2,
+  "binary_comparison": {
+    "high_min": 4,
+    "low_below": 3,
+    "note": "AUC of the regression output for the binary v4/v5 rule (score >= 4 vs score < 3)."
+  },
+  "selection": {
+    "criterion": "validation_rmse_log",
+    "tie_break": "candidate ID ascending",
+    "interval": "10th-90th percentile of validation residuals around the prediction"
+  },
+  "candidates": [
+    {
+      "id": "mean",
+      "kind": "mean"
+    },
+    {
+      "id": "title_structured_ridge",
+      "kind": "ridge",
+      "features": "title_structured_features",
+      "reg_param": 0.0001,
+      "max_iter": 200
+    },
+    {
+      "id": "text_ridge_r1e5",
+      "kind": "ridge",
+      "features": "text_features",
+      "reg_param": 1e-05,
+      "max_iter": 200
+    },
+    {
+      "id": "combined_title_ridge_r1e4",
+      "kind": "ridge",
+      "features": "combined_title_features",
+      "reg_param": 0.0001,
+      "max_iter": 200
+    },
+    {
+      "id": "combined_title_ridge_r1e5",
+      "kind": "ridge",
+      "features": "combined_title_features",
+      "reg_param": 1e-05,
+      "max_iter": 200
+    },
+    {
+      "id": "combined_title_ridge_r1e6",
+      "kind": "ridge",
+      "features": "combined_title_features",
+      "reg_param": 1e-06,
+      "max_iter": 200
+    }
+  ]
+}

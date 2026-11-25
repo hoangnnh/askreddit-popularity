@@ -1,0 +1,102 @@
+{
+  "algorithm_version": "binary-train-quantile-v1",
+  "artifact_root": "artifacts/experiments",
+  "candidates": [
+    {
+      "id": "majority",
+      "kind": "majority"
+    },
+    {
+      "features": "title_structured_features",
+      "id": "title_structured_lr",
+      "kind": "lr",
+      "max_iter": 200,
+      "reg_param": 0.0001
+    },
+    {
+      "features": "combined_title_features",
+      "id": "combined_title_lr_r1e4",
+      "kind": "lr",
+      "max_iter": 200,
+      "reg_param": 0.0001
+    },
+    {
+      "features": "combined_title_features",
+      "id": "combined_title_lr_r1e5",
+      "kind": "lr",
+      "max_iter": 200,
+      "reg_param": 1e-05
+    }
+  ],
+  "chi_square": {
+    "input": "binary train term presence over the train vocabulary",
+    "num_top_features": 128,
+    "used_by": "Reported only (no tree candidates in this stage)."
+  },
+  "config_version": 1,
+  "data_root": "data/experiments",
+  "disclosure": "Stage 1 of the two-stage score estimate, designed on 2026-11-25. Predicts whether a post reaches score >= 2 (at least one net upvote beyond the author's, observed about 36 hours after posting per Arctic Shift) from the title alone, on all posts of the title-deduplicated dataset. Low (score <= 1) also contains posts removed by moderators. Probabilities are prior-corrected for the balanced class weights at export. The December 2025 test month was already scored by earlier runs.",
+  "disclosure_vi": "B\u01b0\u1edbc 1 c\u1ee7a d\u1ef1 \u0111o\u00e1n score hai b\u01b0\u1edbc, thi\u1ebft k\u1ebf ng\u00e0y 2026-11-25. D\u1ef1 \u0111o\u00e1n b\u00e0i c\u00f3 \u0111\u1ea1t score \u2265 2 hay kh\u00f4ng (\u00edt nh\u1ea5t m\u1ed9t upvote r\u00f2ng ngo\u00e0i c\u1ee7a t\u00e1c gi\u1ea3, \u0111o kho\u1ea3ng 36 gi\u1edd sau khi \u0111\u0103ng theo Arctic Shift), ch\u1ec9 t\u1eeb ti\u00eau \u0111\u1ec1, tr\u00ean m\u1ecdi b\u00e0i c\u1ee7a d\u1eef li\u1ec7u \u0111\u00e3 b\u1ecf tr\u00f9ng. Nh\u00f3m th\u1ea5p (score \u2264 1) g\u1ed3m c\u1ea3 b\u00e0i b\u1ecb mod g\u1ee1. X\u00e1c su\u1ea5t \u0111\u01b0\u1ee3c hi\u1ec7u ch\u1ec9nh l\u1ea1i theo t\u1ec9 l\u1ec7 l\u1edbp th\u1eadt khi export. Th\u00e1ng test 12/2025 \u0111\u00e3 \u0111\u01b0\u1ee3c d\u00f9ng \u1edf c\u00e1c run tr\u01b0\u1edbc.",
+  "features": {
+    "feature_sources": [
+      "title",
+      "created_utc"
+    ],
+    "min_df": 10,
+    "ngram_orders": [
+      1,
+      2
+    ],
+    "normalization": "NFKC, Unicode whitespace collapse, lowercase; original title preserved",
+    "remove_stopwords": false,
+    "rf_text_features": 128,
+    "token_pattern": "[\\p{L}\\p{N}]+(?:['\u2019][\\p{L}\\p{N}]+)*",
+    "version": "title-time-nfkc-v1",
+    "vocab_size": 12000
+  },
+  "input": "data/processed/askreddit_dedup",
+  "labeling": {
+    "expected_train_thresholds": {
+      "median": 1,
+      "p75": 2
+    },
+    "high": "score >= 2",
+    "high_rule": "ge_value",
+    "high_value": 2,
+    "low": "score <= 1",
+    "low_rule": "le_value",
+    "low_value": 1,
+    "middle": "none",
+    "population_min_score": null,
+    "rationale_vi": "Ng\u01b0\u1ee1ng c\u1ed1 \u0111\u1ecbnh: cao = b\u00e0i c\u00f3 \u00edt nh\u1ea5t m\u1ed9t upvote r\u00f2ng (score \u2265 2), th\u1ea5p = score \u2264 1. Kh\u00f4ng b\u1ecf nh\u00f3m gi\u1eefa."
+  },
+  "name": "engagement_v1",
+  "report_root": "reports/experiments",
+  "seed": 212,
+  "selection": {
+    "criterion": "validation_auc_roc",
+    "note": "time_lr is an ablation that measures posting-time signal; it is not a deployable candidate but is kept in the predeclared list.",
+    "test_policy": "Freeze selection and thresholds before scoring test; report all predefined candidates",
+    "threshold_policy": "Per candidate, the probability threshold maximizing validation F1 of the high class; frozen before test",
+    "tie_break": "largest validation AUC rounded to 12 decimals, then candidate ID ascending"
+  },
+  "spark": {
+    "driver_memory": "2g",
+    "shuffle_partitions": 16,
+    "write_partitions": 12
+  },
+  "split_dates": {
+    "test": [
+      "2025-12-01T00:00:00Z",
+      "2026-01-01T00:00:00Z"
+    ],
+    "train": [
+      "2025-01-01T00:00:00Z",
+      "2025-10-01T00:00:00Z"
+    ],
+    "validation": [
+      "2025-10-01T00:00:00Z",
+      "2025-12-01T00:00:00Z"
+    ]
+  }
+}

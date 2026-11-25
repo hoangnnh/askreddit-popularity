@@ -1,0 +1,1272 @@
+{
+  "ridge": {
+    "combined_title_ridge_r1e4": {
+      "intercept": 2.4259366096149435,
+      "structured": {
+        "question_count": -0.016728665264887796,
+        "question_present": -0.00262848376111673,
+        "title_characters": 0.06142785130001152,
+        "title_words": -0.031181467945228535,
+        "uppercase_ratio": 0.013264138520854382
+      },
+      "top_negative": [
+        {
+          "coefficient": -0.982095270158278,
+          "kind": "u",
+          "term": "or"
+        },
+        {
+          "coefficient": -0.672055667902314,
+          "kind": "u",
+          "term": "and"
+        },
+        {
+          "coefficient": -0.5485589119850057,
+          "kind": "u",
+          "term": "how"
+        },
+        {
+          "coefficient": -0.5009836981009209,
+          "kind": "u",
+          "term": "story"
+        },
+        {
+          "coefficient": -0.4742269845854303,
+          "kind": "u",
+          "term": "moment"
+        },
+        {
+          "coefficient": -0.4339035673771585,
+          "kind": "b",
+          "term": "opposite sex"
+        },
+        {
+          "coefficient": -0.4207897081772532,
+          "kind": "u",
+          "term": "etc"
+        },
+        {
+          "coefficient": -0.4166968999698999,
+          "kind": "u",
+          "term": "where"
+        },
+        {
+          "coefficient": -0.41577568388465985,
+          "kind": "u",
+          "term": "some"
+        },
+        {
+          "coefficient": -0.4141612572261045,
+          "kind": "u",
+          "term": "situation"
+        },
+        {
+          "coefficient": -0.4136852534034878,
+          "kind": "u",
+          "term": "different"
+        },
+        {
+          "coefficient": -0.3965703536731386,
+          "kind": "u",
+          "term": "what"
+        },
+        {
+          "coefficient": -0.3959289867051125,
+          "kind": "u",
+          "term": "ai"
+        },
+        {
+          "coefficient": -0.3907484306181269,
+          "kind": "u",
+          "term": "question"
+        },
+        {
+          "coefficient": -0.3794515256798871,
+          "kind": "u",
+          "term": "change"
+        },
+        {
+          "coefficient": -0.3788541034653521,
+          "kind": "u",
+          "term": "when"
+        },
+        {
+          "coefficient": -0.3634224845522179,
+          "kind": "u",
+          "term": "with"
+        },
+        {
+          "coefficient": -0.36333103063214867,
+          "kind": "b",
+          "term": "what if"
+        },
+        {
+          "coefficient": -0.35843444055694484,
+          "kind": "u",
+          "term": "sports"
+        },
+        {
+          "coefficient": -0.3566796119834353,
+          "kind": "u",
+          "term": "hair"
+        },
+        {
+          "coefficient": -0.3549948810180825,
+          "kind": "u",
+          "term": "system"
+        },
+        {
+          "coefficient": -0.3530181822572101,
+          "kind": "b",
+          "term": "are the"
+        },
+        {
+          "coefficient": -0.34304299870750404,
+          "kind": "u",
+          "term": "theory"
+        },
+        {
+          "coefficient": -0.3424170544026072,
+          "kind": "u",
+          "term": "your"
+        },
+        {
+          "coefficient": -0.3417150976006503,
+          "kind": "u",
+          "term": "family"
+        },
+        {
+          "coefficient": -0.3411149865557671,
+          "kind": "u",
+          "term": "online"
+        },
+        {
+          "coefficient": -0.33904914503199224,
+          "kind": "u",
+          "term": "time"
+        },
+        {
+          "coefficient": -0.32293265430257617,
+          "kind": "u",
+          "term": "would"
+        },
+        {
+          "coefficient": -0.32263074281338383,
+          "kind": "b",
+          "term": "and what"
+        },
+        {
+          "coefficient": -0.32177694902082626,
+          "kind": "u",
+          "term": "which"
+        }
+      ],
+      "top_positive": [
+        {
+          "coefficient": 4.093833721635229,
+          "kind": "u",
+          "term": "trump"
+        },
+        {
+          "coefficient": 2.2559303868348834,
+          "kind": "u",
+          "term": "nsfw"
+        },
+        {
+          "coefficient": 2.2235562875093033,
+          "kind": "u",
+          "term": "sex"
+        },
+        {
+          "coefficient": 2.026838155080841,
+          "kind": "u",
+          "term": "epstein"
+        },
+        {
+          "coefficient": 1.6255058525293895,
+          "kind": "u",
+          "term": "porn"
+        },
+        {
+          "coefficient": 1.5438473155534902,
+          "kind": "u",
+          "term": "americans"
+        },
+        {
+          "coefficient": 1.4088955384589368,
+          "kind": "u",
+          "term": "president"
+        },
+        {
+          "coefficient": 1.3879587405583085,
+          "kind": "u",
+          "term": "conservatives"
+        },
+        {
+          "coefficient": 1.3497908091921937,
+          "kind": "u",
+          "term": "sexual"
+        },
+        {
+          "coefficient": 1.2479591542496953,
+          "kind": "u",
+          "term": "congress"
+        },
+        {
+          "coefficient": 1.1741816503252092,
+          "kind": "u",
+          "term": "elon"
+        },
+        {
+          "coefficient": 1.1001630315261477,
+          "kind": "b",
+          "term": "epstein files"
+        },
+        {
+          "coefficient": 1.05745639044642,
+          "kind": "u",
+          "term": "musk"
+        },
+        {
+          "coefficient": 1.0048654505876462,
+          "kind": "u",
+          "term": "fuck"
+        },
+        {
+          "coefficient": 0.9570478585744896,
+          "kind": "b",
+          "term": "elon musk"
+        },
+        {
+          "coefficient": 0.956809359264052,
+          "kind": "u",
+          "term": "trump's"
+        },
+        {
+          "coefficient": 0.9507987628402919,
+          "kind": "u",
+          "term": "election"
+        },
+        {
+          "coefficient": 0.9438764309930137,
+          "kind": "u",
+          "term": "files"
+        },
+        {
+          "coefficient": 0.9337821454267561,
+          "kind": "u",
+          "term": "naked"
+        },
+        {
+          "coefficient": 0.8941241611038454,
+          "kind": "u",
+          "term": "attractive"
+        },
+        {
+          "coefficient": 0.872377927674415,
+          "kind": "b",
+          "term": "u s"
+        },
+        {
+          "coefficient": 0.863170748955815,
+          "kind": "u",
+          "term": "trump\u2019s"
+        },
+        {
+          "coefficient": 0.8592364760320771,
+          "kind": "u",
+          "term": "instantly"
+        },
+        {
+          "coefficient": 0.8570036585924614,
+          "kind": "b",
+          "term": "feel about"
+        },
+        {
+          "coefficient": 0.8502145006399021,
+          "kind": "u",
+          "term": "government"
+        },
+        {
+          "coefficient": 0.8416990813990544,
+          "kind": "b",
+          "term": "the epstein"
+        },
+        {
+          "coefficient": 0.826456354934501,
+          "kind": "u",
+          "term": "sign"
+        },
+        {
+          "coefficient": 0.8230353689348249,
+          "kind": "u",
+          "term": "intimate"
+        },
+        {
+          "coefficient": 0.8048632732927081,
+          "kind": "u",
+          "term": "republicans"
+        },
+        {
+          "coefficient": 0.763705687088695,
+          "kind": "u",
+          "term": "killing"
+        }
+      ],
+      "unit": "Change in log(1 + score) per unit of L2-normalized TF-IDF (text) or per train SD (structure)"
+    },
+    "combined_title_ridge_r1e5": {
+      "intercept": 2.098704027294933,
+      "structured": {
+        "question_count": -0.012731989684865958,
+        "question_present": -0.001612668481077126,
+        "title_characters": 0.09240537433693713,
+        "title_words": -0.06940026216860186,
+        "uppercase_ratio": 0.007044413479020578
+      },
+      "top_negative": [
+        {
+          "coefficient": -1.426867899702515,
+          "kind": "b",
+          "term": "trump and"
+        },
+        {
+          "coefficient": -1.3793065039124448,
+          "kind": "b",
+          "term": "opposite sex"
+        },
+        {
+          "coefficient": -0.9436510789047862,
+          "kind": "b",
+          "term": "and he"
+        },
+        {
+          "coefficient": -0.9305287632920249,
+          "kind": "b",
+          "term": "non americans"
+        },
+        {
+          "coefficient": -0.8990499519643841,
+          "kind": "u",
+          "term": "or"
+        },
+        {
+          "coefficient": -0.8786812030512704,
+          "kind": "b",
+          "term": "why is"
+        },
+        {
+          "coefficient": -0.8771313864263577,
+          "kind": "b",
+          "term": "now realize"
+        },
+        {
+          "coefficient": -0.8681346193483531,
+          "kind": "b",
+          "term": "that you'll"
+        },
+        {
+          "coefficient": -0.8534010505698157,
+          "kind": "b",
+          "term": "get rid"
+        },
+        {
+          "coefficient": -0.7921099011951456,
+          "kind": "b",
+          "term": "a totally"
+        },
+        {
+          "coefficient": -0.7851940067089764,
+          "kind": "b",
+          "term": "majority of"
+        },
+        {
+          "coefficient": -0.772195399623125,
+          "kind": "b",
+          "term": "if he"
+        },
+        {
+          "coefficient": -0.7647600979908431,
+          "kind": "b",
+          "term": "the equivalent"
+        },
+        {
+          "coefficient": -0.7470546303558169,
+          "kind": "b",
+          "term": "who will"
+        },
+        {
+          "coefficient": -0.7454791489676582,
+          "kind": "b",
+          "term": "outside the"
+        },
+        {
+          "coefficient": -0.734269273000981,
+          "kind": "u",
+          "term": "what"
+        },
+        {
+          "coefficient": -0.7341703583222431,
+          "kind": "b",
+          "term": "free will"
+        },
+        {
+          "coefficient": -0.7110664867480303,
+          "kind": "b",
+          "term": "president of"
+        },
+        {
+          "coefficient": -0.7106584251933706,
+          "kind": "u",
+          "term": "something"
+        },
+        {
+          "coefficient": -0.7051741079208297,
+          "kind": "b",
+          "term": "that annoys"
+        },
+        {
+          "coefficient": -0.6984689486769166,
+          "kind": "b",
+          "term": "people know"
+        },
+        {
+          "coefficient": -0.6978918540462962,
+          "kind": "u",
+          "term": "how"
+        },
+        {
+          "coefficient": -0.6922317795354581,
+          "kind": "b",
+          "term": "he is"
+        },
+        {
+          "coefficient": -0.6898113372706922,
+          "kind": "b",
+          "term": "only had"
+        },
+        {
+          "coefficient": -0.6852271409816211,
+          "kind": "b",
+          "term": "life of"
+        },
+        {
+          "coefficient": -0.6807353959903573,
+          "kind": "u",
+          "term": "assuming"
+        },
+        {
+          "coefficient": -0.6795836281564395,
+          "kind": "u",
+          "term": "moment"
+        },
+        {
+          "coefficient": -0.6776747992822482,
+          "kind": "b",
+          "term": "would happen"
+        },
+        {
+          "coefficient": -0.673469853473799,
+          "kind": "b",
+          "term": "guys how"
+        },
+        {
+          "coefficient": -0.6718380337916727,
+          "kind": "u",
+          "term": "engagement"
+        }
+      ],
+      "top_positive": [
+        {
+          "coefficient": 5.135127227523959,
+          "kind": "u",
+          "term": "trump"
+        },
+        {
+          "coefficient": 3.7122429491074307,
+          "kind": "u",
+          "term": "conservatives"
+        },
+        {
+          "coefficient": 3.660888550409343,
+          "kind": "u",
+          "term": "epstein"
+        },
+        {
+          "coefficient": 3.232529592671526,
+          "kind": "u",
+          "term": "nsfw"
+        },
+        {
+          "coefficient": 3.142407965865006,
+          "kind": "u",
+          "term": "congress"
+        },
+        {
+          "coefficient": 2.818110222496339,
+          "kind": "u",
+          "term": "porn"
+        },
+        {
+          "coefficient": 2.6393170431706947,
+          "kind": "b",
+          "term": "white house"
+        },
+        {
+          "coefficient": 2.5730957158079835,
+          "kind": "u",
+          "term": "trump\u2019s"
+        },
+        {
+          "coefficient": 2.527079708984681,
+          "kind": "u",
+          "term": "sex"
+        },
+        {
+          "coefficient": 2.48462817776613,
+          "kind": "u",
+          "term": "trump's"
+        },
+        {
+          "coefficient": 2.3731455992443684,
+          "kind": "u",
+          "term": "election"
+        },
+        {
+          "coefficient": 2.297880108826138,
+          "kind": "u",
+          "term": "supreme"
+        },
+        {
+          "coefficient": 2.089929363434723,
+          "kind": "u",
+          "term": "americans"
+        },
+        {
+          "coefficient": 2.0697925300782236,
+          "kind": "b",
+          "term": "americans how"
+        },
+        {
+          "coefficient": 2.0551156947646603,
+          "kind": "u",
+          "term": "tesla"
+        },
+        {
+          "coefficient": 2.050046008965327,
+          "kind": "u",
+          "term": "sexual"
+        },
+        {
+          "coefficient": 2.0495439159972157,
+          "kind": "u",
+          "term": "killing"
+        },
+        {
+          "coefficient": 1.9503365959151349,
+          "kind": "u",
+          "term": "intimate"
+        },
+        {
+          "coefficient": 1.9270697126717413,
+          "kind": "b",
+          "term": "epstein files"
+        },
+        {
+          "coefficient": 1.92580066932175,
+          "kind": "b",
+          "term": "u s"
+        },
+        {
+          "coefficient": 1.9083919144257429,
+          "kind": "u",
+          "term": "president"
+        },
+        {
+          "coefficient": 1.838427168121449,
+          "kind": "u",
+          "term": "elon"
+        },
+        {
+          "coefficient": 1.7915120111137004,
+          "kind": "u",
+          "term": "naked"
+        },
+        {
+          "coefficient": 1.7828998581303541,
+          "kind": "u",
+          "term": "republicans"
+        },
+        {
+          "coefficient": 1.7614665009267558,
+          "kind": "b",
+          "term": "elon musk"
+        },
+        {
+          "coefficient": 1.6797293867972438,
+          "kind": "u",
+          "term": "fuck"
+        },
+        {
+          "coefficient": 1.671912901529547,
+          "kind": "u",
+          "term": "politicians"
+        },
+        {
+          "coefficient": 1.6023660476500352,
+          "kind": "u",
+          "term": "executive"
+        },
+        {
+          "coefficient": 1.58790022621187,
+          "kind": "u",
+          "term": "donald"
+        },
+        {
+          "coefficient": 1.5499350111054873,
+          "kind": "b",
+          "term": "kill you"
+        }
+      ],
+      "unit": "Change in log(1 + score) per unit of L2-normalized TF-IDF (text) or per train SD (structure)"
+    },
+    "combined_title_ridge_r1e6": {
+      "intercept": 1.9471837719465421,
+      "structured": {
+        "question_count": -0.01186415310492678,
+        "question_present": -0.0013070296328330192,
+        "title_characters": 0.1132738520954378,
+        "title_words": -0.10589239871906493,
+        "uppercase_ratio": 0.006298634945265862
+      },
+      "top_negative": [
+        {
+          "coefficient": -2.1402437540747368,
+          "kind": "b",
+          "term": "trump and"
+        },
+        {
+          "coefficient": -2.1145119435997533,
+          "kind": "b",
+          "term": "majority of"
+        },
+        {
+          "coefficient": -2.068633897562018,
+          "kind": "b",
+          "term": "refused to"
+        },
+        {
+          "coefficient": -1.967929435098484,
+          "kind": "b",
+          "term": "opposite sex"
+        },
+        {
+          "coefficient": -1.6149591260667195,
+          "kind": "b",
+          "term": "and he"
+        },
+        {
+          "coefficient": -1.5574564851751533,
+          "kind": "b",
+          "term": "get rid"
+        },
+        {
+          "coefficient": -1.4807521459527828,
+          "kind": "b",
+          "term": "police officers"
+        },
+        {
+          "coefficient": -1.4331479118810795,
+          "kind": "b",
+          "term": "your bank"
+        },
+        {
+          "coefficient": -1.3907933073657892,
+          "kind": "b",
+          "term": "the epstein"
+        },
+        {
+          "coefficient": -1.3395203744083723,
+          "kind": "b",
+          "term": "rise of"
+        },
+        {
+          "coefficient": -1.3207299194033795,
+          "kind": "b",
+          "term": "now realize"
+        },
+        {
+          "coefficient": -1.2582180526690845,
+          "kind": "b",
+          "term": "that future"
+        },
+        {
+          "coefficient": -1.1978645173369555,
+          "kind": "b",
+          "term": "waking up"
+        },
+        {
+          "coefficient": -1.1914087110552751,
+          "kind": "b",
+          "term": "much as"
+        },
+        {
+          "coefficient": -1.1889038693985685,
+          "kind": "b",
+          "term": "lesser known"
+        },
+        {
+          "coefficient": -1.1785932336932599,
+          "kind": "b",
+          "term": "non americans"
+        },
+        {
+          "coefficient": -1.1656389057355163,
+          "kind": "b",
+          "term": "outside the"
+        },
+        {
+          "coefficient": -1.158906726926084,
+          "kind": "b",
+          "term": "donald trump"
+        },
+        {
+          "coefficient": -1.154020785953143,
+          "kind": "b",
+          "term": "he is"
+        },
+        {
+          "coefficient": -1.1225761470420268,
+          "kind": "b",
+          "term": "that you'll"
+        },
+        {
+          "coefficient": -1.1048547472791814,
+          "kind": "b",
+          "term": "red flags"
+        },
+        {
+          "coefficient": -1.1032983285579805,
+          "kind": "b",
+          "term": "artificial intelligence"
+        },
+        {
+          "coefficient": -1.1025400348855066,
+          "kind": "u",
+          "term": "motivates"
+        },
+        {
+          "coefficient": -1.0999989404254131,
+          "kind": "b",
+          "term": "if he"
+        },
+        {
+          "coefficient": -1.0957943191639494,
+          "kind": "b",
+          "term": "the equivalent"
+        },
+        {
+          "coefficient": -1.0929036656882996,
+          "kind": "b",
+          "term": "struggled with"
+        },
+        {
+          "coefficient": -1.086471089782084,
+          "kind": "b",
+          "term": "why is"
+        },
+        {
+          "coefficient": -1.0674132944013168,
+          "kind": "b",
+          "term": "chose to"
+        },
+        {
+          "coefficient": -1.0248464798632002,
+          "kind": "b",
+          "term": "in order"
+        },
+        {
+          "coefficient": -1.0226844891503044,
+          "kind": "b",
+          "term": "the concept"
+        }
+      ],
+      "top_positive": [
+        {
+          "coefficient": 5.263295910190006,
+          "kind": "u",
+          "term": "trump"
+        },
+        {
+          "coefficient": 4.5507460756110785,
+          "kind": "u",
+          "term": "conservatives"
+        },
+        {
+          "coefficient": 4.420053776091895,
+          "kind": "u",
+          "term": "epstein"
+        },
+        {
+          "coefficient": 4.373531132659349,
+          "kind": "b",
+          "term": "white house"
+        },
+        {
+          "coefficient": 3.8053555869213396,
+          "kind": "u",
+          "term": "congress"
+        },
+        {
+          "coefficient": 3.382687828874514,
+          "kind": "u",
+          "term": "nsfw"
+        },
+        {
+          "coefficient": 3.275817548121492,
+          "kind": "u",
+          "term": "trump\u2019s"
+        },
+        {
+          "coefficient": 3.1363229701790165,
+          "kind": "u",
+          "term": "supreme"
+        },
+        {
+          "coefficient": 3.0696240148615934,
+          "kind": "u",
+          "term": "porn"
+        },
+        {
+          "coefficient": 2.9933454147481506,
+          "kind": "u",
+          "term": "trump's"
+        },
+        {
+          "coefficient": 2.8843998017087134,
+          "kind": "u",
+          "term": "election"
+        },
+        {
+          "coefficient": 2.839743707390238,
+          "kind": "b",
+          "term": "epstein files"
+        },
+        {
+          "coefficient": 2.743423445178115,
+          "kind": "b",
+          "term": "americans how"
+        },
+        {
+          "coefficient": 2.7391039684124983,
+          "kind": "u",
+          "term": "tesla"
+        },
+        {
+          "coefficient": 2.5643481506031733,
+          "kind": "u",
+          "term": "donald"
+        },
+        {
+          "coefficient": 2.532433919200778,
+          "kind": "u",
+          "term": "sex"
+        },
+        {
+          "coefficient": 2.5111770377862555,
+          "kind": "u",
+          "term": "killing"
+        },
+        {
+          "coefficient": 2.4535503918068353,
+          "kind": "u",
+          "term": "refused"
+        },
+        {
+          "coefficient": 2.4501249317762563,
+          "kind": "b",
+          "term": "u s"
+        },
+        {
+          "coefficient": 2.303336191624453,
+          "kind": "u",
+          "term": "intimate"
+        },
+        {
+          "coefficient": 2.2242666267467333,
+          "kind": "u",
+          "term": "sexual"
+        },
+        {
+          "coefficient": 2.2014905067885517,
+          "kind": "b",
+          "term": "kill you"
+        },
+        {
+          "coefficient": 2.179478908847389,
+          "kind": "b",
+          "term": "elon musk"
+        },
+        {
+          "coefficient": 2.1461437987887524,
+          "kind": "u",
+          "term": "americans"
+        },
+        {
+          "coefficient": 2.0636872330466036,
+          "kind": "b",
+          "term": "view of"
+        },
+        {
+          "coefficient": 2.0494732655125123,
+          "kind": "u",
+          "term": "republicans"
+        },
+        {
+          "coefficient": 2.0400046946373847,
+          "kind": "b",
+          "term": "hated as"
+        },
+        {
+          "coefficient": 2.007421078850279,
+          "kind": "u",
+          "term": "executive"
+        },
+        {
+          "coefficient": 2.0053853647292685,
+          "kind": "u",
+          "term": "naked"
+        },
+        {
+          "coefficient": 1.957570013619238,
+          "kind": "u",
+          "term": "politicians"
+        }
+      ],
+      "unit": "Change in log(1 + score) per unit of L2-normalized TF-IDF (text) or per train SD (structure)"
+    },
+    "text_ridge_r1e5": {
+      "intercept": 1.5917308580659106,
+      "structured": {},
+      "top_negative": [
+        {
+          "coefficient": -1.4432427797847973,
+          "kind": "b",
+          "term": "trump and"
+        },
+        {
+          "coefficient": -1.3691393359357824,
+          "kind": "b",
+          "term": "opposite sex"
+        },
+        {
+          "coefficient": -0.9385729226353782,
+          "kind": "b",
+          "term": "and he"
+        },
+        {
+          "coefficient": -0.9305371316070649,
+          "kind": "b",
+          "term": "non americans"
+        },
+        {
+          "coefficient": -0.8679989563210662,
+          "kind": "b",
+          "term": "now realize"
+        },
+        {
+          "coefficient": -0.8669687774723625,
+          "kind": "b",
+          "term": "that you'll"
+        },
+        {
+          "coefficient": -0.8485985698457861,
+          "kind": "b",
+          "term": "why is"
+        },
+        {
+          "coefficient": -0.8463152700528412,
+          "kind": "b",
+          "term": "get rid"
+        },
+        {
+          "coefficient": -0.8375298183179356,
+          "kind": "u",
+          "term": "or"
+        },
+        {
+          "coefficient": -0.7871321876013228,
+          "kind": "b",
+          "term": "a totally"
+        },
+        {
+          "coefficient": -0.7774554744248803,
+          "kind": "b",
+          "term": "if he"
+        },
+        {
+          "coefficient": -0.774462652159247,
+          "kind": "b",
+          "term": "majority of"
+        },
+        {
+          "coefficient": -0.754319617904662,
+          "kind": "b",
+          "term": "the equivalent"
+        },
+        {
+          "coefficient": -0.7500408722742229,
+          "kind": "u",
+          "term": "what"
+        },
+        {
+          "coefficient": -0.7500238132841471,
+          "kind": "b",
+          "term": "free will"
+        },
+        {
+          "coefficient": -0.7460700700247337,
+          "kind": "b",
+          "term": "who will"
+        },
+        {
+          "coefficient": -0.7351748675382658,
+          "kind": "b",
+          "term": "outside the"
+        },
+        {
+          "coefficient": -0.7216898320748554,
+          "kind": "u",
+          "term": "how"
+        },
+        {
+          "coefficient": -0.7182424235774327,
+          "kind": "b",
+          "term": "president of"
+        },
+        {
+          "coefficient": -0.7022602977822493,
+          "kind": "b",
+          "term": "people know"
+        },
+        {
+          "coefficient": -0.6990389413289377,
+          "kind": "b",
+          "term": "that annoys"
+        },
+        {
+          "coefficient": -0.6963816026572487,
+          "kind": "b",
+          "term": "only had"
+        },
+        {
+          "coefficient": -0.6926362318237794,
+          "kind": "b",
+          "term": "life of"
+        },
+        {
+          "coefficient": -0.691598554062541,
+          "kind": "b",
+          "term": "he is"
+        },
+        {
+          "coefficient": -0.6774458018613371,
+          "kind": "b",
+          "term": "would happen"
+        },
+        {
+          "coefficient": -0.6641867659306466,
+          "kind": "b",
+          "term": "guys how"
+        },
+        {
+          "coefficient": -0.659009020106803,
+          "kind": "b",
+          "term": "him her"
+        },
+        {
+          "coefficient": -0.6569693954831821,
+          "kind": "b",
+          "term": "saddest thing"
+        },
+        {
+          "coefficient": -0.6544057834196758,
+          "kind": "b",
+          "term": "actually make"
+        },
+        {
+          "coefficient": -0.6523712601097567,
+          "kind": "b",
+          "term": "police officers"
+        }
+      ],
+      "top_positive": [
+        {
+          "coefficient": 5.194905817834041,
+          "kind": "u",
+          "term": "trump"
+        },
+        {
+          "coefficient": 3.789941233454403,
+          "kind": "u",
+          "term": "conservatives"
+        },
+        {
+          "coefficient": 3.707534666454205,
+          "kind": "u",
+          "term": "epstein"
+        },
+        {
+          "coefficient": 3.2870275712324126,
+          "kind": "u",
+          "term": "nsfw"
+        },
+        {
+          "coefficient": 3.209908451573525,
+          "kind": "u",
+          "term": "congress"
+        },
+        {
+          "coefficient": 2.8156785410904184,
+          "kind": "u",
+          "term": "porn"
+        },
+        {
+          "coefficient": 2.6630887121798863,
+          "kind": "b",
+          "term": "white house"
+        },
+        {
+          "coefficient": 2.6369854841060154,
+          "kind": "u",
+          "term": "trump\u2019s"
+        },
+        {
+          "coefficient": 2.5408618151806923,
+          "kind": "u",
+          "term": "trump's"
+        },
+        {
+          "coefficient": 2.5109104135938014,
+          "kind": "u",
+          "term": "sex"
+        },
+        {
+          "coefficient": 2.4146098764180555,
+          "kind": "u",
+          "term": "election"
+        },
+        {
+          "coefficient": 2.357179956661499,
+          "kind": "u",
+          "term": "supreme"
+        },
+        {
+          "coefficient": 2.1626892508757156,
+          "kind": "u",
+          "term": "americans"
+        },
+        {
+          "coefficient": 2.0844735131639593,
+          "kind": "u",
+          "term": "tesla"
+        },
+        {
+          "coefficient": 2.0761348903152976,
+          "kind": "b",
+          "term": "americans how"
+        },
+        {
+          "coefficient": 2.0757951752180404,
+          "kind": "u",
+          "term": "killing"
+        },
+        {
+          "coefficient": 2.0754025816466486,
+          "kind": "u",
+          "term": "sexual"
+        },
+        {
+          "coefficient": 1.9791852190689396,
+          "kind": "b",
+          "term": "u s"
+        },
+        {
+          "coefficient": 1.972348489077433,
+          "kind": "u",
+          "term": "intimate"
+        },
+        {
+          "coefficient": 1.9657615285287235,
+          "kind": "u",
+          "term": "president"
+        },
+        {
+          "coefficient": 1.9111546364158642,
+          "kind": "b",
+          "term": "epstein files"
+        },
+        {
+          "coefficient": 1.8649353229475896,
+          "kind": "u",
+          "term": "elon"
+        },
+        {
+          "coefficient": 1.854387407094019,
+          "kind": "u",
+          "term": "republicans"
+        },
+        {
+          "coefficient": 1.7875533412404818,
+          "kind": "b",
+          "term": "elon musk"
+        },
+        {
+          "coefficient": 1.7860214137586403,
+          "kind": "u",
+          "term": "naked"
+        },
+        {
+          "coefficient": 1.7419956946070174,
+          "kind": "u",
+          "term": "politicians"
+        },
+        {
+          "coefficient": 1.6840402766203326,
+          "kind": "u",
+          "term": "fuck"
+        },
+        {
+          "coefficient": 1.6532976840215665,
+          "kind": "u",
+          "term": "executive"
+        },
+        {
+          "coefficient": 1.6350348031377655,
+          "kind": "u",
+          "term": "donald"
+        },
+        {
+          "coefficient": 1.5588522603395971,
+          "kind": "b",
+          "term": "kill you"
+        }
+      ],
+      "unit": "Change in log(1 + score) per unit of L2-normalized TF-IDF (text) or per train SD (structure)"
+    },
+    "title_structured_ridge": {
+      "intercept": 2.9329386220968354,
+      "structured": {
+        "question_count": -0.02875809334717613,
+        "question_present": -0.004378726269688916,
+        "title_characters": 0.11303466222108505,
+        "title_words": -0.09903804389455682,
+        "uppercase_ratio": 0.023580831940461025
+      },
+      "top_negative": [],
+      "top_positive": [],
+      "unit": "Change in log(1 + score) per unit of L2-normalized TF-IDF (text) or per train SD (structure)"
+    }
+  },
+  "selected_candidate": "combined_title_ridge_r1e5"
+}
