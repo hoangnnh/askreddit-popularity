@@ -1,0 +1,46 @@
+{
+  "config_version": 1,
+  "name": "fang_chua_v2",
+  "algorithm_version": "fang-chua-upper-median-v1",
+  "input": "data/processed/askreddit_clean",
+  "data_root": "data/experiments",
+  "artifact_root": "artifacts/experiments",
+  "report_root": "reports/experiments",
+  "disclosure": "Designed on 2026-11-25 after run fang_chua_20261121_v1, whose validation AND test metrics were already viewed. v1 showed that unweighted or sqrt-weighted candidates collapse to class 0 and that the selected LR barely moved from the uniform objective within 40 iterations. v2 changes only class weighting (alpha=1 everywhere), the regParam grid and the iteration cap, and adds a structured-only ablation. Labels, splits and features are identical to v1. Selection still uses validation macro-F1 only; v2 test numbers are not an untouched hold-out in the strict sense.",
+  "disclosure_vi": "Cấu hình v2 được thiết kế ngày 2026-11-25 sau khi đã xem kết quả validation VÀ test của run fang_chua_20261121_v1. v2 chỉ đổi trọng số lớp (alpha=1 cho mọi ứng viên), lưới regParam và giới hạn vòng lặp, và thêm ablation chỉ dùng đặc trưng cấu trúc. Nhãn, split và đặc trưng giống hệt v1. Mô hình vẫn được chọn chỉ bằng macro-F1 validation; tuy vậy test của v2 không còn là hold-out hoàn toàn chưa nhìn thấy theo nghĩa chặt.",
+  "split_dates": {
+    "train": ["2025-01-01T00:00:00Z", "2025-10-01T00:00:00Z"],
+    "validation": ["2025-10-01T00:00:00Z", "2025-12-01T00:00:00Z"],
+    "test": ["2025-12-01T00:00:00Z", "2026-01-01T00:00:00Z"]
+  },
+  "spark": {"driver_memory": "2g", "shuffle_partitions": 16, "write_partitions": 12},
+  "features": {
+    "version": "title-time-nfkc-v1",
+    "vocab_size": 12000,
+    "min_df": 10,
+    "rf_text_features": 128,
+    "normalization": "NFKC, Unicode whitespace collapse, lowercase; original title preserved",
+    "token_pattern": "[\\p{L}\\p{N}]+(?:['’][\\p{L}\\p{N}]+)*",
+    "ngram_orders": [1, 2],
+    "remove_stopwords": false,
+    "feature_sources": ["title", "created_utc"]
+  },
+  "seed": 212,
+  "selection": {
+    "criterion": "eight_class_macro_f1",
+    "tie_break": "largest validation macro_f1 rounded to 12 decimals, then candidate ID ascending",
+    "test_policy": "Freeze selection before scoring test; report all predefined candidates without revising selection"
+  },
+  "candidates": [
+    {"id": "majority", "kind": "majority"},
+    {"id": "time_lr", "kind": "lr", "features": "time_features", "alpha": 1.0, "reg_param": 0.0001, "max_iter": 200},
+    {"id": "structured_lr", "kind": "lr", "features": "structured_features", "alpha": 1.0, "reg_param": 0.0001, "max_iter": 200},
+    {"id": "text_lr_r1e2", "kind": "lr", "features": "text_features", "alpha": 1.0, "reg_param": 0.01, "max_iter": 200},
+    {"id": "text_lr_r1e3", "kind": "lr", "features": "text_features", "alpha": 1.0, "reg_param": 0.001, "max_iter": 200},
+    {"id": "text_lr_r1e4", "kind": "lr", "features": "text_features", "alpha": 1.0, "reg_param": 0.0001, "max_iter": 200},
+    {"id": "combined_lr_r1e2", "kind": "lr", "features": "combined_features", "alpha": 1.0, "reg_param": 0.01, "max_iter": 200},
+    {"id": "combined_lr_r1e3", "kind": "lr", "features": "combined_features", "alpha": 1.0, "reg_param": 0.001, "max_iter": 200},
+    {"id": "combined_lr_r1e4", "kind": "lr", "features": "combined_features", "alpha": 1.0, "reg_param": 0.0001, "max_iter": 200},
+    {"id": "rf_weighted", "kind": "rf", "features": "rf_features", "alpha": 1.0, "num_trees": 16, "max_depth": 6, "max_bins": 16}
+  ]
+}

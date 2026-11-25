@@ -1,0 +1,39 @@
+{"at_utc": "2026-11-25T07:55:33.050357+00:00", "phase": "stage_started", "stage": "all", "spark_version": "4.3.0"}
+{"at_utc": "2026-11-25T07:55:33.050808+00:00", "phase": "prepare_started"}
+{"at_utc": "2026-11-25T07:56:34.929796+00:00", "phase": "prepare_completed", "elapsed_seconds": 61.878170671000134, "records": 1686985, "boundaries": [2, 3, 4, 6, 11, 46, 271]}
+{"at_utc": "2026-11-25T07:56:35.048512+00:00", "phase": "features_started"}
+{"at_utc": "2026-11-25T07:59:40.440382+00:00", "phase": "features_split_completed", "split": "train", "records": 1299855, "transformation_and_write_seconds": 84.36306133700009}
+{"at_utc": "2026-11-25T07:59:58.920897+00:00", "phase": "features_split_completed", "split": "validation", "records": 253025, "transformation_and_write_seconds": 18.48002829500001}
+{"at_utc": "2026-11-25T08:00:10.911111+00:00", "phase": "features_split_completed", "split": "test", "records": 134105, "transformation_and_write_seconds": 11.989792209999905}
+{"at_utc": "2026-11-25T08:00:12.348886+00:00", "phase": "candidate_started", "candidate": "majority", "configuration": {"id": "majority", "kind": "majority"}}
+{"at_utc": "2026-11-25T08:00:13.067349+00:00", "phase": "candidate_completed", "candidate": "majority", "training_seconds": 0.0, "validation_macro_f1": 0.10368221761145074}
+{"at_utc": "2026-11-25T08:00:13.093423+00:00", "phase": "candidate_started", "candidate": "time_lr", "configuration": {"id": "time_lr", "kind": "lr", "features": "time_features", "alpha": 1.0, "reg_param": 0.0001, "max_iter": 200}}
+{"at_utc": "2026-11-25T08:00:21.679266+00:00", "phase": "candidate_completed", "candidate": "time_lr", "training_seconds": 5.3899935249996815, "validation_macro_f1": 0.03194689658039077}
+{"at_utc": "2026-11-25T08:00:21.680213+00:00", "phase": "candidate_started", "candidate": "structured_lr", "configuration": {"id": "structured_lr", "kind": "lr", "features": "structured_features", "alpha": 1.0, "reg_param": 0.0001, "max_iter": 200}}
+{"at_utc": "2026-11-25T08:00:42.143178+00:00", "phase": "candidate_completed", "candidate": "structured_lr", "training_seconds": 18.05586842899993, "validation_macro_f1": 0.08891765191262845}
+{"at_utc": "2026-11-25T08:00:42.143893+00:00", "phase": "candidate_started", "candidate": "text_lr_r1e2", "configuration": {"id": "text_lr_r1e2", "kind": "lr", "features": "text_features", "alpha": 1.0, "reg_param": 0.01, "max_iter": 200}}
+{"at_utc": "2026-11-25T08:02:38.233423+00:00", "phase": "candidate_completed", "candidate": "text_lr_r1e2", "training_seconds": 111.89730651100035, "validation_macro_f1": 0.13690247050237395}
+{"at_utc": "2026-11-25T08:02:38.234373+00:00", "phase": "candidate_started", "candidate": "text_lr_r1e3", "configuration": {"id": "text_lr_r1e3", "kind": "lr", "features": "text_features", "alpha": 1.0, "reg_param": 0.001, "max_iter": 200}}
+{"at_utc": "2026-11-25T08:04:31.551223+00:00", "phase": "candidate_completed", "candidate": "text_lr_r1e3", "training_seconds": 108.81894858900023, "validation_macro_f1": 0.1389010256604583}
+{"at_utc": "2026-11-25T08:04:31.552096+00:00", "phase": "candidate_started", "candidate": "text_lr_r1e4", "configuration": {"id": "text_lr_r1e4", "kind": "lr", "features": "text_features", "alpha": 1.0, "reg_param": 0.0001, "max_iter": 200}}
+{"at_utc": "2026-11-25T08:06:22.601886+00:00", "phase": "candidate_completed", "candidate": "text_lr_r1e4", "training_seconds": 106.07778656399978, "validation_macro_f1": 0.1431091695170983}
+{"at_utc": "2026-11-25T08:06:22.602573+00:00", "phase": "candidate_started", "candidate": "combined_lr_r1e2", "configuration": {"id": "combined_lr_r1e2", "kind": "lr", "features": "combined_features", "alpha": 1.0, "reg_param": 0.01, "max_iter": 200}}
+{"at_utc": "2026-11-25T08:14:15.694573+00:00", "phase": "candidate_completed", "candidate": "combined_lr_r1e2", "training_seconds": 466.13953494, "validation_macro_f1": 0.07932873488973365}
+{"at_utc": "2026-11-25T08:14:15.695770+00:00", "phase": "candidate_started", "candidate": "combined_lr_r1e3", "configuration": {"id": "combined_lr_r1e3", "kind": "lr", "features": "combined_features", "alpha": 1.0, "reg_param": 0.001, "max_iter": 200}}
+{"at_utc": "2026-11-25T08:21:57.970891+00:00", "phase": "candidate_completed", "candidate": "combined_lr_r1e3", "training_seconds": 439.3627884429998, "validation_macro_f1": 0.11262105350785553}
+{"at_utc": "2026-11-25T08:21:57.973431+00:00", "phase": "candidate_started", "candidate": "combined_lr_r1e4", "configuration": {"id": "combined_lr_r1e4", "kind": "lr", "features": "combined_features", "alpha": 1.0, "reg_param": 0.0001, "max_iter": 200}}
+{"at_utc": "2026-11-25T08:30:30.837211+00:00", "phase": "candidate_completed", "candidate": "combined_lr_r1e4", "training_seconds": 448.54923921200043, "validation_macro_f1": 0.14334357009277077}
+{"at_utc": "2026-11-25T08:30:30.840631+00:00", "phase": "candidate_started", "candidate": "rf_weighted", "configuration": {"id": "rf_weighted", "kind": "rf", "features": "rf_features", "alpha": 1.0, "num_trees": 16, "max_depth": 6, "max_bins": 16}}
+{"at_utc": "2026-11-25T08:31:05.377896+00:00", "phase": "candidate_completed", "candidate": "rf_weighted", "training_seconds": 25.20723629799977, "validation_macro_f1": 0.10479916098815592}
+{"at_utc": "2026-11-25T08:31:05.504896+00:00", "phase": "selection_frozen", "candidate": "combined_lr_r1e4"}
+{"at_utc": "2026-11-25T08:31:08.599512+00:00", "phase": "test_candidate_completed", "candidate": "majority", "macro_f1": 0.10333906394222146}
+{"at_utc": "2026-11-25T08:31:10.167777+00:00", "phase": "test_candidate_completed", "candidate": "time_lr", "macro_f1": 0.03043858992629557}
+{"at_utc": "2026-11-25T08:31:11.578404+00:00", "phase": "test_candidate_completed", "candidate": "structured_lr", "macro_f1": 0.08270492007845712}
+{"at_utc": "2026-11-25T08:31:13.300377+00:00", "phase": "test_candidate_completed", "candidate": "text_lr_r1e2", "macro_f1": 0.12853330343863975}
+{"at_utc": "2026-11-25T08:31:15.059536+00:00", "phase": "test_candidate_completed", "candidate": "text_lr_r1e3", "macro_f1": 0.1309086912544422}
+{"at_utc": "2026-11-25T08:31:16.855026+00:00", "phase": "test_candidate_completed", "candidate": "text_lr_r1e4", "macro_f1": 0.1333220445685257}
+{"at_utc": "2026-11-25T08:31:18.745432+00:00", "phase": "test_candidate_completed", "candidate": "combined_lr_r1e2", "macro_f1": 0.07408854956853467}
+{"at_utc": "2026-11-25T08:31:20.510947+00:00", "phase": "test_candidate_completed", "candidate": "combined_lr_r1e3", "macro_f1": 0.1034087985451901}
+{"at_utc": "2026-11-25T08:31:22.451052+00:00", "phase": "test_candidate_completed", "candidate": "combined_lr_r1e4", "macro_f1": 0.13266508550522776}
+{"at_utc": "2026-11-25T08:31:24.592199+00:00", "phase": "test_candidate_completed", "candidate": "rf_weighted", "macro_f1": 0.09866589284678788}
+{"at_utc": "2026-11-25T08:31:24.897220+00:00", "phase": "stage_completed", "stage": "all"}

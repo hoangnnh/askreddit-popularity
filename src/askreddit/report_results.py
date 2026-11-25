@@ -24,6 +24,7 @@ def render(root: Path) -> str:
         f"Mô hình được chọn bằng macro-F1 tám lớp trên validation: **{selected}**. "
         f"Trên test, macro-F1 đạt **{test['macro_f1']:.4f}**, balanced accuracy "
         f"**{test['balanced_accuracy']:.4f}**, accuracy **{test['accuracy']:.4f}**.", "",
+        *([f"> **Lưu ý:** {config['disclosure_vi']}", ""] if config.get("disclosure_vi") else []),
         "## Phương pháp và phạm vi diễn giải", "",
         "Quy tắc nhãn lấy từ [Fang, Cheng và Ostendorf (2016), mục 3](https://aclanthology.org/W16-6209.pdf), "
         "được [Chua (2021), mục 4.2](https://aclanthology.org/2021.acl-srw.10.pdf) sử dụng lại: "
@@ -121,7 +122,7 @@ def render(root: Path) -> str:
         "[label_boundaries.json](label_boundaries.json), [selection.json](selection.json).", "",
         "```bash", "JAVA_HOME=/usr/lib/jvm/java-21-openjdk SPARK_LOCAL_IP=127.0.0.1 PYTHONPATH=src \\",
         "  .venv/bin/python -m askreddit.experiment \\",
-        "  --config configs/fang_chua_v1.json --run-id fang_chua_reproduction", "",
+        f"  --config configs/{config.get('name', 'fang_chua_v1')}.json --run-id fang_chua_reproduction", "",
         "PYTHONPATH=src .venv/bin/python -m askreddit.report_results \\",
         "  --run-id fang_chua_reproduction", "```", "",
         "Dùng run ID mới cho một lần chạy mới; dùng `--resume` chỉ khi cần tái sử dụng các artifact đã được xác minh tương thích.", ""]

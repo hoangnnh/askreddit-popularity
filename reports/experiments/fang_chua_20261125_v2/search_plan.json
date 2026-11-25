@@ -1,0 +1,89 @@
+{
+  "candidates": [
+    {
+      "id": "majority",
+      "kind": "majority"
+    },
+    {
+      "alpha": 1.0,
+      "features": "time_features",
+      "id": "time_lr",
+      "kind": "lr",
+      "max_iter": 200,
+      "reg_param": 0.0001
+    },
+    {
+      "alpha": 1.0,
+      "features": "structured_features",
+      "id": "structured_lr",
+      "kind": "lr",
+      "max_iter": 200,
+      "reg_param": 0.0001
+    },
+    {
+      "alpha": 1.0,
+      "features": "text_features",
+      "id": "text_lr_r1e2",
+      "kind": "lr",
+      "max_iter": 200,
+      "reg_param": 0.01
+    },
+    {
+      "alpha": 1.0,
+      "features": "text_features",
+      "id": "text_lr_r1e3",
+      "kind": "lr",
+      "max_iter": 200,
+      "reg_param": 0.001
+    },
+    {
+      "alpha": 1.0,
+      "features": "text_features",
+      "id": "text_lr_r1e4",
+      "kind": "lr",
+      "max_iter": 200,
+      "reg_param": 0.0001
+    },
+    {
+      "alpha": 1.0,
+      "features": "combined_features",
+      "id": "combined_lr_r1e2",
+      "kind": "lr",
+      "max_iter": 200,
+      "reg_param": 0.01
+    },
+    {
+      "alpha": 1.0,
+      "features": "combined_features",
+      "id": "combined_lr_r1e3",
+      "kind": "lr",
+      "max_iter": 200,
+      "reg_param": 0.001
+    },
+    {
+      "alpha": 1.0,
+      "features": "combined_features",
+      "id": "combined_lr_r1e4",
+      "kind": "lr",
+      "max_iter": 200,
+      "reg_param": 0.0001
+    },
+    {
+      "alpha": 1.0,
+      "features": "rf_features",
+      "id": "rf_weighted",
+      "kind": "rf",
+      "max_bins": 16,
+      "max_depth": 6,
+      "num_trees": 16
+    }
+  ],
+  "registered_at_utc": "2026-11-25T07:55:28.785955+00:00",
+  "selection": {
+    "criterion": "eight_class_macro_f1",
+    "test_policy": "Freeze selection before scoring test; report all predefined candidates without revising selection",
+    "tie_break": "largest validation macro_f1 rounded to 12 decimals, then candidate ID ascending"
+  },
+  "test_used_for_tuning": false,
+  "training_sample_policy": "All training rows; no dataset subsampling. RF uses its declared internal bagging rate."
+}

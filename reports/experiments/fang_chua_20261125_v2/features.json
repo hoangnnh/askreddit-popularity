@@ -1,0 +1,61 @@
+{
+  "config": {
+    "feature_sources": [
+      "title",
+      "created_utc"
+    ],
+    "min_df": 10,
+    "ngram_orders": [
+      1,
+      2
+    ],
+    "normalization": "NFKC, Unicode whitespace collapse, lowercase; original title preserved",
+    "remove_stopwords": false,
+    "rf_text_features": 128,
+    "token_pattern": "[\\p{L}\\p{N}]+(?:['\u2019][\\p{L}\\p{N}]+)*",
+    "version": "title-time-nfkc-v1",
+    "vocab_size": 12000
+  },
+  "dimensions": {
+    "combined_features": 12009,
+    "rf_features": 137,
+    "structured_features": 9,
+    "text_features": 12000,
+    "time_features": 4
+  },
+  "feature_sources": [
+    "title",
+    "created_utc"
+  ],
+  "fitted_on": "train",
+  "fitting_seconds": 94.2457014040001,
+  "inference": "Call base_features(raw, saved_config) before the saved PipelineModel; source title is preserved.",
+  "rf_selection": "First training-vocabulary entries (most frequent train terms); no test/validation statistics or labels used.",
+  "scaling": "Structured features scaled by train standard deviation without mean centering; cyclic time-only inputs are bounded sin/cos.",
+  "structured_columns": [
+    "title_characters",
+    "title_words",
+    "question_count",
+    "question_present",
+    "uppercase_ratio",
+    "hour_sin",
+    "hour_cos",
+    "weekday_sin",
+    "weekday_cos"
+  ],
+  "text_weighting": "CountVectorizer term counts, train IDF, per-document L2 normalization",
+  "transformation": {
+    "test": {
+      "records": 134105,
+      "transformation_and_write_seconds": 11.989792209999905
+    },
+    "train": {
+      "records": 1299855,
+      "transformation_and_write_seconds": 84.36306133700009
+    },
+    "validation": {
+      "records": 253025,
+      "transformation_and_write_seconds": 18.48002829500001
+    }
+  }
+}

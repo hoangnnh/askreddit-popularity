@@ -1,0 +1,137 @@
+{
+  "test": {
+    "labels": [
+      {
+        "count": 94492,
+        "label": 0,
+        "percentage": 70.46120577159688
+      },
+      {
+        "count": 18525,
+        "label": 1,
+        "percentage": 13.813802617352074
+      },
+      {
+        "count": 9045,
+        "label": 2,
+        "percentage": 6.744714962156519
+      },
+      {
+        "count": 5617,
+        "label": 3,
+        "percentage": 4.188509004138548
+      },
+      {
+        "count": 3207,
+        "label": 4,
+        "percentage": 2.391409716267104
+      },
+      {
+        "count": 1662,
+        "label": 5,
+        "percentage": 1.239327392714664
+      },
+      {
+        "count": 690,
+        "label": 6,
+        "percentage": 0.5145222027515752
+      },
+      {
+        "count": 867,
+        "label": 7,
+        "percentage": 0.6465083330226316
+      }
+    ],
+    "total": 134105
+  },
+  "train": {
+    "labels": [
+      {
+        "count": 928466,
+        "label": 0,
+        "percentage": 71.42842855549273
+      },
+      {
+        "count": 182480,
+        "label": 1,
+        "percentage": 14.038488908378243
+      },
+      {
+        "count": 82444,
+        "label": 2,
+        "percentage": 6.342553592516088
+      },
+      {
+        "count": 49591,
+        "label": 3,
+        "percentage": 3.815117840066777
+      },
+      {
+        "count": 27703,
+        "label": 4,
+        "percentage": 2.131237714975901
+      },
+      {
+        "count": 14487,
+        "label": 5,
+        "percentage": 1.1145089259955918
+      },
+      {
+        "count": 7339,
+        "label": 6,
+        "percentage": 0.5646014363140505
+      },
+      {
+        "count": 7345,
+        "label": 7,
+        "percentage": 0.5650630262606213
+      }
+    ],
+    "total": 1299855
+  },
+  "validation": {
+    "labels": [
+      {
+        "count": 179296,
+        "label": 0,
+        "percentage": 70.86098211639167
+      },
+      {
+        "count": 34430,
+        "label": 1,
+        "percentage": 13.607351052267562
+      },
+      {
+        "count": 16447,
+        "label": 2,
+        "percentage": 6.500148206698943
+      },
+      {
+        "count": 10345,
+        "label": 3,
+        "percentage": 4.088528801501828
+      },
+      {
+        "count": 6019,
+        "label": 4,
+        "percentage": 2.378816322497777
+      },
+      {
+        "count": 3236,
+        "label": 5,
+        "percentage": 1.2789250074103349
+      },
+      {
+        "count": 1595,
+        "label": 6,
+        "percentage": 0.6303724928366762
+      },
+      {
+        "count": 1657,
+        "label": 7,
+        "percentage": 0.6548760003952179
+      }
+    ],
+    "total": 253025
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "algorithm_version": "fang-chua-upper-median-v1",
+  "effective_boundaries": [
+    2,
+    3,
+    4,
+    6,
+    11,
+    46,
+    271
+  ],
+  "fitted_on": "train",
+  "historical_diagnostic_matches": true,
+  "input_fingerprint": "40f44e6bf60b3b3dd1e1116bdc2dafb1fba5e9ecc7edc09a22f23a0903b538eb",
+  "interval_convention": "Scores < median leave the upper remainder; integer cutoffs are ceil(median). Equal scores never split.",
+  "mapping": [
+    {
+      "label": 0,
+      "lower_inclusive": null,
+      "upper_exclusive": 2
+    },
+    {
+      "label": 1,
+      "lower_inclusive": 2,
+      "upper_exclusive": 3
+    },
+    {
+      "label": 2,
+      "lower_inclusive": 3,
+      "upper_exclusive": 4
+    },
+    {
+      "label": 3,
+      "lower_inclusive": 4,
+      "upper_exclusive": 6
+    },
+    {
+      "label": 4,
+      "lower_inclusive": 6,
+      "upper_exclusive": 11
+    },
+    {
+      "label": 5,
+      "lower_inclusive": 11,
+      "upper_exclusive": 46
+    },
+    {
+      "label": 6,
+      "lower_inclusive": 46,
+      "upper_exclusive": 271
+    },
+    {
+      "label": 7,
+      "lower_inclusive": 271,
+      "upper_exclusive": null
+    }
+  ],
+  "median_convention": "Exact record-frequency weighted ordinary median; average the two central integer values for even N, represented as a rational number.",
+  "references": [
+    "https://aclanthology.org/W16-6209.pdf",
+    "https://aclanthology.org/2021.acl-srw.10.pdf"
+  ],
+  "split_dates": {
+    "test": [
+      "2025-12-01T00:00:00Z",
+      "2026-01-01T00:00:00Z"
+    ],
+    "train": [
+      "2025-01-01T00:00:00Z",
+      "2025-10-01T00:00:00Z"
+    ],
+    "validation": [
+      "2025-10-01T00:00:00Z",
+      "2025-12-01T00:00:00Z"
+    ]
+  },
+  "steps": [
+    {
+      "assigned_records": 182480,
+      "effective_upper_exclusive": 3,
+      "label": 1,
+      "median_denominator": 1,
+      "median_exact": "3",
+      "median_numerator": 3,
+      "remainder_records": 371389,
+      "remaining_records": 188909
+    },
+    {
+      "assigned_records": 82444,
+      "effective_upper_exclusive": 4,
+      "label": 2,
+      "median_denominator": 1,
+      "median_exact": "4",
+      "median_numerator": 4,
+      "remainder_records": 188909,
+      "remaining_records": 106465
+    },
+    {
+      "assigned_records": 49591,
+      "effective_upper_exclusive": 6,
+      "label": 3,
+      "median_denominator": 1,
+      "median_exact": "6",
+      "median_numerator": 6,
+      "remainder_records": 106465,
+      "remaining_records": 56874
+    },
+    {
+      "assigned_records": 27703,
+      "effective_upper_exclusive": 11,
+      "label": 4,
+      "median_denominator": 1,
+      "median_exact": "11",
+      "median_numerator": 11,
+      "remainder_records": 56874,
+      "remaining_records": 29171
+    },
+    {
+      "assigned_records": 14487,
+      "effective_upper_exclusive": 46,
+      "label": 5,
+      "median_denominator": 1,
+      "median_exact": "46",
+      "median_numerator": 46,
+      "remainder_records": 29171,
+      "remaining_records": 14684
+    },
+    {
+      "assigned_records": 7339,
+      "effective_upper_exclusive": 271,
+      "label": 6,
+      "median_denominator": 1,
+      "median_exact": "271",
+      "median_numerator": 271,
+      "remainder_records": 14684,
+      "remaining_records": 7345
+    }
+  ]
+}

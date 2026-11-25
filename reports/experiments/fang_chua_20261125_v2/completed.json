@@ -1,0 +1,8 @@
+{
+  "completed_at_utc": "2026-11-25T08:31:24.891880+00:00",
+  "full_training_rows_used": true,
+  "input_files_unchanged": true,
+  "selected_candidate": "combined_lr_r1e4",
+  "status": "completed",
+  "test_used_for_tuning": false
+}

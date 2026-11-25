@@ -138,6 +138,8 @@ def test_unicode_features_and_leakage_guard(spark, tmp_path):
     restored = PipelineModel.load(str(output))
     assert restored.transform(base_features(data, config)).select("id", "combined_features").orderBy("id").collect() == one
     assert metadata["dimensions"]["combined_features"] == len(model.stages[0].vocabulary) + 9
+    structured = model.transform(base_features(data, config)).select("structured_features").first()[0]
+    assert metadata["dimensions"]["structured_features"] == structured.size == 9
 
 
 def test_eight_class_lr_and_rf_execute_with_numeric_labels(spark):

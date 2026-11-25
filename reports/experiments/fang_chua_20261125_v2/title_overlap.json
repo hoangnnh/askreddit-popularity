@@ -1,0 +1,17 @@
+{
+  "train__test": {
+    "left_records": 31676,
+    "right_records": 8443,
+    "shared_distinct_titles": 5672
+  },
+  "train__validation": {
+    "left_records": 45170,
+    "right_records": 17625,
+    "shared_distinct_titles": 10161
+  },
+  "validation__test": {
+    "left_records": 8115,
+    "right_records": 5413,
+    "shared_distinct_titles": 3021
+  }
+}

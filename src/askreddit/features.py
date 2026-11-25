@@ -11,7 +11,7 @@ from pyspark.sql import functions as F, types as T
 FEATURE_SOURCES = ("title", "created_utc")
 TIME_COLUMNS = ["hour_sin", "hour_cos", "weekday_sin", "weekday_cos"]
 STRUCTURED_COLUMNS = ["title_characters", "title_words", "question_count", "question_present", "uppercase_ratio", *TIME_COLUMNS]
-FEATURE_COLUMNS = ("time_features", "text_features", "combined_features", "rf_features")
+FEATURE_COLUMNS = ("time_features", "structured_features", "text_features", "combined_features", "rf_features")
 
 
 def normalize_unicode(text: str) -> str:
@@ -81,7 +81,7 @@ def fit_preprocessing(train, config):
         model = PipelineModel(stages=[vocabulary, idf, normalize, structured, scaler, time, compact, forest, combined])
         metadata = {
             "fitted_on": "train", "feature_sources": list(FEATURE_SOURCES), "config": config,
-            "dimensions": {"time_features": 4, "text_features": width,
+            "dimensions": {"time_features": 4, "structured_features": len(STRUCTURED_COLUMNS), "text_features": width,
                            "combined_features": width + len(STRUCTURED_COLUMNS),
                            "rf_features": rf_width + len(STRUCTURED_COLUMNS)},
             "structured_columns": STRUCTURED_COLUMNS,
