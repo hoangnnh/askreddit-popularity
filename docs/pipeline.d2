@@ -1,37 +1,44 @@
-# Ingestion and cleaning are implemented; features, chronological splits, and modeling are planned.
+# AskReddit popularity pipeline: all stages implemented and executed on the 2025 data (status 2026-11-25).
 direction: right
 
 source: "Arctic Shift / open-index/arctic\nRemote submissions Parquet\nJanuary–December 2025" {
   shape: cylinder
 }
 ingestion: "DuckDB 1.5.4 + httpfs\nRead monthly remote shards\nFilter AskReddit + UTC month\nValidate then promote ZSTD Parquet"
-monthly: "Local monthly Parquet\ndata/extracted/askreddit-2025-MM.parquet\n12 files when the year completes" {
+monthly: "Local monthly Parquet\ndata/extracted/askreddit-2025-MM.parquet\n12 files" {
   shape: cylinder
 }
-cleaning: "PySpark cleaning\nExplicit local inputs\nValidate community and text\nGlobal ID deduplication\nExploratory score statistics"
-cleaned: "Cleaned Parquet + report\ndata/processed/cleaned-2025/" {
+manifest: "Resume manifest\nartifacts/ingest_manifest.json"
+cleaning: "PySpark validation + cleaning\nSchema, community, text checks\nRemoved/deleted bodies → empty\nDeterministic ID deduplication"
+cleaned: "Cleaned Parquet (year/month)\ndata/processed/askreddit_clean/\n1,686,985 posts" {
   shape: cylinder
 }
-processing: "PySpark features and splits (planned)\nTitle + UTC posting-time features\nChronological train/validation/test split\nFit label threshold on training period"
-modeling: "PySpark modeling (planned)\nTrain and evaluate classifiers"
-artifacts: "Saved models and metrics (planned)\nartifacts/" {
+eda: "PySpark EDA\nVolume, score distribution\nTitle/time associations (train only)\nLabel readiness"
+labeling: "PySpark labels + splits\nChronological train/val/test\nTrain-only upper-median thresholds\n[2, 3, 4, 6, 11, 46, 271]"
+features: "PySpark features\nTrain-fitted TF-IDF (1–2 grams)\nTitle statistics + UTC hour/weekday"
+modeling: "Spark MLlib modeling\nWeighted multinomial LR, RF\nValidation macro-F1 selection\nHeld-out test evaluation"
+artifacts: "Fitted preprocessing + models\nartifacts/experiments/RUN/" {
   shape: cylinder
 }
-analysis: "DuckDB analysis (planned)\nQuery local Parquet"
-reports: "Reports and figures (planned)\nreports/"
-demo: "Streamlit demo (planned)\nAnalysis and popularity predictions"
+export: "Model export\nSpark LR → NumPy\nParity verified against Spark"
+benchmark: "Spark SQL vs DuckDB\nIdentical SQL workloads\nResult agreement checked"
+reports: "Reports and figures\nreports/ (JSON, CSV, PNG, Markdown)"
+demo: "Streamlit demo\nAnalysis, evaluation\nSpark-free prediction"
 
 source -> ingestion
 ingestion -> monthly
 ingestion -> manifest: "Full months only"
-manifest: "Resume manifest\nartifacts/ingest_manifest.json"
 monthly -> cleaning
 cleaning -> cleaned
-cleaned -> processing
-processing -> modeling
+cleaned -> eda
+cleaned -> labeling
+labeling -> features
+features -> modeling
 modeling -> artifacts
-monthly -> analysis
-analysis -> reports
+artifacts -> export
+cleaned -> benchmark
+eda -> reports
 modeling -> reports
-analysis -> demo
-artifacts -> demo
+benchmark -> reports
+reports -> demo
+export -> demo

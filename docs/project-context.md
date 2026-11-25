@@ -1,6 +1,6 @@
 # IE212 Group 14 — AskReddit Popularity Prediction
 
-> Current design: the eight-class experiment in [fang-chua-experiment.md](fang-chua-experiment.md) supersedes the binary-model plans in this historical snapshot. See run receipts for executed results.
+> **Historical snapshot (2026-11-12).** The partial-download status, January-cleaning milestone and binary-label plan below are superseded. Current status (2026-11-25): full-year ingestion, cleaning, EDA ([eda.md](eda.md)), the eight-class experiment ([fang-chua-experiment.md](fang-chua-experiment.md), current run `fang_chua_20261125_v2`), the Spark vs DuckDB benchmark ([../benchmarks/README.md](../benchmarks/README.md)) and the Streamlit demo are implemented. See the README status table.
 
 Status snapshot taken on 2026-11-12 in the Asia/Saigon time zone. The active repository is `/home/hoangnnh/Coding/IE212/project/askreddit-popularity` in the Arch Linux WSL distribution. Run project commands from that repository root.
 

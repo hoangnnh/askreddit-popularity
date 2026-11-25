@@ -12,24 +12,27 @@ DuckDB ingestion is implemented in [src/askreddit/ingest.py](src/askreddit/inges
 It supports a single-shard sample, complete monthly extracts, and resumable
 sequential extraction of a year. PySpark validation and cleaning are implemented in
 [src/askreddit/clean.py](src/askreddit/clean.py) and
-[src/askreddit/quality.py](src/askreddit/quality.py). The reusable experiment entry
-point is [src/askreddit/experiment.py](src/askreddit/experiment.py), with separate
-labeling, feature, training and evaluation modules. Saved receipts distinguish
-completed full-data stages from partial runs. The demo remains planned.
+[src/askreddit/quality.py](src/askreddit/quality.py). The full-year EDA is
+[src/askreddit/eda.py](src/askreddit/eda.py). The experiment entry point is
+[src/askreddit/experiment.py](src/askreddit/experiment.py), with separate labeling,
+feature, training and evaluation modules. Saved receipts distinguish completed
+full-data stages from partial runs.
 
-| Stage | Intended responsibility | Status |
+| Stage | Responsibility | Status |
 | --- | --- | --- |
-| DuckDB ingestion | Read remote Parquet shards, select AskReddit posts, and write one filtered local Parquet file per month | Implemented |
-| PySpark validation and cleaning | Profile all local extracts, normalize valid records, quarantine rejected/duplicate rows, and verify read-back invariants | Implemented; execution results are recorded under `reports/data_quality/` |
-| PySpark feature engineering | Train-fitted unigram/bigram TF-IDF and title/UTC posting-time features | Executed on all 1,686,985 cleaned posts; run `fang_chua_20261121_v1` |
-| PySpark modeling | Train-only median labels, chronological LR/RF comparisons, validation selection and held-out test evaluation | All ten candidates completed; see the [Vietnamese results report](reports/experiments/fang_chua_20261121_v1/results_vi.md) |
-| DuckDB analysis | Inspect individual January post scores and their distribution in a local notebook | January notebook implemented; full-year analysis planned |
-| Streamlit demo | Present analysis and model predictions using the saved outputs | Planned |
+| DuckDB ingestion | Read remote Parquet shards, select AskReddit posts, write one local Parquet file per month | Completed |
+| PySpark validation and cleaning | Profile extracts, normalize valid records, quarantine rejects/duplicates, verify read-back | Completed; see `reports/data_quality/` |
+| PySpark EDA | Profile, volume, score distribution, title/time associations (train only), label readiness | Completed; see [docs/eda.md](docs/eda.md) and [reports/eda/summary_vi.md](reports/eda/summary_vi.md) |
+| Labels and features | Train-only upper-median labels, chronological splits, train-fitted TF-IDF + title/UTC features | Completed in runs v1 and v2 |
+| PySpark modeling | Weighted multinomial LR / RF comparisons, validation selection, held-out evaluation | v1 and v2 completed; see [docs/fang-chua-experiment.md](docs/fang-chua-experiment.md) |
+| Spark vs DuckDB benchmark | Identical SQL workloads on both engines | Completed; see [benchmarks/README.md](benchmarks/README.md) |
+| Streamlit demo | Analysis, evaluation and Spark-free prediction from saved outputs | Implemented in [app/streamlit_app.py](app/streamlit_app.py) |
 
 The source is [open-index/arctic on Hugging Face](https://huggingface.co/datasets/open-index/arctic),
-a Parquet distribution of the Arctic Shift archive. The pipeline design is remote
-submissions → DuckDB monthly filtering → local Parquet → PySpark processing and
-training → analysis and demo. See [the data specification](docs/data-source.md)
+a Parquet distribution of the Arctic Shift archive. The pipeline is remote
+submissions → DuckDB monthly filtering → local Parquet → PySpark cleaning, EDA,
+labeling, features and training → exported model → Streamlit demo, with DuckDB
+used for the engine benchmark. See [the data specification](docs/data-source.md)
 and [the D2 pipeline diagram](docs/pipeline.d2).
 
 ## Directory layout
@@ -37,44 +40,35 @@ and [the D2 pipeline diagram](docs/pipeline.d2).
 ```text
 askreddit-popularity/
 ├── README.md
-├── .gitignore
-├── pyproject.toml              # Python package metadata and dependency groups
+├── pyproject.toml              # Package metadata and dependency groups
 ├── configs/
-│   └── project.toml            # Source, UTC boundaries, columns, and local paths
-├── docs/
-│   ├── data-source.md          # Source and monthly output specification
-│   ├── data-validation-cleaning.md # Execution, cleaning, and audit policies
-│   └── pipeline.d2            # Planned pipeline diagram
-├── src/
-│   └── askreddit/
-│       ├── __init__.py         # Importable package
-│       ├── ingest.py           # DuckDB extraction, validation, and resume CLI
-│       ├── clean.py            # Reproducible validation/cleaning CLI
-│       └── quality.py          # Distributed profiling and output invariants
-├── notebooks/
-│   ├── 01_data_validation_cleaning.ipynb
-│   └── 01_january_2025_scores.ipynb # Existing historical exploration
-├── benchmarks/                # Future ingestion and processing benchmarks
-│   └── .gitkeep
-├── app/                       # Future Streamlit application
-│   └── .gitkeep
-├── tests/
-│   ├── test_ingest.py          # Local ingestion integration and CLI tests
-│   └── test_clean.py           # Small local fixtures for cleaning and statistics
-└── reports/                   # Reports, figures, and evaluation summaries
-    └── .gitkeep
+│   ├── project.toml            # Ingestion source, UTC boundaries, columns, paths
+│   ├── fang_chua_v1.json       # Experiment v1 (historical)
+│   ├── fang_chua_v2.json       # Experiment v2 (current) + disclosure
+│   └── demo.json               # Report/model paths read by the Streamlit app
+├── docs/                       # Data source, cleaning, EDA, experiment, pipeline diagram
+├── src/askreddit/
+│   ├── ingest.py               # DuckDB extraction, validation, resume CLI
+│   ├── clean.py, quality.py    # PySpark validation/cleaning and invariants
+│   ├── eda.py, eda_report.py   # Full-year EDA aggregates; figures + Vietnamese summary
+│   ├── labeling.py             # Chronological splits, exact train-only median labels
+│   ├── features.py             # Train-fitted TF-IDF and title/UTC features
+│   ├── training.py, evaluation.py, experiment.py, report_results.py
+│   ├── benchmark.py            # Spark SQL vs DuckDB runner
+│   ├── export_model.py         # Spark LR → NumPy export with parity verification
+│   └── inference.py            # Spark-free preprocessing + LR inference
+├── benchmarks/queries/         # Shared SQL workloads for both engines
+├── app/streamlit_app.py        # Demo
+├── notebooks/                  # Validation notebook; historical January exploration
+├── tests/                      # Focused tests with small local fixtures
+└── reports/                    # Data quality, EDA, experiments, benchmark (JSON/CSV/PNG/MD)
 ```
 
 `data/` and `artifacts/` contain generated local files and are ignored by Git.
-Samples use `data/samples/askreddit-2025-MM-sample.parquet`; complete months use
-`data/extracted/askreddit-2025-MM.parquet`, with `MM` from `01` to `12`.
-The full-month manifest is `artifacts/ingest_manifest.json`. DuckDB extensions
-are cached in `artifacts/duckdb_extensions/`. The older pilot remains at
-`data/samples/cleaned-2025-01/`. The current cleaner
-writes `data/processed/askreddit_clean/`, with rejected and duplicate rows in
-`data/processed/askreddit_quarantine/` and JSON reports in `reports/data_quality/`.
-Future saved models will live under `artifacts/`.
-The `.gitkeep` files retain currently empty project directories on GitHub.
+Complete months use `data/extracted/askreddit-2025-MM.parquet`; the cleaned dataset
+is `data/processed/askreddit_clean/`; experiment data, fitted preprocessing, models
+and the exported demo model live under `data/experiments/`, `artifacts/experiments/`
+and `artifacts/demo/`.
 
 ## Python package setup
 
@@ -227,6 +221,48 @@ Its optional execution cell calls the reusable pipeline with configurable paths.
 The older January score notebook below is historical exploration and is not part
 of the current validation/cleaning workflow.
 
+## Exploratory data analysis
+
+The full-year EDA reads the cleaned dataset with PySpark (about 2.5 minutes). Popularity
+associations use the train months only. See [docs/eda.md](docs/eda.md) for the method and
+findings, and [reports/eda/summary_vi.md](reports/eda/summary_vi.md) for the Vietnamese
+report with figures.
+
+```bash
+JAVA_HOME=/usr/lib/jvm/java-21-openjdk SPARK_LOCAL_IP=127.0.0.1 PYTHONPATH=src \
+  .venv/bin/python -m askreddit.eda --config configs/fang_chua_v2.json --output reports/eda_rerun
+PYTHONPATH=src .venv/bin/python -m askreddit.eda --render-only --output reports/eda   # figures only
+```
+
+## Spark SQL versus DuckDB benchmark
+
+Eight shared SQL workloads run on both engines, with matched threads and no caching, and
+the engines' results must agree. See [benchmarks/README.md](benchmarks/README.md) and
+[the Vietnamese results](reports/benchmark/spark_vs_duckdb_20261125/summary_vi.md).
+On this laptop (Spark local mode, 1.7 M rows), DuckDB was 4–25× faster per query.
+Spark's fixed planning and scheduling costs dominate at this size. Both engines returned
+identical results.
+
+```bash
+JAVA_HOME=/usr/lib/jvm/java-21-openjdk SPARK_LOCAL_IP=127.0.0.1 PYTHONPATH=src \
+  .venv/bin/python -m askreddit.benchmark --threads 2 4 --run-id spark_vs_duckdb_new
+```
+
+## Streamlit demo
+
+The app reads the saved EDA, experiment and benchmark reports listed in
+[configs/demo.json](configs/demo.json). It predicts with a NumPy export of the selected LR,
+so it never starts Spark. The export checks the NumPy pipeline against Spark on 3,000
+validation/test posts plus Unicode edge cases, and refuses to finish on any mismatch. The
+current export agrees on every prediction; the largest probability difference is 4.4e-16.
+
+```bash
+.venv/bin/python -m pip install -e '.[demo]'          # once: Streamlit
+JAVA_HOME=/usr/lib/jvm/java-21-openjdk SPARK_LOCAL_IP=127.0.0.1 PYTHONPATH=src \
+  .venv/bin/python -m askreddit.export_model --run-id fang_chua_20261125_v2   # once per selected model
+.venv/bin/streamlit run app/streamlit_app.py
+```
+
 ## Chronological eight-class experiment
 
 See [the experimental design and execution guide](docs/fang-chua-experiment.md)
@@ -234,7 +270,17 @@ for scientific attribution, exact median semantics, leakage safeguards, the fixe
 candidate search and output layout. The versioned configuration is
 [configs/fang_chua_v1.json](configs/fang_chua_v1.json).
 
-Run `fang_chua_20261121_v1` completed on the full dataset in about 15 minutes
+**Current run: `fang_chua_20261125_v2`** ([configs/fang_chua_v2.json](configs/fang_chua_v2.json)).
+It uses balanced class weights everywhere, `regParam` 1e-2 to 1e-4, and up to 200
+iterations, and it adds a structured-only ablation. Validation selected `combined_lr_r1e4`,
+which converged in 158 iterations. Validation macro-F1 is 0.1433. On test, macro-F1 is
+**0.1327**, balanced accuracy 0.2161 and accuracy 33.29%, against the majority baseline's
+0.1033 and 70.46%. Text-only LR is tied (test 0.1333). Time-only (0.0304) and
+structured-only (0.0827) models fall below the baseline. v2 was designed after v1's
+test results were seen; this is disclosed in the config and in the
+[v2 Vietnamese report](reports/experiments/fang_chua_20261125_v2/results_vi.md).
+
+Historical run `fang_chua_20261121_v1` completed on the full dataset in about 15 minutes
 37 seconds. Exact train-derived score boundaries are `[2, 3, 4, 6, 11, 46, 271]`.
 Validation selected `combined_a1_r003` (inverse-frequency weighting, L2 penalty
 0.03): validation macro-F1 0.1198; test macro-F1 0.1135, balanced accuracy
@@ -267,6 +313,44 @@ is gated on completed validation and a frozen selection record.
 The target is archived score, without an assumed 24-hour observation horizon.
 Ordinary eight-class `macro_f1` and Fang-style `mean_threshold_f1` are distinct
 metrics. Training weights are never used for primary evaluation metrics.
+
+### Post-hoc prior adjustment
+
+[src/askreddit/prior_adjustment.py](src/askreddit/prior_adjustment.py) re-scores the
+saved LR/RF candidates of a completed run without retraining them. It changes each
+class score to `s_k(x) - tau * log(pi_k)`, where `pi` is the training label
+distribution ([Menon et al., 2021](https://arxiv.org/abs/2007.07314)). LR uses its
+margins and RF uses log probabilities. Each candidate chooses one `tau` from a grid
+(default −1 to 2, step 0.05) by validation macro-F1. Test is scored only at `tau = 0`
+and at the chosen value. At `tau = 0`, the validation and test confusion matrices must
+equal the saved ones exactly. Every model and feature artifact is hash-checked against
+its receipt first.
+
+```bash
+JAVA_HOME=/usr/lib/jvm/java-21-openjdk SPARK_LOCAL_IP=127.0.0.1 PYTHONPATH=src \
+  .venv/bin/python -m askreddit.prior_adjustment --run-id fang_chua_20261121_v1
+```
+
+Results go to `reports/experiments/<run-id>/prior_adjustment/`. That folder holds
+`plan.json`, which is written before scoring, plus `validation_sweep.json`,
+`results.json`, `comparison.csv`, `results_vi.md` and confusion figures. The command
+refuses to overwrite an existing output folder; use `--output-name` to pick a new one.
+For v1, this analysis was designed after the v1 test metrics were seen, so its test
+numbers are not a strict hold-out.
+
+On v1, the best `tau` tracked each candidate's class weighting:
+
+| v1 candidates | Class weighting | Best `tau` |
+| --- | --- | ---: |
+| unweighted | none | 0.85–1.0 |
+| `combined_a05_*` | square-root | 0.5 |
+| `combined_a1_*` | inverse-frequency | 0 |
+
+The adjustment recovers the candidates that had predicted only class 0, without
+retraining them. Validation then selected `combined_a05_r003` at `tau = 0.5`, with
+test macro-F1 0.1245. That is above v1's original 0.1135 but below v2's retrained
+`combined_lr_r1e4` (0.1327). Details:
+[v1 prior-adjustment report](reports/experiments/fang_chua_20261121_v1/prior_adjustment/results_vi.md).
 
 ## Inspect January 2025 post scores
 

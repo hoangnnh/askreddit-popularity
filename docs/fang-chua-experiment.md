@@ -89,6 +89,77 @@ confusion matrices, and seven cumulative binary F1 scores. Zero denominators
 contribute zero. Absent classes remain in the macro average. No Spark weighted
 F1 metric is mislabeled as macro-F1. Only at most 64 confusion counts are collected.
 
+## Run v2 (current): weighting, regularization and convergence fixes
+
+Run v1 exposed three problems:
+
+- Every candidate with `alpha` 0 or 0.5 predicted class 0 on all held-out rows. In this
+  config `alpha` is the class-weight exponent, not an elastic-net mix.
+- The time-only and text-only ablations were unweighted, so they were uninformative.
+- The selected LR's objective fell only from 2.0794 (ln 8) to 2.0765 before the
+  40-iteration cap. L2 `regParam` 0.03 is strong for unstandardized, L2-normalized
+  TF-IDF inputs.
+
+[`configs/fang_chua_v2.json`](../configs/fang_chua_v2.json) changes only these points:
+
+- `alpha = 1` for every candidate.
+- `regParam` ∈ {1e-2, 1e-3, 1e-4} for text-only and combined LR.
+- `maxIter = 200`.
+- A structured-only ablation (nine title/time features), exposed as `structured_features`.
+- A weighted RF.
+
+Labels, splits, vocabulary and feature definitions are identical. The thresholds again
+fit to `[2, 3, 4, 6, 11, 46, 271]`, and DuckDB verification passed.
+
+**Disclosure.** v2 was designed on 2026-11-25 after v1's validation *and* test metrics
+had been viewed. Selection still uses validation macro-F1 only, but v2's test split is
+not an untouched hold-out in the strict sense. The disclosure is stored in the config
+and printed in the report.
+
+Run `fang_chua_20261125_v2` completed all ten candidates in 35 min 52 s.
+
+| Candidate | Val macro-F1 | Test macro-F1 | Test bal. acc. | Test accuracy | LR iterations |
+| --- | ---: | ---: | ---: | ---: | --- |
+| majority | 0.1037 | 0.1033 | 0.1250 | 70.46% | — |
+| time_lr | 0.0319 | 0.0304 | 0.1374 | 2.12% | 3 |
+| structured_lr | 0.0889 | 0.0827 | 0.1598 | 20.88% | 31 |
+| text_lr_r1e2 / r1e3 / r1e4 | 0.1369 / 0.1389 / 0.1431 | 0.1285 / 0.1309 / 0.1333 | 0.2122 (r1e4) | 34.90% (r1e4) | 61 / 72 / 70 |
+| combined_lr_r1e2 / r1e3 | 0.0793 / 0.1126 | 0.0741 / 0.1034 | — | — | 200 (cap) / 200 (cap) |
+| **combined_lr_r1e4 (selected)** | **0.1433** | **0.1327** | **0.2161** | 33.29% | 158 (converged) |
+| rf_weighted | 0.1048 | 0.0987 | 0.1769 | 26.20% | — |
+
+The selected model's objective fell from 2.0794 to 1.9567 and converged before the cap.
+On test it reached:
+
+- weighted F1 0.4307 and mean threshold F1 0.1972;
+- macro-F1 0.1337 on the 125,662 test posts whose titles never appear in train.
+
+Per-class test recall ranges from 0.09 (class 3) to 0.47 (class 7), and precision on
+classes 4–7 stays below 0.05.
+
+Interpretation:
+
+- **The title wording carries the predictive signal.** Text-only and combined LR are
+  tied at about 0.143 validation macro-F1.
+- **Title statistics and UTC posting time add essentially nothing beyond the words.**
+  Time alone converged in three iterations and is worse than the majority baseline on
+  macro-F1. Balanced class weights make a signal-free model scatter predictions into
+  rare classes.
+- **The gain is real but modest:** test macro-F1 0.1033 → 0.1327 (v1: 0.1135). The
+  model trades accuracy (70.5% → 33.3%) for recall on rare classes. Eight-class
+  discrimination of archived scores from titles alone remains hard.
+
+A separate post-hoc analysis adjusts v1's saved models toward the training class prior
+(logit adjustment, no retraining). See
+[the v1 prior-adjustment report](../reports/experiments/fang_chua_20261121_v1/prior_adjustment/results_vi.md).
+Its best validation choice reaches test macro-F1 0.1245, below v2's retrained model.
+
+Full results: [Vietnamese report](../reports/experiments/fang_chua_20261125_v2/results_vi.md),
+[model comparison](../reports/experiments/fang_chua_20261125_v2/model_comparison.csv).
+Changing `features.py` (the new `structured_features` column) changes the stage
+source hashes, so `--resume` of the completed v1 run is refused by design. Its saved
+outputs are unaffected.
+
 ## Execution and reproducibility
 
 Run `fang_chua_20261121_v1` completed all ten candidates on the full dataset in
