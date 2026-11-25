@@ -1,0 +1,1731 @@
+{
+  "all_results_match": true,
+  "anchor_checks": [
+    {
+      "matches": true,
+      "query": "q4_label_distribution",
+      "reference": "reports/experiments/fang_chua_20261121_v1/class_distributions.json"
+    }
+  ],
+  "completed_at_utc": "2026-11-25T08:47:01.268057+00:00",
+  "engines": {
+    "duckdb": "1.5.4",
+    "spark": "4.3.0"
+  },
+  "environment": {
+    "cpu": "11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz",
+    "input": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_clean",
+    "input_bytes": 56784909,
+    "input_files": 12,
+    "java": "openjdk version \"21.0.12.1\" 2026-08-18",
+    "logical_cpus": 8,
+    "memory_total": "8001752 kB",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.44",
+    "python": "3.14.8"
+  },
+  "method": {
+    "caching": "No engine data/result caching; Parquet re-read every run; OS page cache warm after warm-up.",
+    "equivalence": "Identical SQL text from benchmarks/queries on both engines; float results compared with rel_tol 1e-9.",
+    "repeats": 5,
+    "scope": "Query planning + execution + fetching the result rows into Python; excludes engine startup.",
+    "timer": "time.perf_counter wall clock",
+    "warmup_runs": 1
+  },
+  "queries": {
+    "q1_scan_summary": "-- Full scan with global aggregates.\nSELECT count(*) AS posts, min(created_utc) AS first_utc, max(created_utc) AS last_utc,\n       sum(score) AS total_score, max(score) AS max_score\nFROM posts\n",
+    "q2_monthly_volume": "-- Group by a partition column.\nSELECT month, count(*) AS posts, avg(score) AS mean_score,\n       sum(CASE WHEN score >= 2 THEN 1 ELSE 0 END) AS score_ge_2\nFROM posts\nGROUP BY month\nORDER BY month\n",
+    "q3_weekday_hour": "-- Derived UTC weekday (Monday=0) and hour with portable integer arithmetic.\nSELECT CAST((floor(created_utc / 86400) + 3) % 7 AS INTEGER) AS weekday,\n       CAST(floor(created_utc / 3600) % 24 AS INTEGER) AS hour,\n       count(*) AS posts, avg(score) AS mean_score\nFROM posts\nGROUP BY 1, 2\nORDER BY 1, 2\n",
+    "q4_label_distribution": "-- Chronological split and frozen eight-class labels (boundaries 2,3,4,6,11,46,271).\nSELECT CASE WHEN created_utc < 1759276800 THEN 'train'\n            WHEN created_utc < 1764547200 THEN 'validation'\n            ELSE 'test' END AS split,\n       CASE WHEN score < 2 THEN 0 WHEN score < 3 THEN 1 WHEN score < 4 THEN 2 WHEN score < 6 THEN 3\n            WHEN score < 11 THEN 4 WHEN score < 46 THEN 5 WHEN score < 271 THEN 6 ELSE 7 END AS label,\n       count(*) AS posts\nFROM posts\nGROUP BY 1, 2\nORDER BY 1, 2\n",
+    "q5_monthly_median": "-- Exact (interpolated) median per month.\nSELECT month, median(score) AS median_score, max(score) AS max_score\nFROM posts\nGROUP BY month\nORDER BY month\n",
+    "q6_title_openers": "-- String functions over every title. Integer CASE values: a 1.0 literal is DECIMAL in Spark (avg keeps 5 decimals) but yields a double in DuckDB.\nSELECT CASE WHEN lower(title) LIKE 'what%' THEN 'what'\n            WHEN lower(title) LIKE 'why%' THEN 'why'\n            WHEN lower(title) LIKE 'how%' THEN 'how'\n            ELSE 'other' END AS opener,\n       count(*) AS posts, avg(length(title)) AS mean_chars,\n       avg(CASE WHEN score >= 2 THEN 1 ELSE 0 END) AS share_score_ge_2\nFROM posts\nGROUP BY 1\nORDER BY 1\n",
+    "q7_repeated_titles": "-- High-cardinality GROUP BY on a string column, then top-k.\nSELECT title, count(*) AS posts\nFROM posts\nGROUP BY title\nHAVING count(*) > 1\nORDER BY posts DESC, title\nLIMIT 20\n",
+    "q8_join_monthly_median": "-- Aggregate, join back to every row, aggregate again.\nWITH monthly AS (SELECT month, median(score) AS median_score FROM posts GROUP BY month)\nSELECT p.month, count(*) AS posts,\n       sum(CASE WHEN p.score > m.median_score THEN 1 ELSE 0 END) AS above_month_median\nFROM posts p JOIN monthly m ON p.month = m.month\nGROUP BY p.month\nORDER BY p.month\n"
+  },
+  "result_rows": {
+    "q1_scan_summary": [
+      [
+        1686985,
+        1735689607,
+        1767225565,
+        27781888,
+        114515
+      ]
+    ],
+    "q2_monthly_volume": [
+      [
+        1,
+        147226,
+        12.568452583103529,
+        41659
+      ],
+      [
+        2,
+        134902,
+        15.16512727757928,
+        34205
+      ],
+      [
+        3,
+        146729,
+        16.622903447852845,
+        40248
+      ],
+      [
+        4,
+        139575,
+        17.945677950922445,
+        39226
+      ],
+      [
+        5,
+        148542,
+        16.24506873476862,
+        43982
+      ],
+      [
+        6,
+        149575,
+        16.739649005515627,
+        45283
+      ],
+      [
+        7,
+        156011,
+        16.64521732441943,
+        47298
+      ],
+      [
+        8,
+        144569,
+        15.085052812151982,
+        41606
+      ],
+      [
+        9,
+        132726,
+        19.83850941036421,
+        37882
+      ],
+      [
+        10,
+        129424,
+        16.39540579799728,
+        37593
+      ],
+      [
+        11,
+        123601,
+        17.09106722437521,
+        36136
+      ],
+      [
+        12,
+        134105,
+        17.745460646508334,
+        39613
+      ]
+    ],
+    "q3_weekday_hour": [
+      [
+        0,
+        0,
+        10555,
+        17.83353860729512
+      ],
+      [
+        0,
+        1,
+        10074,
+        19.306630931109787
+      ],
+      [
+        0,
+        2,
+        10284,
+        17.699727732399843
+      ],
+      [
+        0,
+        3,
+        9586,
+        11.688295430836638
+      ],
+      [
+        0,
+        4,
+        9155,
+        13.53784817039869
+      ],
+      [
+        0,
+        5,
+        8455,
+        10.735895919574217
+      ],
+      [
+        0,
+        6,
+        8295,
+        10.109222423146473
+      ],
+      [
+        0,
+        7,
+        7473,
+        9.83232972032651
+      ],
+      [
+        0,
+        8,
+        7205,
+        12.077862595419848
+      ],
+      [
+        0,
+        9,
+        7437,
+        12.568374344493748
+      ],
+      [
+        0,
+        10,
+        7640,
+        11.858638743455497
+      ],
+      [
+        0,
+        11,
+        8590,
+        17.378579743888242
+      ],
+      [
+        0,
+        12,
+        9147,
+        19.709194271345797
+      ],
+      [
+        0,
+        13,
+        10363,
+        11.755765704911704
+      ],
+      [
+        0,
+        14,
+        11017,
+        17.99346464554779
+      ],
+      [
+        0,
+        15,
+        11580,
+        18.697322970639032
+      ],
+      [
+        0,
+        16,
+        12091,
+        12.481349764287486
+      ],
+      [
+        0,
+        17,
+        12698,
+        17.16380532367302
+      ],
+      [
+        0,
+        18,
+        12634,
+        13.253126484090549
+      ],
+      [
+        0,
+        19,
+        12454,
+        15.36871687811145
+      ],
+      [
+        0,
+        20,
+        12226,
+        19.445362342548666
+      ],
+      [
+        0,
+        21,
+        11955,
+        22.32086992890004
+      ],
+      [
+        0,
+        22,
+        11074,
+        12.53440491240744
+      ],
+      [
+        0,
+        23,
+        10604,
+        20.329121086382496
+      ],
+      [
+        1,
+        0,
+        10300,
+        16.14029126213592
+      ],
+      [
+        1,
+        1,
+        10203,
+        17.823875330785064
+      ],
+      [
+        1,
+        2,
+        10407,
+        17.06082444508504
+      ],
+      [
+        1,
+        3,
+        10068,
+        15.751390544298769
+      ],
+      [
+        1,
+        4,
+        9340,
+        11.544967880085654
+      ],
+      [
+        1,
+        5,
+        8363,
+        10.695205069950974
+      ],
+      [
+        1,
+        6,
+        8272,
+        8.48041586073501
+      ],
+      [
+        1,
+        7,
+        7714,
+        10.099040705211305
+      ],
+      [
+        1,
+        8,
+        7240,
+        9.452348066298342
+      ],
+      [
+        1,
+        9,
+        7605,
+        11.703484549638397
+      ],
+      [
+        1,
+        10,
+        7712,
+        19.40936203319502
+      ],
+      [
+        1,
+        11,
+        8841,
+        22.49937789842778
+      ],
+      [
+        1,
+        12,
+        9479,
+        17.750395611351408
+      ],
+      [
+        1,
+        13,
+        10520,
+        17.21625475285171
+      ],
+      [
+        1,
+        14,
+        11320,
+        16.215547703180214
+      ],
+      [
+        1,
+        15,
+        11740,
+        16.097274275979558
+      ],
+      [
+        1,
+        16,
+        12307,
+        26.746892012675712
+      ],
+      [
+        1,
+        17,
+        12779,
+        21.771108850457782
+      ],
+      [
+        1,
+        18,
+        12631,
+        20.27432507323252
+      ],
+      [
+        1,
+        19,
+        12522,
+        23.643747005270722
+      ],
+      [
+        1,
+        20,
+        12206,
+        16.873422906767164
+      ],
+      [
+        1,
+        21,
+        11895,
+        25.458511979823456
+      ],
+      [
+        1,
+        22,
+        11086,
+        14.019664441638103
+      ],
+      [
+        1,
+        23,
+        10863,
+        19.25747951762865
+      ],
+      [
+        2,
+        0,
+        10791,
+        15.005652858863868
+      ],
+      [
+        2,
+        1,
+        10323,
+        14.40230553133779
+      ],
+      [
+        2,
+        2,
+        10712,
+        17.903939507094847
+      ],
+      [
+        2,
+        3,
+        10011,
+        15.113874737788432
+      ],
+      [
+        2,
+        4,
+        9230,
+        13.152546045503792
+      ],
+      [
+        2,
+        5,
+        8820,
+        11.035260770975057
+      ],
+      [
+        2,
+        6,
+        8426,
+        8.824234512224068
+      ],
+      [
+        2,
+        7,
+        7905,
+        8.666540164452877
+      ],
+      [
+        2,
+        8,
+        7490,
+        11.457943925233645
+      ],
+      [
+        2,
+        9,
+        7603,
+        16.27028804419308
+      ],
+      [
+        2,
+        10,
+        7938,
+        12.812295288485764
+      ],
+      [
+        2,
+        11,
+        8435,
+        17.98921161825726
+      ],
+      [
+        2,
+        12,
+        9816,
+        15.380195599022004
+      ],
+      [
+        2,
+        13,
+        10633,
+        24.036396125270386
+      ],
+      [
+        2,
+        14,
+        11616,
+        15.451618457300276
+      ],
+      [
+        2,
+        15,
+        12058,
+        21.62473046939791
+      ],
+      [
+        2,
+        16,
+        12385,
+        17.350666128381107
+      ],
+      [
+        2,
+        17,
+        12885,
+        13.961117578579744
+      ],
+      [
+        2,
+        18,
+        12778,
+        17.81382062920645
+      ],
+      [
+        2,
+        19,
+        12849,
+        15.003969180480972
+      ],
+      [
+        2,
+        20,
+        12358,
+        16.96949344554135
+      ],
+      [
+        2,
+        21,
+        11692,
+        24.40908313376668
+      ],
+      [
+        2,
+        22,
+        11434,
+        24.829018716109847
+      ],
+      [
+        2,
+        23,
+        10685,
+        26.27580720636406
+      ],
+      [
+        3,
+        0,
+        10349,
+        14.419847328244275
+      ],
+      [
+        3,
+        1,
+        10489,
+        13.245113928877872
+      ],
+      [
+        3,
+        2,
+        10438,
+        19.26767579996168
+      ],
+      [
+        3,
+        3,
+        9627,
+        9.887296146255323
+      ],
+      [
+        3,
+        4,
+        9539,
+        17.66841387986162
+      ],
+      [
+        3,
+        5,
+        8684,
+        13.54076462459696
+      ],
+      [
+        3,
+        6,
+        8336,
+        10.762236084452976
+      ],
+      [
+        3,
+        7,
+        7720,
+        7.858031088082901
+      ],
+      [
+        3,
+        8,
+        7330,
+        11.268758526603001
+      ],
+      [
+        3,
+        9,
+        7562,
+        11.81327691087014
+      ],
+      [
+        3,
+        10,
+        7804,
+        17.159917990773963
+      ],
+      [
+        3,
+        11,
+        8329,
+        17.080081642454076
+      ],
+      [
+        3,
+        12,
+        9492,
+        12.824905183312262
+      ],
+      [
+        3,
+        13,
+        10470,
+        15.995224450811843
+      ],
+      [
+        3,
+        14,
+        11051,
+        15.106868156727899
+      ],
+      [
+        3,
+        15,
+        11884,
+        19.10114439582632
+      ],
+      [
+        3,
+        16,
+        12309,
+        17.5149077910472
+      ],
+      [
+        3,
+        17,
+        12587,
+        23.04266306506713
+      ],
+      [
+        3,
+        18,
+        12383,
+        18.39425018170072
+      ],
+      [
+        3,
+        19,
+        11882,
+        22.374852718397577
+      ],
+      [
+        3,
+        20,
+        11836,
+        19.522051368705643
+      ],
+      [
+        3,
+        21,
+        11511,
+        12.762053687776909
+      ],
+      [
+        3,
+        22,
+        11056,
+        22.966081765557163
+      ],
+      [
+        3,
+        23,
+        10850,
+        19.66589861751152
+      ],
+      [
+        4,
+        0,
+        10352,
+        18.213002318392583
+      ],
+      [
+        4,
+        1,
+        10118,
+        16.522534097647757
+      ],
+      [
+        4,
+        2,
+        10271,
+        11.596241845974102
+      ],
+      [
+        4,
+        3,
+        9703,
+        13.457075131402659
+      ],
+      [
+        4,
+        4,
+        8944,
+        9.733899821109123
+      ],
+      [
+        4,
+        5,
+        8378,
+        13.475173072332298
+      ],
+      [
+        4,
+        6,
+        8226,
+        6.138584974471189
+      ],
+      [
+        4,
+        7,
+        7606,
+        9.274520115698133
+      ],
+      [
+        4,
+        8,
+        7406,
+        14.02349446394815
+      ],
+      [
+        4,
+        9,
+        7350,
+        16.464897959183673
+      ],
+      [
+        4,
+        10,
+        7793,
+        13.546002823046324
+      ],
+      [
+        4,
+        11,
+        8331,
+        19.929300204057135
+      ],
+      [
+        4,
+        12,
+        9323,
+        13.844148879116164
+      ],
+      [
+        4,
+        13,
+        10226,
+        22.40074320359867
+      ],
+      [
+        4,
+        14,
+        11081,
+        20.87690641638841
+      ],
+      [
+        4,
+        15,
+        11378,
+        15.020741782387063
+      ],
+      [
+        4,
+        16,
+        11779,
+        17.830970370999236
+      ],
+      [
+        4,
+        17,
+        12586,
+        16.40076275226442
+      ],
+      [
+        4,
+        18,
+        11878,
+        21.86622326991076
+      ],
+      [
+        4,
+        19,
+        11724,
+        17.045632889798704
+      ],
+      [
+        4,
+        20,
+        11642,
+        23.182614671018726
+      ],
+      [
+        4,
+        21,
+        11369,
+        16.720467939132728
+      ],
+      [
+        4,
+        22,
+        10638,
+        15.553769505546155
+      ],
+      [
+        4,
+        23,
+        10552,
+        12.446739954510994
+      ],
+      [
+        5,
+        0,
+        9993,
+        18.695286700690485
+      ],
+      [
+        5,
+        1,
+        9711,
+        21.185253835856244
+      ],
+      [
+        5,
+        2,
+        9595,
+        17.017821782178217
+      ],
+      [
+        5,
+        3,
+        9097,
+        9.463229636143783
+      ],
+      [
+        5,
+        4,
+        8796,
+        11.879263301500682
+      ],
+      [
+        5,
+        5,
+        8336,
+        16.14947216890595
+      ],
+      [
+        5,
+        6,
+        8160,
+        14.231372549019607
+      ],
+      [
+        5,
+        7,
+        7722,
+        11.788526288526288
+      ],
+      [
+        5,
+        8,
+        7068,
+        16.03197509903792
+      ],
+      [
+        5,
+        9,
+        7142,
+        13.349761971436573
+      ],
+      [
+        5,
+        10,
+        7313,
+        13.399972651442637
+      ],
+      [
+        5,
+        11,
+        7758,
+        15.068058778035576
+      ],
+      [
+        5,
+        12,
+        8817,
+        21.88057162300102
+      ],
+      [
+        5,
+        13,
+        9635,
+        23.43072132848988
+      ],
+      [
+        5,
+        14,
+        10503,
+        15.200418927925355
+      ],
+      [
+        5,
+        15,
+        11175,
+        15.260939597315437
+      ],
+      [
+        5,
+        16,
+        11521,
+        15.487978474090792
+      ],
+      [
+        5,
+        17,
+        11722,
+        11.712165159529091
+      ],
+      [
+        5,
+        18,
+        11443,
+        16.9107751463777
+      ],
+      [
+        5,
+        19,
+        11683,
+        17.479928100659077
+      ],
+      [
+        5,
+        20,
+        11343,
+        19.435334567574717
+      ],
+      [
+        5,
+        21,
+        10922,
+        12.249862662516023
+      ],
+      [
+        5,
+        22,
+        10627,
+        15.271007810294533
+      ],
+      [
+        5,
+        23,
+        10368,
+        16.853973765432098
+      ],
+      [
+        6,
+        0,
+        9973,
+        24.43377118219192
+      ],
+      [
+        6,
+        1,
+        9946,
+        17.847275286547355
+      ],
+      [
+        6,
+        2,
+        9742,
+        22.712482036542806
+      ],
+      [
+        6,
+        3,
+        9656,
+        13.013152444076223
+      ],
+      [
+        6,
+        4,
+        9042,
+        11.359876133598762
+      ],
+      [
+        6,
+        5,
+        8574,
+        10.129927688360159
+      ],
+      [
+        6,
+        6,
+        8149,
+        12.694318321266413
+      ],
+      [
+        6,
+        7,
+        7550,
+        9.36887417218543
+      ],
+      [
+        6,
+        8,
+        7371,
+        12.687423687423687
+      ],
+      [
+        6,
+        9,
+        7380,
+        19.699322493224933
+      ],
+      [
+        6,
+        10,
+        7246,
+        13.041540160088324
+      ],
+      [
+        6,
+        11,
+        7722,
+        24.737373737373737
+      ],
+      [
+        6,
+        12,
+        8815,
+        24.02348269994328
+      ],
+      [
+        6,
+        13,
+        9937,
+        20.946261447116836
+      ],
+      [
+        6,
+        14,
+        10711,
+        15.623191111940995
+      ],
+      [
+        6,
+        15,
+        11283,
+        18.80280067357972
+      ],
+      [
+        6,
+        16,
+        11899,
+        16.41633750735356
+      ],
+      [
+        6,
+        17,
+        12392,
+        13.875484183344094
+      ],
+      [
+        6,
+        18,
+        12464,
+        19.41704107830552
+      ],
+      [
+        6,
+        19,
+        12376,
+        16.434712346477053
+      ],
+      [
+        6,
+        20,
+        11955,
+        20.407695524884986
+      ],
+      [
+        6,
+        21,
+        11529,
+        15.013444357706653
+      ],
+      [
+        6,
+        22,
+        10972,
+        12.977488151658768
+      ],
+      [
+        6,
+        23,
+        10801,
+        19.69836126284603
+      ]
+    ],
+    "q4_label_distribution": [
+      [
+        "test",
+        0,
+        94492
+      ],
+      [
+        "test",
+        1,
+        18525
+      ],
+      [
+        "test",
+        2,
+        9045
+      ],
+      [
+        "test",
+        3,
+        5617
+      ],
+      [
+        "test",
+        4,
+        3207
+      ],
+      [
+        "test",
+        5,
+        1662
+      ],
+      [
+        "test",
+        6,
+        690
+      ],
+      [
+        "test",
+        7,
+        867
+      ],
+      [
+        "train",
+        0,
+        928466
+      ],
+      [
+        "train",
+        1,
+        182480
+      ],
+      [
+        "train",
+        2,
+        82444
+      ],
+      [
+        "train",
+        3,
+        49591
+      ],
+      [
+        "train",
+        4,
+        27703
+      ],
+      [
+        "train",
+        5,
+        14487
+      ],
+      [
+        "train",
+        6,
+        7339
+      ],
+      [
+        "train",
+        7,
+        7345
+      ],
+      [
+        "validation",
+        0,
+        179296
+      ],
+      [
+        "validation",
+        1,
+        34430
+      ],
+      [
+        "validation",
+        2,
+        16447
+      ],
+      [
+        "validation",
+        3,
+        10345
+      ],
+      [
+        "validation",
+        4,
+        6019
+      ],
+      [
+        "validation",
+        5,
+        3236
+      ],
+      [
+        "validation",
+        6,
+        1595
+      ],
+      [
+        "validation",
+        7,
+        1657
+      ]
+    ],
+    "q5_monthly_median": [
+      [
+        1,
+        1.0,
+        50514
+      ],
+      [
+        2,
+        1.0,
+        34284
+      ],
+      [
+        3,
+        1.0,
+        41610
+      ],
+      [
+        4,
+        1.0,
+        44883
+      ],
+      [
+        5,
+        1.0,
+        25398
+      ],
+      [
+        6,
+        1.0,
+        65877
+      ],
+      [
+        7,
+        1.0,
+        47979
+      ],
+      [
+        8,
+        1.0,
+        56533
+      ],
+      [
+        9,
+        1.0,
+        114515
+      ],
+      [
+        10,
+        1.0,
+        44325
+      ],
+      [
+        11,
+        1.0,
+        39087
+      ],
+      [
+        12,
+        1.0,
+        25018
+      ]
+    ],
+    "q6_title_openers": [
+      [
+        "how",
+        170427,
+        68.05024438615948,
+        0.20792480064778468
+      ],
+      [
+        "other",
+        593145,
+        93.98684807256235,
+        0.2284213809439513
+      ],
+      [
+        "what",
+        825235,
+        64.92438153980382,
+        0.37246966015740973
+      ],
+      [
+        "why",
+        98178,
+        72.69020554503045,
+        0.06552384444580252
+      ]
+    ],
+    "q7_repeated_titles": [
+      [
+        "[ Removed by moderator ]",
+        486
+      ],
+      [
+        "What\u2019s a small decision you made that completely changed your life?",
+        433
+      ],
+      [
+        "What should I do?",
+        397
+      ],
+      [
+        "What makes you happy?",
+        239
+      ],
+      [
+        "What\u2019s a seemingly small decision you made that completely changed the course of your life?",
+        205
+      ],
+      [
+        "What\u2019s the weirdest compliment you\u2019ve ever received?",
+        200
+      ],
+      [
+        "What\u2019s something you learned embarrassingly late in life?",
+        193
+      ],
+      [
+        "What\u2019s the dumbest thing you believed as a kid?",
+        180
+      ],
+      [
+        "What\u2019s a small decision you made that completely changed the course of your life?",
+        178
+      ],
+      [
+        "What is your biggest regret?",
+        177
+      ],
+      [
+        "If animals could talk, which species would be the rudest?",
+        161
+      ],
+      [
+        "What free things online should everyone take advantage of?",
+        158
+      ],
+      [
+        "What is your biggest fear?",
+        156
+      ],
+      [
+        "What keeps you up at night?",
+        154
+      ],
+      [
+        "What do I do?",
+        152
+      ],
+      [
+        "What are you doing right now?",
+        149
+      ],
+      [
+        "How was your day?",
+        139
+      ],
+      [
+        "What\u2019s a small decision you made that ended up changing your life in a big way?",
+        139
+      ],
+      [
+        "How are you?",
+        135
+      ],
+      [
+        "What\u2019s something you realized way too late in life?",
+        132
+      ]
+    ],
+    "q8_join_monthly_median": [
+      [
+        1,
+        147226,
+        41659
+      ],
+      [
+        2,
+        134902,
+        34205
+      ],
+      [
+        3,
+        146729,
+        40248
+      ],
+      [
+        4,
+        139575,
+        39226
+      ],
+      [
+        5,
+        148542,
+        43982
+      ],
+      [
+        6,
+        149575,
+        45283
+      ],
+      [
+        7,
+        156011,
+        47298
+      ],
+      [
+        8,
+        144569,
+        41606
+      ],
+      [
+        9,
+        132726,
+        37882
+      ],
+      [
+        10,
+        129424,
+        37593
+      ],
+      [
+        11,
+        123601,
+        36136
+      ],
+      [
+        12,
+        134105,
+        39613
+      ]
+    ]
+  },
+  "settings": [
+    {
+      "duckdb": {
+        "caching": "none (view over read_parquet)",
+        "memory_limit": "2GB",
+        "threads": 2
+      },
+      "spark": {
+        "adaptive_query_execution": true,
+        "caching": "none",
+        "driver_memory": "2g",
+        "master": "local[2]",
+        "shuffle_partitions": 8
+      },
+      "threads": 2
+    },
+    {
+      "duckdb": {
+        "caching": "none (view over read_parquet)",
+        "memory_limit": "2GB",
+        "threads": 4
+      },
+      "spark": {
+        "adaptive_query_execution": true,
+        "caching": "none",
+        "driver_memory": "2g",
+        "master": "local[4]",
+        "shuffle_partitions": 16
+      },
+      "threads": 4
+    }
+  ],
+  "startup_seconds": [
+    {
+      "duckdb": 0.0093479600000137,
+      "spark": 6.95771883999987,
+      "threads": 2
+    },
+    {
+      "duckdb": 0.027643811000416463,
+      "spark": 0.15487846999985777,
+      "threads": 4
+    }
+  ],
+  "summary": [
+    {
+      "duckdb_max_seconds": 0.015799767000316933,
+      "duckdb_median_seconds": 0.015084165000189387,
+      "duckdb_min_seconds": 0.014491317999272724,
+      "query": "q1_scan_summary",
+      "results_match": true,
+      "spark_max_seconds": 0.32816898900000524,
+      "spark_median_seconds": 0.27906749499925354,
+      "spark_min_seconds": 0.20028980999995838,
+      "spark_to_duckdb_ratio": 18.500692281989075,
+      "threads": 2
+    },
+    {
+      "duckdb_max_seconds": 0.011573068999496172,
+      "duckdb_median_seconds": 0.01135750100002042,
+      "duckdb_min_seconds": 0.010926146999736375,
+      "query": "q2_monthly_volume",
+      "results_match": true,
+      "spark_max_seconds": 0.4448255210008938,
+      "spark_median_seconds": 0.2837655409994113,
+      "spark_min_seconds": 0.23139609700047004,
+      "spark_to_duckdb_ratio": 24.98485723214122,
+      "threads": 2
+    },
+    {
+      "duckdb_max_seconds": 0.05624284900022758,
+      "duckdb_median_seconds": 0.054410171000199625,
+      "duckdb_min_seconds": 0.05290766699999949,
+      "query": "q3_weekday_hour",
+      "results_match": true,
+      "spark_max_seconds": 0.2966384100000141,
+      "spark_median_seconds": 0.2691045369992935,
+      "spark_min_seconds": 0.25752682500024093,
+      "spark_to_duckdb_ratio": 4.94584986689908,
+      "threads": 2
+    },
+    {
+      "duckdb_max_seconds": 0.04959403400062001,
+      "duckdb_median_seconds": 0.03878995400009444,
+      "duckdb_min_seconds": 0.034559713999442465,
+      "query": "q4_label_distribution",
+      "results_match": true,
+      "spark_max_seconds": 0.34593335400040814,
+      "spark_median_seconds": 0.23608082499958982,
+      "spark_min_seconds": 0.2165610399997604,
+      "spark_to_duckdb_ratio": 6.086133151872649,
+      "threads": 2
+    },
+    {
+      "duckdb_max_seconds": 0.0276292469998225,
+      "duckdb_median_seconds": 0.022053446999962034,
+      "duckdb_min_seconds": 0.02110842500042054,
+      "query": "q5_monthly_median",
+      "results_match": true,
+      "spark_max_seconds": 0.3485383189999993,
+      "spark_median_seconds": 0.28102001000024757,
+      "spark_min_seconds": 0.24682397400010814,
+      "spark_to_duckdb_ratio": 12.742679636463695,
+      "threads": 2
+    },
+    {
+      "duckdb_max_seconds": 0.3515822970002773,
+      "duckdb_median_seconds": 0.328210164999291,
+      "duckdb_min_seconds": 0.31296699900030944,
+      "query": "q6_title_openers",
+      "results_match": true,
+      "spark_max_seconds": 1.3283639389992459,
+      "spark_median_seconds": 1.268956992999847,
+      "spark_min_seconds": 1.2108470159992066,
+      "spark_to_duckdb_ratio": 3.8662940040342386,
+      "threads": 2
+    },
+    {
+      "duckdb_max_seconds": 0.38482207099968946,
+      "duckdb_median_seconds": 0.3333506050003052,
+      "duckdb_min_seconds": 0.3266500680001627,
+      "query": "q7_repeated_titles",
+      "results_match": true,
+      "spark_max_seconds": 2.197347334999904,
+      "spark_median_seconds": 1.8841560730006677,
+      "spark_min_seconds": 1.8049265950003246,
+      "spark_to_duckdb_ratio": 5.652175351530988,
+      "threads": 2
+    },
+    {
+      "duckdb_max_seconds": 0.050297067999963474,
+      "duckdb_median_seconds": 0.04767240599994693,
+      "duckdb_min_seconds": 0.04491021399917372,
+      "query": "q8_join_monthly_median",
+      "results_match": true,
+      "spark_max_seconds": 0.6899553319999541,
+      "spark_median_seconds": 0.6230842610002583,
+      "spark_min_seconds": 0.4816568419992109,
+      "spark_to_duckdb_ratio": 13.070124067179488,
+      "threads": 2
+    },
+    {
+      "duckdb_max_seconds": 0.012132566000218503,
+      "duckdb_median_seconds": 0.011795229999734147,
+      "duckdb_min_seconds": 0.010973637000461167,
+      "query": "q1_scan_summary",
+      "results_match": true,
+      "spark_max_seconds": 0.16511602600076003,
+      "spark_median_seconds": 0.14949673600040114,
+      "spark_min_seconds": 0.10681432999990648,
+      "spark_to_duckdb_ratio": 12.674338355739621,
+      "threads": 4
+    },
+    {
+      "duckdb_max_seconds": 0.009120568000071216,
+      "duckdb_median_seconds": 0.008673740999256552,
+      "duckdb_min_seconds": 0.006816133000029367,
+      "query": "q2_monthly_volume",
+      "results_match": true,
+      "spark_max_seconds": 0.20718212900010258,
+      "spark_median_seconds": 0.1683393020002768,
+      "spark_min_seconds": 0.15832152600069094,
+      "spark_to_duckdb_ratio": 19.407923526273795,
+      "threads": 4
+    },
+    {
+      "duckdb_max_seconds": 0.05363731800025562,
+      "duckdb_median_seconds": 0.04276650499923562,
+      "duckdb_min_seconds": 0.03620022399991285,
+      "query": "q3_weekday_hour",
+      "results_match": true,
+      "spark_max_seconds": 0.2684182740003962,
+      "spark_median_seconds": 0.21147955199921853,
+      "spark_min_seconds": 0.18908050499976525,
+      "spark_to_duckdb_ratio": 4.944980937839048,
+      "threads": 4
+    },
+    {
+      "duckdb_max_seconds": 0.03735385999971186,
+      "duckdb_median_seconds": 0.03212601799987169,
+      "duckdb_min_seconds": 0.02739866800038726,
+      "query": "q4_label_distribution",
+      "results_match": true,
+      "spark_max_seconds": 0.2578076420004436,
+      "spark_median_seconds": 0.2196848650000902,
+      "spark_min_seconds": 0.18275014299979375,
+      "spark_to_duckdb_ratio": 6.8382226829658,
+      "threads": 4
+    },
+    {
+      "duckdb_max_seconds": 0.02245965600013733,
+      "duckdb_median_seconds": 0.02138581500003056,
+      "duckdb_min_seconds": 0.01991978099977132,
+      "query": "q5_monthly_median",
+      "results_match": true,
+      "spark_max_seconds": 0.32572153999990405,
+      "spark_median_seconds": 0.2511338969998178,
+      "spark_min_seconds": 0.22313254600067012,
+      "spark_to_duckdb_ratio": 11.743012693201495,
+      "threads": 4
+    },
+    {
+      "duckdb_max_seconds": 0.31299817399940366,
+      "duckdb_median_seconds": 0.22776342799988925,
+      "duckdb_min_seconds": 0.22356026400029805,
+      "query": "q6_title_openers",
+      "results_match": true,
+      "spark_max_seconds": 0.9779029310002443,
+      "spark_median_seconds": 0.9252423450006972,
+      "spark_min_seconds": 0.8275879169996188,
+      "spark_to_duckdb_ratio": 4.062295484071952,
+      "threads": 4
+    },
+    {
+      "duckdb_max_seconds": 0.22526979800022673,
+      "duckdb_median_seconds": 0.216453719999663,
+      "duckdb_min_seconds": 0.1963898710000649,
+      "query": "q7_repeated_titles",
+      "results_match": true,
+      "spark_max_seconds": 1.5033715290001055,
+      "spark_median_seconds": 1.1703428840000925,
+      "spark_min_seconds": 1.0873705160001919,
+      "spark_to_duckdb_ratio": 5.406896605897623,
+      "threads": 4
+    },
+    {
+      "duckdb_max_seconds": 0.045134209000025294,
+      "duckdb_median_seconds": 0.04125809600009234,
+      "duckdb_min_seconds": 0.03646960800051602,
+      "query": "q8_join_monthly_median",
+      "results_match": true,
+      "spark_max_seconds": 0.40934939900034806,
+      "spark_median_seconds": 0.384334105000562,
+      "spark_min_seconds": 0.3278081749995181,
+      "spark_to_duckdb_ratio": 9.315362129161313,
+      "threads": 4
+    }
+  ]
+}

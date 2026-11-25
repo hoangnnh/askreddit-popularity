@@ -1,0 +1,43 @@
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+/home/hoangnnh/Coding/IE212/project/askreddit-popularity/.venv/lib/python3.14/site-packages/pyspark/testing/utils.py:127: FutureWarning: PySpark does not yet fully support pandas >= 3.0.0. Some features may not work correctly. It is recommended to use pandas < 3.0.0 for now.
+  require_minimum_pandas_version()
+26/11/25 15:45:46 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2026-11-25 15:45:54,756 INFO spark threads=2 q1_scan_summary median 0.279 s
+2026-11-25 15:45:57,291 INFO spark threads=2 q2_monthly_volume median 0.284 s
+2026-11-25 15:45:59,292 INFO spark threads=2 q3_weekday_hour median 0.269 s
+2026-11-25 15:46:01,270 INFO spark threads=2 q4_label_distribution median 0.236 s
+2026-11-25 15:46:03,382 INFO spark threads=2 q5_monthly_median median 0.281 s
+2026-11-25 15:46:12,416 INFO spark threads=2 q6_title_openers median 1.269 s
+2026-11-25 15:46:24,928 INFO spark threads=2 q7_repeated_titles median 1.884 s
+2026-11-25 15:46:28,623 INFO spark threads=2 q8_join_monthly_median median 0.623 s
+2026-11-25 15:46:29,048 INFO duckdb threads=2 q1_scan_summary median 0.015 s
+2026-11-25 15:46:29,116 INFO duckdb threads=2 q2_monthly_volume median 0.011 s
+2026-11-25 15:46:29,442 INFO duckdb threads=2 q3_weekday_hour median 0.054 s
+2026-11-25 15:46:29,678 INFO duckdb threads=2 q4_label_distribution median 0.039 s
+2026-11-25 15:46:29,818 INFO duckdb threads=2 q5_monthly_median median 0.022 s
+2026-11-25 15:46:31,771 INFO duckdb threads=2 q6_title_openers median 0.328 s
+2026-11-25 15:46:33,903 INFO duckdb threads=2 q7_repeated_titles median 0.333 s
+2026-11-25 15:46:34,191 INFO duckdb threads=2 q8_join_monthly_median median 0.048 s
+2026-11-25 15:46:35,265 INFO spark threads=4 q1_scan_summary median 0.149 s
+2026-11-25 15:46:36,499 INFO spark threads=4 q2_monthly_volume median 0.168 s
+2026-11-25 15:46:37,908 INFO spark threads=4 q3_weekday_hour median 0.211 s
+2026-11-25 15:46:39,326 INFO spark threads=4 q4_label_distribution median 0.220 s
+2026-11-25 15:46:41,227 INFO spark threads=4 q5_monthly_median median 0.251 s
+2026-11-25 15:46:47,103 INFO spark threads=4 q6_title_openers median 0.925 s
+2026-11-25 15:46:54,745 INFO spark threads=4 q7_repeated_titles median 1.170 s
+2026-11-25 15:46:57,151 INFO spark threads=4 q8_join_monthly_median median 0.384 s
+2026-11-25 15:46:57,431 INFO duckdb threads=4 q1_scan_summary median 0.012 s
+2026-11-25 15:46:57,480 INFO duckdb threads=4 q2_monthly_volume median 0.009 s
+2026-11-25 15:46:57,744 INFO duckdb threads=4 q3_weekday_hour median 0.043 s
+2026-11-25 15:46:57,939 INFO duckdb threads=4 q4_label_distribution median 0.032 s
+2026-11-25 15:46:58,067 INFO duckdb threads=4 q5_monthly_median median 0.021 s
+2026-11-25 15:46:59,688 INFO duckdb threads=4 q6_title_openers median 0.228 s
+2026-11-25 15:47:00,992 INFO duckdb threads=4 q7_repeated_titles median 0.216 s
+2026-11-25 15:47:01,247 INFO duckdb threads=4 q8_join_monthly_median median 0.041 s
+2026-11-25 15:47:01,667 WARNING findfont: Failed to find font weight semibold for DejaVu Sans, now using 700.
+2026-11-25 15:47:01,983 INFO Closing down clientserver connection
+/home/hoangnnh/Coding/IE212/project/askreddit-popularity/reports/benchmark/spark_vs_duckdb_20261125/figures/median_times.png
+/home/hoangnnh/Coding/IE212/project/askreddit-popularity/reports/benchmark/spark_vs_duckdb_20261125/summary_vi.md
