@@ -1,0 +1,140 @@
+{
+  "repeated_titles": 53331,
+  "postings_in_repeated_titles": 181052,
+  "repeated_titles_with_a_post_ge_271": 2808,
+  "of_which_median_posting_le_2": 2204,
+  "share_of_viral_titles_whose_median_posting_le_2": 0.7849002849002849,
+  "variance_explained_by_title_identity": {
+    "groups_with_at_least_2_postings": {
+      "postings": 181052,
+      "variance_share_explained": 0.3838212683526253
+    },
+    "groups_with_at_least_5_postings": {
+      "postings": 72345,
+      "variance_share_explained": 0.1889167627556314
+    }
+  },
+  "note": "In-sample group means (optimistic upper bound). Groups of 2 are heavily inflated; use the larger-group figure.",
+  "largest_groups": [
+    {
+      "title_key": "what should i do?",
+      "postings": 520,
+      "median": 1,
+      "p90": 1,
+      "max": 1,
+      "share_ge_271": 0.0
+    },
+    {
+      "title_key": "what's a small decision you made that completely changed your life?",
+      "postings": 479,
+      "median": 1,
+      "p90": 1,
+      "max": 189,
+      "share_ge_271": 0.0
+    },
+    {
+      "title_key": "what makes you happy?",
+      "postings": 260,
+      "median": 2,
+      "p90": 18,
+      "max": 160,
+      "share_ge_271": 0.0
+    },
+    {
+      "title_key": "what's the weirdest compliment you've ever received?",
+      "postings": 235,
+      "median": 2,
+      "p90": 5,
+      "max": 448,
+      "share_ge_271": 0.00425531914893617
+    },
+    {
+      "title_key": "what's a seemingly small decision you made that completely changed the course of your life?",
+      "postings": 226,
+      "median": 1,
+      "p90": 2,
+      "max": 24,
+      "share_ge_271": 0.0
+    },
+    {
+      "title_key": "what's something you learned embarrassingly late in life?",
+      "postings": 217,
+      "median": 1,
+      "p90": 3,
+      "max": 365,
+      "share_ge_271": 0.004608294930875576
+    },
+    {
+      "title_key": "how was your day?",
+      "postings": 206,
+      "median": 1,
+      "p90": 5,
+      "max": 20,
+      "share_ge_271": 0.0
+    },
+    {
+      "title_key": "what's the dumbest thing you believed as a kid?",
+      "postings": 202,
+      "median": 2,
+      "p90": 6,
+      "max": 82,
+      "share_ge_271": 0.0
+    },
+    {
+      "title_key": "what is your biggest regret?",
+      "postings": 195,
+      "median": 1,
+      "p90": 5,
+      "max": 36,
+      "share_ge_271": 0.0
+    },
+    {
+      "title_key": "what's a small decision you made that completely changed the course of your life?",
+      "postings": 193,
+      "median": 1,
+      "p90": 1,
+      "max": 16,
+      "share_ge_271": 0.0
+    },
+    {
+      "title_key": "what do i do?",
+      "postings": 190,
+      "median": 1,
+      "p90": 1,
+      "max": 1,
+      "share_ge_271": 0.0
+    },
+    {
+      "title_key": "what is your biggest fear?",
+      "postings": 174,
+      "median": 2,
+      "p90": 10,
+      "max": 125,
+      "share_ge_271": 0.0
+    },
+    {
+      "title_key": "if animals could talk, which species would be the rudest?",
+      "postings": 164,
+      "median": 1,
+      "p90": 4,
+      "max": 70,
+      "share_ge_271": 0.0
+    },
+    {
+      "title_key": "what's a small decision you made that ended up changing your life in a big way?",
+      "postings": 162,
+      "median": 1,
+      "p90": 2,
+      "max": 10,
+      "share_ge_271": 0.0
+    },
+    {
+      "title_key": "what keeps you up at night?",
+      "postings": 162,
+      "median": 2,
+      "p90": 7,
+      "max": 94,
+      "share_ge_271": 0.0
+    }
+  ]
+}

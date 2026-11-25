@@ -1,0 +1,177 @@
+{
+  "completed_at_utc": "2026-11-25T14:14:16.135964+00:00",
+  "disclosures": [
+    "The kept posting is the luckiest of its repeats: scores of repeated questions are biased upward.",
+    "Selection uses all 2025 scores, including validation/test months; titles never span splits.",
+    "Repeated titles include karma-farming reposts; deduplication removes their volume, not their existence."
+  ],
+  "distinct_titles": 1558760,
+  "elapsed_seconds": 50.171,
+  "input": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_clean",
+  "input_files": [
+    {
+      "bytes": 4900124,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_clean/year=2025/month=1/part-00001-453ca44e-8585-43f9-a9d2-67f51f7f0fb2.c000.zstd.parquet",
+      "sha256": "e57764a8b10ea55172b8cfc4dc66205b037d1aa6a10b9b0100c0739f115e8ff2"
+    },
+    {
+      "bytes": 4334187,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_clean/year=2025/month=10/part-00003-453ca44e-8585-43f9-a9d2-67f51f7f0fb2.c000.zstd.parquet",
+      "sha256": "79493d5d57ae68d34a184eac3225d314944f069ac3226fcad87255e3a1cfc01b"
+    },
+    {
+      "bytes": 4160761,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_clean/year=2025/month=11/part-00000-453ca44e-8585-43f9-a9d2-67f51f7f0fb2.c000.zstd.parquet",
+      "sha256": "ee52dae94afd9b167d1ddadbf43870a6cd47a0caec7cf8ea83602f5dcfb711db"
+    },
+    {
+      "bytes": 4415504,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_clean/year=2025/month=12/part-00002-453ca44e-8585-43f9-a9d2-67f51f7f0fb2.c000.zstd.parquet",
+      "sha256": "0862f5d7c89f2ea855b03c29b55446b04c91327ed1c8166ad93d664074dc1f6c"
+    },
+    {
+      "bytes": 4622661,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_clean/year=2025/month=2/part-00002-453ca44e-8585-43f9-a9d2-67f51f7f0fb2.c000.zstd.parquet",
+      "sha256": "0d91d6d9b534dc420a4be3a7b961e0113ee6c4212617216b2993629c75bae4cc"
+    },
+    {
+      "bytes": 5065974,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_clean/year=2025/month=3/part-00002-453ca44e-8585-43f9-a9d2-67f51f7f0fb2.c000.zstd.parquet",
+      "sha256": "597fe6e7b74cff54cf2644d9f3828f5e26b70726a51dfd439823d1666f797927"
+    },
+    {
+      "bytes": 4748531,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_clean/year=2025/month=4/part-00003-453ca44e-8585-43f9-a9d2-67f51f7f0fb2.c000.zstd.parquet",
+      "sha256": "4b9f836f8e70f57be83aa6fb70cf213c79a025b9f038e23e34298b3aa6dd778d"
+    },
+    {
+      "bytes": 5002246,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_clean/year=2025/month=5/part-00003-453ca44e-8585-43f9-a9d2-67f51f7f0fb2.c000.zstd.parquet",
+      "sha256": "eb5fc04c5d6203987285fd97f31f4e98cdb2539dc5c17745ae5c46b81fa7576b"
+    },
+    {
+      "bytes": 5022396,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_clean/year=2025/month=6/part-00002-453ca44e-8585-43f9-a9d2-67f51f7f0fb2.c000.zstd.parquet",
+      "sha256": "bf86a706ad24ed5b6661443ed5cce116a4e056320d4483b1579b144b425102db"
+    },
+    {
+      "bytes": 5195757,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_clean/year=2025/month=7/part-00003-453ca44e-8585-43f9-a9d2-67f51f7f0fb2.c000.zstd.parquet",
+      "sha256": "cf85854682d2ffe9cf3c6a8cf365376bf10bc3f9ec42335bebb82c44a3d05f44"
+    },
+    {
+      "bytes": 4827543,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_clean/year=2025/month=8/part-00000-453ca44e-8585-43f9-a9d2-67f51f7f0fb2.c000.zstd.parquet",
+      "sha256": "9bae72d9364efc92589efad096fa2283949894252d25d983da4dd4d53c21c858"
+    },
+    {
+      "bytes": 4489225,
+      "path": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_clean/year=2025/month=9/part-00001-453ca44e-8585-43f9-a9d2-67f51f7f0fb2.c000.zstd.parquet",
+      "sha256": "40fe9803232d0e778a7b3a3120654e5ccb3b50c88c773ba02d57b1ee8be1f517"
+    }
+  ],
+  "input_records": 1686985,
+  "largest_title_groups": [
+    {
+      "kept_score": 1,
+      "title_key": "what should i do?",
+      "title_postings": 520
+    },
+    {
+      "kept_score": 189,
+      "title_key": "what's a small decision you made that completely changed your life?",
+      "title_postings": 479
+    },
+    {
+      "kept_score": 160,
+      "title_key": "what makes you happy?",
+      "title_postings": 260
+    },
+    {
+      "kept_score": 448,
+      "title_key": "what's the weirdest compliment you've ever received?",
+      "title_postings": 235
+    },
+    {
+      "kept_score": 24,
+      "title_key": "what's a seemingly small decision you made that completely changed the course of your life?",
+      "title_postings": 226
+    },
+    {
+      "kept_score": 365,
+      "title_key": "what's something you learned embarrassingly late in life?",
+      "title_postings": 217
+    },
+    {
+      "kept_score": 20,
+      "title_key": "how was your day?",
+      "title_postings": 206
+    },
+    {
+      "kept_score": 82,
+      "title_key": "what's the dumbest thing you believed as a kid?",
+      "title_postings": 202
+    },
+    {
+      "kept_score": 36,
+      "title_key": "what is your biggest regret?",
+      "title_postings": 195
+    },
+    {
+      "kept_score": 16,
+      "title_key": "what's a small decision you made that completely changed the course of your life?",
+      "title_postings": 193
+    },
+    {
+      "kept_score": 1,
+      "title_key": "what do i do?",
+      "title_postings": 190
+    },
+    {
+      "kept_score": 125,
+      "title_key": "what is your biggest fear?",
+      "title_postings": 174
+    },
+    {
+      "kept_score": 70,
+      "title_key": "if animals could talk, which species would be the rudest?",
+      "title_postings": 164
+    },
+    {
+      "kept_score": 94,
+      "title_key": "what keeps you up at night?",
+      "title_postings": 162
+    },
+    {
+      "kept_score": 10,
+      "title_key": "what's a small decision you made that ended up changing your life in a big way?",
+      "title_postings": 162
+    }
+  ],
+  "non_best_postings_dropped": 127728,
+  "output": "/home/hoangnnh/Coding/IE212/project/askreddit-popularity/data/processed/askreddit_dedup",
+  "output_records": 1558760,
+  "placeholder_titles_dropped": 497,
+  "postings_in_repeated_titles": 181063,
+  "python_version": "3.14.8",
+  "repeated_titles": 53335,
+  "rule": "Key = NFKC + whitespace collapse + lowercase title, curly quotes mapped to straight quotes. Placeholder titles matching ^\\[\\s*(removed|deleted)\\b[^\\]]*\\]$ are dropped. Within each key keep the posting with the highest score; ties by earliest created_utc, then smallest id. Global over all of 2025.",
+  "score_after": {
+    "median_score": 1.0,
+    "p90_score": 3.0,
+    "records": 1558760,
+    "records_score_ge_271": 9644,
+    "share_score_ge_2": 0.2889803433498422,
+    "share_score_le_1": 0.7110196566501579
+  },
+  "score_before": {
+    "median_score": 1.0,
+    "p90_score": 3.0,
+    "records": 1686985,
+    "records_score_ge_271": 9869,
+    "share_score_ge_2": 0.2873356905959448,
+    "share_score_le_1": 0.7126643094040551
+  },
+  "spark_version": "4.3.0",
+  "status": "completed"
+}
