@@ -1,0 +1,355 @@
+{
+  "all": {
+    "distinct_values": 4353,
+    "max": 114515,
+    "mean": 16.468366938650906,
+    "min": 0,
+    "one": 891088,
+    "one_share": 0.5282133510375018,
+    "quantiles": {
+      "0.01": 0,
+      "0.05": 0,
+      "0.1": 0,
+      "0.25": 1,
+      "0.5": 1,
+      "0.75": 2,
+      "0.9": 3,
+      "0.95": 5,
+      "0.99": 69,
+      "0.999": 4093
+    },
+    "records": 1686985,
+    "share_le_1": 0.7126643094040551,
+    "tail": [
+      {
+        "records": 484731,
+        "score_at_least": 2,
+        "share": 0.2873356905959448
+      },
+      {
+        "records": 41858,
+        "score_at_least": 10,
+        "share": 0.024812313091106323
+      },
+      {
+        "records": 19493,
+        "score_at_least": 46,
+        "share": 0.011554933802019579
+      },
+      {
+        "records": 14823,
+        "score_at_least": 100,
+        "share": 0.00878668156504059
+      },
+      {
+        "records": 9869,
+        "score_at_least": 271,
+        "share": 0.005850081654549389
+      },
+      {
+        "records": 4970,
+        "score_at_least": 1000,
+        "share": 0.0029460842864637207
+      },
+      {
+        "records": 372,
+        "score_at_least": 10000,
+        "share": 0.00022051174136106724
+      },
+      {
+        "records": 1,
+        "score_at_least": 100000,
+        "share": 5.927734982824388e-07
+      }
+    ],
+    "zero": 311166,
+    "zero_share": 0.18445095836655334
+  },
+  "by_split": {
+    "test": {
+      "distinct_values": 982,
+      "max": 25018,
+      "mean": 17.745460646508334,
+      "min": 0,
+      "one": 71249,
+      "one_share": 0.5312926438238693,
+      "quantiles": {
+        "0.01": 0,
+        "0.05": 0,
+        "0.1": 0,
+        "0.25": 1,
+        "0.5": 1,
+        "0.75": 2,
+        "0.9": 3,
+        "0.95": 5,
+        "0.99": 69,
+        "0.999": 5143
+      },
+      "records": 134105,
+      "share_le_1": 0.7046120577159688,
+      "tail": [
+        {
+          "records": 39613,
+          "score_at_least": 2,
+          "share": 0.29538794228403115
+        },
+        {
+          "records": 3460,
+          "score_at_least": 10,
+          "share": 0.025800678572760152
+        },
+        {
+          "records": 1557,
+          "score_at_least": 46,
+          "share": 0.011610305357742068
+        },
+        {
+          "records": 1179,
+          "score_at_least": 100,
+          "share": 0.008791618507885611
+        },
+        {
+          "records": 867,
+          "score_at_least": 271,
+          "share": 0.006465083330226315
+        },
+        {
+          "records": 485,
+          "score_at_least": 1000,
+          "share": 0.0036165691062973043
+        },
+        {
+          "records": 19,
+          "score_at_least": 10000,
+          "share": 0.00014168002684463666
+        },
+        {
+          "records": 0,
+          "score_at_least": 100000,
+          "share": 0.0
+        }
+      ],
+      "zero": 23243,
+      "zero_share": 0.17331941389209948
+    },
+    "train": {
+      "distinct_values": 3679,
+      "max": 114515,
+      "mean": 16.28466328936689,
+      "min": 0,
+      "one": 689033,
+      "one_share": 0.5300845094260513,
+      "quantiles": {
+        "0.01": 0,
+        "0.05": 0,
+        "0.1": 0,
+        "0.25": 1,
+        "0.5": 1,
+        "0.75": 2,
+        "0.9": 3,
+        "0.95": 5,
+        "0.99": 66,
+        "0.999": 3997
+      },
+      "records": 1299855,
+      "share_le_1": 0.7142842855549273,
+      "tail": [
+        {
+          "records": 371389,
+          "score_at_least": 2,
+          "share": 0.2857157144450727
+        },
+        {
+          "records": 31443,
+          "score_at_least": 10,
+          "share": 0.02418962115005135
+        },
+        {
+          "records": 14684,
+          "score_at_least": 46,
+          "share": 0.011296644625746718
+        },
+        {
+          "records": 11225,
+          "score_at_least": 100,
+          "share": 0.008635578583765112
+        },
+        {
+          "records": 7345,
+          "score_at_least": 271,
+          "share": 0.005650630262606214
+        },
+        {
+          "records": 3680,
+          "score_at_least": 1000,
+          "share": 0.002831085005635244
+        },
+        {
+          "records": 308,
+          "score_at_least": 10000,
+          "share": 0.00023694950590642802
+        },
+        {
+          "records": 1,
+          "score_at_least": 100000,
+          "share": 7.693165776182728e-07
+        }
+      ],
+      "zero": 239433,
+      "zero_share": 0.18419977612887592
+    },
+    "validation": {
+      "distinct_values": 1491,
+      "max": 44325,
+      "mean": 16.73523169647268,
+      "min": 0,
+      "one": 130806,
+      "one_share": 0.5169686789842901,
+      "quantiles": {
+        "0.01": 0,
+        "0.05": 0,
+        "0.1": 0,
+        "0.25": 1,
+        "0.5": 1,
+        "0.75": 2,
+        "0.9": 3,
+        "0.95": 5,
+        "0.99": 89,
+        "0.999": 3973
+      },
+      "records": 253025,
+      "share_le_1": 0.7086098211639166,
+      "tail": [
+        {
+          "records": 73729,
+          "score_at_least": 2,
+          "share": 0.29139017883608337
+        },
+        {
+          "records": 6955,
+          "score_at_least": 10,
+          "share": 0.027487402430589863
+        },
+        {
+          "records": 3252,
+          "score_at_least": 46,
+          "share": 0.012852484932318942
+        },
+        {
+          "records": 2419,
+          "score_at_least": 100,
+          "share": 0.009560320126469717
+        },
+        {
+          "records": 1657,
+          "score_at_least": 271,
+          "share": 0.006548760003952179
+        },
+        {
+          "records": 805,
+          "score_at_least": 1000,
+          "share": 0.0031815038039719394
+        },
+        {
+          "records": 45,
+          "score_at_least": 10000,
+          "share": 0.00017784803873135066
+        },
+        {
+          "records": 0,
+          "score_at_least": 100000,
+          "share": 0.0
+        }
+      ],
+      "zero": 48490,
+      "zero_share": 0.19164114217962652
+    }
+  },
+  "quantile_definition": "Exact inverse empirical CDF: smallest score whose cumulative count reaches ceil(p*N).",
+  "small_scores": [
+    {
+      "records": 311166,
+      "score": 0
+    },
+    {
+      "records": 891088,
+      "score": 1
+    },
+    {
+      "records": 235435,
+      "score": 2
+    },
+    {
+      "records": 107936,
+      "score": 3
+    },
+    {
+      "records": 39418,
+      "score": 4
+    },
+    {
+      "records": 26135,
+      "score": 5
+    },
+    {
+      "records": 15040,
+      "score": 6
+    },
+    {
+      "records": 8874,
+      "score": 7
+    },
+    {
+      "records": 6008,
+      "score": 8
+    },
+    {
+      "records": 4027,
+      "score": 9
+    },
+    {
+      "records": 2980,
+      "score": 10
+    },
+    {
+      "records": 2481,
+      "score": 11
+    },
+    {
+      "records": 1959,
+      "score": 12
+    },
+    {
+      "records": 1520,
+      "score": 13
+    },
+    {
+      "records": 1371,
+      "score": 14
+    },
+    {
+      "records": 1175,
+      "score": 15
+    },
+    {
+      "records": 974,
+      "score": 16
+    },
+    {
+      "records": 862,
+      "score": 17
+    },
+    {
+      "records": 776,
+      "score": 18
+    },
+    {
+      "records": 669,
+      "score": 19
+    },
+    {
+      "records": 622,
+      "score": 20
+    }
+  ]
+}

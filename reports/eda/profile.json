@@ -1,0 +1,109 @@
+{
+  "blank_titles": 0,
+  "coverage_utc": [
+    "2025-01-01T00:00:07+00:00",
+    "2025-12-31T23:59:25+00:00"
+  ],
+  "distinct_ids": 1686985,
+  "ids_unique": true,
+  "normalized_titles": {
+    "distinct_normalized_titles": 1565523,
+    "max_repeats_of_one_title": 520,
+    "records_with_repeated_title": 173707,
+    "repeated_distinct_titles": 52245,
+    "share_records_with_repeated_title": 0.1029689060661476,
+    "top_repeated": [
+      {
+        "normalized_title": "what should i do?",
+        "records": 520
+      },
+      {
+        "normalized_title": "[ removed by moderator ]",
+        "records": 486
+      },
+      {
+        "normalized_title": "what\u2019s a small decision you made that completely changed your life?",
+        "records": 437
+      },
+      {
+        "normalized_title": "what makes you happy?",
+        "records": 260
+      },
+      {
+        "normalized_title": "how was your day?",
+        "records": 206
+      },
+      {
+        "normalized_title": "what\u2019s a seemingly small decision you made that completely changed the course of your life?",
+        "records": 205
+      },
+      {
+        "normalized_title": "what\u2019s the weirdest compliment you\u2019ve ever received?",
+        "records": 201
+      },
+      {
+        "normalized_title": "what is your biggest regret?",
+        "records": 195
+      },
+      {
+        "normalized_title": "what\u2019s something you learned embarrassingly late in life?",
+        "records": 195
+      },
+      {
+        "normalized_title": "what do i do?",
+        "records": 190
+      }
+    ]
+  },
+  "null_counts": {
+    "created_utc": 0,
+    "id": 0,
+    "month": 0,
+    "score": 0,
+    "selftext": 0,
+    "subreddit": 0,
+    "title": 0,
+    "year": 0
+  },
+  "records": 1686985,
+  "schema": [
+    {
+      "column": "id",
+      "type": "string"
+    },
+    {
+      "column": "subreddit",
+      "type": "string"
+    },
+    {
+      "column": "title",
+      "type": "string"
+    },
+    {
+      "column": "selftext",
+      "type": "string"
+    },
+    {
+      "column": "created_utc",
+      "type": "bigint"
+    },
+    {
+      "column": "score",
+      "type": "bigint"
+    },
+    {
+      "column": "year",
+      "type": "int"
+    },
+    {
+      "column": "month",
+      "type": "int"
+    }
+  ],
+  "score_range": [
+    0,
+    114515
+  ],
+  "title_only_posts": 1686982,
+  "title_only_share": 0.9999982216795051
+}

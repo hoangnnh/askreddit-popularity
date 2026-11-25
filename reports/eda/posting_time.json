@@ -1,0 +1,2093 @@
+{
+  "by_hour": [
+    {
+      "hour": 0,
+      "label": "00",
+      "records_all_year": 72313,
+      "train": {
+        "mean_label": 0.6352337351121284,
+        "mean_score": 17.683858507099682,
+        "median_score": 1.0,
+        "records": 55918,
+        "share_label_ge_6": 0.011463213991916734,
+        "share_score_ge_2": 0.30559032869559
+      }
+    },
+    {
+      "hour": 1,
+      "label": "01",
+      "records_all_year": 70864,
+      "train": {
+        "mean_label": 0.6532640325030654,
+        "mean_score": 15.933017331307992,
+        "median_score": 1.0,
+        "records": 54641,
+        "share_label_ge_6": 0.01162131000530737,
+        "share_score_ge_2": 0.31049944181109423
+      }
+    },
+    {
+      "hour": 2,
+      "label": "02",
+      "records_all_year": 71449,
+      "train": {
+        "mean_label": 0.6586567409272538,
+        "mean_score": 15.721641396172021,
+        "median_score": 1.0,
+        "records": 54807,
+        "share_label_ge_6": 0.010400131370080464,
+        "share_score_ge_2": 0.31592679767183024
+      }
+    },
+    {
+      "hour": 3,
+      "label": "03",
+      "records_all_year": 67748,
+      "train": {
+        "mean_label": 0.7076690173233174,
+        "mean_score": 12.39161428790434,
+        "median_score": 1.0,
+        "records": 52184,
+        "share_label_ge_6": 0.010692932699678062,
+        "share_score_ge_2": 0.33019699524758545
+      }
+    },
+    {
+      "hour": 4,
+      "label": "04",
+      "records_all_year": 64046,
+      "train": {
+        "mean_label": 0.6866420753461934,
+        "mean_score": 12.944528431194694,
+        "median_score": 1.0,
+        "records": 49611,
+        "share_label_ge_6": 0.009131039487210498,
+        "share_score_ge_2": 0.3271653463949527
+      }
+    },
+    {
+      "hour": 5,
+      "label": "05",
+      "records_all_year": 59610,
+      "train": {
+        "mean_label": 0.634387265590929,
+        "mean_score": 11.867051897078063,
+        "median_score": 1.0,
+        "records": 45860,
+        "share_label_ge_6": 0.009092891408634975,
+        "share_score_ge_2": 0.3047535979066725
+      }
+    },
+    {
+      "hour": 6,
+      "label": "06",
+      "records_all_year": 57864,
+      "train": {
+        "mean_label": 0.5968440663509237,
+        "mean_score": 8.873829992592759,
+        "median_score": 1.0,
+        "records": 44551,
+        "share_label_ge_6": 0.00758681062153487,
+        "share_score_ge_2": 0.29128414625934324
+      }
+    },
+    {
+      "hour": 7,
+      "label": "07",
+      "records_all_year": 53690,
+      "train": {
+        "mean_label": 0.5958477340213212,
+        "mean_score": 9.752275714355255,
+        "median_score": 1.0,
+        "records": 41086,
+        "share_label_ge_6": 0.00873776955653994,
+        "share_score_ge_2": 0.28747018449106754
+      }
+    },
+    {
+      "hour": 8,
+      "label": "08",
+      "records_all_year": 51110,
+      "train": {
+        "mean_label": 0.5797748793996784,
+        "mean_score": 12.469001250670003,
+        "median_score": 1.0,
+        "records": 39179,
+        "share_label_ge_6": 0.009571454095306159,
+        "share_score_ge_2": 0.2780826463156283
+      }
+    },
+    {
+      "hour": 9,
+      "label": "09",
+      "records_all_year": 52079,
+      "train": {
+        "mean_label": 0.6055933937080558,
+        "mean_score": 15.189930893396204,
+        "median_score": 1.0,
+        "records": 40083,
+        "share_label_ge_6": 0.011650824539081407,
+        "share_score_ge_2": 0.28513334830227277
+      }
+    },
+    {
+      "hour": 10,
+      "label": "10",
+      "records_all_year": 53446,
+      "train": {
+        "mean_label": 0.6445799292769174,
+        "mean_score": 15.808462382636264,
+        "median_score": 1.0,
+        "records": 41005,
+        "share_label_ge_6": 0.013047189367150347,
+        "share_score_ge_2": 0.29564687233264236
+      }
+    },
+    {
+      "hour": 11,
+      "label": "11",
+      "records_all_year": 58006,
+      "train": {
+        "mean_label": 0.6022383205867181,
+        "mean_score": 20.09269518020948,
+        "median_score": 1.0,
+        "records": 44587,
+        "share_label_ge_6": 0.014129679054432907,
+        "share_score_ge_2": 0.2781528248144078
+      }
+    },
+    {
+      "hour": 12,
+      "label": "12",
+      "records_all_year": 64889,
+      "train": {
+        "mean_label": 0.554727759357648,
+        "mean_score": 18.26910478168817,
+        "median_score": 1.0,
+        "records": 50066,
+        "share_label_ge_6": 0.012383653577277992,
+        "share_score_ge_2": 0.25869851795629767
+      }
+    },
+    {
+      "hour": 13,
+      "label": "13",
+      "records_all_year": 71784,
+      "train": {
+        "mean_label": 0.5374413569108625,
+        "mean_score": 19.135835438469865,
+        "median_score": 1.0,
+        "records": 55420,
+        "share_label_ge_6": 0.012558643089137496,
+        "share_score_ge_2": 0.2555756044749188
+      }
+    },
+    {
+      "hour": 14,
+      "label": "14",
+      "records_all_year": 77299,
+      "train": {
+        "mean_label": 0.5520597745053694,
+        "mean_score": 16.324269990450823,
+        "median_score": 1.0,
+        "records": 59691,
+        "share_label_ge_6": 0.012129131694895379,
+        "share_score_ge_2": 0.26411016736191384
+      }
+    },
+    {
+      "hour": 15,
+      "label": "15",
+      "records_all_year": 81098,
+      "train": {
+        "mean_label": 0.5556447598709036,
+        "mean_score": 16.88093900030508,
+        "median_score": 1.0,
+        "records": 62279,
+        "share_label_ge_6": 0.012476115544565585,
+        "share_score_ge_2": 0.26675123235761655
+      }
+    },
+    {
+      "hour": 16,
+      "label": "16",
+      "records_all_year": 84291,
+      "train": {
+        "mean_label": 0.5511320608917394,
+        "mean_score": 19.29126033536821,
+        "median_score": 1.0,
+        "records": 64705,
+        "share_label_ge_6": 0.012394714473379182,
+        "share_score_ge_2": 0.267645467892744
+      }
+    },
+    {
+      "hour": 17,
+      "label": "17",
+      "records_all_year": 87649,
+      "train": {
+        "mean_label": 0.5377436871309457,
+        "mean_score": 16.753434616183497,
+        "median_score": 1.0,
+        "records": 67402,
+        "share_label_ge_6": 0.011127266253226907,
+        "share_score_ge_2": 0.2643096644016498
+      }
+    },
+    {
+      "hour": 18,
+      "label": "18",
+      "records_all_year": 86211,
+      "train": {
+        "mean_label": 0.5593720669714494,
+        "mean_score": 18.900829574010718,
+        "median_score": 1.0,
+        "records": 66058,
+        "share_label_ge_6": 0.011822943473916861,
+        "share_score_ge_2": 0.27368373247751976
+      }
+    },
+    {
+      "hour": 19,
+      "label": "19",
+      "records_all_year": 85490,
+      "train": {
+        "mean_label": 0.5503254882323485,
+        "mean_score": 16.46345275488991,
+        "median_score": 1.0,
+        "records": 65901,
+        "share_label_ge_6": 0.011228964659109877,
+        "share_score_ge_2": 0.27058769973141533
+      }
+    },
+    {
+      "hour": 20,
+      "label": "20",
+      "records_all_year": 83566,
+      "train": {
+        "mean_label": 0.5726954456422831,
+        "mean_score": 18.55178210644828,
+        "median_score": 1.0,
+        "records": 64839,
+        "share_label_ge_6": 0.011258656055768904,
+        "share_score_ge_2": 0.27998581100880643
+      }
+    },
+    {
+      "hour": 21,
+      "label": "21",
+      "records_all_year": 80873,
+      "train": {
+        "mean_label": 0.5791280740977324,
+        "mean_score": 18.266352603002236,
+        "median_score": 1.0,
+        "records": 62620,
+        "share_label_ge_6": 0.010954966464388375,
+        "share_score_ge_2": 0.2814595975726605
+      }
+    },
+    {
+      "hour": 22,
+      "label": "22",
+      "records_all_year": 76887,
+      "train": {
+        "mean_label": 0.5913906171178746,
+        "mean_score": 17.307499579619975,
+        "median_score": 1.0,
+        "records": 59470,
+        "share_label_ge_6": 0.010812174205481756,
+        "share_score_ge_2": 0.2879266857238944
+      }
+    },
+    {
+      "hour": 23,
+      "label": "23",
+      "records_all_year": 74723,
+      "train": {
+        "mean_label": 0.6440268085400401,
+        "mean_score": 18.79665584191253,
+        "median_score": 1.0,
+        "records": 57892,
+        "share_label_ge_6": 0.01307607268707248,
+        "share_score_ge_2": 0.30237338492365096
+      }
+    }
+  ],
+  "by_weekday": [
+    {
+      "label": "Mon",
+      "records_all_year": 242592,
+      "train": {
+        "mean_label": 0.5895440385764275,
+        "mean_score": 15.582871042075617,
+        "median_score": 1.0,
+        "records": 187472,
+        "share_label_ge_6": 0.011249679952206196,
+        "share_score_ge_2": 0.2811246479474268
+      },
+      "weekday": 0
+    },
+    {
+      "label": "Tue",
+      "records_all_year": 245413,
+      "train": {
+        "mean_label": 0.6007923560941505,
+        "mean_score": 17.28002584691002,
+        "median_score": 1.0,
+        "records": 188804,
+        "share_label_ge_6": 0.011503993559458485,
+        "share_score_ge_2": 0.28809241329632845
+      },
+      "weekday": 1
+    },
+    {
+      "label": "Wed",
+      "records_all_year": 248873,
+      "train": {
+        "mean_label": 0.5901701102586143,
+        "mean_score": 16.624027676079503,
+        "median_score": 1.0,
+        "records": 188466,
+        "share_label_ge_6": 0.011078921396962848,
+        "share_score_ge_2": 0.2819978139293029
+      },
+      "weekday": 2
+    },
+    {
+      "label": "Thu",
+      "records_all_year": 243518,
+      "train": {
+        "mean_label": 0.5917684439424488,
+        "mean_score": 15.998543274255011,
+        "median_score": 1.0,
+        "records": 189466,
+        "share_label_ge_6": 0.01135296042561726,
+        "share_score_ge_2": 0.28205588337749254
+      },
+      "weekday": 3
+    },
+    {
+      "label": "Fri",
+      "records_all_year": 238654,
+      "train": {
+        "mean_label": 0.5887211944173969,
+        "mean_score": 16.05268311154387,
+        "median_score": 1.0,
+        "records": 184860,
+        "share_label_ge_6": 0.011148977604673807,
+        "share_score_ge_2": 0.28475062209239427
+      },
+      "weekday": 4
+    },
+    {
+      "label": "Sat",
+      "records_all_year": 230450,
+      "train": {
+        "mean_label": 0.6165794940799586,
+        "mean_score": 15.658242172764995,
+        "median_score": 1.0,
+        "records": 177617,
+        "share_label_ge_6": 0.01162613938981066,
+        "share_score_ge_2": 0.2960189621488934
+      },
+      "weekday": 5
+    },
+    {
+      "label": "Sun",
+      "records_all_year": 237485,
+      "train": {
+        "mean_label": 0.5961074411748649,
+        "mean_score": 16.765289075722006,
+        "median_score": 1.0,
+        "records": 183170,
+        "share_label_ge_6": 0.011126276136921985,
+        "share_score_ge_2": 0.2865589343233062
+      },
+      "weekday": 6
+    }
+  ],
+  "timezone": "UTC",
+  "train_weekday_hour": [
+    {
+      "hour": 0,
+      "mean_label": 0.655432534371578,
+      "mean_score": 20.493247353692663,
+      "median_score": 1.0,
+      "records": 8219,
+      "share_label_ge_6": 0.01204526098065458,
+      "share_score_ge_2": 0.30770166686944883,
+      "weekday": 0
+    },
+    {
+      "hour": 1,
+      "mean_label": 0.6352579695301498,
+      "mean_score": 16.653565484573036,
+      "median_score": 1.0,
+      "records": 7811,
+      "share_label_ge_6": 0.010754064780437844,
+      "share_score_ge_2": 0.30047369094866216,
+      "weekday": 0
+    },
+    {
+      "hour": 2,
+      "mean_label": 0.6539533705017739,
+      "mean_score": 18.058793715154586,
+      "median_score": 1.0,
+      "records": 7892,
+      "share_label_ge_6": 0.011023821591485048,
+      "share_score_ge_2": 0.31386213887480996,
+      "weekday": 0
+    },
+    {
+      "hour": 3,
+      "mean_label": 0.7461580680570802,
+      "mean_score": 12.928238199780461,
+      "median_score": 1.0,
+      "records": 7288,
+      "share_label_ge_6": 0.012486278814489571,
+      "share_score_ge_2": 0.34371569703622395,
+      "weekday": 0
+    },
+    {
+      "hour": 4,
+      "mean_label": 0.6907506325555243,
+      "mean_score": 14.328788304751194,
+      "median_score": 1.0,
+      "records": 7114,
+      "share_label_ge_6": 0.009277481023334271,
+      "share_score_ge_2": 0.3293505763283666,
+      "weekday": 0
+    },
+    {
+      "hour": 5,
+      "mean_label": 0.6377770935960592,
+      "mean_score": 11.108836206896552,
+      "median_score": 1.0,
+      "records": 6496,
+      "share_label_ge_6": 0.00769704433497537,
+      "share_score_ge_2": 0.30711206896551724,
+      "weekday": 0
+    },
+    {
+      "hour": 6,
+      "mean_label": 0.586125530910807,
+      "mean_score": 7.089035708667611,
+      "median_score": 1.0,
+      "records": 6357,
+      "share_label_ge_6": 0.0075507314771118455,
+      "share_score_ge_2": 0.28535472707251847,
+      "weekday": 0
+    },
+    {
+      "hour": 7,
+      "mean_label": 0.6198943661971831,
+      "mean_score": 8.279401408450704,
+      "median_score": 1.0,
+      "records": 5680,
+      "share_label_ge_6": 0.008802816901408451,
+      "share_score_ge_2": 0.2947183098591549,
+      "weekday": 0
+    },
+    {
+      "hour": 8,
+      "mean_label": 0.6015811730097445,
+      "mean_score": 13.403750689464974,
+      "median_score": 1.0,
+      "records": 5439,
+      "share_label_ge_6": 0.010479867622724766,
+      "share_score_ge_2": 0.2864497150211436,
+      "weekday": 0
+    },
+    {
+      "hour": 9,
+      "mean_label": 0.5674888660500171,
+      "mean_score": 13.522953066118534,
+      "median_score": 1.0,
+      "records": 5838,
+      "share_label_ge_6": 0.009421034600890716,
+      "share_score_ge_2": 0.2749229188078109,
+      "weekday": 0
+    },
+    {
+      "hour": 10,
+      "mean_label": 0.6719879011930768,
+      "mean_score": 13.393211225004201,
+      "median_score": 1.0,
+      "records": 5951,
+      "share_label_ge_6": 0.012602923878339774,
+      "share_score_ge_2": 0.3135607460930936,
+      "weekday": 0
+    },
+    {
+      "hour": 11,
+      "mean_label": 0.5949831752829612,
+      "mean_score": 20.095900887121445,
+      "median_score": 1.0,
+      "records": 6538,
+      "share_label_ge_6": 0.013612725604160294,
+      "share_score_ge_2": 0.27011318446007954,
+      "weekday": 0
+    },
+    {
+      "hour": 12,
+      "mean_label": 0.5222002262443439,
+      "mean_score": 22.393099547511312,
+      "median_score": 1.0,
+      "records": 7072,
+      "share_label_ge_6": 0.011877828054298642,
+      "share_score_ge_2": 0.23402149321266968,
+      "weekday": 0
+    },
+    {
+      "hour": 13,
+      "mean_label": 0.4624706318783232,
+      "mean_score": 10.044886855447015,
+      "median_score": 1.0,
+      "records": 8087,
+      "share_label_ge_6": 0.010634351428218128,
+      "share_score_ge_2": 0.22220848275009275,
+      "weekday": 0
+    },
+    {
+      "hour": 14,
+      "mean_label": 0.5147297610763164,
+      "mean_score": 18.319183484110415,
+      "median_score": 1.0,
+      "records": 8622,
+      "share_label_ge_6": 0.013801902110879146,
+      "share_score_ge_2": 0.24031547204824866,
+      "weekday": 0
+    },
+    {
+      "hour": 15,
+      "mean_label": 0.5376247616911517,
+      "mean_score": 19.44936637882696,
+      "median_score": 1.0,
+      "records": 8917,
+      "share_label_ge_6": 0.013121004822249635,
+      "share_score_ge_2": 0.2581585735112706,
+      "weekday": 0
+    },
+    {
+      "hour": 16,
+      "mean_label": 0.5257136747567626,
+      "mean_score": 12.645889019565915,
+      "median_score": 1.0,
+      "records": 9353,
+      "share_label_ge_6": 0.010798674222174703,
+      "share_score_ge_2": 0.25606757190206353,
+      "weekday": 0
+    },
+    {
+      "hour": 17,
+      "mean_label": 0.5258401868209971,
+      "mean_score": 17.26144786272718,
+      "median_score": 1.0,
+      "records": 9849,
+      "share_label_ge_6": 0.012183978068839476,
+      "share_score_ge_2": 0.2544420753375977,
+      "weekday": 0
+    },
+    {
+      "hour": 18,
+      "mean_label": 0.5540636761265385,
+      "mean_score": 13.657206794832673,
+      "median_score": 1.0,
+      "records": 9831,
+      "share_label_ge_6": 0.012002848133455396,
+      "share_score_ge_2": 0.26813142101515614,
+      "weekday": 0
+    },
+    {
+      "hour": 19,
+      "mean_label": 0.5182826622843056,
+      "mean_score": 14.420398520953164,
+      "median_score": 1.0,
+      "records": 9736,
+      "share_label_ge_6": 0.009860312243221035,
+      "share_score_ge_2": 0.2549301561216105,
+      "weekday": 0
+    },
+    {
+      "hour": 20,
+      "mean_label": 0.5635983263598326,
+      "mean_score": 18.178974895397488,
+      "median_score": 1.0,
+      "records": 9560,
+      "share_label_ge_6": 0.010878661087866108,
+      "share_score_ge_2": 0.2790794979079498,
+      "weekday": 0
+    },
+    {
+      "hour": 21,
+      "mean_label": 0.5955302366345311,
+      "mean_score": 19.503396143733568,
+      "median_score": 1.0,
+      "records": 9128,
+      "share_label_ge_6": 0.012160385626643296,
+      "share_score_ge_2": 0.28702892199824714,
+      "weekday": 0
+    },
+    {
+      "hour": 22,
+      "mean_label": 0.6004228329809725,
+      "mean_score": 11.724688747944562,
+      "median_score": 1.0,
+      "records": 8514,
+      "share_label_ge_6": 0.010805731735964294,
+      "share_score_ge_2": 0.2923420249001644,
+      "weekday": 0
+    },
+    {
+      "hour": 23,
+      "mean_label": 0.6854523227383863,
+      "mean_score": 20.953911980440097,
+      "median_score": 1.0,
+      "records": 8180,
+      "share_label_ge_6": 0.013447432762836185,
+      "share_score_ge_2": 0.31809290953545233,
+      "weekday": 0
+    },
+    {
+      "hour": 0,
+      "mean_label": 0.6477680861980503,
+      "mean_score": 15.827347357619292,
+      "median_score": 1.0,
+      "records": 7796,
+      "share_label_ge_6": 0.012827090815802977,
+      "share_score_ge_2": 0.30400205233453054,
+      "weekday": 1
+    },
+    {
+      "hour": 1,
+      "mean_label": 0.6751824817518248,
+      "mean_score": 18.559904354392145,
+      "median_score": 1.0,
+      "records": 7946,
+      "share_label_ge_6": 0.012710797885728669,
+      "share_score_ge_2": 0.3216712811477473,
+      "weekday": 1
+    },
+    {
+      "hour": 2,
+      "mean_label": 0.6596122164491193,
+      "mean_score": 15.452667595995438,
+      "median_score": 1.0,
+      "records": 7891,
+      "share_label_ge_6": 0.010518312001013812,
+      "share_score_ge_2": 0.31592953998225826,
+      "weekday": 1
+    },
+    {
+      "hour": 3,
+      "mean_label": 0.730838246603435,
+      "mean_score": 15.296334273263266,
+      "median_score": 1.0,
+      "records": 7802,
+      "share_label_ge_6": 0.009869264291207382,
+      "share_score_ge_2": 0.3464496283004358,
+      "weekday": 1
+    },
+    {
+      "hour": 4,
+      "mean_label": 0.6480942480942481,
+      "mean_score": 12.713790713790713,
+      "median_score": 1.0,
+      "records": 7215,
+      "share_label_ge_6": 0.008454608454608454,
+      "share_score_ge_2": 0.3178101178101178,
+      "weekday": 1
+    },
+    {
+      "hour": 5,
+      "mean_label": 0.6599364069952305,
+      "mean_score": 8.920985691573927,
+      "median_score": 1.0,
+      "records": 6290,
+      "share_label_ge_6": 0.010651828298887122,
+      "share_score_ge_2": 0.31685214626391095,
+      "weekday": 1
+    },
+    {
+      "hour": 6,
+      "mean_label": 0.6300377833753149,
+      "mean_score": 8.737248110831235,
+      "median_score": 1.0,
+      "records": 6352,
+      "share_label_ge_6": 0.009918136020151134,
+      "share_score_ge_2": 0.2988035264483627,
+      "weekday": 1
+    },
+    {
+      "hour": 7,
+      "mean_label": 0.5871605766007375,
+      "mean_score": 10.360878310425745,
+      "median_score": 1.0,
+      "records": 5966,
+      "share_label_ge_6": 0.008883674153536709,
+      "share_score_ge_2": 0.2894736842105263,
+      "weekday": 1
+    },
+    {
+      "hour": 8,
+      "mean_label": 0.5610417797069994,
+      "mean_score": 6.867968891300416,
+      "median_score": 1.0,
+      "records": 5529,
+      "share_label_ge_6": 0.01012841381805028,
+      "share_score_ge_2": 0.2644239464640984,
+      "weekday": 1
+    },
+    {
+      "hour": 9,
+      "mean_label": 0.5746714456391876,
+      "mean_score": 10.141491722136884,
+      "median_score": 1.0,
+      "records": 5859,
+      "share_label_ge_6": 0.00938726745178358,
+      "share_score_ge_2": 0.2698412698412698,
+      "weekday": 1
+    },
+    {
+      "hour": 10,
+      "mean_label": 0.6384370283414389,
+      "mean_score": 23.560456146235115,
+      "median_score": 1.0,
+      "records": 5963,
+      "share_label_ge_6": 0.013583766560456146,
+      "share_score_ge_2": 0.28274358544356865,
+      "weekday": 1
+    },
+    {
+      "hour": 11,
+      "mean_label": 0.5633594558627828,
+      "mean_score": 23.471388437084133,
+      "median_score": 1.0,
+      "records": 6763,
+      "share_label_ge_6": 0.01478633742422002,
+      "share_score_ge_2": 0.25713440780718616,
+      "weekday": 1
+    },
+    {
+      "hour": 12,
+      "mean_label": 0.5780952380952381,
+      "mean_score": 17.234285714285715,
+      "median_score": 1.0,
+      "records": 7350,
+      "share_label_ge_6": 0.011700680272108844,
+      "share_score_ge_2": 0.26625850340136054,
+      "weekday": 1
+    },
+    {
+      "hour": 13,
+      "mean_label": 0.5715167984189723,
+      "mean_score": 14.453186758893281,
+      "median_score": 1.0,
+      "records": 8096,
+      "share_label_ge_6": 0.013092885375494072,
+      "share_score_ge_2": 0.26914525691699603,
+      "weekday": 1
+    },
+    {
+      "hour": 14,
+      "mean_label": 0.5463871040468944,
+      "mean_score": 15.621463194679292,
+      "median_score": 1.0,
+      "records": 8871,
+      "share_label_ge_6": 0.01161086686957502,
+      "share_score_ge_2": 0.26513358133243153,
+      "weekday": 1
+    },
+    {
+      "hour": 15,
+      "mean_label": 0.592753139935534,
+      "mean_score": 16.489385350672446,
+      "median_score": 1.0,
+      "records": 8997,
+      "share_label_ge_6": 0.013782371901745026,
+      "share_score_ge_2": 0.2784261420473491,
+      "weekday": 1
+    },
+    {
+      "hour": 16,
+      "mean_label": 0.5359192348565356,
+      "mean_score": 29.92337938363443,
+      "median_score": 1.0,
+      "records": 9410,
+      "share_label_ge_6": 0.012008501594048884,
+      "share_score_ge_2": 0.26482465462274174,
+      "weekday": 1
+    },
+    {
+      "hour": 17,
+      "mean_label": 0.5256633541645324,
+      "mean_score": 20.571048048355703,
+      "median_score": 1.0,
+      "records": 9761,
+      "share_label_ge_6": 0.009835057883413585,
+      "share_score_ge_2": 0.25714578424341766,
+      "weekday": 1
+    },
+    {
+      "hour": 18,
+      "mean_label": 0.5917906618778861,
+      "mean_score": 21.12703950743971,
+      "median_score": 1.0,
+      "records": 9745,
+      "share_label_ge_6": 0.011800923550538737,
+      "share_score_ge_2": 0.28855823499230376,
+      "weekday": 1
+    },
+    {
+      "hour": 19,
+      "mean_label": 0.5529411764705883,
+      "mean_score": 22.138990109318062,
+      "median_score": 1.0,
+      "records": 9605,
+      "share_label_ge_6": 0.012597605413846955,
+      "share_score_ge_2": 0.2743362831858407,
+      "weekday": 1
+    },
+    {
+      "hour": 20,
+      "mean_label": 0.5812771365032299,
+      "mean_score": 17.18945250450069,
+      "median_score": 1.0,
+      "records": 9443,
+      "share_label_ge_6": 0.012390130255215504,
+      "share_score_ge_2": 0.28592608281266546,
+      "weekday": 1
+    },
+    {
+      "hour": 21,
+      "mean_label": 0.5810487380330722,
+      "mean_score": 23.656549173194083,
+      "median_score": 1.0,
+      "records": 9192,
+      "share_label_ge_6": 0.009899912967798085,
+      "share_score_ge_2": 0.2901436031331593,
+      "weekday": 1
+    },
+    {
+      "hour": 22,
+      "mean_label": 0.5811078717201166,
+      "mean_score": 14.899941690962098,
+      "median_score": 1.0,
+      "records": 8575,
+      "share_label_ge_6": 0.010379008746355686,
+      "share_score_ge_2": 0.28839650145772594,
+      "weekday": 1
+    },
+    {
+      "hour": 23,
+      "mean_label": 0.6642422797186122,
+      "mean_score": 17.83235960414928,
+      "median_score": 1.0,
+      "records": 8387,
+      "share_label_ge_6": 0.013592464528436866,
+      "share_score_ge_2": 0.31119589841421247,
+      "weekday": 1
+    },
+    {
+      "hour": 0,
+      "mean_label": 0.6308360477741585,
+      "mean_score": 13.904331041138859,
+      "median_score": 1.0,
+      "records": 8289,
+      "share_label_ge_6": 0.009892628785136928,
+      "share_score_ge_2": 0.3154783447943057,
+      "weekday": 2
+    },
+    {
+      "hour": 1,
+      "mean_label": 0.6328653146125846,
+      "mean_score": 13.220488819552783,
+      "median_score": 1.0,
+      "records": 7692,
+      "share_label_ge_6": 0.01014040561622465,
+      "share_score_ge_2": 0.3044721788871555,
+      "weekday": 2
+    },
+    {
+      "hour": 2,
+      "mean_label": 0.6429013491768784,
+      "mean_score": 15.834632999133555,
+      "median_score": 1.0,
+      "records": 8079,
+      "share_label_ge_6": 0.008911994058670627,
+      "share_score_ge_2": 0.31625201138754794,
+      "weekday": 2
+    },
+    {
+      "hour": 3,
+      "mean_label": 0.6796730819931452,
+      "mean_score": 14.755338781966781,
+      "median_score": 1.0,
+      "records": 7586,
+      "share_label_ge_6": 0.010018455048774057,
+      "share_score_ge_2": 0.316108621144213,
+      "weekday": 2
+    },
+    {
+      "hour": 4,
+      "mean_label": 0.7251110156138089,
+      "mean_score": 12.154848875519267,
+      "median_score": 1.0,
+      "records": 6981,
+      "share_label_ge_6": 0.00916774101131643,
+      "share_score_ge_2": 0.3366279902592752,
+      "weekday": 2
+    },
+    {
+      "hour": 5,
+      "mean_label": 0.62180249851279,
+      "mean_score": 11.082242712671029,
+      "median_score": 1.0,
+      "records": 6724,
+      "share_label_ge_6": 0.008774538964901844,
+      "share_score_ge_2": 0.29788816180844735,
+      "weekday": 2
+    },
+    {
+      "hour": 6,
+      "mean_label": 0.6489545668919982,
+      "mean_score": 6.8482942933501025,
+      "median_score": 1.0,
+      "records": 6361,
+      "share_label_ge_6": 0.0075459833359534665,
+      "share_score_ge_2": 0.30954252476025784,
+      "weekday": 2
+    },
+    {
+      "hour": 7,
+      "mean_label": 0.567008547008547,
+      "mean_score": 10.481880341880341,
+      "median_score": 1.0,
+      "records": 5850,
+      "share_label_ge_6": 0.006153846153846154,
+      "share_score_ge_2": 0.28102564102564104,
+      "weekday": 2
+    },
+    {
+      "hour": 8,
+      "mean_label": 0.6078466181430854,
+      "mean_score": 8.905201491212498,
+      "median_score": 1.0,
+      "records": 5633,
+      "share_label_ge_6": 0.00869873957038878,
+      "share_score_ge_2": 0.28776850701224926,
+      "weekday": 2
+    },
+    {
+      "hour": 9,
+      "mean_label": 0.6830543933054394,
+      "mean_score": 17.73884239888424,
+      "median_score": 1.0,
+      "records": 5736,
+      "share_label_ge_6": 0.01307531380753138,
+      "share_score_ge_2": 0.30962343096234307,
+      "weekday": 2
+    },
+    {
+      "hour": 10,
+      "mean_label": 0.6909213407444837,
+      "mean_score": 12.70506990062321,
+      "median_score": 1.0,
+      "records": 5937,
+      "share_label_ge_6": 0.012969513222166077,
+      "share_score_ge_2": 0.31345797540845544,
+      "weekday": 2
+    },
+    {
+      "hour": 11,
+      "mean_label": 0.6141033623910336,
+      "mean_score": 17.7733499377335,
+      "median_score": 1.0,
+      "records": 6424,
+      "share_label_ge_6": 0.014476961394769615,
+      "share_score_ge_2": 0.2848692403486924,
+      "weekday": 2
+    },
+    {
+      "hour": 12,
+      "mean_label": 0.511696692659317,
+      "mean_score": 14.722371605270235,
+      "median_score": 1.0,
+      "records": 7438,
+      "share_label_ge_6": 0.01425114278031729,
+      "share_score_ge_2": 0.24105942457649907,
+      "weekday": 2
+    },
+    {
+      "hour": 13,
+      "mean_label": 0.5070317361543248,
+      "mean_score": 26.26397013067828,
+      "median_score": 1.0,
+      "records": 8035,
+      "share_label_ge_6": 0.012072184194150591,
+      "share_score_ge_2": 0.23696328562538893,
+      "weekday": 2
+    },
+    {
+      "hour": 14,
+      "mean_label": 0.5344768439108062,
+      "mean_score": 18.475929102344196,
+      "median_score": 1.0,
+      "records": 8745,
+      "share_label_ge_6": 0.011663807890222984,
+      "share_score_ge_2": 0.2555746140651801,
+      "weekday": 2
+    },
+    {
+      "hour": 15,
+      "mean_label": 0.5522388059701493,
+      "mean_score": 18.0068634927552,
+      "median_score": 1.0,
+      "records": 9179,
+      "share_label_ge_6": 0.011874931909794096,
+      "share_score_ge_2": 0.2675672731234339,
+      "weekday": 2
+    },
+    {
+      "hour": 16,
+      "mean_label": 0.5404568744662681,
+      "mean_score": 18.00373612297182,
+      "median_score": 1.0,
+      "records": 9368,
+      "share_label_ge_6": 0.010994876174210078,
+      "share_score_ge_2": 0.2568317677198975,
+      "weekday": 2
+    },
+    {
+      "hour": 17,
+      "mean_label": 0.5334702258726899,
+      "mean_score": 14.47381930184805,
+      "median_score": 1.0,
+      "records": 9740,
+      "share_label_ge_6": 0.01190965092402464,
+      "share_score_ge_2": 0.25893223819301847,
+      "weekday": 2
+    },
+    {
+      "hour": 18,
+      "mean_label": 0.5351994986421559,
+      "mean_score": 16.95237100480468,
+      "median_score": 1.0,
+      "records": 9574,
+      "share_label_ge_6": 0.012220597451430958,
+      "share_score_ge_2": 0.25997493210779193,
+      "weekday": 2
+    },
+    {
+      "hour": 19,
+      "mean_label": 0.5117544399958937,
+      "mean_score": 13.8323580741197,
+      "median_score": 1.0,
+      "records": 9741,
+      "share_label_ge_6": 0.010368545323888718,
+      "share_score_ge_2": 0.25202751257571093,
+      "weekday": 2
+    },
+    {
+      "hour": 20,
+      "mean_label": 0.5595690747782003,
+      "mean_score": 12.562737642585551,
+      "median_score": 1.0,
+      "records": 9468,
+      "share_label_ge_6": 0.011089987325728771,
+      "share_score_ge_2": 0.2701732150401352,
+      "weekday": 2
+    },
+    {
+      "hour": 21,
+      "mean_label": 0.5826727699006363,
+      "mean_score": 26.35402478508429,
+      "median_score": 1.0,
+      "records": 8957,
+      "share_label_ge_6": 0.0133973428603327,
+      "share_score_ge_2": 0.2768784191135425,
+      "weekday": 2
+    },
+    {
+      "hour": 22,
+      "mean_label": 0.5623003194888179,
+      "mean_score": 27.398448197170243,
+      "median_score": 1.0,
+      "records": 8764,
+      "share_label_ge_6": 0.010269283432222729,
+      "share_score_ge_2": 0.2737334550433592,
+      "weekday": 2
+    },
+    {
+      "hour": 23,
+      "mean_label": 0.6450704225352113,
+      "mean_score": 27.103490508266994,
+      "median_score": 1.0,
+      "records": 8165,
+      "share_label_ge_6": 0.01383955909369259,
+      "share_score_ge_2": 0.304470300061237,
+      "weekday": 2
+    },
+    {
+      "hour": 0,
+      "mean_label": 0.5935942173479561,
+      "mean_score": 14.036141575274177,
+      "median_score": 1.0,
+      "records": 8024,
+      "share_label_ge_6": 0.011340977068793619,
+      "share_score_ge_2": 0.292123629112662,
+      "weekday": 3
+    },
+    {
+      "hour": 1,
+      "mean_label": 0.6602134524695954,
+      "mean_score": 11.866344005956813,
+      "median_score": 1.0,
+      "records": 8058,
+      "share_label_ge_6": 0.011789525936957061,
+      "share_score_ge_2": 0.31471829238024324,
+      "weekday": 3
+    },
+    {
+      "hour": 2,
+      "mean_label": 0.6300863131935882,
+      "mean_score": 16.20702836004932,
+      "median_score": 1.0,
+      "records": 8110,
+      "share_label_ge_6": 0.010850801479654747,
+      "share_score_ge_2": 0.29876695437731193,
+      "weekday": 3
+    },
+    {
+      "hour": 3,
+      "mean_label": 0.7027246848312322,
+      "mean_score": 9.80371424698387,
+      "median_score": 1.0,
+      "records": 7377,
+      "share_label_ge_6": 0.009488952148569879,
+      "share_score_ge_2": 0.32641995391080386,
+      "weekday": 3
+    },
+    {
+      "hour": 4,
+      "mean_label": 0.6988098458209359,
+      "mean_score": 17.46659453611036,
+      "median_score": 1.0,
+      "records": 7394,
+      "share_label_ge_6": 0.009467135515282662,
+      "share_score_ge_2": 0.3287800919664593,
+      "weekday": 3
+    },
+    {
+      "hour": 5,
+      "mean_label": 0.6701602036232969,
+      "mean_score": 14.592304237161251,
+      "median_score": 1.0,
+      "records": 6679,
+      "share_label_ge_6": 0.010330887857463692,
+      "share_score_ge_2": 0.3171133403204072,
+      "weekday": 3
+    },
+    {
+      "hour": 6,
+      "mean_label": 0.6208969024503005,
+      "mean_score": 10.696871628910463,
+      "median_score": 1.0,
+      "records": 6489,
+      "share_label_ge_6": 0.009246417013407305,
+      "share_score_ge_2": 0.29958391123439665,
+      "weekday": 3
+    },
+    {
+      "hour": 7,
+      "mean_label": 0.5777184789859907,
+      "mean_score": 7.8845897264843225,
+      "median_score": 1.0,
+      "records": 5996,
+      "share_label_ge_6": 0.008172114743162108,
+      "share_score_ge_2": 0.2753502334889927,
+      "weekday": 3
+    },
+    {
+      "hour": 8,
+      "mean_label": 0.573704481792717,
+      "mean_score": 9.860119047619047,
+      "median_score": 1.0,
+      "records": 5712,
+      "share_label_ge_6": 0.009103641456582634,
+      "share_score_ge_2": 0.2704831932773109,
+      "weekday": 3
+    },
+    {
+      "hour": 9,
+      "mean_label": 0.633356070941337,
+      "mean_score": 12.572305593451569,
+      "median_score": 1.0,
+      "records": 5864,
+      "share_label_ge_6": 0.01227830832196453,
+      "share_score_ge_2": 0.2870054570259209,
+      "weekday": 3
+    },
+    {
+      "hour": 10,
+      "mean_label": 0.7171248757866844,
+      "mean_score": 18.01722424643922,
+      "median_score": 1.0,
+      "records": 6038,
+      "share_label_ge_6": 0.016727393176548526,
+      "share_score_ge_2": 0.3087114938721431,
+      "weekday": 3
+    },
+    {
+      "hour": 11,
+      "mean_label": 0.6248290533353593,
+      "mean_score": 16.993314086005167,
+      "median_score": 1.0,
+      "records": 6581,
+      "share_label_ge_6": 0.014435496125208934,
+      "share_score_ge_2": 0.2823279136909284,
+      "weekday": 3
+    },
+    {
+      "hour": 12,
+      "mean_label": 0.5272654370489174,
+      "mean_score": 13.328388131515638,
+      "median_score": 1.0,
+      "records": 7482,
+      "share_label_ge_6": 0.010959636460839348,
+      "share_score_ge_2": 0.2508687516706763,
+      "weekday": 3
+    },
+    {
+      "hour": 13,
+      "mean_label": 0.5116420082464225,
+      "mean_score": 13.276497695852534,
+      "median_score": 1.0,
+      "records": 8246,
+      "share_label_ge_6": 0.010550569973320397,
+      "share_score_ge_2": 0.2429056512248363,
+      "weekday": 3
+    },
+    {
+      "hour": 14,
+      "mean_label": 0.5295287100923869,
+      "mean_score": 13.896620278330019,
+      "median_score": 1.0,
+      "records": 8551,
+      "share_label_ge_6": 0.012279265582972751,
+      "share_score_ge_2": 0.25330370716875217,
+      "weekday": 3
+    },
+    {
+      "hour": 15,
+      "mean_label": 0.5609145345672292,
+      "mean_score": 19.39270549809472,
+      "median_score": 1.0,
+      "records": 9185,
+      "share_label_ge_6": 0.011649428415895481,
+      "share_score_ge_2": 0.2734893848666304,
+      "weekday": 3
+    },
+    {
+      "hour": 16,
+      "mean_label": 0.5078408972894382,
+      "mean_score": 19.31851697995638,
+      "median_score": 1.0,
+      "records": 9629,
+      "share_label_ge_6": 0.013397029805794995,
+      "share_score_ge_2": 0.24509294838508672,
+      "weekday": 3
+    },
+    {
+      "hour": 17,
+      "mean_label": 0.49662576687116566,
+      "mean_score": 24.52719836400818,
+      "median_score": 1.0,
+      "records": 9780,
+      "share_label_ge_6": 0.00950920245398773,
+      "share_score_ge_2": 0.248159509202454,
+      "weekday": 3
+    },
+    {
+      "hour": 18,
+      "mean_label": 0.5590757005437056,
+      "mean_score": 19.397741530740277,
+      "median_score": 1.0,
+      "records": 9564,
+      "share_label_ge_6": 0.012965286491007947,
+      "share_score_ge_2": 0.27206189878711834,
+      "weekday": 3
+    },
+    {
+      "hour": 19,
+      "mean_label": 0.5829630432426575,
+      "mean_score": 18.40814999458112,
+      "median_score": 1.0,
+      "records": 9227,
+      "share_label_ge_6": 0.011162891514034897,
+      "share_score_ge_2": 0.2823236154763195,
+      "weekday": 3
+    },
+    {
+      "hour": 20,
+      "mean_label": 0.5695958948043618,
+      "mean_score": 16.150737652341245,
+      "median_score": 1.0,
+      "records": 9354,
+      "share_label_ge_6": 0.011225144323284156,
+      "share_score_ge_2": 0.2759247380799658,
+      "weekday": 3
+    },
+    {
+      "hour": 21,
+      "mean_label": 0.577396953405018,
+      "mean_score": 13.627576164874553,
+      "median_score": 1.0,
+      "records": 8928,
+      "share_label_ge_6": 0.009968637992831542,
+      "share_score_ge_2": 0.2806899641577061,
+      "weekday": 3
+    },
+    {
+      "hour": 22,
+      "mean_label": 0.5989528795811518,
+      "mean_score": 24.305410122164048,
+      "median_score": 1.0,
+      "records": 8595,
+      "share_label_ge_6": 0.012100058173356602,
+      "share_score_ge_2": 0.2891215823152996,
+      "weekday": 3
+    },
+    {
+      "hour": 23,
+      "mean_label": 0.6074625130768336,
+      "mean_score": 18.150063931186796,
+      "median_score": 1.0,
+      "records": 8603,
+      "share_label_ge_6": 0.0129024758805068,
+      "share_score_ge_2": 0.2918749273509241,
+      "weekday": 3
+    },
+    {
+      "hour": 0,
+      "mean_label": 0.5896649073278507,
+      "mean_score": 15.319258622805942,
+      "median_score": 1.0,
+      "records": 8147,
+      "share_label_ge_6": 0.010065054621333006,
+      "share_score_ge_2": 0.2944642199582668,
+      "weekday": 4
+    },
+    {
+      "hour": 1,
+      "mean_label": 0.6243994943109987,
+      "mean_score": 15.427686472819216,
+      "median_score": 1.0,
+      "records": 7910,
+      "share_label_ge_6": 0.011504424778761062,
+      "share_score_ge_2": 0.30037926675094817,
+      "weekday": 4
+    },
+    {
+      "hour": 2,
+      "mean_label": 0.6364435514253423,
+      "mean_score": 8.622001758131358,
+      "median_score": 1.0,
+      "records": 7963,
+      "share_label_ge_6": 0.008162752731382644,
+      "share_score_ge_2": 0.31031018460379256,
+      "weekday": 4
+    },
+    {
+      "hour": 3,
+      "mean_label": 0.717979474876716,
+      "mean_score": 12.332800213248035,
+      "median_score": 1.0,
+      "records": 7503,
+      "share_label_ge_6": 0.012128481940557111,
+      "share_score_ge_2": 0.32666933226709316,
+      "weekday": 4
+    },
+    {
+      "hour": 4,
+      "mean_label": 0.6789699570815451,
+      "mean_score": 10.583834048640915,
+      "median_score": 1.0,
+      "records": 6990,
+      "share_label_ge_6": 0.008726752503576537,
+      "share_score_ge_2": 0.32060085836909874,
+      "weekday": 4
+    },
+    {
+      "hour": 5,
+      "mean_label": 0.6353395061728395,
+      "mean_score": 14.494907407407407,
+      "median_score": 1.0,
+      "records": 6480,
+      "share_label_ge_6": 0.011265432098765432,
+      "share_score_ge_2": 0.3013888888888889,
+      "weekday": 4
+    },
+    {
+      "hour": 6,
+      "mean_label": 0.5520603963510538,
+      "mean_score": 5.838943063856559,
+      "median_score": 1.0,
+      "records": 6358,
+      "share_label_ge_6": 0.005662157911292859,
+      "share_score_ge_2": 0.2788612771311733,
+      "weekday": 4
+    },
+    {
+      "hour": 7,
+      "mean_label": 0.6489071038251366,
+      "mean_score": 9.5823087431694,
+      "median_score": 1.0,
+      "records": 5856,
+      "share_label_ge_6": 0.011099726775956284,
+      "share_score_ge_2": 0.3073770491803279,
+      "weekday": 4
+    },
+    {
+      "hour": 8,
+      "mean_label": 0.5838401390095569,
+      "mean_score": 15.767158992180713,
+      "median_score": 1.0,
+      "records": 5755,
+      "share_label_ge_6": 0.008514335360556038,
+      "share_score_ge_2": 0.2839270199826238,
+      "weekday": 4
+    },
+    {
+      "hour": 9,
+      "mean_label": 0.5945709281961471,
+      "mean_score": 17.66970227670753,
+      "median_score": 1.0,
+      "records": 5710,
+      "share_label_ge_6": 0.0138353765323993,
+      "share_score_ge_2": 0.2886164623467601,
+      "weekday": 4
+    },
+    {
+      "hour": 10,
+      "mean_label": 0.580623865324311,
+      "mean_score": 13.078395774880343,
+      "median_score": 1.0,
+      "records": 6059,
+      "share_label_ge_6": 0.01056279914177257,
+      "share_score_ge_2": 0.27859382736425153,
+      "weekday": 4
+    },
+    {
+      "hour": 11,
+      "mean_label": 0.5899302865995353,
+      "mean_score": 21.623857474825716,
+      "median_score": 1.0,
+      "records": 6455,
+      "share_label_ge_6": 0.014872192099147948,
+      "share_score_ge_2": 0.2731216111541441,
+      "weekday": 4
+    },
+    {
+      "hour": 12,
+      "mean_label": 0.5324567474048443,
+      "mean_score": 15.391418685121108,
+      "median_score": 1.0,
+      "records": 7225,
+      "share_label_ge_6": 0.01217993079584775,
+      "share_score_ge_2": 0.25771626297577854,
+      "weekday": 4
+    },
+    {
+      "hour": 13,
+      "mean_label": 0.5532714966156932,
+      "mean_score": 22.74956129355728,
+      "median_score": 1.0,
+      "records": 7978,
+      "share_label_ge_6": 0.013537227375282025,
+      "share_score_ge_2": 0.2663574830784658,
+      "weekday": 4
+    },
+    {
+      "hour": 14,
+      "mean_label": 0.5594283722551412,
+      "mean_score": 20.33263622632741,
+      "median_score": 1.0,
+      "records": 8607,
+      "share_label_ge_6": 0.013128848611595214,
+      "share_score_ge_2": 0.2674567212733821,
+      "weekday": 4
+    },
+    {
+      "hour": 15,
+      "mean_label": 0.523408133044766,
+      "mean_score": 12.719216311652808,
+      "median_score": 1.0,
+      "records": 8779,
+      "share_label_ge_6": 0.01116300261988837,
+      "share_score_ge_2": 0.2532179063674678,
+      "weekday": 4
+    },
+    {
+      "hour": 16,
+      "mean_label": 0.5928157072735386,
+      "mean_score": 20.861780455153948,
+      "median_score": 1.0,
+      "records": 8964,
+      "share_label_ge_6": 0.014502454261490405,
+      "share_score_ge_2": 0.285921463632307,
+      "weekday": 4
+    },
+    {
+      "hour": 17,
+      "mean_label": 0.5307135470527404,
+      "mean_score": 17.250155118924507,
+      "median_score": 1.0,
+      "records": 9670,
+      "share_label_ge_6": 0.011168562564632886,
+      "share_score_ge_2": 0.2658738366080662,
+      "weekday": 4
+    },
+    {
+      "hour": 18,
+      "mean_label": 0.5459429824561404,
+      "mean_score": 20.94714912280702,
+      "median_score": 1.0,
+      "records": 9120,
+      "share_label_ge_6": 0.011403508771929825,
+      "share_score_ge_2": 0.27017543859649124,
+      "weekday": 4
+    },
+    {
+      "hour": 19,
+      "mean_label": 0.5777972987811574,
+      "mean_score": 17.747776435708797,
+      "median_score": 1.0,
+      "records": 9107,
+      "share_label_ge_6": 0.011968815197101131,
+      "share_score_ge_2": 0.2798945865817503,
+      "weekday": 4
+    },
+    {
+      "hour": 20,
+      "mean_label": 0.5745745745745746,
+      "mean_score": 25.776220665109555,
+      "median_score": 1.0,
+      "records": 8991,
+      "share_label_ge_6": 0.009676343009676344,
+      "share_score_ge_2": 0.2872872872872873,
+      "weekday": 4
+    },
+    {
+      "hour": 21,
+      "mean_label": 0.5569262109551834,
+      "mean_score": 16.143843368039835,
+      "median_score": 1.0,
+      "records": 8836,
+      "share_label_ge_6": 0.009732910819375284,
+      "share_score_ge_2": 0.27161611588954276,
+      "weekday": 4
+    },
+    {
+      "hour": 22,
+      "mean_label": 0.5853479853479854,
+      "mean_score": 16.433699633699632,
+      "median_score": 1.0,
+      "records": 8190,
+      "share_label_ge_6": 0.011477411477411478,
+      "share_score_ge_2": 0.2841269841269841,
+      "weekday": 4
+    },
+    {
+      "hour": 23,
+      "mean_label": 0.6262946265383209,
+      "mean_score": 11.335201657121969,
+      "median_score": 1.0,
+      "records": 8207,
+      "share_label_ge_6": 0.010235165102960887,
+      "share_score_ge_2": 0.3013281345193128,
+      "weekday": 4
+    },
+    {
+      "hour": 0,
+      "mean_label": 0.6578674948240165,
+      "mean_score": 17.88768115942029,
+      "median_score": 1.0,
+      "records": 7728,
+      "share_label_ge_6": 0.011645962732919254,
+      "share_score_ge_2": 0.3139233954451346,
+      "weekday": 5
+    },
+    {
+      "hour": 1,
+      "mean_label": 0.6735181010476065,
+      "mean_score": 18.718074525924944,
+      "median_score": 1.0,
+      "records": 7541,
+      "share_label_ge_6": 0.01246519029306458,
+      "share_score_ge_2": 0.3195862617689961,
+      "weekday": 5
+    },
+    {
+      "hour": 2,
+      "mean_label": 0.6968589222854048,
+      "mean_score": 15.580557812076902,
+      "median_score": 1.0,
+      "records": 7386,
+      "share_label_ge_6": 0.011643650148930408,
+      "share_score_ge_2": 0.3314378554021121,
+      "weekday": 5
+    },
+    {
+      "hour": 3,
+      "mean_label": 0.6977103525776092,
+      "mean_score": 9.09102402022756,
+      "median_score": 1.0,
+      "records": 7119,
+      "share_label_ge_6": 0.011097064194409327,
+      "share_score_ge_2": 0.3317881724961371,
+      "weekday": 5
+    },
+    {
+      "hour": 4,
+      "mean_label": 0.6749090909090909,
+      "mean_score": 11.017890909090909,
+      "median_score": 1.0,
+      "records": 6875,
+      "share_label_ge_6": 0.008727272727272728,
+      "share_score_ge_2": 0.3269818181818182,
+      "weekday": 5
+    },
+    {
+      "hour": 5,
+      "mean_label": 0.6235799815781394,
+      "mean_score": 12.133865520417562,
+      "median_score": 1.0,
+      "records": 6514,
+      "share_label_ge_6": 0.007675775253300584,
+      "share_score_ge_2": 0.3004298434141848,
+      "weekday": 5
+    },
+    {
+      "hour": 6,
+      "mean_label": 0.5701879046265593,
+      "mean_score": 11.937944102321175,
+      "median_score": 1.0,
+      "records": 6333,
+      "share_label_ge_6": 0.007263540186325596,
+      "share_score_ge_2": 0.2854887099321017,
+      "weekday": 5
+    },
+    {
+      "hour": 7,
+      "mean_label": 0.6229645794863187,
+      "mean_score": 11.159644116165856,
+      "median_score": 1.0,
+      "records": 5957,
+      "share_label_ge_6": 0.010911532650663086,
+      "share_score_ge_2": 0.29343629343629346,
+      "weekday": 5
+    },
+    {
+      "hour": 8,
+      "mean_label": 0.576710816777042,
+      "mean_score": 20.125643855776307,
+      "median_score": 1.0,
+      "records": 5436,
+      "share_label_ge_6": 0.011589403973509934,
+      "share_score_ge_2": 0.27869757174392934,
+      "weekday": 5
+    },
+    {
+      "hour": 9,
+      "mean_label": 0.6030757964115708,
+      "mean_score": 15.86616623947272,
+      "median_score": 1.0,
+      "records": 5462,
+      "share_label_ge_6": 0.012815818381545222,
+      "share_score_ge_2": 0.2920175759794947,
+      "weekday": 5
+    },
+    {
+      "hour": 10,
+      "mean_label": 0.6091453456722917,
+      "mean_score": 15.575394665215024,
+      "median_score": 1.0,
+      "records": 5511,
+      "share_label_ge_6": 0.012883324260569769,
+      "share_score_ge_2": 0.2908727998548358,
+      "weekday": 5
+    },
+    {
+      "hour": 11,
+      "mean_label": 0.617092866756393,
+      "mean_score": 17.449024226110364,
+      "median_score": 1.0,
+      "records": 5944,
+      "share_label_ge_6": 0.015141318977119785,
+      "share_score_ge_2": 0.29222745625841184,
+      "weekday": 5
+    },
+    {
+      "hour": 12,
+      "mean_label": 0.6118714668253497,
+      "mean_score": 22.85822671823862,
+      "median_score": 1.0,
+      "records": 6722,
+      "share_label_ge_6": 0.012049985123475156,
+      "share_score_ge_2": 0.28191014578994344,
+      "weekday": 5
+    },
+    {
+      "hour": 13,
+      "mean_label": 0.5898373983739837,
+      "mean_score": 23.4210027100271,
+      "median_score": 1.0,
+      "records": 7380,
+      "share_label_ge_6": 0.014634146341463415,
+      "share_score_ge_2": 0.2826558265582656,
+      "weekday": 5
+    },
+    {
+      "hour": 14,
+      "mean_label": 0.6092322883238707,
+      "mean_score": 16.123302888175758,
+      "median_score": 1.0,
+      "records": 8102,
+      "share_label_ge_6": 0.01295976302147618,
+      "share_score_ge_2": 0.29264379165638116,
+      "weekday": 5
+    },
+    {
+      "hour": 15,
+      "mean_label": 0.5661128013105546,
+      "mean_score": 12.093962087526329,
+      "median_score": 1.0,
+      "records": 8546,
+      "share_label_ge_6": 0.011350339340042126,
+      "share_score_ge_2": 0.2697168265855371,
+      "weekday": 5
+    },
+    {
+      "hour": 16,
+      "mean_label": 0.5918712001801396,
+      "mean_score": 15.87457779779329,
+      "median_score": 1.0,
+      "records": 8882,
+      "share_label_ge_6": 0.01137131276739473,
+      "share_score_ge_2": 0.2922765142985814,
+      "weekday": 5
+    },
+    {
+      "hour": 17,
+      "mean_label": 0.6179888268156425,
+      "mean_score": 9.83463687150838,
+      "median_score": 1.0,
+      "records": 8950,
+      "share_label_ge_6": 0.011396648044692738,
+      "share_score_ge_2": 0.29877094972067036,
+      "weekday": 5
+    },
+    {
+      "hour": 18,
+      "mean_label": 0.588558982001605,
+      "mean_score": 18.492376475983033,
+      "median_score": 1.0,
+      "records": 8723,
+      "share_label_ge_6": 0.011578585349077153,
+      "share_score_ge_2": 0.287057205089992,
+      "weekday": 5
+    },
+    {
+      "hour": 19,
+      "mean_label": 0.5736564568607652,
+      "mean_score": 15.768764725681589,
+      "median_score": 1.0,
+      "records": 8913,
+      "share_label_ge_6": 0.011892740940199709,
+      "share_score_ge_2": 0.2850891955570515,
+      "weekday": 5
+    },
+    {
+      "hour": 20,
+      "mean_label": 0.5918390673219797,
+      "mean_score": 21.70213738712996,
+      "median_score": 1.0,
+      "records": 8749,
+      "share_label_ge_6": 0.013258658132357984,
+      "share_score_ge_2": 0.2862041376157275,
+      "weekday": 5
+    },
+    {
+      "hour": 21,
+      "mean_label": 0.5690659212671791,
+      "mean_score": 12.56009783368274,
+      "median_score": 1.0,
+      "records": 8586,
+      "share_label_ge_6": 0.009666899604006522,
+      "share_score_ge_2": 0.27638015373864433,
+      "weekday": 5
+    },
+    {
+      "hour": 22,
+      "mean_label": 0.6133397776703722,
+      "mean_score": 14.98054615756404,
+      "median_score": 1.0,
+      "records": 8276,
+      "share_label_ge_6": 0.011841469308844853,
+      "share_score_ge_2": 0.29325761237312714,
+      "weekday": 5
+    },
+    {
+      "hour": 23,
+      "mean_label": 0.6696316712603357,
+      "mean_score": 15.841393134552744,
+      "median_score": 1.0,
+      "records": 7982,
+      "share_label_ge_6": 0.012904034076672514,
+      "share_score_ge_2": 0.30631420696567274,
+      "weekday": 5
+    },
+    {
+      "hour": 0,
+      "mean_label": 0.6745301360985094,
+      "mean_score": 26.714322747893714,
+      "median_score": 1.0,
+      "records": 7715,
+      "share_label_ge_6": 0.012572909915748541,
+      "share_score_ge_2": 0.3117303953337654,
+      "weekday": 6
+    },
+    {
+      "hour": 1,
+      "mean_label": 0.6718729662892099,
+      "mean_score": 17.251203956787712,
+      "median_score": 1.0,
+      "records": 7683,
+      "share_label_ge_6": 0.011974489131849538,
+      "share_score_ge_2": 0.31224781986203304,
+      "weekday": 6
+    },
+    {
+      "hour": 2,
+      "mean_label": 0.6965001335826877,
+      "mean_score": 20.58469142399145,
+      "median_score": 1.0,
+      "records": 7486,
+      "share_label_ge_6": 0.011888859203847182,
+      "share_score_ge_2": 0.3270104194496393,
+      "weekday": 6
+    },
+    {
+      "hour": 3,
+      "mean_label": 0.6785191104008523,
+      "mean_score": 12.195099214276201,
+      "median_score": 1.0,
+      "records": 7509,
+      "share_label_ge_6": 0.009854840857637501,
+      "share_score_ge_2": 0.3201491543481156,
+      "weekday": 6
+    },
+    {
+      "hour": 4,
+      "mean_label": 0.6901448452144278,
+      "mean_score": 12.04146549275774,
+      "median_score": 1.0,
+      "records": 7042,
+      "share_label_ge_6": 0.010082362965066743,
+      "share_score_ge_2": 0.3301618858278898,
+      "weekday": 6
+    },
+    {
+      "hour": 5,
+      "mean_label": 0.5935300284558933,
+      "mean_score": 10.633667814886925,
+      "median_score": 1.0,
+      "records": 6677,
+      "share_label_ge_6": 0.007338625131046877,
+      "share_score_ge_2": 0.29309570166242327,
+      "weekday": 6
+    },
+    {
+      "hour": 6,
+      "mean_label": 0.5687986033962863,
+      "mean_score": 10.962228217743215,
+      "median_score": 1.0,
+      "records": 6301,
+      "share_label_ge_6": 0.005872083796222821,
+      "share_score_ge_2": 0.281066497381368,
+      "weekday": 6
+    },
+    {
+      "hour": 7,
+      "mean_label": 0.5474831344058121,
+      "mean_score": 10.492129389379,
+      "median_score": 1.0,
+      "records": 5781,
+      "share_label_ge_6": 0.0070921985815602835,
+      "share_score_ge_2": 0.27106037017816986,
+      "weekday": 6
+    },
+    {
+      "hour": 8,
+      "mean_label": 0.5541850220264317,
+      "mean_score": 12.514537444933922,
+      "median_score": 1.0,
+      "records": 5675,
+      "share_label_ge_6": 0.008634361233480176,
+      "share_score_ge_2": 0.2748898678414097,
+      "weekday": 6
+    },
+    {
+      "hour": 9,
+      "mean_label": 0.583006768792305,
+      "mean_score": 19.1419665122907,
+      "median_score": 1.0,
+      "records": 5614,
+      "share_label_ge_6": 0.01086569291058069,
+      "share_score_ge_2": 0.2744923405771286,
+      "weekday": 6
+    },
+    {
+      "hour": 10,
+      "mean_label": 0.5982690227190768,
+      "mean_score": 14.196898665705012,
+      "median_score": 1.0,
+      "records": 5546,
+      "share_label_ge_6": 0.011900468806346917,
+      "share_score_ge_2": 0.28038225748287054,
+      "weekday": 6
+    },
+    {
+      "hour": 11,
+      "mean_label": 0.6152669160149609,
+      "mean_score": 23.1963617817069,
+      "median_score": 1.0,
+      "records": 5882,
+      "share_label_ge_6": 0.011390683441006461,
+      "share_score_ge_2": 0.29054743284597073,
+      "weekday": 6
+    },
+    {
+      "hour": 12,
+      "mean_label": 0.6079386159067434,
+      "mean_score": 22.951305887560867,
+      "median_score": 1.0,
+      "records": 6777,
+      "share_label_ge_6": 0.013722886232846392,
+      "share_score_ge_2": 0.28227829423048545,
+      "weekday": 6
+    },
+    {
+      "hour": 13,
+      "mean_label": 0.5735719926296394,
+      "mean_score": 24.665701500394842,
+      "median_score": 1.0,
+      "records": 7598,
+      "share_label_ge_6": 0.013687812582258489,
+      "share_score_ge_2": 0.27244011581995264,
+      "weekday": 6
+    },
+    {
+      "hour": 14,
+      "mean_label": 0.5754912730379592,
+      "mean_score": 11.21078969852313,
+      "median_score": 1.0,
+      "records": 8193,
+      "share_label_ge_6": 0.009398266813133162,
+      "share_score_ge_2": 0.2766996216282192,
+      "weekday": 6
+    },
+    {
+      "hour": 15,
+      "mean_label": 0.5560165975103735,
+      "mean_score": 19.723259566620563,
+      "median_score": 1.0,
+      "records": 8676,
+      "share_label_ge_6": 0.014407561088059014,
+      "share_score_ge_2": 0.26625172890733056,
+      "weekday": 6
+    },
+    {
+      "hour": 16,
+      "mean_label": 0.5689636223760853,
+      "mean_score": 18.211341905703925,
+      "median_score": 1.0,
+      "records": 9099,
+      "share_label_ge_6": 0.013737773381690296,
+      "share_score_ge_2": 0.275414880756127,
+      "weekday": 6
+    },
+    {
+      "hour": 17,
+      "mean_label": 0.5407169498549523,
+      "mean_score": 12.715810194778284,
+      "median_score": 1.0,
+      "records": 9652,
+      "share_label_ge_6": 0.01191462909241608,
+      "share_score_ge_2": 0.26989225031081643,
+      "weekday": 6
+    },
+    {
+      "hour": 18,
+      "mean_label": 0.5423639616882433,
+      "mean_score": 21.917166614040628,
+      "median_score": 1.0,
+      "records": 9501,
+      "share_label_ge_6": 0.0107357120303126,
+      "share_score_ge_2": 0.27070834648984315,
+      "weekday": 6
+    },
+    {
+      "hour": 19,
+      "mean_label": 0.5402214793146678,
+      "mean_score": 13.07427914751358,
+      "median_score": 1.0,
+      "records": 9572,
+      "share_label_ge_6": 0.010865022983702465,
+      "share_score_ge_2": 0.2679690764730464,
+      "weekday": 6
+    },
+    {
+      "hour": 20,
+      "mean_label": 0.5699805908992883,
+      "mean_score": 18.883329739055423,
+      "median_score": 1.0,
+      "records": 9274,
+      "share_label_ge_6": 0.010351520379555747,
+      "share_score_ge_2": 0.27604054345481993,
+      "weekday": 6
+    },
+    {
+      "hour": 21,
+      "mean_label": 0.5901256532858891,
+      "mean_score": 15.584676970977426,
+      "median_score": 1.0,
+      "records": 8993,
+      "share_label_ge_6": 0.011786945401979318,
+      "share_score_ge_2": 0.28677860558211943,
+      "weekday": 6
+    },
+    {
+      "hour": 22,
+      "mean_label": 0.5994623655913979,
+      "mean_score": 10.996961196820944,
+      "median_score": 1.0,
+      "records": 8556,
+      "share_label_ge_6": 0.008882655446470314,
+      "share_score_ge_2": 0.29488078541374474,
+      "weekday": 6
+    },
+    {
+      "hour": 23,
+      "mean_label": 0.612810707456979,
+      "mean_score": 20.35062141491396,
+      "median_score": 1.0,
+      "records": 8368,
+      "share_label_ge_6": 0.014579349904397706,
+      "share_score_ge_2": 0.2841778202676864,
+      "weekday": 6
+    }
+  ],
+  "weekday_convention": "Monday=0 \u2026 Sunday=6"
+}

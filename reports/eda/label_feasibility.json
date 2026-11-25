@@ -1,0 +1,470 @@
+{
+  "all_classes_nonempty": true,
+  "analytical_majority_baseline": {
+    "test": {
+      "accuracy": 0.7046120577159688,
+      "balanced_accuracy": 0.125,
+      "macro_f1": 0.10333906394222145
+    },
+    "train": {
+      "accuracy": 0.7142842855549273,
+      "balanced_accuracy": 0.125,
+      "macro_f1": 0.10416654512523105
+    },
+    "validation": {
+      "accuracy": 0.7086098211639167,
+      "balanced_accuracy": 0.125,
+      "macro_f1": 0.10368221761145076
+    }
+  },
+  "boundary_ties": [
+    {
+      "assigned_label": 1,
+      "boundary": 2,
+      "train_records_at_boundary_score": 182480
+    },
+    {
+      "assigned_label": 2,
+      "boundary": 3,
+      "train_records_at_boundary_score": 82444
+    },
+    {
+      "assigned_label": 3,
+      "boundary": 4,
+      "train_records_at_boundary_score": 29803
+    },
+    {
+      "assigned_label": 4,
+      "boundary": 6,
+      "train_records_at_boundary_score": 11282
+    },
+    {
+      "assigned_label": 5,
+      "boundary": 11,
+      "train_records_at_boundary_score": 1874
+    },
+    {
+      "assigned_label": 6,
+      "boundary": 46,
+      "train_records_at_boundary_score": 109
+    },
+    {
+      "assigned_label": 7,
+      "boundary": 271,
+      "train_records_at_boundary_score": 9
+    }
+  ],
+  "class_distributions": {
+    "test": {
+      "labels": [
+        {
+          "count": 94492,
+          "label": 0,
+          "percentage": 70.46120577159688
+        },
+        {
+          "count": 18525,
+          "label": 1,
+          "percentage": 13.813802617352074
+        },
+        {
+          "count": 9045,
+          "label": 2,
+          "percentage": 6.744714962156519
+        },
+        {
+          "count": 5617,
+          "label": 3,
+          "percentage": 4.188509004138548
+        },
+        {
+          "count": 3207,
+          "label": 4,
+          "percentage": 2.391409716267104
+        },
+        {
+          "count": 1662,
+          "label": 5,
+          "percentage": 1.239327392714664
+        },
+        {
+          "count": 690,
+          "label": 6,
+          "percentage": 0.5145222027515752
+        },
+        {
+          "count": 867,
+          "label": 7,
+          "percentage": 0.6465083330226316
+        }
+      ],
+      "total": 134105
+    },
+    "train": {
+      "labels": [
+        {
+          "count": 928466,
+          "label": 0,
+          "percentage": 71.42842855549273
+        },
+        {
+          "count": 182480,
+          "label": 1,
+          "percentage": 14.038488908378243
+        },
+        {
+          "count": 82444,
+          "label": 2,
+          "percentage": 6.342553592516088
+        },
+        {
+          "count": 49591,
+          "label": 3,
+          "percentage": 3.815117840066777
+        },
+        {
+          "count": 27703,
+          "label": 4,
+          "percentage": 2.131237714975901
+        },
+        {
+          "count": 14487,
+          "label": 5,
+          "percentage": 1.1145089259955918
+        },
+        {
+          "count": 7339,
+          "label": 6,
+          "percentage": 0.5646014363140505
+        },
+        {
+          "count": 7345,
+          "label": 7,
+          "percentage": 0.5650630262606213
+        }
+      ],
+      "total": 1299855
+    },
+    "validation": {
+      "labels": [
+        {
+          "count": 179296,
+          "label": 0,
+          "percentage": 70.86098211639167
+        },
+        {
+          "count": 34430,
+          "label": 1,
+          "percentage": 13.607351052267562
+        },
+        {
+          "count": 16447,
+          "label": 2,
+          "percentage": 6.500148206698943
+        },
+        {
+          "count": 10345,
+          "label": 3,
+          "percentage": 4.088528801501828
+        },
+        {
+          "count": 6019,
+          "label": 4,
+          "percentage": 2.378816322497777
+        },
+        {
+          "count": 3236,
+          "label": 5,
+          "percentage": 1.2789250074103349
+        },
+        {
+          "count": 1595,
+          "label": 6,
+          "percentage": 0.6303724928366762
+        },
+        {
+          "count": 1657,
+          "label": 7,
+          "percentage": 0.6548760003952179
+        }
+      ],
+      "total": 253025
+    }
+  },
+  "monthly_train_threshold_stability": [
+    {
+      "boundaries": null,
+      "error": "Degenerate median split at label 1: median=2, lower=0, total=41659",
+      "month": 1
+    },
+    {
+      "boundaries": null,
+      "error": "Degenerate median split at label 1: median=2, lower=0, total=34205",
+      "month": 2
+    },
+    {
+      "boundaries": null,
+      "error": "Degenerate median split at label 1: median=2, lower=0, total=40248",
+      "month": 3
+    },
+    {
+      "boundaries": null,
+      "error": "Degenerate median split at label 1: median=2, lower=0, total=39226",
+      "month": 4
+    },
+    {
+      "boundaries": [
+        2,
+        3,
+        4,
+        6,
+        11,
+        38,
+        212
+      ],
+      "month": 5
+    },
+    {
+      "boundaries": [
+        2,
+        3,
+        4,
+        6,
+        10,
+        34,
+        194
+      ],
+      "month": 6
+    },
+    {
+      "boundaries": [
+        2,
+        3,
+        4,
+        6,
+        11,
+        40,
+        249
+      ],
+      "month": 7
+    },
+    {
+      "boundaries": [
+        2,
+        3,
+        4,
+        6,
+        11,
+        44,
+        273
+      ],
+      "month": 8
+    },
+    {
+      "boundaries": [
+        2,
+        3,
+        4,
+        6,
+        11,
+        46,
+        333
+      ],
+      "month": 9
+    }
+  ],
+  "nonempty_classes": {
+    "test": true,
+    "train": true,
+    "validation": true
+  },
+  "note": "Thresholds use TRAIN only. Monthly refits are a stability diagnostic, never the fitted mapping.",
+  "score_2_share_of_upper_remainder": {
+    "by_train_month": [
+      {
+        "month": 1,
+        "score_eq_2": 21141,
+        "score_ge_2": 41659,
+        "share_eq_2": 0.507477375837154
+      },
+      {
+        "month": 2,
+        "score_eq_2": 18058,
+        "score_ge_2": 34205,
+        "share_eq_2": 0.5279345124981728
+      },
+      {
+        "month": 3,
+        "score_eq_2": 20158,
+        "score_ge_2": 40248,
+        "share_eq_2": 0.5008447624726694
+      },
+      {
+        "month": 4,
+        "score_eq_2": 20036,
+        "score_ge_2": 39226,
+        "share_eq_2": 0.5107836638963953
+      },
+      {
+        "month": 5,
+        "score_eq_2": 21327,
+        "score_ge_2": 43982,
+        "share_eq_2": 0.4849029148287936
+      },
+      {
+        "month": 6,
+        "score_eq_2": 21274,
+        "score_ge_2": 45283,
+        "share_eq_2": 0.46980102908376214
+      },
+      {
+        "month": 7,
+        "score_eq_2": 22337,
+        "score_ge_2": 47298,
+        "share_eq_2": 0.4722609835511015
+      },
+      {
+        "month": 8,
+        "score_eq_2": 20268,
+        "score_ge_2": 41606,
+        "share_eq_2": 0.48714127770033167
+      },
+      {
+        "month": 9,
+        "score_eq_2": 17881,
+        "score_ge_2": 37882,
+        "share_eq_2": 0.472018372841983
+      }
+    ],
+    "note": "Label 1 exists only while fewer than half of the score >= 2 posts have score exactly 2.",
+    "pooled_train": {
+      "score_eq_2": 182480,
+      "score_ge_2": 371389,
+      "share_eq_2": 0.49134465479591477
+    }
+  },
+  "thresholds": {
+    "algorithm_version": "fang-chua-upper-median-v1",
+    "effective_boundaries": [
+      2,
+      3,
+      4,
+      6,
+      11,
+      46,
+      271
+    ],
+    "fitted_on": "train",
+    "interval_convention": "Scores < median leave the upper remainder; integer cutoffs are ceil(median). Equal scores never split.",
+    "mapping": [
+      {
+        "label": 0,
+        "lower_inclusive": null,
+        "upper_exclusive": 2
+      },
+      {
+        "label": 1,
+        "lower_inclusive": 2,
+        "upper_exclusive": 3
+      },
+      {
+        "label": 2,
+        "lower_inclusive": 3,
+        "upper_exclusive": 4
+      },
+      {
+        "label": 3,
+        "lower_inclusive": 4,
+        "upper_exclusive": 6
+      },
+      {
+        "label": 4,
+        "lower_inclusive": 6,
+        "upper_exclusive": 11
+      },
+      {
+        "label": 5,
+        "lower_inclusive": 11,
+        "upper_exclusive": 46
+      },
+      {
+        "label": 6,
+        "lower_inclusive": 46,
+        "upper_exclusive": 271
+      },
+      {
+        "label": 7,
+        "lower_inclusive": 271,
+        "upper_exclusive": null
+      }
+    ],
+    "median_convention": "Exact record-frequency weighted ordinary median; average the two central integer values for even N, represented as a rational number.",
+    "references": [
+      "https://aclanthology.org/W16-6209.pdf",
+      "https://aclanthology.org/2021.acl-srw.10.pdf"
+    ],
+    "steps": [
+      {
+        "assigned_records": 182480,
+        "effective_upper_exclusive": 3,
+        "label": 1,
+        "median_denominator": 1,
+        "median_exact": "3",
+        "median_numerator": 3,
+        "remainder_records": 371389,
+        "remaining_records": 188909
+      },
+      {
+        "assigned_records": 82444,
+        "effective_upper_exclusive": 4,
+        "label": 2,
+        "median_denominator": 1,
+        "median_exact": "4",
+        "median_numerator": 4,
+        "remainder_records": 188909,
+        "remaining_records": 106465
+      },
+      {
+        "assigned_records": 49591,
+        "effective_upper_exclusive": 6,
+        "label": 3,
+        "median_denominator": 1,
+        "median_exact": "6",
+        "median_numerator": 6,
+        "remainder_records": 106465,
+        "remaining_records": 56874
+      },
+      {
+        "assigned_records": 27703,
+        "effective_upper_exclusive": 11,
+        "label": 4,
+        "median_denominator": 1,
+        "median_exact": "11",
+        "median_numerator": 11,
+        "remainder_records": 56874,
+        "remaining_records": 29171
+      },
+      {
+        "assigned_records": 14487,
+        "effective_upper_exclusive": 46,
+        "label": 5,
+        "median_denominator": 1,
+        "median_exact": "46",
+        "median_numerator": 46,
+        "remainder_records": 29171,
+        "remaining_records": 14684
+      },
+      {
+        "assigned_records": 7339,
+        "effective_upper_exclusive": 271,
+        "label": 6,
+        "median_denominator": 1,
+        "median_exact": "271",
+        "median_numerator": 271,
+        "remainder_records": 14684,
+        "remaining_records": 7345
+      }
+    ]
+  },
+  "tie_rule": "Scores equal to a boundary go to the higher label; equal scores never split."
+}
